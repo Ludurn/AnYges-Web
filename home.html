@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="./src/style/estiloHome.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="./src/JS/funcoes.js"></script>
+</head>
+<body>
+    <header>
+        <img src="./src/imgs/logoTCCMarrom.png" alt="logo" class="logo"> 
+        <h1 id="metade1" class="titulo">
+            AnY
+        </h1>
+        <h1 id="metade2" class="titulo">
+            ges
+        </h1>
+        <div class="barra-pesquisa">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <nav>
+            <div class="menudrop">
+                <button class="botaomenu">Menu</button>              
+                 <div class="menuconteudo">
+                    <a href="./perfil.html">
+                        <ion-icon name="person"></ion-icon> Perfil</a>
+                  <a href="#">
+                      <ion-icon name="hand"></ion-icon> Acessibilidade</a>
+                  <a href="./ajuda.html">
+                        <ion-icon name="help-circle-outline"></ion-icon> Ajuda</a>
+                  <a href="#">
+                       <ion-icon name="star-outline"></ion-icon> Feedback</a>
+                  <a href="./contato.html">
+                       <ion-icon name="call"></ion-icon> Contato</a>
+                </div>
+            </div>
+            <a href="./index.html"><button class="botao login">Login</button></a>
+            <button class="botao registrar"><a href="./cadastro.html" target="_self" rel="external">Cadastrar</a></button>
+            <button class="botao carrinho">Carrinho <ion-icon name="cart"></ion-icon></button> 
+        </nav>     
+    </header>
+    <main id="catalogo">
+        <article class="produtos" onmouseover="aparecerBtnCompra('btnProduto1');" onmouseleave="desaparecerBtnCompra('btnProduto1')">
+            <div class="molduraProdutos">
+                <figure>
+                    <img src="./src/imgs/rivotril.png" id="imgProduto1" class="imgProdutos" alt="rivotril em gotas" width="100%" />
+                </figure>
+            </div>
+            <p id="nomeProduto1">Rivotril Gotas 2,5mg</p>
+            <h4 id="fornecedorProduto1">Promofarma</h4>
+            <p id="descricaoProduto1" class="descricaoProdutos">Suspensão Oral <br/> 20ml</p>
+            <div id="btnProduto1" class="btnProdutos">3500 ₯</div>
+        </article>
+        <article class="produtos" onmouseover="aparecerBtnCompra('btnProduto2');" onmouseleave="desaparecerBtnCompra('btnProduto2')">
+            <div class="molduraProdutos">
+                <figure>
+                    <img src="./src/imgs/unimed.png" id="imgProduto2" class="imgProdutos" alt="unimed" width="100%"/>
+                </figure>
+            </div>
+            <p id="nomeProduto2">Dr. Henrique Ferraz</p>
+            <h4 id="fornecedorProduto2">Unimed</h4>
+            <p id="descricaoProduto2" class="descricaoProdutos">Pediatra <br/> Terça-feira e Quinta-feira</p>
+            <div id="btnProduto2" class="btnProdutos">25000 ₯</div>
+        </article>
+        <article class="produtos" onmouseover="aparecerBtnCompra('btnProduto3');" onmouseleave="desaparecerBtnCompra('btnProduto3')">
+            <div class="molduraProdutos">
+                <figure>
+                    <img src="./src/imgs/hc.png" id="imgProduto3" class="imgProdutos" alt="unimed" width="100%"/>
+                </figure>
+            </div>
+            <p id="nomeProduto3">Dra. Iohanna Maria</p>
+            <h4 id="fornecedorProduto3">Hospital das Clínicas</h4>
+            <p id="descricaoProduto3" class="descricaoProdutos">Psicóloga <br/> Domingo à Quarta-feira</p>
+            <div id="btnProduto3" class="btnProdutos">27000 ₯</div>
+        </article>
+    </main>
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+</body>
+</html>

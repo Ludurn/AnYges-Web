@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Formulário</title>
+        <script type="text/javascript"  src="./src/JS/jquery-3.7.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+        <script type="text/javascript" src="./src/JS/cadastro.js"></script>
+        <link rel="stylesheet" href="./src/style/estiloCadastro.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+        <header>
+                <h1>
+                        FORMULÁRIO
+                </h1>
+                <p>
+                        Conta pra gente suas informações abaixo pra que a gente possa te ajudar
+                        <br>
+                        a encontrar os locais de resgate mais próximos!
+                </p>
+                <a href="./index.html" class="botoes">RETORNAR</a>
+        </header>
+        <div class="imagem-planta">
+                <picture>
+                        <source media="(max-width:915px)" srcset="./src/imgs/sappling-sm.png">
+                        <img src="./src/imgs/sappling.png" alt="Imagem de um pequeno broto de planta sobre o Formulário">
+                </picture>
+                <div class="vazio">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+        </div>
+        <main>
+                <fieldset class="forms-principal">
+                        <!-- Utilizar jquery masks abaixo -->
+                        <div>
+                                <div class="titulo-forms-internos">
+                                    <p>CADASTRO</p>    
+                                </div>
+                                <fieldset class="forms-internos">
+                                        <legend><strong>Informações pessoais</strong></legend>
+                                        <label for="primeiroNome"><span class="requirement">*</span> Digite seu <strong>primeiro nome:</strong></label>
+                                        <input type="text" id="primeiroNome" class="camposForm" maxlength="255" placeholder="Ex.:João" autofocus autocomplete="on">
+                                        <br><br>
+                                        <label for="sobrenome"><span class="requirement">*</span> Digite seu <strong>sobrenome:</strong></label>
+                                        <input type="text" id="sobrenome" class="camposForm" maxlength="255" placeholder="Ex.:da Silva" autofocus autocomplete="on">
+                                        <br><br>
+                                        <label for="CPF"><span class="requirement">*</span> Digite seu <strong>CPF</strong>:</label>
+                                        <input type="text" id="CPF" class="camposForm" maxlength="14" placeholder="123.456.789-10">
+                                </fieldset>
+                                <br><br>
+                                <fieldset class="forms-internos">
+                                        <legend><strong>Localidade</strong></legend>
+                                        <label for="siglaEstado"><span class="requirement">*</span> Escolha a a opção que corresponde ao seu <strong>estado(UF)</strong>:</label>
+                                        <select name="listaEstado" id="siglaEstado" required>
+                                                <option value="MG">MG</option>
+                                                <option value="RJ">RJ</option>
+                                                <option value="SP" selected>SP</option>
+                                                <option value="SC">SC</option>
+                                                <option value="RS">RS</option>
+                                        </select>
+                                        <br><br>
+                                        <label for="cidade"> <span class="requirement">*</span> Digite a <strong>cidade</strong> em que reside:</label>
+                                        <input type="text" name="cidade" id="cidade" class="camposForm" maxlength="100" placeholder="Ex.: São Paulo">
+                                        <br><br>
+                                        <label for="bairro"><span class="requirement">*</span> Digite o <strong>bairro</strong> onde reside:</label>
+                                        <input type="text" name="bairro" id="bairro" class="camposForm" maxlength="255" placeholder="Ex.: Vila Emerenciana">
+                                        <br><br>
+                                        <label for="rua"><span class="requirement">*</span> Digite a <strong>rua</strong> onde reside:</label>
+                                        <input type="text" name="rua" id="rua" class="camposForm" maxlength="255" placeholder="Ex.: Rua Jacinto">
+                                        <br><br>
+                                        <label for="numero_res"><span class="requirement">*</span> Digite o <strong>número</strong> da residência:</label>
+                                        <input type="text" name="numero_res" id="numero_res" class="camposForm" maxlength="255" placeholder="Ex.: 123">
+                                </fieldset>
+                                <br><br>
+                                <fieldset class="forms-internos">
+                                        <legend><strong>Cadastro</strong></legend>
+                                        <label for="telefone"><span class="requirement">*</span> Digite um telefone ou celular válido: </label>
+                                        <input type="text" name="telefone" id="telefone" class="camposForm" maxlength="18" placeholder="Ex.: 5511912345678">
+                                        <br><br>
+                                        <label for="email"><span class="requirement">*</span> Digite o <strong>email</strong> que deseja cadastrar:</label>
+                                        <input type="email" name="emailConfirm" id="email" class="camposForm" maxlength="255" placeholder="Ex.: joao.silva@gmail.com">
+                                        <br><br>
+                                        <label for="senha"><span class="requirement">*</span> Digite uma <strong>senha</strong> de acesso: </label>
+                                        <input type="password" name="senha" id="senha" class="camposForm" maxlength="255" placeholder="*********">
+                                        <input type="button" id="senha1" class="botao-visibilidade" onclick="mudarSenha()">
+                                        <br><br>
+                                        <label for="confirmSenha"><span class="requirement">*</span> <strong>Confirme</strong> a senha digitada: </label>
+                                        <input type="password" name="confirmSenha" id="confirmSenha" class="camposForm" maxlength="255" placeholder="*********">
+                                        <input type="button" id="senha2" class="botao-visibilidade" onclick="mudarSenha()">
+                                </fieldset>
+                        </div>
+                        <br><br>
+                        <div class="container-botoes">
+                                <input type="button" id="botaoEnvio" class="botoes" value="ENVIAR" onclick="enviarInfos()">
+                                <input type="button" id="botaoApagar" class="botoes" value="APAGAR" onclick="apagarEnvio()">
+                        </div>
+                        <div>
+                        <!-- Aqui será a saída (retorno) do requerimento ajax -->
+                                <br>
+                                <p id="res">          
+                                </p>
+                                <br>
+                        </div>
+                </fieldset>
+        </main>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda</title>
+    <link rel="stylesheet" href="./src/style/estiloAjuda.css">
+    <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script> 
+    <script>
+        function toggleAnswer(id) {
+            var answer = document.getElementById(id);
+            $("#"+id).fadeToggle();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Central de Ajuda</h1>
+        <p>Bem-vindo à nossa Central de Ajuda. Aqui você encontra respostas para perguntas comuns e orientações sobre como utilizar nossos serviços.</p>
+
+        <div class="faq-section">
+            <h2>Perguntas Frequentes</h2>
+
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleAnswer('answer1')">Como faço para criar uma conta?</p>
+                <p class="faq-answer" id="answer1">Para criar uma conta, clique em "Cadastrar" no topo da página, preencha as informações solicitadas e siga as instruções para ativar sua conta.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleAnswer('answer2')">Esqueci minha senha. O que devo fazer?</p>
+                <p class="faq-answer" id="answer2">Clique em "Esqueceu a senha?" na tela de login e siga as instruções para redefinir sua senha.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleAnswer('answer3')">Como entro em contato com o suporte?</p>
+                <p class="faq-answer" id="answer3">Você pode entrar em contato com o suporte através da página de contato, preenchendo o formulário com sua mensagem e um membro de nossa equipe responderá em breve.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleAnswer('answer4')">Como posso atualizar meus dados de perfil?</p>
+                <p class="faq-answer" id="answer4">Para atualizar seus dados de perfil, faça login em sua conta, acesse o menu Perfil" e selecione a opção "Editar".</p>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
