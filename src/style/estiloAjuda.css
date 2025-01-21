@@ -1,9 +1,3 @@
-
-@font-face {
-    font-family: inriaSans;
-    src: url(InriaSans-Regular.ttf);
-}
-
 body {
     font-family: inriaSans, Arial, sans-serif;
     margin: 0;

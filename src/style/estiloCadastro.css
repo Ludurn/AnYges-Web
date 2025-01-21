@@ -3,21 +3,12 @@
     margin: 0;
 }
 
-@font-face {
-    src: url("./fonts/OpenSans-VariableFont_wdth\,wght.ttf");
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-}
-
 body {
     background-color: lightgreen;
     background-image: url("../imgs/over-the-counter.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: "Open Sans";
+    font-family: "Inria Sans";
 }
 
 header {
@@ -30,16 +21,27 @@ header {
     box-shadow: inset 0px 0px 11px 12px rgba(0, 0, 0, 0.252);
 }
 
+#logo-box{
+    display: flex;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo-obj{
+    width: 25%;
+}
+
 h1 {
     text-align: center;
 }
 
 main {
     width: 40%;
-    margin: 0px 118px 0px 589px;
+    margin: 0% 15% 0% 45%;
     background-color: rgb(240, 238, 238);
-    border-radius: 10px;
-    box-shadow: -2px 5px 8px rgb(149, 149, 149);
+    border-radius: 0.625rem;
+    box-shadow: -0.125rem 0.3125rem 0.5rem rgb(149, 149, 149);
 }
 
 picture {
@@ -132,7 +134,7 @@ picture {
 }
 
 .botoes {
-    font-family: "Open Sans";
+    font-family: "Inria Sans";
     font-weight: bold;
     border-style: none;
     color: white;

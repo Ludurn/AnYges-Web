@@ -1,10 +1,5 @@
-@font-face {
-    font-family: inriaSans;
-    src: url(InriaSans-Regular.ttf);
-}
-
 body {
-    font-family: inriaSans, Arial, sans-serif;
+    font-family: Inria Sans, Arial, sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -40,7 +35,6 @@ header {
 }
 .logo{
     height: 50px;
-
 }
 nav {
     display: flex;
