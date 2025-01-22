@@ -7,7 +7,7 @@
 
 body { 
     background-color: #f4f3ef;
-    background-image: url(../imgs/farmacia.png); 
+    background-image: url(../imgs/farmacia.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,6 +30,7 @@ body {
     margin: 0 auto;
     box-sizing: border-box;
 }
+
 p{
     color: #643c00;
 }
@@ -42,6 +43,21 @@ p{
     border-radius: 0.75rem 0.75rem 0 0 ;
     justify-content: center;
     padding: 2%;
+}
+
+#icone-modo-dark {
+    transform: scale(1.5);
+    cursor: pointer;
+    user-select: none;
+}
+
+#modo-dark {
+    width: 100%;
+    padding: 2% 5% 0% 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 #logo-obj{
@@ -110,4 +126,63 @@ p{
     #logo-obj{
         width: 60%;
     }
+}
+
+/* MODO DARK */
+
+.body-dark {
+    background-image: url(../imgs/farmacia-P&B.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container-dark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(56, 56, 56);
+    border-radius: 0.75rem;
+    box-shadow: -0.125rem 0.3125rem 0.5rem rgb(149, 149, 149);
+    width: 100%;
+    max-width: 30%; 
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.input-group-dark label{
+    color: white;
+}
+
+.camposForm-dark {
+    color: white;
+    background-color: gray;
+    border-style: solid;
+    border-color: lightgray;
+}
+
+.camposForm-dark::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+.btn-login-dark {
+    width: 100%;
+    padding: 3.2%;
+    background-color: #175c17; 
+    color: #ffffff;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.btn-login-dark:hover {
+    background-color: #611f1f;
 }
