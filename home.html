@@ -14,23 +14,23 @@
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
 </head>
-<body>
+<body onclick="animationMenu()">
     <header>
-        <img src="./src/imgs/logo-default.png" alt="logo" class="logo"> 
-        <h1 id="metade1" class="titulo">
-            AnY
-        </h1>
-        <h1 id="metade2" class="titulo">
-            ges
-        </h1>
-        <div class="barra-pesquisa">
-            <input type="text" placeholder="Pesquisar...">
+        <div id="logo-box">
+            <div  id="logo-obj">
+                <img src="./src/imgs/logo-default.png" alt="logo" style="width: 100%;" id="logo-login">
+                
+            </div>
+            <h1>ANYGES</h1>
+        </div>
+        <div id="search-box">
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch">
         </div>
         <nav>
-            <div class="menudrop">
-                <button class="botaomenu">Menu</button>              
-                 <div class="menuconteudo">
-                    <a href="./perfil.html">
+            <div class="menuDrop">
+                <button id="btnMenu" onclick="menuFadeIn()">Menu</button>              
+                 <div id="menuDropBG">
+                    <a href="./perfil.html" class="">
                         <ion-icon name="person"></ion-icon> Perfil</a>
                   <a href="#">
                       <ion-icon name="hand"></ion-icon> Acessibilidade</a>
@@ -42,13 +42,13 @@
                        <ion-icon name="call"></ion-icon> Contato</a>
                 </div>
             </div>
-            <a href="./index.html"><button class="botao login">Login</button></a>
-            <button class="botao registrar"><a href="./cadastro.html" target="_self" rel="external">Cadastrar</a></button>
-            <button class="botao carrinho">Carrinho <ion-icon name="cart"></ion-icon></button> 
+            <a href="./index.html"><button class="botaoNav login">Login</button></a>
+            <a href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
+            <button class="botaoNav carrinho">Carrinho <ion-icon name="cart"></ion-icon></button> 
         </nav>     
     </header>
     <main id="catalogo">
-        <article class="produtos" onmouseover="aparecerBtnCompra('btnProduto1');" onmouseleave="desaparecerBtnCompra('btnProduto1')">
+        <article class="produtos">
             <div class="molduraProdutos">
                 <figure>
                     <img src="./src/imgs/rivotril.png" id="imgProduto1" class="imgProdutos" alt="rivotril em gotas" width="100%" />
@@ -59,7 +59,7 @@
             <p id="descricaoProduto1" class="descricaoProdutos">Suspensão Oral <br/> 20ml</p>
             <div id="btnProduto1" class="btnProdutos">3500 ₯</div>
         </article>
-        <article class="produtos" onmouseover="aparecerBtnCompra('btnProduto2');" onmouseleave="desaparecerBtnCompra('btnProduto2')">
+        <article class="produtos">
             <div class="molduraProdutos">
                 <figure>
                     <img src="./src/imgs/unimed.png" id="imgProduto2" class="imgProdutos" alt="unimed" width="100%"/>
@@ -70,7 +70,7 @@
             <p id="descricaoProduto2" class="descricaoProdutos">Pediatra <br/> Terça-feira e Quinta-feira</p>
             <div id="btnProduto2" class="btnProdutos">25000 ₯</div>
         </article>
-        <article class="produtos" onmouseover="aparecerBtnCompra('btnProduto3');" onmouseleave="desaparecerBtnCompra('btnProduto3')">
+        <article class="produtos">
             <div class="molduraProdutos">
                 <figure>
                     <img src="./src/imgs/hc.png" id="imgProduto3" class="imgProdutos" alt="unimed" width="100%"/>

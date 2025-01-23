@@ -1,8 +1,33 @@
-function aparecerBtnCompra(btn) {
-    $("#"+btn).fadeIn();
-}
-function desaparecerBtnCompra(btn) {
-    $("#"+btn).fadeOut();
+// FUNCOES PAGINA 'HOME'
+
+function animationMenu() {
+    let menuDrop = document.getElementById("menuDropBG");
+    let menuDropStyle = getComputedStyle(menuDrop);
+    let visibility = menuDropStyle.getPropertyValue("visibility");
+    if (visibility === "visible") {
+        $("#menuDropBG").css(
+            {
+                "visibility": "visible",
+                "opacity":"0",
+                "transition": "visibility 0s, opacity 0.2s linear;"
+            });
+        setTimeout(() => {
+            $("#menuDropBG").css(
+                {
+                    "visibility": "hidden"
+                });
+        }, 200);
+    }
+};
+
+function menuFadeIn() {
+    event.stopPropagation();
+    $("#menuDropBG").css(
+        {
+            "visibility": "visible",
+            "opacity":"1",
+            "transition": "visibility 0s, opacity 0.2s linear;"
+        });
 }
 
 function carregarCatalogo() {
