@@ -1,76 +1,225 @@
-* {
+body {
+    font-family: Inria Sans, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Inria Sans, Arial, sans-serif;
+    height: 100%;
+    width: 100%;
 }
 
-body {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.perfil-container {
-    width: 500px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.perfil-header {
+header {
+    background: #1F6124;
+    color: #8A3C29;
+    padding: 0.625rem 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
 }
 
-.perfil-header h1 {
-    color: #333;
+#logo-box{
+    display: flex;
+    width: 15%;
+    height: 10vh;
+    align-items: center;
 }
 
-.home-link {
-    color: #3498db;
+#logo-obj{
+    width: 25%;
+}
+
+#logoTitle{
+    -webkit-text-stroke: 0.21875rem black;
+    paint-order: stroke fill;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+a {
     text-decoration: none;
-    font-size: 16px;
+    color: white;
 }
 
-.perfil-info, .perfil-pedidos, .perfil-acoes {
-    margin-bottom: 20px;
+#search-box {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.perfil-info h2, .perfil-pedidos h2 {
-    color: #333;
-    font-size: 18px;
-    margin-bottom: 10px;
+#inputSearch {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: medium;
+    color: #727273;
+    background-color: #f0f0f0;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
 }
 
-.perfil-info p, .perfil-pedidos ul, .perfil-pedidos li {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
+#inputSearch::placeholder { 
+    text-align: center;
+    font-size: medium;
+    color: #9e9fa0;
 }
 
-.perfil-pedidos ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.btn {
+.menuDrop {
+    position: relative;
     display: inline-block;
-    background-color: #28A745;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
+}
+
+#btnMenu {
+    background: #28A745;
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: 0.1rem solid #28A745;
     cursor: pointer;
-    font-size: 16px;
+    border-radius: 0.25rem;
+}
+
+#btnMenu:hover {
+    border: 0.1rem solid #28A745;
+    background-color: #1F6124;
+}
+
+#menuDropBG {
+    visibility: hidden;
+    opacity: 0;  
+    position: absolute;
+    background-color:#1F6124;
+    width: 210%;
+    border-radius: 4%;
+    box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+#menuDropBG a {
+    display: block;
+    color: white;
+    padding: 0.75rem 1rem;
     text-decoration: none;
 }
 
-.btn:hover {
+#menuDropBG a:hover {
+    color: #8A3C29;
+}
+
+.botaoNav {
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#pontosUser{
     background-color: #8A3C29;
+    color: #f0f0f0;
+    padding: 0.55rem 0.55rem;
+    border: 0.1rem solid #611f1f;
+    border-radius: 0.5rem;
+}
+
+.carrinho {
+    background-color: #75a32a;
+    color: white;
+    border: 0.1rem solid #75a32a;
+}
+
+.carrinho:hover {
+    color: white;
+    border: 0.1rem solid #75a32a;
+    background-color: #1F6124;
+}
+
+main {
+    margin: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#perfilNav {
+    width: 21%;
+}
+
+#usuarioTitle {
+    display: flex;
+    width: 90%;
+    align-items:baseline;
+}
+
+#usuarioImg {
+    width: 35%;
+}
+
+.perfilNavTabs {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 6dvh;
+    padding-left: 2%;
+    margin: 5% 0;
+    cursor: pointer;
+}
+
+.perfilNavTabs:hover {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 6dvh;
+    padding-left: 2%;
+    margin: 5% 0;
+    border-left: #611f1f solid;
+}
+
+#perfil {
+    width: 78%;
+    padding: 0.5%;
+}
+
+#perfilInfoBox {
+    display: flex;
+    align-items: normal;
+    flex-wrap: wrap;
+    border: 0.2rem solid #f1f1f1;
+    border-radius: 0.3rem;
+}
+
+.perfilInfo {
+    width: 45%;
+    margin: 2%;
+    font-size: large;
+}
+
+footer {
+    background: #f1f1f1;
+    padding: 0.625.rem;
+    text-align: center;
+}
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 950px) {
+    header {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #respons1 {
+        width: 100%;
+    }
+
+    #respons2 {
+        width: 100%;
+    }
+
+    nav {
+        gap: 2px;
+    }
 }
