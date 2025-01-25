@@ -1,6 +1,6 @@
 // FUNCOES PAGINA 'HOME'
 
-function animationMenu() {
+function menuFadeOut() {
     let menuDrop = document.getElementById("menuDropBG");
     let menuDropStyle = getComputedStyle(menuDrop);
     let visibility = menuDropStyle.getPropertyValue("visibility");

@@ -3,42 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Usuário</title>
+    <title>Página Inicial</title>
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
-    <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->  
+    <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->   
     <link rel="stylesheet" href="./src/style/estiloPerfil.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="./src/JS/funcoes.js"></script>
 </head>
-<body>
-    <div class="perfil-container">
-        <header class="perfil-header">
-            <h1>Perfil do Usuário</h1>
-            <a href="./home.html" class="home-link">Página Inicial</a>
-        </header>
-
-        <section class="perfil-info">
-            <h2>Informações de Cadastro</h2>
-            <p><strong>Nome:</strong> David Ribeiro Danek</p>
-            <p><strong>Email:</strong> ribeiro.danek@email.com</p>
-            <p><strong>Data de Cadastro:</strong> 20 de Fevereiro de 2024</p>
-            <p><strong>Endereço:</strong> Rua José Paulino, 123, São Paulo, SP</p>
-            <button class="btn" onclick="window.location.href='cadastro.html'">Alterar Cadastro</button>
+<body onclick="menuFadeOut()">
+    <header>
+        <div id="logo-box">
+            <div  id="logo-obj">
+                <img src="./src/imgs/logo-default.png" alt="logo" style="width: 100%;">
+            </div>
+            <h1 id="logoTitle">ANYGES</h1>
+        </div>
+        <div id="search-box">
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch">
+        </div>
+        <nav>
+            <div class="menuDrop">
+                <button id="btnMenu" onclick="menuFadeIn()">Menu</button>              
+                 <div id="menuDropBG">
+                    <a href="./home.html" class="">
+                        <ion-icon name="home"></ion-icon> Home</a>
+                  <a href="#">
+                      <ion-icon name="hand"></ion-icon> Acessibilidade</a>
+                  <a href="./ajuda.html">
+                        <ion-icon name="help-circle-outline"></ion-icon> Ajuda</a>
+                  <a href="#">
+                       <ion-icon name="star-outline"></ion-icon> Feedback</a>
+                  <a href="./contato.html">
+                       <ion-icon name="call"></ion-icon> Contato</a>
+                </div>
+            </div>
+            <div id="pontosUser">0000 ₯</div>
+            <button class="botaoNav carrinho">Carrinho <ion-icon name="cart"></ion-icon></button>
+        </nav>     
+    </header>
+    <main>
+        <aside id="perfilNav">
+            <div id="usuarioTitle">
+                <div id="usuarioImg"><img src="./src/imgs/pfpTeste.jpg" alt="Foto do perfil" style="width: 100%; border-radius: 5rem;"/></div>
+                <h1>Olá, <span id="infoNome">Luigi</span></h1>
+            </div>
+            <div class="perfilNavTabs">Dados pessoais</div>
+            <div class="perfilNavTabs">Cupons ativos</div>
+            <div class="perfilNavTabs">Histórico de cupons</div>
+            <div class="perfilNavTabs">Histórico de pontos</div>
+            <div class="perfilNavTabs">Sair</div>
+        </aside>
+        <section id="perfil">
+            <h1 style="text-align: center;">Dados pessoais</h1>
+            <br/>
+            <div id="perfilInfoBox">
+                <div class="perfilInfo">
+                    Nome
+                    <br/>
+                    <span id="infoNome" style="color: #9e9fa0;">Luigi</span>
+                </div>
+                <div class="perfilInfo">
+                    Sobrenome
+                    <br/>
+                    <span id="infoSobrenome"  style="color: #9e9fa0;">Kaio Castro</span>
+                </div>
+                <div class="perfilInfo">
+                    CPF
+                    <br/>
+                    <span id="infoCPF"  style="color: #9e9fa0;">100.202.611-11</span>
+                </div>
+                <div class="perfilInfo">
+                    Gênero
+                    <br/>
+                    <span id="infoGen"  style="color: #9e9fa0;">Masculino</span>
+                </div>
+                <div class="perfilInfo">
+                    E-mail
+                    <br/>
+                    <span id="infoEmail"  style="color: #9e9fa0;">luiifn@outlook.com</span>
+                </div>
+                <div class="perfilInfo">
+                    Data de nascimento
+                    <br/>
+                    <span id="infoNasc"  style="color: #9e9fa0;">27/10/1998</span>
+                </div>
+                <div class="perfilInfo">
+                    Telefone
+                    <br/>
+                    <span id="infoTel"  style="color: #9e9fa0;">+55 11 99999-8997</span>
+                </div>
+            </div>
         </section>
+    </main>
 
-        <section class="perfil-pedidos">
-            <h2>Pedidos Feitos</h2>
-            <ul>
-                <li>Pedido #001 - 10/10/2024 - Status: Enviado</li>
-                <li>Pedido #002 - 15/10/2024 - Status: Em Processamento</li>
-                <li>Pedido #003 - 20/10/2024 - Status: Entregue</li>
-            </ul>
-        </section>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
-        <section class="perfil-acoes">
-            <button class="btn" onclick="window.location.href='cadastro.html'">Alterar Senha</button>
-        </section>
-    </div>
 </body>
 </html>
