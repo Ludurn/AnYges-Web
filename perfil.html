@@ -41,7 +41,7 @@
                        <ion-icon name="call"></ion-icon> Contato</a>
                 </div>
             </div>
-            <div id="pontosUser">0000 ₯</div>
+            <div id="pontosUser">10000 ₯</div>
             <button class="botaoNav carrinho">Carrinho <ion-icon name="cart"></ion-icon></button>
         </nav>     
     </header>
@@ -51,14 +51,16 @@
                 <div id="usuarioImg"><img src="./src/imgs/pfpTeste.jpg" alt="Foto do perfil" style="width: 100%; border-radius: 5rem;"/></div>
                 <h1>Olá, <span id="infoNome">Luigi</span></h1>
             </div>
-            <div class="perfilNavTabs">Dados pessoais</div>
-            <div class="perfilNavTabs">Cupons ativos</div>
-            <div class="perfilNavTabs">Histórico de cupons</div>
-            <div class="perfilNavTabs">Histórico de pontos</div>
+            <div class="perfilNavTabs" id="tabDados" onclick="tabDadosLoader()">Dados pessoais</div>
+            <div class="perfilNavTabs" id="tabCupomAtivo" onclick="tabCupomAtivoLoader()">Cupons ativos</div>
+            <div class="perfilNavTabs" id="tabHistCupom" onclick="tabHistCupomLoader()">Histórico de cupons</div>
+            <div class="perfilNavTabs" id="tabHistPonto" onclick="tabHistPontoLoader()">Histórico de pontos</div>
             <div class="perfilNavTabs">Sair</div>
         </aside>
         <section id="perfil">
-            <h1 style="text-align: center;">Dados pessoais</h1>
+            <div id="perfilTitle" style="visibility: hidden; opacity: 0; transition: visibility 0s, opacity 0.2s linear">
+                <h1>&nbsp;</h1>
+            </div>
             <br/>
             <div id="perfilInfoBox">
                 <div class="perfilInfo">
@@ -96,6 +98,90 @@
                     <br/>
                     <span id="infoTel"  style="color: #9e9fa0;">+55 11 99999-8997</span>
                 </div>
+            </div>
+            <div id="perfilCupomAtivoBox">
+                <article class="cupom">
+                        <div class="molduraCupom">
+                            <figure>
+                                <img src="./src/imgs/rivotril.png" class="imgCupom" alt="rivotril em gotas" width="100%" />
+                            </figure>
+                        </div>
+                        <p id="nomeCupom">Rivotril Gotas 2,5mg</p>
+                        <h4 id="fornecedorCupom">Promofarma</h4>
+                        <p id="descricaoCupom">Suspensão Oral 20ml</p>
+                        <div class="codCupomAtivo">CÓDIGO</div>
+                </article>
+                <article class="cupom">
+                    <div class="molduraCupom">
+                        <figure>
+                            <img src="./src/imgs/unimed.png" class="imgCupom" alt="unimedLogo" width="100%" />
+                        </figure>
+                    </div>
+                    <p id="nomeCupom">Pediatra</p>
+                    <h4 id="fornecedorCupom">Unimed</h4>
+                    <p id="descricaoCupom">Terça-feira e Quarta-feira</p>
+                    <div class="codCupomAtivo">CÓDIGO</div>
+                </article>
+
+            </div>
+            <div id="perfilHistCupomBox">
+                <article class="cupom">
+                    <div class="molduraCupom">
+                        <figure>
+                            <img src="./src/imgs/hc.png" class="imgCupom" alt="hcLogo" width="100%" />
+                        </figure>
+                    </div>
+                    <p id="nomeCupom">Psicóloga</p>
+                    <h4 id="fornecedorCupom">Hospital das Clínicas</h4>
+                    <p id="descricaoCupom"> Domingo à Quarta-feira</p>
+                    <div class="codHistCupom">21/12/2024</div>
+                </article>
+            </div>
+            <div id="perfilHistPontoBox">
+                <article class="histPonto">
+                    <div class="molduraHist">
+                        <figure>
+                            <img src="./src/imgs/gain.png" class="imgHist" alt="gain" width="100%" />
+                        </figure>
+                    </div>
+                    <p id="qdte">10000 ₯</p>
+                    <h4 id="local">Depósito Vila Guilherme</h4>
+                    <p id="hora">14:25</p>
+                    <div>03/01/2025</div>
+                </article>
+                <article class="histPonto">
+                    <div class="molduraHist">
+                        <figure>
+                            <img src="./src/imgs/loss.png" class="imgHist" alt="loss" width="100%" />
+                        </figure>
+                    </div>
+                    <p id="qdte">25000 ₯</p>
+                    <h4 id="local">Cupom</h4>
+                    <p id="hora">15:38</p>
+                    <div>11/12/2024</div>
+                </article>
+                <article class="histPonto">
+                    <div class="molduraHist">
+                        <figure>
+                            <img src="./src/imgs/loss.png" class="imgHist" alt="loss" width="100%" />
+                        </figure>
+                    </div>
+                    <p id="qdte">27000 ₯</p>
+                    <h4 id="local">Cupom</h4>
+                    <p id="hora">22:27</p>
+                    <div>10/12/2024</div>
+                </article>
+                <article class="histPonto">
+                    <div class="molduraHist">
+                        <figure>
+                            <img src="./src/imgs/loss.png" class="imgHist" alt="loss" width="100%" />
+                        </figure>
+                    </div>
+                    <p id="qdte">3500 ₯</p>
+                    <h4 id="local">Cupom</h4>
+                    <p id="hora">12:15</p>
+                    <div>9/12/2024</div>
+                </article>
             </div>
         </section>
     </main>

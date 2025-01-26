@@ -164,17 +164,9 @@ main {
     height: 6dvh;
     padding-left: 2%;
     margin: 5% 0;
+    border-left: white solid;
+    user-select: none;
     cursor: pointer;
-}
-
-.perfilNavTabs:hover {
-    display: flex;
-    align-items: center;
-    width: 80%;
-    height: 6dvh;
-    padding-left: 2%;
-    margin: 5% 0;
-    border-left: #611f1f solid;
 }
 
 #perfil {
@@ -183,17 +175,101 @@ main {
 }
 
 #perfilInfoBox {
-    display: flex;
+    display: none;
     align-items: normal;
     flex-wrap: wrap;
+    visibility: hidden;
+    opacity: 0;
     border: 0.2rem solid #f1f1f1;
     border-radius: 0.3rem;
+    transition: visibility 0s, opacity 0.2s linear;
 }
 
 .perfilInfo {
     width: 45%;
     margin: 2%;
     font-size: large;
+}
+
+#perfilCupomAtivoBox {
+    display: none;
+    align-items: normal;
+    flex-wrap: wrap;
+    visibility: hidden;
+    opacity: 0;
+    border: 0.2rem solid #f1f1f1;
+    border-radius: 0.3rem;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+.cupom {
+    width: 100%;
+    height: 10%;
+    margin: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    border: 0.2rem solid #f1f1f1;
+    border-radius: 0.3rem;
+    font-size: large;
+}
+
+.molduraCupom {
+    max-width: 22%;
+}
+
+.imgCupom {
+    border-radius: 1rem;
+}
+
+.codCupomAtivo {
+    color: #1F6124;
+}
+
+.codHistCupom {
+    color: #611f1f;
+}
+
+.histPonto {
+    width: 100%;
+    height: 10%;
+    margin: 1%;
+    display: flex;
+    align-items: center;
+    gap: 8%;
+    flex-wrap: nowrap;
+    border: 0.2rem solid #f1f1f1;
+    border-radius: 0.3rem;
+    font-size: large;
+}
+
+.molduraHist {
+    width: 15%;
+}
+
+
+
+#perfilHistCupomBox {
+    display: none;
+    align-items: normal;
+    flex-wrap: wrap;
+    visibility: hidden;
+    opacity: 0;
+    border: 0.2rem solid #f1f1f1;
+    border-radius: 0.3rem;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+#perfilHistPontoBox {
+    display: none;
+    align-items: normal;
+    flex-wrap: wrap;
+    visibility: hidden;
+    opacity: 0;
+    border: 0.2rem solid #f1f1f1;
+    border-radius: 0.3rem;
+    transition: visibility 0s, opacity 0.2s linear;
 }
 
 footer {
