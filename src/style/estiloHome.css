@@ -4,6 +4,7 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
+    transition: background-color 0.5s;
 }
 
 h1{
@@ -192,6 +193,7 @@ main {
     box-shadow: 0.1em 0.4em 0.5em rgba(128, 128, 128, 0.39);
     border: 0.1em solid rgba(128, 128, 128, 0.39);
     border-radius: 0.75rem;
+    transition: background-color 0.5s;
 }
 
 .imgProdutos {
