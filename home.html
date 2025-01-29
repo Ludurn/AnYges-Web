@@ -19,12 +19,12 @@
         <div id="logo-box">
             <div  id="logo-obj">
                 <img src="./src/imgs/logo-default.png" alt="logo" style="width: 100%;" id="logo-login">
-                
             </div>
             <h1>ANYGES</h1>
         </div>
         <div id="search-box">
-            <input type="text" placeholder="O que você está buscando?" id="inputSearch">
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass">
+            <button id="lupa" class="lupaClass"></button>
         </div>
         <nav>
             <div class="menuDrop">
@@ -45,6 +45,7 @@
             <a href="./index.html"><button class="botaoNav login">Login</button></a>
             <a href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
             <button class="botaoNav carrinho">Carrinho <ion-icon name="cart"></ion-icon></button> 
+            <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark()">&#x1F319;</button>
         </nav>     
     </header>
     <main id="catalogo">

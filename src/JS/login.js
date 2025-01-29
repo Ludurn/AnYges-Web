@@ -85,7 +85,6 @@ function ativarModoDark() {
     //VARIÁVEL AUXILIAR DE CONTROLE 
 
     aux++;
-    //aux = 1
     if (aux > 1) {
         aux = 0;
 
