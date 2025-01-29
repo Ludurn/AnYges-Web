@@ -182,6 +182,18 @@ main {
     flex-wrap: wrap;
 }
 
+#fileira-1 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+}
+
+#fileira-2 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+}
+
 .produtos {
     background-color: #f2f2f2;
     width: 14.6%;
