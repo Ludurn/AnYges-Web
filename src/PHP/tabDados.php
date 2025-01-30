@@ -1,4 +1,6 @@
 <?php
+
+
     function conectar() {
         try {
             $localServer = "DESKTOP-GARBFV9";
@@ -14,22 +16,30 @@
     };
     $pdo=conectar();
     $tabela = "tblUsuario";
+
     try{
 		session_start();
 
-    	$email = $_POST["usuario_email"];
-        $senha = $_POST["usuario_senha"];
-    	$sql = "SELECT * FROM ".$tabela." WHERE email_usuario = :email AND senha_usuario = :senha ;";
+    	$email = $_SESSION['usuario'];
+    	$sql = "SELECT nome_usuario, sobrenome_usuario, cpf, dt_nascimento, telefone_usuario, email_usuario FROM ".$tabela." WHERE email_usuario = :email;";
     	$ponteiro = $pdo->prepare($sql);
     	$ponteiro->bindValue(":email", $email);
-    	$ponteiro->bindValue(":senha", $senha);
     	$ponteiro->execute();
     	$resultado = $ponteiro->fetchAll(PDO::FETCH_ASSOC);
 
         if (count($resultado)>0){
-			$_SESSION['usuario'] = $email;
-    		$retorno = "prosseguir";
-           die(json_encode($retorno));
+            foreach($resultado as $indice => $conteudo){
+                $retorno = [
+                     "nome" => $conteudo['nome_usuario'],
+                     "sobrenome" => $conteudo['sobrenome_usuario'],
+                     "cpf" => $conteudo['cpf'],
+                     "nascimento" => $conteudo['dt_nascimento'],
+                     "tel" => $conteudo['telefone_usuario'],
+                      "email" => $conteudo['email_usuario']
+                    ];
+                die(json_encode($retorno, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));                   
+            }
+
     	}
     	else{
 			$retorno = "Nenhum usuário encontrado!";
@@ -45,4 +55,5 @@
     		      JSON_UNESCAPED_UNICODE |
     			  JSON_UNESCAPED_SLASHES));		 
     };
-?>	
+
+?>
