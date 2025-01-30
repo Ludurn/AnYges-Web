@@ -1,7 +1,3 @@
-// VARIÁVEIS DE CONTROLE
-
-let aux = false;
-
 // FUNCOES PAGINA 'PERFIL'
 
 function tabVerificar() {
@@ -346,55 +342,4 @@ function carregarCatalogo() {
             alert("Error: "+cod+"\n"+textStatus+"\n"+msg);
         }
     )
-}
-
-// Modo dark (ou noturno)
-
-function ativarModoDark() {
-    aux = !aux;
-
-    let botaoDark = document.getElementById("botaoDark");
-    let logo = document.getElementById("logo-login");
-    let header = document.getElementsByTagName("header");
-    let pesquisa = document.getElementById("inputSearch");
-    let lupa = document.getElementById("lupa");
-    let body = document.getElementsByTagName("body");
-    let produtos = document.getElementsByClassName("produtos");
-    if (aux == true) {
-        botaoDark.innerHTML = "&#x2600;";
-
-        logo.setAttribute("src", "./src/imgs/logo-login-dark.png");
-    
-        header[0].style.color = "white";
-    
-        pesquisa.classList.remove("inputSearchClass");
-        pesquisa.classList.add("inputSearchDark");
-    
-        lupa.classList.remove("lupaClass");
-        lupa.classList.add("lupa-darkClass");
-    
-        body[0].classList.add("bodyDark");
-    
-        for (i = 0; i < produtos.length; i++) {
-            produtos[i].classList.add("produtosDark");
-        }
-    } else {
-        botaoDark.innerHTML = "&#x1F319;";
-        
-        logo.setAttribute("src", "./src/imgs/logo-default.png");
-    
-        header[0].style.color = "#8A3C29";
-    
-        pesquisa.classList.add("inputSearchClass");
-        pesquisa.classList.remove("inputSearchDark");
-    
-        lupa.classList.add("lupaClass");
-        lupa.classList.remove("lupa-darkClass");
-    
-        body[0].classList.remove("bodyDark");
-    
-        for (i = 0; i < produtos.length; i++) {
-            produtos[i].classList.remove("produtosDark");
-        }
-    }
 }

@@ -24,17 +24,13 @@ $(document).ready(function(){
         .done(
             function (retorno) {
                 retorno = JSON.parse(retorno);
-                alert(
-                    "Nome = " + retorno["nome"] + "\n" +
-                    "Sobrenome = " + retorno["sobrenome"] + "\n" +
-                    "Cpf = " + retorno["cpf"] + "\n" +
-                    "Telefone = " + retorno["telefone"] + "\n" +
-                    "Rua = " + retorno["rua"] + "\n" +
-                    "Numero = " + retorno["numero"] + "\n" +
-                    "Bairro = " + retorno["bairro"] + "\n" +
-                    "Cidade = " + retorno["cidade"] + "\n" +
-                    "Estado = " + retorno["estado"]
-                );
+                if (retorno == "prosseguir") {
+                    window.location.replace("./home.html");
+                } else {
+                    if (usuario || senha) {
+                        alert("Usuário não encontrado");
+                    }
+                }
             }
         )
         .fail (
@@ -43,7 +39,7 @@ $(document).ready(function(){
             }
         )
         .always(
-            alert("Operação de login concluída!")
+
         )
     });
 });
@@ -85,6 +81,7 @@ function ativarModoDark() {
     //VARIÁVEL AUXILIAR DE CONTROLE 
 
     aux++;
+    //aux = 1
     if (aux > 1) {
         aux = 0;
 

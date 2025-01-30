@@ -63,30 +63,6 @@
                                 </fieldset>
                                 <br><br>
                                 <fieldset class="forms-internos">
-                                        <legend><strong>Localidade</strong></legend>
-                                        <label for="siglaEstado"><span class="requirement">*</span> Escolha a a opção que corresponde ao seu <strong>estado(UF)</strong>:</label>
-                                        <select name="listaEstado" id="siglaEstado" required>
-                                                <option value="MG">MG</option>
-                                                <option value="RJ">RJ</option>
-                                                <option value="SP" selected>SP</option>
-                                                <option value="SC">SC</option>
-                                                <option value="RS">RS</option>
-                                        </select>
-                                        <br><br>
-                                        <label for="cidade"> <span class="requirement">*</span> Digite a <strong>cidade</strong> em que reside:</label>
-                                        <input type="text" name="cidade" id="cidade" class="camposForm" maxlength="100" placeholder="Ex.: São Paulo">
-                                        <br><br>
-                                        <label for="bairro"><span class="requirement">*</span> Digite o <strong>bairro</strong> onde reside:</label>
-                                        <input type="text" name="bairro" id="bairro" class="camposForm" maxlength="255" placeholder="Ex.: Vila Emerenciana">
-                                        <br><br>
-                                        <label for="rua"><span class="requirement">*</span> Digite a <strong>rua</strong> onde reside:</label>
-                                        <input type="text" name="rua" id="rua" class="camposForm" maxlength="255" placeholder="Ex.: Rua Jacinto">
-                                        <br><br>
-                                        <label for="numero_res"><span class="requirement">*</span> Digite o <strong>número</strong> da residência:</label>
-                                        <input type="text" name="numero_res" id="numero_res" class="camposForm" maxlength="255" placeholder="Ex.: 123">
-                                </fieldset>
-                                <br><br>
-                                <fieldset class="forms-internos">
                                         <legend><strong>Cadastro</strong></legend>
                                         <label for="telefone"><span class="requirement">*</span> Digite um telefone ou celular válido: </label>
                                         <input type="text" name="telefone" id="telefone" class="camposForm" maxlength="18" placeholder="Ex.: 5511912345678">
@@ -95,11 +71,11 @@
                                         <input type="email" name="emailConfirm" id="email" class="camposForm" maxlength="255" placeholder="Ex.: joao.silva@gmail.com">
                                         <br><br>
                                         <label for="senha"><span class="requirement">*</span> Digite uma <strong>senha</strong> de acesso: </label>
-                                        <input type="password" name="senha" id="senha" class="camposForm" maxlength="255" placeholder="*********">
+                                        <input type="password" name="senha" id="senha" class="camposForm" maxlength="255" placeholder="máx de  15 caracteres">
                                         <input type="button" id="senha1" class="botao-visibilidade" onclick="mudarSenha()">
                                         <br><br>
                                         <label for="confirmSenha"><span class="requirement">*</span> <strong>Confirme</strong> a senha digitada: </label>
-                                        <input type="password" name="confirmSenha" id="confirmSenha" class="camposForm" maxlength="255" placeholder="*********">
+                                        <input type="password" name="confirmSenha" id="confirmSenha" class="camposForm" maxlength="255" placeholder="máx de  15 caracteres">
                                         <input type="button" id="senha2" class="botao-visibilidade" onclick="mudarSenha()">
                                 </fieldset>
                         </div>
@@ -117,6 +93,9 @@
                         </div>
                 </fieldset>
         </main>
+        <br/>
+        <br/>
+        <br/>
         <br/>
 </body>
 </html>

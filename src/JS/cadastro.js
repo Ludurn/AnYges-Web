@@ -56,11 +56,6 @@ function enviarInfos() {
         var telefone = $('#telefone').val();
         var email = $('#email').val();
         var senha = $('#senha').val();
-        var estado = $('#siglaEstado').val();
-        var cidade = $('#cidade').val();
-        var bairro = $('#bairro').val();
-        var rua = $('#rua').val();
-        var numero = $('#numero_res').val();
         
         $.post(
             "./src/PHP/cadastro.php",
@@ -71,26 +66,18 @@ function enviarInfos() {
                 telefone_user: telefone,
                 email_user: email,
                 senha_user: senha,
-                estado_user: estado,
-                cidade_user: cidade,
-                bairro_user: bairro,
-                rua_user: rua,
-                numero_user: numero
             }
         )
         .done(
             function(retorno) {
-                retorno = JSON.parse(retorno);
                 $("#res").html("<strong>" + retorno + "</strong>");
+                window.location.replace("./index.html");
             }
         )
         .fail(
             function (cod, textStatus, msg) {
                 alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
             }
-        )
-        .always(
-            alert("Término da operação.")
         )
     };
 }

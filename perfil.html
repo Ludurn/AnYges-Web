@@ -13,6 +13,7 @@
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
+    <script type="text/javascript" src="./src/JS/session.js"></script>
 </head>
 <body onclick="menuFadeOut()">
     <header>
@@ -55,7 +56,7 @@
             <div class="perfilNavTabs" id="tabCupomAtivo" onclick="tabCupomAtivoLoader()">Cupons ativos</div>
             <div class="perfilNavTabs" id="tabHistCupom" onclick="tabHistCupomLoader()">Histórico de cupons</div>
             <div class="perfilNavTabs" id="tabHistPonto" onclick="tabHistPontoLoader()">Histórico de pontos</div>
-            <div class="perfilNavTabs">Sair</div>
+            <div class="perfilNavTabs" onclick="desconectarPerfil()">Sair</div>
         </aside>
         <section id="perfil">
             <div id="perfilTitle" style="visibility: hidden; opacity: 0; transition: visibility 0s, opacity 0.2s linear">

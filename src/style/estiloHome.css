@@ -4,7 +4,6 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-    transition: background-color 0.5s;
 }
 
 h1{
@@ -53,39 +52,16 @@ a {
     width: 80%;
     padding: 0.5rem;
     font-size: medium;
-    border: 0.0625rem solid #ccc;
-    border-radius: 0.25rem 0rem 0rem 0.25rem;
-}
-
-.inputSearchClass {
     color: #727273;
     background-color: #f0f0f0;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
 }
 
 #inputSearch::placeholder { 
     text-align: center;
     font-size: medium;
     color: #9e9fa0;
-}
-
-.inputSearchDark {
-    background-color: #727273;
-    color: white;
-}
-
-.inputSearchDark::placeholder {
-    color: white;
-}
-
-#lupa {
-    width: 30px;
-    background-color: #8A3C29;
-    background-image: url(../imgs/icons/lupa-dark.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    border: 0px solid white;
-    border-radius: 0rem 0.25rem 0.25rem 0rem;
 }
 
 .menuDrop {
@@ -148,6 +124,14 @@ a {
     background-color: #1F6124;
 }
 
+#pontosUser{
+    background-color: #8A3C29;
+    color: #f0f0f0;
+    padding: 0.55rem 0.55rem;
+    border: 0.1rem solid #611f1f;
+    border-radius: 0.5rem;
+}
+
 .carrinho {
     background-color: #75a32a;
     color: white;
@@ -182,20 +166,7 @@ main {
     flex-wrap: wrap;
 }
 
-#fileira-1 {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 3%;
-}
-
-#fileira-2 {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 3%;
-}
-
 .produtos {
-    background-color: #f2f2f2;
     width: 14.6%;
     padding: 1%;
     margin: 1.6%;
@@ -205,7 +176,6 @@ main {
     box-shadow: 0.1em 0.4em 0.5em rgba(128, 128, 128, 0.39);
     border: 0.1em solid rgba(128, 128, 128, 0.39);
     border-radius: 0.75rem;
-    transition: background-color 0.5s;
 }
 
 .imgProdutos {
@@ -227,37 +197,11 @@ main {
     justify-content: center;
     align-items: center;
     font-size: large;
-    background-image: linear-gradient(#1F6124, #123b15);
+    background-color: #1F6124;
     border-radius: 0.375rem;
     color: white;
     user-select: none;
     cursor: pointer;
-}
-
-.btnProdutos:hover {
-    background-image: linear-gradient(#8A3C29, #572519);
-}
-
-.btnProdutos:active {
-    background-image: linear-gradient(#b54f36, #8a3b28);
-}
-
-/* Modo noturno (ou dark) */
-
-.dark {
-    color: white;
-    padding: 0%;
-    font-size: x-large;
-    background-color: #1f612400;
-}
-
-.bodyDark {
-    background-color: #323232;
-}
-
-.produtosDark {
-    color: white;
-    background-color: #646464;
 }
 
 /* RESPONSIVIDADE */

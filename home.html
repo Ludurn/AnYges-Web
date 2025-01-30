@@ -13,24 +13,25 @@
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
+    <script type="text/javascript" src="./src/JS/session.js"></script>
 </head>
-<body onclick="menuFadeOut()">
+<body onclick="menuFadeOut();" onload="exibirPontos();">
     <header>
         <div id="logo-box">
             <div  id="logo-obj">
                 <img src="./src/imgs/logo-default.png" alt="logo" style="width: 100%;" id="logo-login">
+                
             </div>
             <h1>ANYGES</h1>
         </div>
         <div id="search-box">
-            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass">
-            <button id="lupa" class="lupaClass"></button>
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch">
         </div>
         <nav>
             <div class="menuDrop">
                 <button id="btnMenu" onclick="menuFadeIn()">Menu</button>              
                  <div id="menuDropBG">
-                    <a href="./perfil.html" class="">
+                    <a onclick="acessarPerfil()">
                         <ion-icon name="person"></ion-icon> Perfil</a>
                   <a href="#">
                       <ion-icon name="hand"></ion-icon> Acessibilidade</a>
@@ -42,83 +43,45 @@
                        <ion-icon name="call"></ion-icon> Contato</a>
                 </div>
             </div>
-            <a href="./index.html"><button class="botaoNav login">Login</button></a>
-            <a href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
+            <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
+            <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
             <button class="botaoNav carrinho">Carrinho <ion-icon name="cart"></ion-icon></button> 
-            <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark()">&#x1F319;</button>
         </nav>     
     </header>
     <main id="catalogo">
-        <div id="fileira-1">
-            <article class="produtos">
-                <div class="molduraProdutos">
-                    <figure>
-                        <img src="./src/imgs/rivotril.png" id="imgProduto1" class="imgProdutos" alt="rivotril em gotas" width="100%" />
-                    </figure>
-                </div>
-                <p id="nomeProduto1">Rivotril Gotas 2,5mg</p>
-                <h4 id="fornecedorProduto1">Promofarma</h4>
-                <p id="descricaoProduto1" class="descricaoProdutos">Suspensão Oral 20ml</p>
-                <div id="btnProduto1" class="btnProdutos">3500 ₯</div>
-            </article>
-            <article class="produtos">
-                <div class="molduraProdutos">
-                    <figure>
-                        <img src="./src/imgs/unimed.png" id="imgProduto2" class="imgProdutos" alt="unimedLogo" width="100%"/>
-                    </figure>
-                </div>
-                <p id="nomeProduto2">Pediatra</p>
-                <h4 id="fornecedorProduto2">Unimed</h4>
-                <p id="descricaoProduto2" class="descricaoProdutos">Terça-feira e Quinta-feira</p>
-                <div id="btnProduto2" class="btnProdutos">25000 ₯</div>
-            </article>
-            <article class="produtos">
-                <div class="molduraProdutos">
-                    <figure>
-                        <img src="./src/imgs/hc.png" id="imgProduto3" class="imgProdutos" alt="hcLogo" width="100%"/>
-                    </figure>
-                </div>
-                <p id="nomeProduto3">Psicóloga</p>
-                <h4 id="fornecedorProduto3">Hospital das Clínicas</h4>
-                <p id="descricaoProduto3" class="descricaoProdutos">Domingo à Quarta-feira</p>
-                <div id="btnProduto3" class="btnProdutos">27000 ₯</div>
-            </article>
-        </div>
-        <div id="fileira-2">
-            <article class="produtos">
-                <div class="molduraProdutos">
-                    <figure>
-                        <img src="./src/imgs/rivotril.png" id="imgProduto1" class="imgProdutos" alt="rivotril em gotas" width="100%" />
-                    </figure>
-                </div>
-                <p id="nomeProduto1">Rivotril Gotas 2,5mg</p>
-                <h4 id="fornecedorProduto1">Promofarma</h4>
-                <p id="descricaoProduto1" class="descricaoProdutos">Suspensão Oral 20ml</p>
-                <div id="btnProduto1" class="btnProdutos">3500 ₯</div>
-            </article>
-            <article class="produtos">
-                <div class="molduraProdutos">
-                    <figure>
-                        <img src="./src/imgs/unimed.png" id="imgProduto2" class="imgProdutos" alt="unimedLogo" width="100%"/>
-                    </figure>
-                </div>
-                <p id="nomeProduto2">Pediatra</p>
-                <h4 id="fornecedorProduto2">Unimed</h4>
-                <p id="descricaoProduto2" class="descricaoProdutos">Terça-feira e Quinta-feira</p>
-                <div id="btnProduto2" class="btnProdutos">25000 ₯</div>
-            </article>
-            <article class="produtos">
-                <div class="molduraProdutos">
-                    <figure>
-                        <img src="./src/imgs/hc.png" id="imgProduto3" class="imgProdutos" alt="hcLogo" width="100%"/>
-                    </figure>
-                </div>
-                <p id="nomeProduto3">Psicóloga</p>
-                <h4 id="fornecedorProduto3">Hospital das Clínicas</h4>
-                <p id="descricaoProduto3" class="descricaoProdutos">Domingo à Quarta-feira</p>
-                <div id="btnProduto3" class="btnProdutos">27000 ₯</div>
-            </article>
-        </div>
+        <article class="produtos">
+            <div class="molduraProdutos">
+                <figure>
+                    <img src="./src/imgs/rivotril.png" id="imgProduto1" class="imgProdutos" alt="rivotril em gotas" width="100%" />
+                </figure>
+            </div>
+            <p id="nomeProduto1">Rivotril Gotas 2,5mg</p>
+            <h4 id="fornecedorProduto1">Promofarma</h4>
+            <p id="descricaoProduto1" class="descricaoProdutos">Suspensão Oral 20ml</p>
+            <div id="btnProduto1" class="btnProdutos">3500 ₯</div>
+        </article>
+        <article class="produtos">
+            <div class="molduraProdutos">
+                <figure>
+                    <img src="./src/imgs/unimed.png" id="imgProduto2" class="imgProdutos" alt="unimedLogo" width="100%"/>
+                </figure>
+            </div>
+            <p id="nomeProduto2">Pediatra</p>
+            <h4 id="fornecedorProduto2">Unimed</h4>
+            <p id="descricaoProduto2" class="descricaoProdutos">Terça-feira e Quinta-feira</p>
+            <div id="btnProduto2" class="btnProdutos">25000 ₯</div>
+        </article>
+        <article class="produtos">
+            <div class="molduraProdutos">
+                <figure>
+                    <img src="./src/imgs/hc.png" id="imgProduto3" class="imgProdutos" alt="hcLogo" width="100%"/>
+                </figure>
+            </div>
+            <p id="nomeProduto3">Psicóloga</p>
+            <h4 id="fornecedorProduto3">Hospital das Clínicas</h4>
+            <p id="descricaoProduto3" class="descricaoProdutos">Domingo à Quarta-feira</p>
+            <div id="btnProduto3" class="btnProdutos">27000 ₯</div>
+        </article>
     </main>
 
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
