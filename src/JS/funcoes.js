@@ -4,6 +4,31 @@ let aux = false;
 
 // FUNCOES PAGINA 'PERFIL'
 
+function tabDadosLoader() {
+    $.post(
+        "./src/PHP/tabDados.php",
+    )
+    .done(
+        function (retorno) {
+            retorno = JSON.parse(retorno);
+
+            $("#pfpImg").attr("src", "./src/imgs/pfp.png");
+            $("#infoUserTitle").text("Olá, "+retorno['nome']);
+            $("#infoNome").text(retorno['nome']);
+            $("#infoSobrenome").text(retorno['sobrenome']);
+            $("#infoCPF").text(retorno['cpf']);
+            $("#infoEmail").text(retorno['email']);
+            $("#infoNasc").text(retorno['nascimento']);
+            $("#infoTel").text(retorno['tel']);
+        }
+    )
+    .fail (
+        function (cod, textStatus, msg) {
+            alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
+        }
+    );
+}
+
 function tabVerificar() {
     if ($("#perfilInfoBox").css('visibility') === 'visible') {
         return "infoBox";
@@ -16,18 +41,18 @@ function tabVerificar() {
     }
 }
 
-function tabDadosLoader() {
+function tabDadosStyle() {
         let verifique = tabVerificar();
         let delay = "0";
 
         if (verifique == "cupomAtivoBox") {
-            tabCupomAtivoLoader();
+            tabCupomAtivoStyle();
             delay = "200"; 
         } else if (verifique == "histCupomBox") {
-            tabHistCupomLoader();
+            tabHistCupomStyle();
             delay = "200";
         } else if (verifique == "histPontoBox") {
-            tabHistPontoLoader();
+            tabHistPontoStyle();
             delay = "200";
         }
 
@@ -85,18 +110,18 @@ function tabDadosLoader() {
         }, delay);
 }
 
-function tabCupomAtivoLoader() {
+function tabCupomAtivoStyle() {
     let verifique = tabVerificar();
     let delay = "0";
 
     if (verifique == "infoBox") {
-        tabDadosLoader();
+        tabDadosStyle();
         delay = "200"; 
     } else if (verifique == "histCupomBox") {
-        tabHistCupomLoader();
+        tabHistCupomStyle();
         delay = "200";
     } else if (verifique == "histPontoBox") {
-        tabHistPontoLoader();
+        tabHistPontoStyle();
         delay = "200";
     }
 
@@ -152,18 +177,18 @@ function tabCupomAtivoLoader() {
     }, delay);
 }
 
-function tabHistCupomLoader() {
+function tabHistCupomStyle() {
     let verifique = tabVerificar();
     let delay = "0";
 
     if (verifique == "infoBox") {
-        tabDadosLoader();
+        tabDadosStyle();
         delay = "200"; 
     } else if (verifique == "cupomAtivoBox") {
-        tabCupomAtivoLoader();
+        tabCupomAtivoStyle();
         delay = "200";
     } else if (verifique == "histPontoBox") {
-        tabHistPontoLoader();
+        tabHistPontoStyle();
         delay = "200";
     }
 
@@ -219,18 +244,18 @@ function tabHistCupomLoader() {
     }, delay);
 }
 
-function tabHistPontoLoader() {
+function tabHistPontoStyle() {
     let verifique = tabVerificar();
     let delay = "0";
 
     if (verifique == "infoBox") {
-        tabDadosLoader();
+        tabDadosStyle();
         delay = "200"; 
     } else if (verifique == "cupomAtivoBox") {
-        tabCupomAtivoLoader();
+        tabCupomAtivoStyle();
         delay = "200";
     } else if (verifique == "histCupomBox") {
-        tabHistCupomLoader();
+        tabHistCupomStyle();
         delay = "200";
     }
 

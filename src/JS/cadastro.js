@@ -53,6 +53,7 @@ function enviarInfos() {
         var nome = $('#primeiroNome').val();
         var sobrenome = $('#sobrenome').val();
         var cpf = $('#CPF').val();
+        var dtNascimento = $('#dtNascimento').val();
         var telefone = $('#telefone').val();
         var email = $('#email').val();
         var senha = $('#senha').val();
@@ -63,6 +64,7 @@ function enviarInfos() {
                 nome_user: nome,
                 sobrenome_user: sobrenome,
                 cpf_user: cpf,
+                nascimento_user: dtNascimento,
                 telefone_user: telefone,
                 email_user: email,
                 senha_user: senha,
@@ -70,8 +72,12 @@ function enviarInfos() {
         )
         .done(
             function(retorno) {
-                $("#res").html("<strong>" + retorno + "</strong>");
-                window.location.replace("./index.html");
+                retorno = JSON.parse(retorno);
+                if (retorno == "idade nao permitida") {
+                    alert("usuário menor de 18 anos");
+                } else {
+                    window.location.replace("./index.html");
+                }
             }
         )
         .fail(
@@ -80,4 +86,14 @@ function enviarInfos() {
             }
         )
     };
+}
+
+function corretorIdade() {
+    let currentTime = new Date();
+    let mes = currentTime.getMonth() + 1;
+    let dia = currentTime.getDate();
+    let year = currentTime.getFullYear();
+
+    $("#dtNascimento").attr("max", year-18+"-"+mes+"-"+dia);
+    $("#dtNascimento").attr("min", year-120+"-"+mes+"-"+dia);
 }

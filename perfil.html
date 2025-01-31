@@ -15,7 +15,7 @@
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
 </head>
-<body onclick="menuFadeOut()">
+<body onclick="menuFadeOut()" onload="tabDadosStyle(); tabDadosLoader();">
     <header>
         <div id="logo-box">
             <div  id="logo-obj">
@@ -30,7 +30,7 @@
             <div class="menuDrop">
                 <button id="btnMenu" onclick="menuFadeIn()">Menu</button>              
                  <div id="menuDropBG">
-                    <a href="./home.html" class="">
+                  <a href="./home.html">
                         <ion-icon name="home"></ion-icon> Home</a>
                   <a href="#">
                       <ion-icon name="hand"></ion-icon> Acessibilidade</a>
@@ -49,13 +49,13 @@
     <main>
         <aside id="perfilNav">
             <div id="usuarioTitle">
-                <div id="usuarioImg"><img src="./src/imgs/pfpTeste.jpg" alt="Foto do perfil" style="width: 100%; border-radius: 5rem;"/></div>
-                <h1>Olá, <span id="infoNome">Luigi</span></h1>
+                <div id="usuarioImg"><img id="pfpImg" src="./src/imgs/none.png" alt="Foto do perfil" style="width: 100%;"/></div>
+                <h1><span id="infoUserTitle"></span></h1>
             </div>
-            <div class="perfilNavTabs" id="tabDados" onclick="tabDadosLoader()">Dados pessoais</div>
-            <div class="perfilNavTabs" id="tabCupomAtivo" onclick="tabCupomAtivoLoader()">Cupons ativos</div>
-            <div class="perfilNavTabs" id="tabHistCupom" onclick="tabHistCupomLoader()">Histórico de cupons</div>
-            <div class="perfilNavTabs" id="tabHistPonto" onclick="tabHistPontoLoader()">Histórico de pontos</div>
+            <div class="perfilNavTabs" id="tabDados" onclick="tabDadosStyle(); tabDadosLoader();">Dados pessoais</div>
+            <div class="perfilNavTabs" id="tabCupomAtivo" onclick="tabCupomAtivoStyle()">Cupons ativos</div>
+            <div class="perfilNavTabs" id="tabHistCupom" onclick="tabHistCupomStyle()">Histórico de cupons</div>
+            <div class="perfilNavTabs" id="tabHistPonto" onclick="tabHistPontoStyle()">Histórico de pontos</div>
             <div class="perfilNavTabs" onclick="desconectarPerfil()">Sair</div>
         </aside>
         <section id="perfil">
@@ -67,37 +67,32 @@
                 <div class="perfilInfo">
                     Nome
                     <br/>
-                    <span id="infoNome" style="color: #9e9fa0;">Luigi</span>
+                    <span id="infoNome" style="color: #9e9fa0;"></span>
                 </div>
                 <div class="perfilInfo">
                     Sobrenome
                     <br/>
-                    <span id="infoSobrenome"  style="color: #9e9fa0;">Kaio Castro</span>
+                    <span id="infoSobrenome"  style="color: #9e9fa0;"></span>
                 </div>
                 <div class="perfilInfo">
                     CPF
                     <br/>
-                    <span id="infoCPF"  style="color: #9e9fa0;">100.202.611-11</span>
-                </div>
-                <div class="perfilInfo">
-                    Gênero
-                    <br/>
-                    <span id="infoGen"  style="color: #9e9fa0;">Masculino</span>
+                    <span id="infoCPF"  style="color: #9e9fa0;"></span>
                 </div>
                 <div class="perfilInfo">
                     E-mail
                     <br/>
-                    <span id="infoEmail"  style="color: #9e9fa0;">luiifn@outlook.com</span>
+                    <span id="infoEmail" style="color: #9e9fa0;"></span>
                 </div>
                 <div class="perfilInfo">
                     Data de nascimento
                     <br/>
-                    <span id="infoNasc"  style="color: #9e9fa0;">27/10/1998</span>
+                    <span id="infoNasc"  style="color: #9e9fa0;"></span>
                 </div>
                 <div class="perfilInfo">
                     Telefone
                     <br/>
-                    <span id="infoTel"  style="color: #9e9fa0;">+55 11 99999-8997</span>
+                    <span id="infoTel"  style="color: #9e9fa0;"></span>
                 </div>
             </div>
             <div id="perfilCupomAtivoBox">
