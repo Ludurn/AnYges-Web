@@ -1,4 +1,5 @@
 let ativacao = false;
+var carrinho = document.getElementById("cartContainer");
 
 // Ativação/desativação do carrinho
 
@@ -18,21 +19,22 @@ function ativarCarrinho() {
 
 // Inserção/Remoção dos cards de produtos do carrinho
 
-let catalogoProdutos = document.getElementsByClassName("btnProdutos");
+var catalogoProdutos = document.getElementsByClassName("btnProdutos");
 
-/* alert (produto1.innerHTML);
+// console.log(catalogoProdutos[1].innerHTML);
 
-produto1.addEventListener("click", function() {
-    // window.alert("Este é o elemento " + this.textContent + "!");
-    alert("olá mundo");
-}); */
-
-/* function meAjuda() {
-    window.alert("Este é o elemento " + this + "!");
-} */
-
+// var colecaoCarrinho = document.get;
 for (i = 0; i < catalogoProdutos.length; i++) {
     catalogoProdutos[i].addEventListener("click", function() {
-        console.log("Este é o elemento:\n", event.target);
+        var target = event.target;
+        var cardCarrinho = target.parentElement;
+        cardCarrinho.removeChild(cardCarrinho.lastElementChild);
+        carrinho.innerHTML += "<div style = 'display: flex;" + 
+        " align-items: center;" + 
+        " background-color: white;" + 
+        " width: 140%; " +
+        " transform: scale(0.7, 0.7);'>" + 
+        cardCarrinho.innerHTML + 
+        "</div>";
     });
 }

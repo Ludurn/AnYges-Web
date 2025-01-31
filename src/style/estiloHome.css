@@ -145,6 +145,8 @@ a {
     position: fixed;
     right: -285px;
     transition: right 0.2s;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .botaoNav {
