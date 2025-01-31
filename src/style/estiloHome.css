@@ -5,6 +5,7 @@ body {
     height: 100%;
     width: 100%;
     transition: background-color 0.5s;
+    overflow-x: hidden;
 }
 
 h1{
@@ -19,6 +20,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
 }
 
 #logo-box{
@@ -132,6 +134,17 @@ a {
 
 #menuDropBG a:hover {
     color: #8A3C29;
+}
+
+#cartContainer {
+    display: flex;
+    align-items: center;
+    background-color: #8A3C29;
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    right: -285px;
+    transition: right 0.2s;
 }
 
 .botaoNav {

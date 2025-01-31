@@ -14,8 +14,12 @@
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
+    <script type="text/javascript" src="./src/JS/carrinho.js"></script>
 </head>
 <body onclick="menuFadeOut();" onload="exibirPontos();">
+    <div id="cartContainer">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At quia doloremque eum nesciunt tempora voluptate sapiente incidunt ex vel. Ducimus sunt a, rem enim quaerat nihil reiciendis ipsum eos nulla!</p>
+    </div>
     <header>
         <div id="logo-box">
             <div  id="logo-obj">
@@ -45,7 +49,8 @@
             </div>
             <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
             <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
-            <button class="botaoNav carrinho">Carrinho <ion-icon name="cart"></ion-icon></button>
+            <!-- A chamada "ativarCarinho()" vem do arquivo "carrinho.js" -->
+            <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho()">Carrinho <ion-icon name="cart"></ion-icon></button>
             <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark()">&#x1F319;</button>
         </nav>     
     </header>
@@ -111,7 +116,7 @@
             <article class="produtos">
                 <div class="molduraProdutos">
                     <figure>
-                        <img src="./src/imgs/sirio.jpg" id="imgProduto6" class="imgProdutos" alt="Logo Sírio Libanês" width="100%"/>
+                        <img src="./src/imgs/sirio.jpg" id="imgProduto6" class="imgProdutos" alt="Logo Sírio Libanês" width="100%"/>
                     </figure>
                 </div>
                 <p id="nomeProduto6">Gastroenterologista</p>
