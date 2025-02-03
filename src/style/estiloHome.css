@@ -147,6 +147,8 @@ a {
     transition: right 0.2s;
     flex-direction: column;
     justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .botaoNav {
@@ -185,6 +187,40 @@ a {
     color: white;
     border: 0.1rem solid #75a32a;
     background-color: #1F6124;
+}
+
+.carrinhoCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 8px;
+    width: 140%;
+    height: 145px;
+    transform: scale(0.7, 0.7);
+    gap: 1px;
+}
+
+.carrinhoCard > .molduraProdutos {
+    max-width: 45%;
+}
+
+.carrinhoCard > .molduraProdutos > figure {
+    margin: 16px 0px;
+}
+
+.carrinhoCard > .molduraProdutos > figure > img {
+    height: 140px;
+}
+
+.carrinhoCard > p {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 15%;
+}
+
+.carrinhoCard > .btnProdutos {
+    max-width: 100px;
 }
 
 footer {
