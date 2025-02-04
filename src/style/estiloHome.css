@@ -139,7 +139,6 @@ a {
 #cartContainer {
     display: flex;
     align-items: center;
-    /* background-color: #8A3C29; */
     background-image: linear-gradient(#8A3C29, #34160f);
     height: 100%;
     width: 20%;
@@ -147,9 +146,10 @@ a {
     right: -285px;
     transition: right 0.2s;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     overflow-x: hidden;
     overflow-y: scroll;
+    padding-top: 50px;
 }
 
 .botaoNav {
@@ -216,9 +216,9 @@ a {
 }
 
 .carrinhoCard > p {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 15%;
+    max-width: 20%;
+    text-align: center;
+    word-break: break-all;
 }
 
 .carrinhoCard > .btnProdutos {
