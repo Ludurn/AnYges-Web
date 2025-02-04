@@ -31,7 +31,11 @@ for (i = 0; i < catalogoProdutos.length; i++) {
         
         // Impedindo cards idênticos
         carrinho.innerHTML += "<div id = 'card" + contador + "' class = 'carrinhoCard'>" + 
-        cardCarrinho.innerHTML + 
+        cardCarrinho.innerHTML +
+        "<div class='quantidade'>" +
+        "<p>Quantidade:</p>" +
+        "<input type='number' name='counter' id='counter"+ contador +"' class='quantidadeCard' value='1' placeholder='Qtde:' min= 1 max= 99>" +
+        "</div>" +
         "</div>";
 
         var carrinhoCard = document.getElementsByClassName("carrinhoCard");
