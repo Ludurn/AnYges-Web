@@ -29,15 +29,14 @@ for (i = 0; i < catalogoProdutos.length; i++) {
         //Elemento-pai que sofreu evento que chamou esta função será armazenado nesta variável abaixo
         var cardCarrinho = target.parentElement;
         
-        carrinho.innerHTML += "<div id = 'card" + contador + "' class = 'carrinhoCard'>" + 
+        carrinho.innerHTML += 
+        "<div class = 'carrinhoCard'>" + 
         cardCarrinho.innerHTML +
         "<div class='quantidade'>" +
         "<p>Quantidade:</p>" +
-        "<input type='number' name='counter' class='quantidadeCard' value='1' placeholder='Qtde:' min= 1 max= 99>" +
+        "<input type='number' class='quantidadeCard' placeholder='Qtde:' min= 1 max= 99>" +
         "</div>" +
         "</div>";
-
-        // carrinho.appendChild();
 
         var carrinhoCard = document.getElementsByClassName("carrinhoCard");
 
