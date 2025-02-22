@@ -7,7 +7,22 @@ let vetorBotoes = document.getElementsByClassName("botao-visibilidade");
 // Mascarar JQuery
 $(document).ready(function(){
     $('#CPF').mask('000.000.000-00');
+    $('#telefone').mask('(00) 00000-0000');
 });
+
+function analisarTellMask(){
+    let tell = $('#telefone').val();
+    if (tell.length < 15) {
+        $('#telefone').mask('(00) 00000-0000');
+    }
+}
+
+function corrigirTellMask(){
+    let tell = $('#telefone').val();
+    if (tell.length < 15) {
+        $('#telefone').mask('(00) 0000-0000');
+    }
+};
 
 /* Abaixo uma função que será chamado ao evento de clique nos botões de mostrar/esconder senha. Ao ser chamada, altera a imagem do ícone, simbolizando a alteração de visibilidade da senha, que ocorrerá ao clicar.  */
 

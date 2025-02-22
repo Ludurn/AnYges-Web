@@ -68,7 +68,7 @@
                                 <fieldset class="forms-internos">
                                         <legend><strong>Cadastro</strong></legend>
                                         <label for="telefone"><span class="requirement">*</span> Digite um telefone ou celular válido: </label>
-                                        <input type="text" name="telefone" id="telefone" class="camposForm" maxlength="18" placeholder="Ex.: 5511912345678">
+                                        <input type="text" name="telefone" id="telefone" onclick="analisarTellMask();" onblur="corrigirTellMask();" class="camposForm" maxlength="18" placeholder="Ex.: (00) 00000-0000">
                                         <br><br>
                                         <label for="email"><span class="requirement">*</span> Digite o <strong>email</strong> que deseja cadastrar:</label>
                                         <input type="email" name="emailConfirm" id="email" class="camposForm" maxlength="255" placeholder="Ex.: joao.silva@gmail.com">
