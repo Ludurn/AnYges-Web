@@ -143,6 +143,6 @@ go
 
 SELECT * FROM tblCupom;
 SELECT * FROM tblUsuario;
-
-SELECT * FROM tblCupom WHERE nome_cupom='Rivotril' AND valor=12000
 go
+
+SELECT max(ID_cupom) as 'idMax' FROM tblCupom;

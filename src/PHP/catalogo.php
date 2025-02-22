@@ -7,7 +7,9 @@
 
         $tabela = "tblCupom";
 
-        $id = $_POST["id"];
+        $idMax = $_POST["id"];
+        $id = rand(1, $idMax);
+
 
         $sql = "SELECT nome_cupom, valor, tipo, imagem, descricao_cupom FROM ".$tabela." WHERE ID_cupom = :id;";
         $ponteiro = $pdo->prepare($sql);
@@ -27,7 +29,7 @@
                 die(json_encode($retorno, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
             }
         } else {
-            $mensagem=["status" => "error", "message" => "Nenhum resgistro encontrado."];
+            $mensagem=["status" => "error", "message" => "sem registro"];
             die(json_encode($mensagem));
         }
     }     catch(Exception $erro) {
