@@ -1,9 +1,12 @@
 <?php
 
     session_start();
+
+    $funcao = $_POST['funcao'];
     
     if (isset($_SESSION['usuario'])) {
-        $retorno = "conectado";
+        $retorno['status'] = "conectado";
+        $retorno['funcao'] = $funcao;
         die(json_encode($retorno));
     } else {
         $retorno = "desconectado";

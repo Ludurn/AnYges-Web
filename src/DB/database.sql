@@ -153,6 +153,9 @@ INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 12000, 'beleza/higiene', 
 INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional 500ml', 25);
 go
 
+INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990');
+go
+
 SELECT * FROM tblCupom;
 SELECT * FROM tblUsuario;
 go
@@ -162,3 +165,7 @@ SELECT MAX(ID_cupom) as 'idMax' FROM tblCupom;
 SELECT ID_cupom as 'idMedicamento' FROM tblCupom WHERE tipo = 'medicamento';
 
 SELECT nome_cupom, valor, (SELECT nome_associacao FROM tblAssociacao WHERE ID_associacao IN (SELECT ID_associacao FROM tblCupom WHERE ID_cupom=5)) as 'nome_associacao',tipo, imagem, descricao_cupom FROM tblCupom WHERE ID_cupom = 5;
+
+UPDATE tblUsuario SET nome_usuario = 'Roberto', sobrenome_usuario = 'da Luz', cpf = '23232', email_usuario = 'daniel@hotmail.com', dt_nascimento = '1990-12-18' WHERE email_usuario = 'daniel@hotmail.com';
+
+UPDATE tblUsuario SET nome_usuario = 'Cazé' WHERE email_usuario = 'daniel@hotmail.com';

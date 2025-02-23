@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="./src/style/estiloPerfil.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
+    <script type="text/javascript" src="./src/JS/edicaoPerfil.js"></script>
 </head>
 <body onclick="menuFadeOut()" onload="tabDadosStyle(); tabDadosLoader();">
     <header>
@@ -94,6 +96,14 @@
                     Telefone
                     <br/>
                     <span id="infoTel"  style="color: #9e9fa0;"></span>
+                </div>
+                <div id="campoEdicaoPerfil">
+                    <div id="btnEditarPerfil" class="btnsEdicaoPerfil" onclick="verificarLogin('editar');">
+                        EDITAR
+                    </div>
+                    <div id="btnExcluirPerfil" class="btnsEdicaoPerfil" onclick="verificarLogin('excluir');">
+                        EXCLUIR
+                    </div>
                 </div>
             </div>
             <div id="perfilCupomAtivoBox">
