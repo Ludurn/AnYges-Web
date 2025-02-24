@@ -169,3 +169,5 @@ SELECT nome_cupom, valor, (SELECT nome_associacao FROM tblAssociacao WHERE ID_as
 UPDATE tblUsuario SET nome_usuario = 'Roberto', sobrenome_usuario = 'da Luz', cpf = '23232', email_usuario = 'daniel@hotmail.com', dt_nascimento = '1990-12-18' WHERE email_usuario = 'daniel@hotmail.com';
 
 UPDATE tblUsuario SET nome_usuario = 'Cazé' WHERE email_usuario = 'daniel@hotmail.com';
+
+SELECT email_usuario FROM tblUsuario WHERE email_usuario = 'daniel@hotmail.com' AND senha_usuario = 'dandan';

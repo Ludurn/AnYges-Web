@@ -1,6 +1,73 @@
 let dadosAntigos = [];
+let validacao, funcaoPerfil;
 
-function verificarLogin(funcao) {
+function showPopUp() {
+    $("#senhaPopUp").val("");
+    if ($("#popUp").css('visibility') === 'hidden') {
+        $("#popUp").css(
+            {
+                "display": "flex"
+            });
+        setTimeout(() => {
+            $("#popUp").css(
+                {
+                    "visibility": "visible",
+                    "opacity": "1",
+                    "transition": "visibility 0s, opacity 0.3s linear"
+            });
+            }, 100);
+    } else if ($("#popUp").css('visibility') === 'visible') {
+        $("#popUp").css(
+            {
+                "opacity": "0",
+                "transition": "visibility 0s, opacity 0.3s linear"
+
+            });
+        setTimeout(() => {
+            $("#popUp").css(
+                {
+                    "visibility": "hidden",
+                    "display": "none"
+            });
+            }, 200);
+    }
+}
+
+function validacaoPopUp(funcao) {
+    if (funcao == "confirmar") {
+        let senhaUser = $("#senhaPopUp").val();
+
+        $.post(
+            "./src/PHP/verificarSenha.php",
+            {
+                senhaUser: senhaUser
+            }
+        )
+        .done(
+            function (retorno) {
+                retorno = JSON.parse(retorno);
+                if (retorno == "prosseguir") {
+                    validacao = true;
+                    aprovarAcao(funcaoPerfil);
+                } else {
+                    alert("Senha incorreta");
+                    validacao = false;
+                    aprovarAcao(funcaoPerfil);
+                }
+            }
+        )
+        .fail (
+            function (cod, textStatus, msg) {
+                alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
+            }
+        )
+    } else if (funcao == "cancelar") {
+        validacao = false;
+        aprovarAcao(funcaoPerfil);
+    }
+}
+
+function aprovarAcao(funcao) {
     $.post(
         "./src/PHP/session.php",
         {
@@ -12,12 +79,26 @@ function verificarLogin(funcao) {
             retorno = JSON.parse(retorno);
             let conexao = retorno;
             if (conexao['status'] == "conectado") {
-                if (conexao['funcao'] == "editar") {
-                    editarDados();
-                } else if (conexao['funcao'] == "excluir") {
-                    alert("excluir")
-                }
-            } else {
+                    if (conexao['funcao'] == "editar") {
+                        funcaoPerfil = "editar";
+                        showPopUp();
+                            if (validacao == true) {
+                                editarDados();
+                                validacao = false;
+                            } else {
+
+                            }
+                    } else if (conexao['funcao'] == "excluir") {
+                        funcaoPerfil = "excluir";
+                        showPopUp();
+                            if (validacao == true) {
+                                excluirPerfil();
+                                validacao = false;
+                            } else {
+
+                            }
+                    }
+                } else {
                 window.location.replace("./index.html");
             }
         }
@@ -28,6 +109,7 @@ function verificarLogin(funcao) {
         }
     );
 }
+
 
 // Mascarar JQuery
 
@@ -90,6 +172,25 @@ function editarDados() {
     $('#btnEditarPerfil').attr('onclick', 'confirmarDados();');
 }
 
+function desconectarPerfil() {
+    $.post(
+        "./src/PHP/logout.php",
+    )
+    .done(
+        function (retorno) {
+            retorno = JSON.parse(retorno);
+            if (retorno == "desconectado") {
+                window.location.replace("./index.html");
+            }
+        }
+    )
+    .fail (
+        function (cod, textStatus, msg) {
+            alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
+        }
+    )
+}
+
 function verificarVazio(variavel, nomeVariavel) {
     if (variavel == "") {
         let corrigido = dadosAntigos[nomeVariavel]+"";
@@ -115,8 +216,7 @@ function confirmarDados() {
     infoDt = verificarVazio(infoDt, "infoDt");
     infoTelefone = verificarVazio(infoTelefone, "infoTelefone");
 
-
-    if(confirm("Confirmar alterações?") == true) {
+    if(confirm("Confimar as alterações?") == true) {
         $.post(
             "./src/PHP/edicaoPerfil.php",
             {
@@ -145,20 +245,31 @@ function confirmarDados() {
             }
         );
     } else {
+        $('#infoNome').replaceWith("<span id='infoNome'  style='color: #9e9fa0;'>"+dadosAntigos['infoNome']+"</span>");
+        $('#infoSobrenome').replaceWith("<span id='infoSobrenome'  style='color: #9e9fa0;'>"+dadosAntigos['infoSobrenome']+"</span>");
+        $('#infoCPF').replaceWith("<span id='infoCPF'  style='color: #9e9fa0;'>"+dadosAntigos['infoCPF']+"</span>");
+        $('#infoEmail').replaceWith("<span id='infoEmail'  style='color: #9e9fa0;'>"+dadosAntigos['infoEmail']+"</span>");
+        $('#infoNasc').replaceWith("<span id='infoNasc'  style='color: #9e9fa0;'>"+dadosAntigos['infoDt']+"</span>");
+        $('#infoTel').replaceWith("<span id='infoTel'  style='color: #9e9fa0;'>"+dadosAntigos['infoTelefone']+"</span>");
 
+        $('#btnEditarPerfil').text("EDITAR");
+        $('#btnEditarPerfil').attr('onclick', 'editarDados();');
     }
 }
 
+function excluirPerfil() {
 
-
-function desconectarPerfil() {
+    if(confirm("Deseja excluir este perfil?") == true) {
         $.post(
-            "./src/PHP/logout.php",
+            "./src/PHP/edicaoPerfil.php",
+            {
+                funcao: "excluir"
+            }
         )
         .done(
             function (retorno) {
                 retorno = JSON.parse(retorno);
-                if (retorno == "desconectado") {
+                if (retorno == "sucesso") {
                     window.location.replace("./index.html");
                 }
             }
@@ -168,4 +279,6 @@ function desconectarPerfil() {
                 alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
             }
         )
+    }
 }
+

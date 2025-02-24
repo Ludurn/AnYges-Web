@@ -147,6 +147,61 @@ main {
     flex-wrap: wrap;
 }
 
+#popUp {
+    /*display: flex;*/
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 50%;
+    padding: 0% 3% 3%;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 0.2rem solid #611f1f;
+    border-radius: 0.5rem;
+    top: 20%;
+    left: 22%;
+}
+
+#imgPopUp {
+    width: 20%;
+}
+
+#navPopUp {
+    width: 100%;
+    margin-top: 6%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.btnPopUp {
+    color: black;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s, color 0.3s linear;
+}
+
+.btnPopUp:hover {
+    box-shadow: 0.75rem 0.75rem 0.75rem rgba(0,0,0,0.1),
+    -0.625rem -0.625rem 0.625rem #f9f9f9;
+}
+
+#confirmarPopUp:hover {
+    background-color: #75a32a;
+    color: white;
+}
+
+#cancelarPopUp:hover {
+    background-color: #611f1f;
+    color: white;
+}
+
 #perfilNav {
     width: 21%;
 }

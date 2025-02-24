@@ -54,10 +54,10 @@
                                 <fieldset class="forms-internos">
                                         <legend><strong>Informações pessoais</strong></legend>
                                         <label for="primeiroNome"><span class="requirement">*</span> Digite seu <strong>primeiro nome:</strong></label>
-                                        <input type="text" id="primeiroNome" class="camposForm" maxlength="255" placeholder="" autofocus autocomplete="on">
+                                        <input type="text" id="primeiroNome" class="camposForm" maxlength="50" placeholder="" autofocus autocomplete="on">
                                         <br><br>
                                         <label for="sobrenome"><span class="requirement">*</span> Digite seu <strong>sobrenome:</strong></label>
-                                        <input type="text" id="sobrenome" class="camposForm" maxlength="255" placeholder="" autofocus autocomplete="on">
+                                        <input type="text" id="sobrenome" class="camposForm" maxlength="50" placeholder="" autofocus autocomplete="on">
                                         <br><br>
                                         <label for="CPF"><span class="requirement">*</span> Digite seu <strong>CPF</strong>:</label>
                                         <input type="text" id="CPF" class="camposForm" maxlength="14" placeholder="123.456.789-10">
@@ -72,14 +72,14 @@
                                         <input type="text" name="telefone" id="telefone" onclick="analisarTellMask();" onblur="corrigirTellMask();" class="camposForm" maxlength="18" placeholder="Ex.: (00) 00000-0000">
                                         <br><br>
                                         <label for="email"><span class="requirement">*</span> Digite o <strong>email</strong> que deseja cadastrar:</label>
-                                        <input type="email" name="emailConfirm" id="email" class="camposForm" maxlength="255" placeholder="Ex.: joao.silva@gmail.com">
+                                        <input type="email" name="emailConfirm" id="email" class="camposForm" maxlength="100" placeholder="Ex.: joao.silva@gmail.com">
                                         <br><br>
                                         <label for="senha"><span class="requirement">*</span> Digite uma <strong>senha</strong> de acesso: </label>
-                                        <input type="password" name="senha" id="senha" class="camposForm" maxlength="255" placeholder="máx de  15 caracteres">
+                                        <input type="password" name="senha" id="senha" class="camposForm" maxlength="15" placeholder="máx de  15 caracteres">
                                         <input type="button" id="senha1" class="botao-visibilidade" onclick="mudarSenha()">
                                         <br><br>
                                         <label for="confirmSenha"><span class="requirement">*</span> <strong>Confirme</strong> a senha digitada: </label>
-                                        <input type="password" name="confirmSenha" id="confirmSenha" class="camposForm" maxlength="255" placeholder="máx de  15 caracteres">
+                                        <input type="password" name="confirmSenha" id="confirmSenha" class="camposForm" maxlength="15" placeholder="máx de  15 caracteres">
                                         <input type="button" id="senha2" class="botao-visibilidade" onclick="mudarSenha()">
                                 </fieldset>
                         </div>

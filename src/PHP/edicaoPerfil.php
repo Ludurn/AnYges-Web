@@ -37,10 +37,33 @@
             }
     }
 
+    function excluirPerfil() {
+        require("conectarBD.php");
+        $pdo=conectar();
+
+        try {
+            session_start();
+            $usuario = $_SESSION['usuario'];
+
+            $sql = "DELETE FROM tblUsuario WHERE email_usuario = :usuario;";
+            $ponteiro = $pdo->prepare($sql);
+            $ponteiro->bindValue(":usuario", $usuario);
+            $ponteiro->execute();
+            
+            $retorno = "sucesso";
+            die(json_encode($retorno, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+
+        } catch (Exception $error) {
+            $retorno = $error->getmessage();
+            die(json_encode($retorno));
+        }
+    }
+
     if ($funcao == "editar") {
         editarPerfil();
     } else if ($funcao == "excluir") {
-
+        excluirPerfil();
     }
+
 
 ?>
