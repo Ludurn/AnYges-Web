@@ -262,16 +262,63 @@ main {
     flex-wrap: wrap;
 }
 
-#fileira-1 {
+#filtroBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.filtros{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0.25rem;
+}
+
+.btnFiltros {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 30rem;
+}
+
+.imgFiltros {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 70%;
+}
+
+#btnFiltro1 {
+    background: #fd9b9b;
+    border: 0.1rem solid #fd8d8d;
+}
+
+#btnFiltro2 {
+    background: #ffdb99;
+    border: 0.1rem solid #fcd48a;
+}
+
+#btnFiltro3 {
+    background: #99b9ff;
+    border: 0.1rem solid #7ba4fd;
+}
+
+#fileira-1, #fileira-2, #fileira-3, #fileira-4, #fileira-5, #fileira-6 {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 3%;
 }
 
-#fileira-2 {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 3%;
+.fileiras {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
 }
 
 .produtos {

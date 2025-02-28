@@ -1,12 +1,15 @@
 function acessarPerfil() {
     $.post(
         "./src/PHP/session.php",
+        {
+            funcao: "acessarPerfil"
+        }
     )
     .done(
         function (retorno) {
             retorno = JSON.parse(retorno);
             let conexao = retorno;
-            if (conexao == "conectado") {
+            if (conexao['status'] == "conectado") {
                 window.location.replace("./perfil.html");
             } else {
                 window.location.replace("./index.html");
@@ -21,7 +24,7 @@ function acessarPerfil() {
 }
 
 function desconectarPerfil() {
-    if (confirm("Deseja desconectar ?") == true) {
+    if (confirm("Deseja desconectar-se?") == true) {
         $.post(
             "./src/PHP/logout.php",
         )
@@ -45,12 +48,17 @@ function desconectarPerfil() {
 function exibirPontos() {
     $.post(
         "./src/PHP/session.php",
+        {
+            funcao: "exibirPontos"
+        }
     )
     .done(
         function (retorno) {
             retorno = JSON.parse(retorno);
+
             let conexao = retorno;
-            if (conexao == "conectado") {
+
+            if (conexao['status'] == "conectado") {
                 $("nav > #btnLogin").remove();
                 $("nav > #btnCadastro").remove();
                 $("nav .menuDrop").after("<div id='pontosUser'>10000 ₯</div>");

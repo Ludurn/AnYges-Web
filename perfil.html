@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
+    <link rel="icon" type="image/x-icon" href="src/imgs/icons/logo-ico.ico">
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +13,10 @@
     <link rel="stylesheet" href="./src/style/estiloPerfil.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
+    <script type="text/javascript" src="./src/JS/edicaoPerfil.js"></script>
 </head>
 <body onclick="menuFadeOut()" onload="tabDadosStyle(); tabDadosLoader();">
     <header>
@@ -47,6 +50,22 @@
         </nav>     
     </header>
     <main>
+        <div id="popUp">
+            <h2>Insira sua senha</h2>
+            <div id="imgPopUp">
+                <img src="src/imgs/popups/tree.gif" style="width: 100%;"/>
+            </div>
+            <p>Para prosseguir dessa etapa é necessário validar o usuário:</p>
+            <input id="senhaPopUp" type="password" size="20" maxlength="15" placeholder="Senha"/>
+            <div id="navPopUp">
+                <div id="confirmarPopUp" class="btnPopUp" onclick="validacaoPopUp('confirmar');">
+                    CONFIRMAR
+                </div>
+                <div id="cancelarPopUp" class="btnPopUp" onclick="validacaoPopUp('cancelar');">
+                    CANCELAR
+                </div>
+            </div>
+        </div>
         <aside id="perfilNav">
             <div id="usuarioTitle">
                 <div id="usuarioImg"><img id="pfpImg" src="./src/imgs/none.png" alt="Foto do perfil" style="width: 100%;"/></div>
@@ -67,32 +86,40 @@
                 <div class="perfilInfo">
                     Nome
                     <br/>
-                    <span id="infoNome" style="color: #9e9fa0;"></span>
+                    <span id="infoNome" style="color: #9e9fa0;">SEM DADOS</span>
                 </div>
                 <div class="perfilInfo">
                     Sobrenome
                     <br/>
-                    <span id="infoSobrenome"  style="color: #9e9fa0;"></span>
+                    <span id="infoSobrenome"  style="color: #9e9fa0;">SEM DADOS</span>
                 </div>
                 <div class="perfilInfo">
                     CPF
                     <br/>
-                    <span id="infoCPF"  style="color: #9e9fa0;"></span>
+                    <span id="infoCPF"  style="color: #9e9fa0;">SEM DADOS</span>
                 </div>
                 <div class="perfilInfo">
                     E-mail
                     <br/>
-                    <span id="infoEmail" style="color: #9e9fa0;"></span>
+                    <span id="infoEmail" style="color: #9e9fa0;">SEM DADOS</span>
                 </div>
                 <div class="perfilInfo">
                     Data de nascimento
                     <br/>
-                    <span id="infoNasc"  style="color: #9e9fa0;"></span>
+                    <span id="infoNasc"  style="color: #9e9fa0;">SEM DADOS</span>
                 </div>
                 <div class="perfilInfo">
                     Telefone
                     <br/>
-                    <span id="infoTel"  style="color: #9e9fa0;"></span>
+                    <span id="infoTel"  style="color: #9e9fa0;">SEM DADOS</span>
+                </div>
+                <div id="campoEdicaoPerfil">
+                    <div id="btnEditarPerfil" class="btnsEdicaoPerfil" onclick="aprovarAcao('editar');">
+                        EDITAR
+                    </div>
+                    <div id="btnExcluirPerfil" class="btnsEdicaoPerfil" onclick="aprovarAcao('excluir');">
+                        EXCLUIR
+                    </div>
                 </div>
             </div>
             <div id="perfilCupomAtivoBox">
