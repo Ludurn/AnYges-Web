@@ -22,6 +22,36 @@ function gerarId() {
 }
 
 function gerarIdFiltro(filtro) {
+
+    if (filtro == "medicamento") {
+        $('#filtro-1').replaceWith("<div id='filtro-0' class='filtros'>"
+                +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
+                +"<div class='imgFiltros'>"
+                +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+                +"</div>"
+                +"</div>"
+                +"<p>Sem filtro</p>"
+                +"</div>");
+    } else if (filtro == "consulta") {
+        $('#filtro-2').replaceWith("<div id='filtro-0' class='filtros'>"
+            +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
+            +"<div class='imgFiltros'>"
+            +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+            +"</div>"
+            +"</div>"
+            +"<p>Sem filtro</p>"
+            +"</div>");
+    } else if (filtro == "beleza") {
+        $('#filtro-3').replaceWith("<div id='filtro-0' class='filtros'>"
+            +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
+            +"<div class='imgFiltros'>"
+            +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+            +"</div>"
+            +"</div>"
+            +"<p>Sem filtro</p>"
+            +"</div>");
+    }
+    
     $.post(
         "./src/PHP/idRandomFiltro.php",
         {
@@ -198,4 +228,33 @@ function limparCatalogo() {
         });
         itens=1;
         itensFiltro=1;
+}
+
+function voltarFiltros() {
+    $('#filtroBox').html(
+                   "<div id='filtro-1' class='filtros'>"
+                +"<div id='btnFiltro1' class='btnFiltros' onclick='limparCatalogo(); gerarIdFiltro('medicamento');'>"
+                    +"<div class='imgFiltros'>"
+                        +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+                    +"</div>"
+                +"</div>"
+                +"<p>Medicamentos</p>"
+            +"</div>"
+            +"<div id='filtro-2' class='filtros'>"
+                +"<div id='btnFiltro2' class='btnFiltros' onclick='limparCatalogo(); gerarIdFiltro('consulta');'>"
+                    +"<div class='imgFiltros'>"
+                        +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+                    +"</div>"
+                +"</div>"
+                +"<p>Consultas</p>"
+            +"</div>"
+            +"<div id='filtro-3' class='filtros'>"
+                +"<div id='btnFiltro3' class='btnFiltros' onclick='limparCatalogo(); gerarIdFiltro('beleza');'>"
+                    +"<div class='imgFiltros'>"
+                        +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+                    +"</div>"
+                +"</div>"
+                +"<p>Beleza e Higiene</p>"
+            +"</div>"
+    );
 }

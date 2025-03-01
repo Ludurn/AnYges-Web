@@ -294,6 +294,11 @@ main {
     width: 70%;
 }
 
+#btnFiltro0 {
+    background: #7e7e7e;
+    border: 0.1rem solid #6d6c6c;
+}
+
 #btnFiltro1 {
     background: #fd9b9b;
     border: 0.1rem solid #fd8d8d;
