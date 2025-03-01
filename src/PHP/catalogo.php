@@ -12,7 +12,7 @@
         $idCupomClone = $idCupom;
 
 
-        $sql = "SELECT nome_cupom, valor, (SELECT nome_associacao FROM tblAssociacao WHERE ID_associacao IN (SELECT ID_associacao FROM tblCupom WHERE ID_cupom=:id)) as 'nome_associacao',tipo, imagem, descricao_cupom FROM tblCupom WHERE ID_cupom =:idClone;";
+        $sql = "SELECT nome_cupom, valor, (SELECT nome_assoc FROM tblAssociacao WHERE ID_associacao IN (SELECT ID_associacao FROM tblCupom WHERE ID_cupom=:id)) as 'nome_associacao',tipo, imagem, descricao_cupom FROM tblCupom WHERE ID_cupom =:idClone;";
         $ponteiro = $pdo->prepare($sql);
         $ponteiro->bindValue(":id", $idCupom);
         $ponteiro->bindValue(":idClone", $idCupomClone);
