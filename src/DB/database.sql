@@ -143,7 +143,7 @@ CREATE TABLE tblResgate (
 	ID_cupom numeric(6) FOREIGN KEY REFERENCES tblCupom(ID_cupom) not null,
 	ID_pedido numeric(6) FOREIGN KEY REFERENCES tblPedido(ID_pedido) not null,
 	qtde_resgate int not null,
-	codigo_resgate numeric(8) not null
+	codigo_resgate varchar(8) not null
 );
 CREATE INDEX xResgate ON tblResgate(ID_resgate);
 go
@@ -161,15 +161,14 @@ go
 
 -- COMANDOS --
 
+INSERT INTO tblLocalDeposito VALUES ('Deposito Vila Guilherme', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'depv1la', 'gu1', 'deposito@gmail.com', 'S');
+
 INSERT INTO tblAssociacao VALUES ('Promofarma', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'pr0m0', 'f4rm4', 'promofarma@gmail.com', 's');
 INSERT INTO tblAssociacao VALUES ('Unimed', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'un1', 'm3d', 'unimed@hotmail.com', 's');
 INSERT INTO tblAssociacao VALUES ('Hospital das Clínicas', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'h0sp1tal', 'cl1n1c4', 'hc@outlook.com', 's');
 INSERT INTO tblAssociacao VALUES ('Amil', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'am1l', 'am1l', 'amil@outlook.com', 's');
 INSERT INTO tblAssociacao VALUES ('Sírio Libanês', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 's1r1o', 'l1b4n3s', 'siriolib@hotmail.com', 's');
 go
-
-
-SELECT ID_associacao, nome_assoc, codigo_assoc, senha_assoc, email_assoc, aprovada_assoc FROM tblAssociacao;
 
 INSERT INTO tblCupom VALUES (1, 'Rivotril', 'S', 12000, 'medicamento', './src/imgs/cupons/rivotril.png', 'Suspensão Oral', 25, 'S');
 INSERT INTO tblCupom VALUES (2, 'Pediatra', 'S', 25000, 'consulta', './src/imgs/cupons/unimed.png', 'Terça-feira e Quinta-feira', 25, 'S');
@@ -184,18 +183,31 @@ go
 INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990');
 go
 
-SELECT * FROM tblCupom;
-SELECT * FROM tblUsuario;
+INSERT INTO tblDoacao VALUES (1, 1, '17-12-2024', 100000, 450, '');
+INSERT INTO tblDoacao VALUES (1, 1, '23-12-2024', 50000, 225, '');
 go
 
-SELECT MAX(ID_cupom) as 'idMax' FROM tblCupom;
+INSERT INTO tblPedido VALUES (1, '01-03-2025');
 
-SELECT ID_cupom as 'idMedicamento' FROM tblCupom WHERE tipo = 'medicamento';
+SELECT * FROM tblPedido;
 
-SELECT nome_cupom, valor, (SELECT nome_assoc FROM tblAssociacao WHERE ID_associacao IN (SELECT ID_associacao FROM tblCupom WHERE ID_cupom=5)) as 'nome_associacao',tipo, imagem, descricao_cupom FROM tblCupom WHERE ID_cupom = 5;
+INSERT INTO tblResgate VALUES (2, 1, 1, '653hjs67');
+INSERT INTO tblResgate VALUES (3, 1, 2, '653hjs67');
 
-UPDATE tblUsuario SET nome_usuario = 'Roberto', sobrenome_usuario = 'da Luz', cpf = '23232', email_usuario = 'daniel@hotmail.com', dt_nascimento = '1990-12-18' WHERE email_usuario = 'daniel@hotmail.com';
+SELECT * FROM tblResgate;
 
-UPDATE tblUsuario SET nome_usuario = 'Cazé' WHERE email_usuario = 'daniel@hotmail.com';
+SELECT SUM(pontuacao) as 'pontuacao doacao' FROM tblDoacao WHERE ID_usuario IN (SELECT ID_usuario FROM tblUsuario WHERE ID_usuario = 1); -- primeira etapa
+
+SELECT valor FROM tblCupom WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1)); -- segunda etapa
+SELECT qtde_resgate FROM tblResgate WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1)); -- terceira etapa
+
+SELECT * FROM tblDoacao;
+SELECT * FROM tblCupom;
+SELECT * FROM tblUsuario;
+SELECT ID_associacao, nome_assoc, codigo_assoc, senha_assoc, email_assoc, aprovada_assoc FROM tblAssociacao;
+SELECT ID_local_deposito, nome_depo, codigo_depo, senha_depo, email_depo, aprovado_depo FROM tblLocalDeposito;
+go
+
+
 
 SELECT email_usuario FROM tblUsuario WHERE email_usuario = 'daniel@hotmail.com' AND senha_usuario = 'dandan';
