@@ -17,6 +17,7 @@
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
     <script type="text/javascript" src="./src/JS/edicaoPerfil.js"></script>
+    <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
 </head>
 <body onclick="menuFadeOut()" onload="exibirPontos(); tabDadosStyle(); tabDadosLoader();">
     <header>
@@ -27,7 +28,7 @@
             <h1 id="logoTitle">ANYGES</h1>
         </div>
         <div id="search-box">
-            <input type="text" placeholder="O que você está buscando?" id="inputSearch">
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch"  onkeydown="redirecionarPesquisa();">
         </div>
         <nav>
             <div class="menuDrop">

@@ -16,9 +16,10 @@
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
     <script type="text/javascript" src="./src/JS/catalogo.js"></script>
+    <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
     <!-- <script type="text/javascript" src="./src/JS/carrinho.js"></script> -->
 </head>
-<body onclick="menuFadeOut();" onload="exibirPontos(); carregarCatalogo(1);">
+<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisa(); exibirPontos(); carregarCatalogo(1);">
     <div id="cartContainer">
         <!-- Aqui no carrinho, serão inseridos através de JavaScript versões em miniatura dos cards de produtos -->
         <!-- <input type="button" id="" value="Check Out"> -->
@@ -31,7 +32,7 @@
             <h1>ANYGES</h1>
         </div>
         <div id="search-box">
-            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass">
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass" onkeydown="pesquisar();">
             <button id="lupa" class="lupaClass"></button>
         </div>
         <nav>
@@ -85,7 +86,6 @@
                 <p>Beleza e Higiene</p>
             </div>
         </div>
-
         <div id="fileira-1" class="fileiras">
 
         </div>

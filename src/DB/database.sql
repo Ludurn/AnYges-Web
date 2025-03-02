@@ -181,10 +181,12 @@ INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza
 go
 
 INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990');
+INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '829577259090', '(13) 26121-9333', 'lulu@gmail.com', '111', '28-01-2000');
 go
 
 INSERT INTO tblDoacao VALUES (1, 1, '17-12-2024', 100000, 450, '');
 INSERT INTO tblDoacao VALUES (1, 1, '23-12-2024', 50000, 225, '');
+INSERT INTO tblDoacao VALUES (2, 1, '23-12-2024', 1000, 10, '');
 go
 
 INSERT INTO tblPedido VALUES (1, '01-03-2025');
@@ -211,3 +213,5 @@ go
 
 
 SELECT email_usuario FROM tblUsuario WHERE email_usuario = 'daniel@hotmail.com' AND senha_usuario = 'dandan';
+
+SELECT ID_cupom FROM tblCupom WHERE nome_cupom LIKE '%unimed%' OR descricao_cupom LIKE '%unimed%' OR ID_associacao IN (SELECT ID_associacao FROM tblAssociacao WHERE nome_assoc LIKE '%unimed%');

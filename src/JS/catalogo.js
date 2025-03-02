@@ -3,6 +3,7 @@ let itensFiltro=1;
 let fileira=1;
 let id, indice=0;
 let idFiltro = [];
+let cancelarCatalogo = false;
 
 function gerarId() {
     $.post(
@@ -84,6 +85,10 @@ function exibirCatalogo() {
 }
 
 function carregarCatalogo(fileira) {
+
+    if (cancelarCatalogo) {
+        return;
+    }
 
     gerarId();
 
@@ -228,6 +233,7 @@ function limparCatalogo() {
         });
         itens=1;
         itensFiltro=1;
+        cancelarCatalogo = false;
 }
 
 function voltarFiltros() {
