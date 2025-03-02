@@ -233,7 +233,7 @@ function limparCatalogo() {
 function voltarFiltros() {
     $('#filtroBox').html(
                    "<div id='filtro-1' class='filtros'>"
-                +"<div id='btnFiltro1' class='btnFiltros' onclick='limparCatalogo(); gerarIdFiltro('medicamento');'>"
+                +"<div id='btnFiltro1' class='btnFiltros' onclick=''>"
                     +"<div class='imgFiltros'>"
                         +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
                     +"</div>"
@@ -241,7 +241,7 @@ function voltarFiltros() {
                 +"<p>Medicamentos</p>"
             +"</div>"
             +"<div id='filtro-2' class='filtros'>"
-                +"<div id='btnFiltro2' class='btnFiltros' onclick='limparCatalogo(); gerarIdFiltro('consulta');'>"
+                +"<div id='btnFiltro2' class='btnFiltros' onclick=''>"
                     +"<div class='imgFiltros'>"
                         +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
                     +"</div>"
@@ -249,7 +249,7 @@ function voltarFiltros() {
                 +"<p>Consultas</p>"
             +"</div>"
             +"<div id='filtro-3' class='filtros'>"
-                +"<div id='btnFiltro3' class='btnFiltros' onclick='limparCatalogo(); gerarIdFiltro('beleza');'>"
+                +"<div id='btnFiltro3' class='btnFiltros' onclick=''>"
                     +"<div class='imgFiltros'>"
                         +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
                     +"</div>"
@@ -257,4 +257,8 @@ function voltarFiltros() {
                 +"<p>Beleza e Higiene</p>"
             +"</div>"
     );
+
+    $("#btnFiltro1").attr('onclick', "limparCatalogo(); gerarIdFiltro('medicamento');");
+    $("#btnFiltro2").attr('onclick', "limparCatalogo(); gerarIdFiltro('consulta');");
+    $("#btnFiltro3").attr('onclick', "limparCatalogo(); gerarIdFiltro('beleza');");
 }
