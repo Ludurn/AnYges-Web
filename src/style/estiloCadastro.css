@@ -32,11 +32,15 @@ header {
     width: 25%;
 }
 
-h1 {
+#anygesTitle {
     color: white;
     text-align: center;
-    -webkit-text-stroke: 2.5px black;
+    -webkit-text-stroke: 0.15rem black;
     paint-order: stroke fill;
+}
+
+#cadastroHintMobile {
+    display: none;
 }
 
 main {
@@ -47,16 +51,11 @@ main {
     box-shadow: -0.125rem 0.3125rem 0.5rem rgb(149, 149, 149);
 }
 
-picture {
-    margin: 0;
-    padding: 0;
-}
-
 .imagem-planta {
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
-    translate: 0px 8px;
+    translate: 0rem 0.5rem;
 }
 
 .vazio {
@@ -67,7 +66,7 @@ picture {
 .forms-principal {
     margin: 0% 0% 2% 0%;
     border-style: none;
-    padding-bottom: 15px;
+    padding-bottom: 0%;
 }
 
 .titulo-forms-internos {
@@ -75,16 +74,20 @@ picture {
     color: white;
     background-color: #611f1f;
     text-align: center;
-    padding: 2px 0px;
-    margin-bottom: 10px;
-    border-radius: 10px 10px 0px 0px;
+    padding: 0.125rem 0rem;
+    margin-bottom: 0.625rem;
+    border-radius: 0.625rem 0.625rem 0rem 0rem;
 }
 
 .forms-internos {
-    padding: 20px 10px;
-    border-radius: 10px;
-    border: 3px solid lightgray;
-    margin: 0px 15px;
+    padding: 1.25rem 0.625rem;
+    border-radius: 0.625rem;
+    border: 0.187rem solid lightgray;
+    margin: 0rem 0.937rem;
+}
+
+#campo-cadastro {
+    margin-top: 2rem;
 }
 
 .requirement {
@@ -99,18 +102,24 @@ picture {
 
 .camposForm:hover {
     border-style: double;
-    border-width: 3px;
+    border-width: 0.187rem;
     border-color: gray;   
 }
 
 .camposForm:focus {
-    outline: 0px;
+    outline: 0rem;
     border-style: dotted;
     border-color: cornflowerblue;
 }
 
+#termosCondicoes {
+    margin: auto;
+    padding: 1rem;
+    text-align: justify;
+}
+
 #res {
-    border-width: 0px;
+    border-width: 0rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,6 +132,7 @@ picture {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
+    margin-bottom: 5%;
 }
 
 
@@ -141,8 +151,8 @@ picture {
     font-weight: bold;
     border-style: none;
     color: white;
-    padding: 5px;
-    border-radius: 7px;
+    padding: 0.31rem;
+    border-radius: 0.437rem;
     width: 15%;
     margin: 0% 2%;
 }
@@ -160,12 +170,12 @@ picture {
 }
 #botaoEnvio:active {
     box-shadow: none;
-    translate: -2px 2px;
+    translate: -0.125rem 0.125rem;
 }
 
 #botaoApagar:active {
     box-shadow: none;
-    translate: -2px 2px;
+    translate: -0.125rem 0.125rem;
 }
 
 #btnConfirma {
@@ -174,8 +184,8 @@ picture {
     font-weight: bold;
     border-style: none;
     color: white;
-    padding: 5px;
-    border-radius: 7px;
+    padding: 0.31rem;
+    border-radius: 0.437rem;
     width: 15%;
     margin: 0% 2%;
 }
@@ -187,97 +197,187 @@ picture {
     background-repeat: no-repeat;
 }
 
-.final {
-    background-color: #2be62b;
-    color: white;
-    font-weight: bold;
-    width: fit-content;
-    margin-top: 10px;
-    text-align: center;
-    padding: 3px;
-    border-radius: 4px;
-}
 
 /* RESPONSIVIDADE-------------------------------------------------------------------------------------------------------------- */
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 500px) {
+
+    body {
+        background-color: white;
+        background-image: none;
+    }
+
+    header {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        padding: 3% 2%;
+    }
+    
+    header > * {
+        margin: 2% 1%;
+    }
+
+    #logo-box {
+        width: 50%
+    }
+
+    #cadastroHint {
+        display: none;
+    }
+
+    #cadastroHintMobile {
+        display: flex;
+        width: 87%;
+        margin: auto;
+        margin-top: 5%;
+        text-align: justify;
+    }
+
+    .imagem-planta {
+        display: none;
+    }
+    
+    main {
+        width: 100%;
+        margin: auto;
+        margin-top: 5%;
+        box-shadow: none;
+    }
+
+    .forms-principal {
+        background-color: white;
+    }
+
+    #formularios {
+        background-color: white;
+    }
+
+    .titulo-forms-internos {
+        display: none;
+    }
+
+    legend {
+        display: none;
+    }
+
+    .forms-internos {
+        border: none;
+    }
+
+    #campo-cadastro {
+        margin-top: 0rem;
+    }
+
+    input {
+        width: 100%;
+        min-height: 2.18rem;
+        font-size: 1.05rem;
+        padding-left: 0.437rem;
+    }
+
+    .camposForm {
+        border-radius: 0.43rem;
+    }
+
+    input#senha, input#confirmSenha {
+        width: 85%;
+    }
+
+    .botao-visibilidade {
+        background-color: white;
+        width: 8%;
+    }
+
+    #termosCondicoes {
+        background-color: white;
+    }
+
+    .container-botoes {
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .botoes {
+        width: 45%;
+        font-size: medium;
+    }
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+    header {
+        flex-direction: row;
+        align-items: center;
+        text-align: right;
+        justify-content: space-around;
+    }
+
+    #logo-box {
+        width: 30%;
+    }
+
+    .imagem-planta {
+        display: none;
+    }
+
+    main {
+        width: 80%;
+        margin: auto;
+        margin-top: 10%;
+    }
+
+    #cadastroHint {
+        display: none;
+    }
+
+    input {
+        width: 80%;
+        min-height: 1.5rem;
+        font-size: 0.9rem;
+        padding-left: 0.437rem;
+    }
+
+    .container-botoes {
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .botoes {
+        width: 45%;
+        font-size: medium;
+    }
+
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+
+    #logo-box {
+        width: 20%;
+    }
+
+    .imagem-planta {
+        display: none;
+    }
+
     header {
         gap: 3%;
     }
     
     main {
         width: 50%;
-        margin: 0px 118px 0px 389px;
+        margin: 0rem 7.37rem 0rem 24.3rem;
+        margin-top: 10%;
     }
 
-    .imagem-planta {
-        translate: 0px 35px;
-    }
-}
-
-@media screen and (min-width: 801px) and (max-width: 999px) {    
-    .imagem-planta {
-        translate: 0px 105px;
-    }
-}
-@media screen and (max-width: 800px) {    
-    main {
-        width: 60%;
-        margin: 0px 118px 0px 189px;
-    }
-    .container-botoes {
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .botoes {
-        width: 150px;
-    }
-
-    .imagem-planta {
-        translate: 0px 105px;
-    }
 
 }
-
-@media screen and (max-width: 570px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0% 2%;
-    }
-    
-    header > * {
-        margin: 2% 0%;
-    }
-    
-    main {
-        width: 80%;
-        margin: 0px 118px 0px 59px;
-    }
-
-    .imagem-planta {
-        translate: 0px 128px;
-    }
-
-    .container-botoes {
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .botoes {
-        width: 150px;
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+    .login-container {
+        max-width: 35%;
     }
 }
-
-@media screen and (max-width: 515px) {
-    .container-botoes {
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .botoes {
-        width: 150px;
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+    .login-container {
+        max-width: 25%;
     }
 }
