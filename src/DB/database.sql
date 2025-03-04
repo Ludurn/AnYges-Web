@@ -215,3 +215,6 @@ go
 SELECT email_usuario FROM tblUsuario WHERE email_usuario = 'daniel@hotmail.com' AND senha_usuario = 'dandan';
 
 SELECT ID_cupom FROM tblCupom WHERE nome_cupom LIKE '%unimed%' OR descricao_cupom LIKE '%unimed%' OR ID_associacao IN (SELECT ID_associacao FROM tblAssociacao WHERE nome_assoc LIKE '%unimed%');
+
+SELECT * FROM tblFeedback
+
