@@ -1,10 +1,10 @@
 <?php
     function conectar() {
         try {
-            $localServer = "RAFAMMGAMER";
+            $localServer = "DESKTOP-GARBFV9";
             $dbName = "anyges";
             $userName = "sa";
-            $userPsswrd = "12345";
+            $userPsswrd = "etesp";
             $pdo = new PDO("sqlsrv:server=$localServer; database=$dbName;", $userName, $userPsswrd);
             return $pdo;
             die;

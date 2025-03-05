@@ -38,22 +38,62 @@ function exibirPesquisa(fileira) {
                     itens++;
     
                     // Estrutura para pular para prox fileiras
-                    if (itens <= 4) {
-                        exibirPesquisa(1);
-                        setTimeout(() => {
+
+                    if (larguraTela >= 1920) {
+                        if (itens <= 6) {
+                            exibirPesquisa(1);
+                            setTimeout(() => {
+                                exibirCatalogo();
+                            }, 100)
+                        } else if (itens <= 12) {
+                            exibirPesquisa(2);
+                        } else if (itens <= 18) {
+                            exibirPesquisa(3);
                             exibirCatalogo();
-                        }, 100)
-                    } else if (itens <= 8) {
-                        exibirPesquisa(2);
-                    } else if (itens <= 12) {
-                        exibirPesquisa(3);
-                    } else if (itens <= 16) {
-                        exibirPesquisa(4);
-                    } else if (itens <= 20) {
-                        exibirPesquisa(5);
-                    } else if (itens <= 24) {
-                        exibirPesquisa(6);
-                    }                   
+                        } else if (itens <= 24) {
+                            exibirPesquisa(4);
+                        } else if (itens <= 30) {
+                            exibirPesquisa(5);
+                        } else if (itens <= 36) {
+                            exibirPesquisa(6);
+                        }
+                    } else if (larguraTela >= 1440) {
+                        if (itens <= 5) {
+                            exibirPesquisa(1);
+                            setTimeout(() => {
+                                exibirCatalogo();
+                            }, 100)
+                        } else if (itens <= 10) {
+                            exibirPesquisa(2);
+                        } else if (itens <= 15) {
+                            exibirPesquisa(3);
+                            exibirCatalogo();
+                        } else if (itens <= 20) {
+                            exibirPesquisa(4);
+                        } else if (itens <= 25) {
+                            exibirPesquisa(5);
+                        } else if (itens <= 30) {
+                            exibirPesquisa(6);
+                        }
+                    } else {
+                        if (itens <= 4) {
+                            exibirPesquisa(1);
+                            setTimeout(() => {
+                                exibirCatalogo();
+                            }, 100)
+                        } else if (itens <= 8) {
+                            exibirPesquisa(2);
+                        } else if (itens <= 12) {
+                            exibirPesquisa(3);
+                            exibirCatalogo();
+                        } else if (itens <= 16) {
+                            exibirPesquisa(4);
+                        } else if (itens <= 20) {
+                            exibirPesquisa(5);
+                        } else if (itens <= 24) {
+                            exibirPesquisa(6);
+                        }
+                    }
                 }
             }
         )
@@ -73,7 +113,7 @@ function resetarPesquisa() {
     $("#fileira-1").append(
                 "<div id='filtro-0' class='filtros' style='width: 100%;'>"
                 +"<h2>Cupom não encontrado</h2>"
-                +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();' style='width: 10%;'>"
+                +"<div id='btnRecarregar' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
                 +"<div class='imgFiltros'>"
                 +"<img src='./src/imgs/icons/load.png' alt='recarregar' style='width: 100%;'/>"
                 +"</div>"
@@ -89,6 +129,39 @@ function resetarPesquisa() {
 function pesquisar(ativar) {
     if (ativar == "sim" || event.key === 'Enter') {
         let pesquisa = $('#inputSearch').val();
+        if (pesquisa == "") {
+            resetarPesquisa();
+        } else {
+            $.post(
+                "./src/PHP/idPesquisa.php",
+                {
+                    pesquisa: pesquisa
+                }
+            )
+            .done(
+                function (retorno) {
+                    retorno = JSON.parse(retorno);
+                    idPesquisa = retorno;
+                    if (idPesquisa.length>0) {
+                        limparCatalogo();
+                        exibirPesquisa(1);
+                    } else {
+                        resetarPesquisa();
+                    }
+                }
+            )
+            .fail (
+                function (cod, textStatus, msg) {
+                    alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
+                }
+            );
+        }
+    }
+}
+
+function pesquisarMobile(ativar) {
+    if (ativar == "sim" || event.key === 'Enter') {
+        let pesquisa = $('#inputSearchMobile').val();
         if (pesquisa == "") {
             resetarPesquisa();
         } else {

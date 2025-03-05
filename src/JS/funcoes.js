@@ -354,7 +354,7 @@ function ativarModoDark() {
     let produtos = document.getElementsByClassName("produtos");
     if (aux == true) {
         botaoDark.innerHTML = "&#x2600;";
-        logo.setAttribute("src", "./src/imgs/logo-login-dark.png");
+        logo.setAttribute("src", "./src/imgs/logoTitleBw.png");
     
         header[0].style.color = "white";
     
@@ -372,7 +372,7 @@ function ativarModoDark() {
     } else {
         botaoDark.innerHTML = "&#x1F319;";
         
-        logo.setAttribute("src", "./src/imgs/logo-default.png");
+        logo.setAttribute("src", "./src/imgs/logoTitle.png");
     
         header[0].style.color = "#8A3C29";
     

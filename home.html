@@ -26,14 +26,11 @@
     </div>
     <header>
         <div id="logo-box">
-            <div  id="logo-obj">
-                <img src="./src/imgs/logo-default.png" alt="logo" style="width: 100%;" id="logo-login">
-            </div>
-            <h1>ANYGES</h1>
+                <a href="home.html"><img src="./src/imgs/logoTitle.png" alt="logo" style="width: 100%;" id="logo-login"></a>
         </div>
         <div id="search-box">
             <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass" onkeydown="pesquisar();">
-            <button id="lupa" class="lupaClass"></button>
+            <button id="lupa" class="lupaClass"  onclick="pesquisar('sim');"></button>
         </div>
         <nav>
             <div class="menuDrop">
@@ -41,19 +38,25 @@
                 <div id="menuDropBG">
                     <a onclick="acessarPerfil()" style="cursor: pointer;">
                         <ion-icon name="person"></ion-icon> Perfil</a>
-                        <a href="#">
-                            <ion-icon name="hand"></ion-icon> Acessibilidade</a>
-                            <a href="./central.html">
-                                <ion-icon name="help-circle-outline"></ion-icon> Central de Atendimento</a>
-                                    </div>
-                                </div>
-                                <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
-                                <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
-                                <!-- A chamada "ativarCarinho()" vem do arquivo "carrinho.js" -->
-                                <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho()">Carrinho <ion-icon name="cart"></ion-icon></button>
-                                <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark()">&#x1F319;</button>
-                            </nav>     
-                        </header>
+                    <a id="carrinhoMobile" onclick="ativarCarrinho()">
+                        <ion-icon name="cart"></ion-icon> Carrinho</a>
+                    <a href="#">
+                        <ion-icon name="hand"></ion-icon> Acessibilidade</a>
+                    <a href="./central.html">
+                        <ion-icon name="help-circle-outline"></ion-icon> Central de Atendimento</a>
+                </div>
+            </div>
+            <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
+            <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
+            <!-- A chamada "ativarCarinho()" vem do arquivo "carrinho.js" -->
+            <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho()">Carrinho <ion-icon name="cart"></ion-icon></button>
+            <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark()">&#x1F319;</button>
+        </nav>     
+    </header>
+    <div id="search-box-mobile">
+        <input type="text" placeholder="O que você está buscando?" id="inputSearchMobile" class="inputSearchClass" onkeydown="pesquisarMobile();">
+        <button id="lupa" class="lupaClass" onclick="pesquisarMobile('sim');"></button>
+    </div>
     <main id="catalogo">
 
         <div id="filtroBox">

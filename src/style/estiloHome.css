@@ -25,13 +25,9 @@ header {
 
 #logo-box{
     display: flex;
-    width: 15%;
+    width: 10%;
     height: 10vh;
     align-items: center;
-}
-
-#logo-obj{
-    width: 25%;
 }
 
 nav {
@@ -63,7 +59,6 @@ a {
     color: #727273;
     background-color: #f0f0f0;
     border: 0.0625rem solid #ccc;
-    border-radius: 0.25rem;
 }
 
 #inputSearch::placeholder { 
@@ -92,6 +87,7 @@ a {
     background-position: center;
     border: 0rem solid white;
     border-radius: 0rem 0.25rem 0.25rem 0rem;
+    cursor: pointer;
 }
 
 .menuDrop {
@@ -178,6 +174,11 @@ a {
     border-radius: 0.5rem;
 }
 
+a#carrinhoMobile {
+    display: none;
+    cursor: pointer;
+}
+
 .carrinho {
     background-color: #75a32a;
     color: white;
@@ -196,7 +197,7 @@ a {
     align-items: center;
     justify-content: space-around;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     width: 140%;
     transform: scale(0.7, 0.7);
 }
@@ -251,6 +252,10 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+#search-box-mobile {
+    display: none;
 }
 
 main {
@@ -327,6 +332,12 @@ main {
     transition: visibility 0s, opacity 0.2s linear;
 }
 
+#btnRecarregar {
+    background: #7e7e7e;
+    border: 0.1rem solid #6d6c6c;
+    width: 10%;
+}
+
 .produtos {
     background-color: #f2f2f2;
     width: 14.6%;
@@ -375,6 +386,313 @@ main {
     background-image: linear-gradient(#b54f36, #8a3b28);
 }
 
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 500px) {
+
+    header {
+        width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: normal;
+        align-items: normal;
+        position: sticky;
+    }
+
+    #logo-box{
+        display: flex;
+        width: 40%;
+        height: 7vh;
+        align-items: center;
+        margin-right: 5%;
+    }
+
+    #search-box {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        align-items: center;
+    }
+
+    .registrar {
+        display: none;
+    }
+
+    a#carrinhoMobile {
+        display: flex;
+    }
+
+    #btnCarrinho {
+        display: none;
+    }
+
+    #search-box-mobile {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-top: 7%;
+    }
+
+    #inputSearchMobile {
+        width: 100%;
+        min-height: 2.5rem;
+        font-size: 1rem;
+        padding-left: 0.437rem;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+    }
+
+    main {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #filtroBox {
+        margin-top: 7%;
+    }
+
+    .filtros{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 0.25rem;
+    }
+
+    .fileiras {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.2s linear;
+    }
+
+    .produtos {
+        background-color: #f2f2f2;
+        width: 35%;
+        padding: 3%;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .molduraProdutos {
+        width: 150%;
+    }
+
+    #btnRecarregar {
+        width: 25%;
+    }
+
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+    header {
+        width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: normal;
+        position: sticky;
+    }
+
+    #logo-box{
+        display: flex;
+        width: 100%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 5%;
+    }
+
+    #search-box {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        align-items: center;
+    }
+
+    a#carrinhoMobile {
+        display: flex;
+    }
+
+    #btnCarrinho {
+        display: none;
+    }
+
+    #search-box-mobile {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-top: 7%;
+    }
+
+    #inputSearchMobile {
+        width: 100%;
+        min-height: 2.5rem;
+        font-size: 1rem;
+        padding-left: 0.437rem;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+    }
+
+    main {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #filtroBox {
+        margin-top: 7%;
+    }
+
+    .filtros{
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 0.25rem;
+    }
+
+    .fileiras {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.2s linear;
+    }
+
+    .produtos {
+        background-color: #f2f2f2;
+        width: 15%;
+        padding: 3%;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .molduraProdutos {
+        width: 150%;
+    }
+
+    #btnRecarregar {
+        width: 15%;
+    }
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+    #logo-box{
+        display: flex;
+        width: 15%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 0%;
+    }
+
+    .filtros{
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 0.25rem;
+    }
+
+    .produtos {
+        background-color: #f2f2f2;
+        width: 18%;
+        padding: 3%;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .molduraProdutos {
+        width: 150%;
+    }
+
+    #btnRecarregar {
+        width: 12%;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+
+
+}
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+    #logo-box{
+        display: flex;
+        width: 15%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 0%;
+    }
+
+    #search-box {
+        width: 100%;
+    }
+
+    main {
+        margin: 5%;
+        display: flex;
+        flex-direction: row;
+        align-items: normal;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .filtros{
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 0.25rem;
+    }
+
+    .fileiras {
+        width: 100%;
+        height: fit-content;
+    }
+
+    #fileira-1, #fileira-2, #fileira-3, #fileira-4, #fileira-5, #fileira-6 {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 0%;
+    }
+
+    .produtos {
+        background-color: #f2f2f2;
+        width: 10%;
+        padding: 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .molduraProdutos {
+        width: 150%;
+    }
+
+    #btnRecarregar {
+        width: 6%;
+    }
+}
+
 /* Modo noturno (ou dark) */
 
 .dark {
@@ -391,26 +709,4 @@ main {
 .produtosDark {
     color: white;
     background-color: #646464;
-}
-
-/* RESPONSIVIDADE */
-
-@media screen and (max-width: 950px) {
-    header {
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    #respons1 {
-        width: 100%;
-    }
-
-    #respons2 {
-        width: 100%;
-    }
-
-    nav {
-        gap: 2px;
-    }
 }
