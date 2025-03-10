@@ -19,7 +19,7 @@
     <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
     <!-- <script type="text/javascript" src="./src/JS/carrinho.js"></script> -->
 </head>
-<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisa(); exibirPontos(); carregarCatalogo(1);">
+<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisa(); exibirPontos(); carregarCatalogo(1); chamarCarrinho();">
     <div id="cartContainer">
         <!-- Aqui no carrinho, serão inseridos através de JavaScript versões em miniatura dos cards de produtos -->
         <!-- <input type="button" id="" value="Check Out"> -->
@@ -61,7 +61,7 @@
 
         <div id="filtroBox">
             <div id="filtro-1" class="filtros">
-                <div id="btnFiltro1" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('medicamento');">
+                <div id="btnFiltro1" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('medicamento'); chamarCarrinho();">
                     <div class="imgFiltros">
                         <img src="./src/imgs/icons/imgHigiene.png" alt="medicamento" style="width: 100%;"/>
                     </div>
@@ -69,7 +69,7 @@
                 <p>Medicamentos</p>
             </div>
             <div id="filtro-2" class="filtros">
-                <div id="btnFiltro2" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('consulta');">
+                <div id="btnFiltro2" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('consulta'); chamarCarrinho();">
                     <div class="imgFiltros">
                         <img src="./src/imgs/icons/imgHigiene.png" alt="medicamento" style="width: 100%;"/>
                     </div>
@@ -77,7 +77,7 @@
                 <p>Consultas</p>
             </div>
             <div id="filtro-3" class="filtros">
-                <div id="btnFiltro3" class="btnFiltros" onclick="voltarFiltros(); limparCatalogo(); gerarIdFiltro('beleza');">
+                <div id="btnFiltro3" class="btnFiltros" onclick="voltarFiltros(); limparCatalogo(); gerarIdFiltro('beleza'); chamarCarrinho();">
                     <div class="imgFiltros">
                         <img src="./src/imgs/icons/imgHigiene.png" alt="medicamento" style="width: 100%;"/>
                     </div>

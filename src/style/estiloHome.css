@@ -145,7 +145,15 @@ a {
     justify-content: flex-start;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding-top: 50px;
+}
+
+#cartContainer::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: #1F6124;
+}
+
+#cartContainer::-webkit-scrollbar-thumb {
+    background-color: yellowgreen;
 }
 
 .botaoNav {
