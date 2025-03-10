@@ -1,26 +1,62 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = htmlspecialchars(trim($_POST['nome']));
-    $email = htmlspecialchars(trim($_POST['email']));
-    $assunto = htmlspecialchars(trim($_POST['assunto']));
-    $mensagem = htmlspecialchars(trim($_POST['mensagem']));
 
-    if (empty($nome) || empty($email) || empty($assunto) || empty($mensagem)) {
-        echo "Todos os campos são obrigatórios.";
-        exit;
-    }
+require("conectarBD.php");
 
-    $to = "seuemail@dominio.com"; // substituir pelo endereço que recebera as mensagens...
-    $subject = "Nova mensagem de contato: $assunto";
-    $body = "Nome: $nome\nEmail: $email\nAssunto: $assunto\nMensagem:\n$mensagem";
-    $headers = "De: $email";
-//envio do email...
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Mensagem enviada com sucesso!";
+$pdo = conectar();
+
+$tabela = "tblFeedback";
+
+try{
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nome = htmlspecialchars(trim($_POST['nome']));
+        $telefone = htmlspecialchars(trim($_POST['telefone']));
+        $cpf = htmlspecialchars(trim($_POST['cpf']));
+        $email = htmlspecialchars(trim($_POST['email']));
+        $assunto = htmlspecialchars(trim($_POST['assunto']));
+        $mensagem = htmlspecialchars(trim($_POST['descricao_feedback']));
+        $anexo = htmlspecialchars(trim($_POST['anexo']));
+        
+            if ($anexo == "") {
+                $sql = "INSERT INTO ". $tabela . "(assunto, nome, email, cpf, telefone, anexo, descricao_feedback) VALUES(:assuntoF, :nomeF, :emailF, :cpfF, :telF, :anexoF, :mensagemF);";
+                $ponteiro = $pdo->prepare($sql);
+                $ponteiro-> bindParam(":anexoF", $anexo, PDO::PARAM_LOB, 0, PDO::SQLSRV_ENCODING_BINARY);
+            } else {
+                $sql = "INSERT INTO ". $tabela . "(assunto, nome, email, cpf, telefone, anexo, descricao_feedback) VALUES(:assuntoF, :nomeF, :emailF, :cpfF, :telF, :anexoF, :mensagemF);";
+                $ponteiro = $pdo->prepare($sql);
+                $ponteiro-> bindValue(":anexoF", $anexo);
+            }
+        
+        if (empty($nome) || empty($telefone) || empty($cpf) || empty($email) || empty($assunto) || empty($mensagem)) {
+            die (json_encode("Preencher campos obrigatórios", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        }
+        
+        $ponteiro-> bindValue(":nomeF", $nome);
+        $ponteiro-> bindValue(":cpfF", $cpf);
+        $ponteiro-> bindValue(":telF", $telefone);
+        $ponteiro-> bindValue(":emailF", $email);
+        //$ponteiro-> bindValue(":anexoF", $anexo);
+        $ponteiro-> bindValue(":assuntoF", $assunto);
+        $ponteiro-> bindValue(":mensagemF", $mensagem);
+
+        $ponteiro->execute();
+        
+
+        $to = "seuemail@dominio.com"; // substituir pelo endereço que recebera as mensagens...
+        $subject = "Nova mensagem de contato: $assunto";
+        $body = "Nome: $nome\nEmail: $email\nAssunto: $assunto\nMensagem:\n$mensagem";
+        $headers = "De: $email";
+    //envio do email...
+        if (mail($to, $subject, $body, $headers)) {
+            die(json_encode("Formulário enviado", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        } else {
+            die(json_encode("Erro no envio"));
+        }
     } else {
-        echo "Erro ao enviar a mensagem. Tente novamente mais tarde.";
+        echo "Método de requisição inválido.";
+        die(json_encode("Envio repetido"));
     }
-} else {
-    echo "Método de requisição inválido.";
+}
+catch(Exception $erro){
+    echo "ATENÇÃO, erro ao enviar o formulário: ". $erro->getMessage();
 }
 ?>

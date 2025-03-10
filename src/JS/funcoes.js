@@ -1,6 +1,7 @@
 // VARIÁVEIS DE CONTROLE
 
 let aux = false;
+let aux2 = "claro";
 
 // FUNCOES PAGINA 'PERFIL'
 
@@ -353,7 +354,7 @@ function ativarModoDark() {
     let produtos = document.getElementsByClassName("produtos");
     if (aux == true) {
         botaoDark.innerHTML = "&#x2600;";
-        logo.setAttribute("src", "./src/imgs/logo-login-dark.png");
+        logo.setAttribute("src", "./src/imgs/logoTitleBw.png");
     
         header[0].style.color = "white";
     
@@ -371,7 +372,7 @@ function ativarModoDark() {
     } else {
         botaoDark.innerHTML = "&#x1F319;";
         
-        logo.setAttribute("src", "./src/imgs/logo-default.png");
+        logo.setAttribute("src", "./src/imgs/logoTitle.png");
     
         header[0].style.color = "#8A3C29";
     
@@ -387,4 +388,95 @@ function ativarModoDark() {
             produtos[i].classList.remove("produtosDark");
         }
     }
+}
+
+    function pagDark(){
+        if(aux2=="claro"){
+        for(let i=1;i<=5;i++){
+            $('#colorir'+i).css({'color':'white'});
+        }
+        $("#form-container").css({backgroundColor:"gray"});
+        for(let i=1;i<=8;i++){
+            $('#form-group'+i).css({'color':'white'});
+        }
+        //$("#form-group").css({backgroundColor:"gray"});
+        $('label').css({'color':'white'});
+        $('input').css({'color':'white'});
+        $('input').css({'backgroundColor':'#333'});
+        $("#assunto").css({backgroundColor:"#333"});
+        $("#assunto").css({color:"white"});
+        $('option').css({'color':'white'});
+        $('option').css({'backgroundColor':'gray'});
+        $('textarea').css({'color':'white'});
+        $('textarea').css({'backgroundColor':'#333'});
+        $("#helpcontainer").css({backgroundColor:"gray"});
+        $("#faq-section").css({backgroundColor:"gray"});
+        for(let i=1;i<=4;i++){
+            $('#question'+i).css({'color':'white'});
+            $('#question'+i).hover(
+                function(){
+                    $(this).css('color','#731b1b');
+                },
+                function(){
+                    $(this).css('color','white');
+                });
+            $('#answer'+i).css({'color':'#fff'});
+        }
+    
+        aux2="escuro";
+        }else{
+        for(let i=1;i<=6;i++){
+            $('#colorir'+i).css({'color':'#333'});
+        }
+        $("#form-container").css({backgroundColor:"#e5ffdb"});
+        for(let i=1;i<=8;i++){
+            $('#form-group'+i).css({'color':'#333'});
+        }
+        $('label').css({'color':'#333'});
+        $('input').css({'backgroundColor':'white'});
+        $('input').css({'color':'#333'});
+        $("#assunto").css({backgroundColor:"lightGray"});
+        $("#assunto").css({color:"#333"});
+        $('option').css({'color':'black'});
+        $('option').css({'backgroundColor':'white'});
+        $('textarea').css({'color':'#333'});
+        $('textarea').css({'backgroundColor':'white'});
+        $("#helpcontainer").css({backgroundColor:"#e5ffdb"});
+        $("#faq-section").css({backgroundColor:"#e5ffdb"});
+        for(let i=1;i<=4;i++){
+            $('#question'+i).css({'color':'#333'});
+            $('#question'+i).hover(
+                function(){
+                    $(this).css('color','#28A745');
+                },
+                function(){
+                    $(this).css('color','#333');
+                });
+            $('#answer'+i).css({'color':'#333'});
+        }
+        aux2="claro";
+        }
+    }
+    
+    $(document).ready(function(){
+        $('#telefoneform, #CPFform').on('keypress', function(e) {
+            var charCode = (e.which) ? e.which : e.keyCode;
+            if (charCode < 48 || charCode > 57) {
+                e.preventDefault();
+            }
+        });
+    
+        $('#envioarquivo').change(function(){
+            var nomeArquivo = $(this).val().split('\\').pop();
+            $('#nomeArquivo').text(nomeArquivo || 'Nenhum arquivo selecionado');
+        });
+    });
+    
+    function formatar(masking, docum){
+        var i = docum.value.length;
+        var saida = masking.substring(0,1);
+        var texto = masking.substring(i);
+        if (texto.substring(0,1) != saida){
+            docum.value += texto.substring(0,1);
+        }
 }

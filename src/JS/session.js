@@ -45,6 +45,24 @@ function desconectarPerfil() {
 
 }
 
+function contabilizarPontos() {
+    $.post(
+        "./src/PHP/contarPontos.php",
+    )
+    .done(
+        function (retorno) {
+            retorno = JSON.parse(retorno);
+            let pontuacao = retorno;
+            $("nav .menuDrop").after("<div id='pontosUser'>"+pontuacao+" ₯</div>");
+        }
+    )
+    .fail (
+        function (cod, textStatus, msg) {
+            alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
+        }
+    );
+}
+
 function exibirPontos() {
     $.post(
         "./src/PHP/session.php",
@@ -61,7 +79,7 @@ function exibirPontos() {
             if (conexao['status'] == "conectado") {
                 $("nav > #btnLogin").remove();
                 $("nav > #btnCadastro").remove();
-                $("nav .menuDrop").after("<div id='pontosUser'>10000 ₯</div>");
+                contabilizarPontos();
             }
         }
     )
@@ -72,4 +90,6 @@ function exibirPontos() {
     );
 
 }
+
+
 

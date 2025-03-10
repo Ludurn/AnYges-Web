@@ -17,8 +17,9 @@
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
     <script type="text/javascript" src="./src/JS/edicaoPerfil.js"></script>
+    <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
 </head>
-<body onclick="menuFadeOut()" onload="tabDadosStyle(); tabDadosLoader();">
+<body onclick="menuFadeOut()" onload="exibirPontos(); tabDadosStyle(); tabDadosLoader();">
     <header>
         <div id="logo-box">
             <div  id="logo-obj">
@@ -27,7 +28,7 @@
             <h1 id="logoTitle">ANYGES</h1>
         </div>
         <div id="search-box">
-            <input type="text" placeholder="O que você está buscando?" id="inputSearch">
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch"  onkeydown="redirecionarPesquisa();">
         </div>
         <nav>
             <div class="menuDrop">
@@ -37,15 +38,10 @@
                         <ion-icon name="home"></ion-icon> Home</a>
                   <a href="#">
                       <ion-icon name="hand"></ion-icon> Acessibilidade</a>
-                  <a href="./ajuda.html">
-                        <ion-icon name="help-circle-outline"></ion-icon> Ajuda</a>
-                  <a href="#">
-                       <ion-icon name="star-outline"></ion-icon> Feedback</a>
-                  <a href="./contato.html">
-                       <ion-icon name="call"></ion-icon> Contato</a>
+                  <a href="./central.html">
+                       <ion-icon name="call"></ion-icon> Central de Atendimento</a>
                 </div>
             </div>
-            <div id="pontosUser">10000 ₯</div>
             <button class="botaoNav carrinho">Carrinho <ion-icon name="cart"></ion-icon></button>
         </nav>     
     </header>

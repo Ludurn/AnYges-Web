@@ -1,0 +1,474 @@
+body {
+    font-family: Inria Sans, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    transition: background-color 0.5s;
+    overflow-x: hidden;
+}
+
+h1{
+    -webkit-text-stroke: 0.21875rem black;
+    paint-order: stroke fill;
+}
+
+header {
+    background: #1F6124;
+    color: #8A3C29;
+    padding: 0.625rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+}
+
+#logo-box{
+    display: flex;
+    width: 15%;
+    height: 10vh;
+    align-items: center;
+}
+
+#logo-obj{
+    width: 25%;
+}
+
+nav {
+    display: flex;
+    gap: 1.25rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#search-box {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#inputSearch {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: medium;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem 0rem 0rem 0.25rem;
+}
+
+.inputSearchClass {
+    color: #727273;
+    background-color: #f0f0f0;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
+}
+
+#inputSearch::placeholder { 
+    text-align: center;
+    font-size: medium;
+    color: #9e9fa0;
+}
+
+#inputSearch:focus {
+    outline: none;
+}
+
+.inputSearchDark {
+    background-color: #727273;
+    color: white;
+}
+.inputSearchDark::placeholder {
+    color: white;
+}
+#lupa {
+    width: 30px;
+    background-color: #8A3C29;
+    background-image: url(../imgs/icons/lupa-dark.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: 0rem solid white;
+    border-radius: 0rem 0.25rem 0.25rem 0rem;
+}
+
+.menuDrop {
+    position: relative;
+    display: inline-block;
+}
+
+#btnMenu {
+    background: #28A745;
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: 0.1rem solid #28A745;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+#btnMenu:hover {
+    border: 0.1rem solid #28A745;
+    background-color: #1F6124;
+}
+
+#menuDropBG {
+    visibility: hidden;
+    opacity: 0;  
+    position: absolute;
+    background-color:#1F6124;
+    width: 210%;
+    border-radius: 4%;
+    box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+#menuDropBG a {
+    display: block;
+    color: white;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+}
+
+#menuDropBG a:hover {
+    color: #8A3C29;
+}
+
+#cartContainer {
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(#8A3C29, #34160f);
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    right: -285px;
+    transition: right 0.2s;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-top: 50px;
+}
+
+.botaoNav {
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.login, .registrar {
+    background-color: #28A745;
+    color: white;
+    border: 0.1rem solid #28A745;
+}
+
+.login:hover, .registrar:hover {
+    color: white;
+    border: 0.1rem solid #28A745;
+    background-color: #1F6124;
+}
+
+#pontosUser{
+    background-color: #8A3C29;
+    color: #f0f0f0;
+    padding: 0.55rem 0.55rem;
+    border: 0.1rem solid #611f1f;
+    border-radius: 0.5rem;
+}
+
+.carrinho {
+    background-color: #75a32a;
+    color: white;
+    border: 0.1rem solid #75a32a;
+}
+
+.carrinho:hover {
+    color: white;
+    border: 0.1rem solid #75a32a;
+    background-color: #1F6124;
+}
+
+.carrinhoCard {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 8px;
+    width: 140%;
+    transform: scale(0.7, 0.7);
+}
+
+.carrinhoCard > .molduraProdutos {
+    height: fit-content;
+    max-width: 45%;
+}
+
+.carrinhoCard > .molduraProdutos > figure {
+    margin: 16px;
+    height: fit-content;
+}
+
+.carrinhoCard > .molduraProdutos > figure > img {
+    height: 100%;
+}
+
+.carrinhoCard > p {
+    max-width: 20%;
+    text-align: center;
+    word-break: break-all;
+}
+
+.carrinhoCard > .btnProdutos {
+    max-width: 100px;
+}
+
+.quantidade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.quantidadeCard {
+    border: 2px solid green;
+    border-radius: 5px;
+    font-size: large;
+}
+
+footer {
+    background: #f1f1f1;
+    padding: 0.625.rem;
+    text-align: center;
+}
+
+
+.respons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+main{
+    width:90%;
+    margin: 5%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline
+}
+
+main h1{
+    color: #333;
+}
+
+#fileira-1 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+}
+
+#fileira-2 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+}
+
+/*.produtos {
+    background-color: #f2f2f2;
+    width: 14.6%;
+    padding: 1%;
+    margin: 1.6%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0.1em 0.4em 0.5em rgba(128, 128, 128, 0.39);
+    border: 0.1em solid rgba(128, 128, 128, 0.39);
+    border-radius: 0.75rem;
+    transition: background-color 0.5s;
+}
+
+.imgProdutos {
+    border-radius: 1rem;
+}
+
+.molduraProdutos {
+    width: 120%;
+}
+
+.descricaoProdutos {
+    text-align: center;
+}
+
+.btnProdutos {
+    display: flex;
+    width: 90%;
+    height: 5vh;
+    justify-content: center;
+    <!--align-items: center;-->
+    font-size: large;
+    background-image: linear-gradient(#1F6124, #123b15);
+    border-radius: 0.375rem;
+    color: white;
+    user-select: none;
+    cursor: pointer;
+}
+.btnProdutos:hover {
+    background-image: linear-gradient(#8A3C29, #572519);
+}
+
+.btnProdutos:active {
+    background-image: linear-gradient(#b54f36, #8a3b28);
+}
+*/
+
+/* Modo noturno (ou dark) */
+
+#colorir1 {
+    -webkit-text-stroke: 0rem #333;
+}
+
+.dark {
+    color: white;
+    padding: 0%;
+    font-size: x-large;
+    background-color: #1f612400;
+}
+
+.bodyDark {
+    background-color: #323232;
+}
+
+.janelaDark {
+    color: white;
+    background-color: #646464;
+}
+
+/*Container do Contato*/
+
+.form-container {
+    background-color: #e5ffdb;
+    padding: 3.3%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 31%;
+    float:left;
+    margin-right: 5%;
+}
+.form-container h2 {
+    margin-top: 0;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 2.7%;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 2.7%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: vertical;
+}
+.form-group textarea {
+    height: 100px;
+}
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28A745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.form-group button:hover {
+    background-color: #28A745;
+}
+
+.color1{
+    font-weight: lighter;
+}
+/*Container da Ajuda*/
+
+.helpcontainer {
+    width: 47%;
+    margin-left:5%;
+    padding: 2%;
+    background-color: #e5ffdb;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    float:right;
+    display: flex;
+}
+.helpcontainer h1, .helpcontainer h2 {
+    color: #333;
+}
+.helpcontainer h1 {
+    text-align: center;
+    margin-top: 0;
+}
+.helpcontainer p {
+    color: #555;
+}
+.faq-section {
+    margin-top: 2%;
+}
+.faq-section h2 {
+    margin-top: 0;
+}
+.faq-item {
+    margin-bottom: 1.5%;
+}
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.faq-question:hover{
+    color: #28A745;
+}
+.faq-answer {
+    display: none;
+    margin-top: 5px;
+    color: #333;
+}
+
+.modo-dark{
+    color:white;
+}
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 950px) {
+    header {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #respons1 {
+        width: 100%;
+    }
+
+    #respons2 {
+        width: 100%;
+    }
+
+    nav {
+        gap: 2px;
+    }
+}

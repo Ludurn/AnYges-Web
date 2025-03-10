@@ -183,11 +183,28 @@ p{
     background-color: #611f1f;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 500px) {
     .login-container {
-        width: 90%; 
+        max-width: 90%;
     }
-    #logo-obj{
-        width: 60%;
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+    .login-container {
+        max-width: 70%;
+    }
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+    .login-container {
+        max-width: 50%;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+    .login-container {
+        max-width: 35%;
+    }
+}
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+    .login-container {
+        max-width: 25%;
     }
 }

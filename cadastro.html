@@ -24,11 +24,11 @@
                         <div id="logo-obj">
                                 <img src="./src/imgs/logo-login-dark.png" alt="logo" style="width: 100%;">
                         </div>
-                        <h1>
+                        <h1 id="anygesTitle">
                                 ANYGES
                         </h1>
                 </div>
-                <p>
+                <p id="cadastroHint">
                         Conta pra gente suas informações abaixo pra que a gente possa te ajudar
                         <br>
                         a encontrar os locais de resgate mais próximos!
@@ -44,10 +44,13 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
         </div>
+        <div id="cadastroHintMobile">
+                <h2>Preencha os campos para criar sua conta</h>
+        </div>
         <main>
                 <fieldset class="forms-principal">
                         <!-- Utilizar jquery masks abaixo -->
-                        <div>
+                        <div id="formularios">
                                 <div class="titulo-forms-internos">
                                     <p>CADASTRO</p>    
                                 </div>
@@ -65,8 +68,8 @@
                                         <label for="dtNascimento"><span class="requirement">*</span> Digite sua data de <strong>nascimento</strong>:</label>
                                         <input type="date" id="dtNascimento" class="camposForm" min="" max="" maxlength="14" onclick="corretorIdade();">
                                 </fieldset>
-                                <br><br>
-                                <fieldset class="forms-internos">
+
+                                <fieldset id="campo-cadastro" class="forms-internos">
                                         <legend><strong>Cadastro</strong></legend>
                                         <label for="telefone"><span class="requirement">*</span> Digite um telefone ou celular válido: </label>
                                         <input type="text" name="telefone" id="telefone" onclick="analisarTellMask();" onblur="corrigirTellMask();" class="camposForm" maxlength="18" placeholder="Ex.: (00) 00000-0000">
@@ -83,18 +86,22 @@
                                         <input type="button" id="senha2" class="botao-visibilidade" onclick="mudarSenha()">
                                 </fieldset>
                         </div>
-                        <br><br>
+                        <div id="termosCondicoes">
+                                <p>Ao pressionar em "<span style="color: #008000;">Enviar</span>", aceito os Termos e condições e autorizo o uso dos meus dados de acordo com a Declaração de privacidade.</p>
+                        </div>
                         <div class="container-botoes">
                                 <input type="button" id="botaoEnvio" class="botoes" value="ENVIAR" onclick="enviarInfos()">
                                 <input type="button" id="botaoApagar" class="botoes" value="APAGAR" onclick="apagarEnvio()">
                         </div>
-                        <div>
-                        <!-- Aqui será a saída (retorno) do requerimento ajax -->
-                                <br>
-                                <p id="res">          
-                                </p>
-                                <br>
+                        <!--
+                         Aqui será a saída (retorno) do requerimento ajax
+                                 <br>
+                        <p id="res">
+                               </p>
+                        <br>
                         </div>
+                        -->
+                        <div>
                 </fieldset>
         </main>
         <br/>
