@@ -3,6 +3,7 @@ var carrinho = document.getElementById("cartContainer");
 var cardPresente = false;
 var contador = 0;
 var aposPrimeiro = false;
+
 // Ativação/desativação do carrinho
 
 function ativarCarrinho() {
@@ -23,13 +24,13 @@ function ativarCarrinho() {
 function chamarCarrinho() {
     setTimeout(() => {
         var catalogoProdutos = document.getElementsByClassName("btnProdutos");
-        alert(catalogoProdutos[0].parentElement.innerHTML);
         for (i = 0; i < catalogoProdutos.length; i++) {
             catalogoProdutos[i].addEventListener("click", function adicionarCard() {
             var target = event.target;
             //Elemento-pai que sofreu evento que chamou esta função será armazenado nesta variável abaixo
             var cardCarrinho = target.parentElement;
-            
+            let body = document.getElementById("corpo");
+
             carrinho.innerHTML += 
             "<div class = 'carrinhoCard'>" + 
             cardCarrinho.innerHTML +

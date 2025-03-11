@@ -352,6 +352,9 @@ function ativarModoDark() {
     let lupa = document.getElementById("lupa");
     let body = document.getElementsByTagName("body");
     let produtos = document.getElementsByClassName("produtos");
+    let cardsCarrinhoDark = document.getElementsByClassName("carrinhoCard");
+    let cardsCarrinhoQtdeDark = document.getElementsByClassName("quantidade");
+
     if (aux == true) {
         botaoDark.innerHTML = "&#x2600;";
         logo.setAttribute("src", "./src/imgs/logoTitleBw.png");
@@ -368,6 +371,11 @@ function ativarModoDark() {
     
         for (i = 0; i < produtos.length; i++) {
             produtos[i].classList.add("produtosDark");
+        }
+
+        for (loopCardsCarrinho = 0; loopCardsCarrinho < cardsCarrinhoDark.length; loopCardsCarrinho++) {
+            cardsCarrinhoDark[loopCardsCarrinho].classList.add("carrinhoCardDark");
+            cardsCarrinhoQtdeDark[loopCardsCarrinho].classList.add("quantidadeDark");
         }
     } else {
         botaoDark.innerHTML = "&#x1F319;";

@@ -133,6 +133,7 @@ a {
 }
 
 #cartContainer {
+    padding-top: 6.5%;
     display: flex;
     align-items: center;
     background-image: linear-gradient(#8A3C29, #34160f);
@@ -149,13 +150,16 @@ a {
 
 #cartContainer::-webkit-scrollbar {
     width: 0.5rem;
-    background-color: #1F6124;
+    background-color: #802b2b;
 }
 
 #cartContainer::-webkit-scrollbar-thumb {
     background-color: yellowgreen;
 }
 
+#cartContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #28A745;
+}
 .botaoNav {
     padding: 0.625rem 1.25rem;
     border: none;
@@ -210,6 +214,11 @@ a#carrinhoMobile {
     transform: scale(0.7, 0.7);
 }
 
+.carrinhoCardDark {
+    color: white;
+    background-color: #646464;
+}
+
 .carrinhoCard > .molduraProdutos {
     height: fit-content;
     max-width: 45%;
@@ -241,6 +250,11 @@ a#carrinhoMobile {
     background-color: white;
     width: 100%;
     border-radius: 0px 0px 8px 8px;
+}
+
+.quantidadeDark {
+    background-color: #646464;
+    color: white;
 }
 
 .quantidadeCard {
