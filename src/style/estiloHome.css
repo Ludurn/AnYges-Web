@@ -71,13 +71,6 @@ a {
     outline: none;
 }
 
-.inputSearchDark {
-    background-color: #727273;
-    color: white;
-}
-.inputSearchDark::placeholder {
-    color: white;
-}
 #lupa {
     width: 30px;
     background-color: #8A3C29;
@@ -241,13 +234,6 @@ a#carrinhoMobile {
     font-size: large;
 }
 
-footer {
-    background: #f1f1f1;
-    padding: 0.625.rem;
-    text-align: center;
-}
-
-
 .respons {
     display: flex;
     flex-direction: row;
@@ -386,6 +372,14 @@ main {
     background-image: linear-gradient(#b54f36, #8a3b28);
 }
 
+
+footer {
+    background: #f1f1f1;
+    padding: 0.625.rem;
+    text-align: center;
+}
+
+
 /* RESPONSIVIDADE */
 
 @media screen and (max-width: 500px) {
@@ -492,6 +486,10 @@ main {
     }
 
 }
+
+/*    RESPONSIVIDADE      */
+
+
 @media screen and (min-width: 501px) and (max-width: 800px) {
 
     header {
@@ -700,6 +698,14 @@ main {
     padding: 0%;
     font-size: x-large;
     background-color: #1f612400;
+}
+
+.inputSearchDark {
+    background-color: #727273;
+    color: white;
+}
+.inputSearchDark::placeholder {
+    color: white;
 }
 
 .bodyDark {

@@ -212,3 +212,23 @@ function redirecionarPesquisa() {
     }
 }
 
+function redirecionarPesquisaMobile(ativar) {
+    if (ativar == "sim" || event.key === 'Enter') {
+        pesquisaAnterior = $('#inputSearchMobile').val();
+        redirecionado = "sim";
+        localStorage.setItem("redirecionado", redirecionado);
+        localStorage.setItem("pesquisaAnterior", JSON.stringify(pesquisaAnterior));
+        window.location.replace("./home.html");
+    }
+
+    if (localStorage.getItem("redirecionado") == "sim") {
+        cancelarCatalogo = true;
+        pesquisaAnterior = JSON.parse(localStorage.getItem("pesquisaAnterior"));
+       setTimeout(() => {
+            $('#inputSearchMobile').val(pesquisaAnterior);
+            localStorage.clear();
+            pesquisar("sim");
+       }, 100)
+    }
+}
+

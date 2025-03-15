@@ -4,9 +4,7 @@ let fileira=1;
 let id, indice=0;
 let idFiltro = [];
 let cancelarCatalogo = false;
-let larguraTela;
 
-larguraTela = screen.width * window.devicePixelRatio;
 
 function voltarFiltros() {
     $('#filtroBox').html(
