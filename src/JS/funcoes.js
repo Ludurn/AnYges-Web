@@ -216,7 +216,7 @@ function ativarModoDark() {
     let produtos = document.getElementsByClassName("produtos");
     if (aux == true) {
         botaoDark.innerHTML = "&#x2600;";
-        logo.setAttribute("src", "./src/imgs/logoTitleBw.png");
+        logo.setAttribute("src", "./src/imgs/logoTitleBW.png");
     
         header[0].style.color = "white";
     
