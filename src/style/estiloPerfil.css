@@ -298,10 +298,10 @@ main {
     transition: background-color 0.3s, color 0.3s linear;
 }
 
-.btnsEdicaoPerfil:hover {
+/*.btnsEdicaoPerfil:hover {
     box-shadow: 0.75rem 0.75rem 0.75rem rgba(0,0,0,0.1),
     -0.625rem -0.625rem 0.625rem #f9f9f9;
-}
+}*/
 
 #btnEditarPerfil:hover {
     background-color: #75a32a;

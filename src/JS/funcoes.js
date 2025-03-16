@@ -334,11 +334,13 @@ function modoDarkPerfil() {
     aux = !aux;
     let botaoDark = $("#botaoDark");
     let logo = $("#logo-login");
-    let header = $(".header");
+    let header = document.getElementsByTagName("header");
     let pesquisa = $("#inputSearch");
     let body = $("body");
+    let popUp = $("#popUp");
     let perfilInfoBox = $("#perfilInfoBox");
     let perfilCupomBox = $("#perfilCupomBox");
+    let btnsEdicaoPerfil = $(".btnsEdicaoPerfil");
 
     if (aux == true) {
         botaoDark.innerHTML = "&#x2600;";
@@ -351,8 +353,12 @@ function modoDarkPerfil() {
     
         body[0].classList.add("bodyDark");
 
+        popUp.css({'color':'black'});
+
         perfilInfoBox.css({'border':'0.2rem solid #9e9fa0'});
         perfilCupomBox.css({'border':'0.2rem solid #9e9fa0'});
+
+        btnsEdicaoPerfil.css({'color':'white'});
 
     } else {
         botaoDark.innerHTML = "&#x1F319;";
@@ -369,6 +375,8 @@ function modoDarkPerfil() {
 
         perfilInfoBox.css({'border':'0.2rem solid #f1f1f1'});
         perfilCupomBox.css({'border':'0.2rem solid #f1f1f1'});
+
+        btnsEdicaoPerfil.css({'color':'black'});
     }
 }
     
