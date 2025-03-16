@@ -172,25 +172,6 @@ function editarDados() {
     $('#btnEditarPerfil').attr('onclick', 'confirmarDados();');
 }
 
-function desconectarPerfil() {
-    $.post(
-        "./src/PHP/logout.php",
-    )
-    .done(
-        function (retorno) {
-            retorno = JSON.parse(retorno);
-            if (retorno == "desconectado") {
-                window.location.replace("./index.html");
-            }
-        }
-    )
-    .fail (
-        function (cod, textStatus, msg) {
-            alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
-        }
-    )
-}
-
 function verificarVazio(variavel, nomeVariavel) {
     if (variavel == "") {
         let corrigido = dadosAntigos[nomeVariavel]+"";
@@ -233,7 +214,7 @@ function confirmarDados() {
             function (retorno) {
                 retorno = JSON.parse(retorno);
                 if (retorno == "sucesso") {
-                    desconectarPerfil();
+                    desconectarPerfil('sim');
                 } else {
                     alert(retorno);
                 }

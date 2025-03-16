@@ -214,9 +214,11 @@ function ativarModoDark() {
     let lupa = document.getElementById("lupa");
     let body = document.getElementsByTagName("body");
     let produtos = document.getElementsByClassName("produtos");
+    let nomeFiltros = document.getElementsByClassName("nomeFiltro");
+
     if (aux == true) {
         botaoDark.innerHTML = "&#x2600;";
-        logo.setAttribute("src", "./src/imgs/logoTitleBw.png");
+        logo.setAttribute("src", "./src/imgs/logoTitleBW.png");
     
         header[0].style.color = "white";
     
@@ -227,6 +229,10 @@ function ativarModoDark() {
         lupa.classList.add("lupa-darkClass");
     
         body[0].classList.add("bodyDark");
+
+        for (i = 0; i < nomeFiltros.length; i++) {
+            nomeFiltros[i].classList.add("nomeFiltroDark");
+        }
     
         for (i = 0; i < produtos.length; i++) {
             produtos[i].classList.add("produtosDark");
@@ -245,6 +251,10 @@ function ativarModoDark() {
         lupa.classList.remove("lupa-darkClass");
     
         body[0].classList.remove("bodyDark");
+
+        for (i = 0; i < nomeFiltros.length; i++) {
+            nomeFiltros[i].classList.remove("nomeFiltroDark");
+        }
     
         for (i = 0; i < produtos.length; i++) {
             produtos[i].classList.remove("produtosDark");
@@ -319,6 +329,48 @@ function ativarModoDark() {
         aux2="claro";
         }
     }
+
+function modoDarkPerfil() {
+    aux = !aux;
+    let botaoDark = $("#botaoDark");
+    let logo = $("#logo-login");
+    let header = $(".header");
+    let pesquisa = $("#inputSearch");
+    let body = $("body");
+    let perfilInfoBox = $("#perfilInfoBox");
+    let perfilCupomBox = $("#perfilCupomBox");
+
+    if (aux == true) {
+        botaoDark.innerHTML = "&#x2600;";
+        logo.attr("src", "./src/imgs/logoTitleBW.png");
+    
+        header[0].style.color = "white";
+    
+        pesquisa.removeClass("inputSearchClass");
+        pesquisa.addClass("inputSearchDark");
+    
+        body[0].classList.add("bodyDark");
+
+        perfilInfoBox.css({'border':'0.2rem solid #9e9fa0'});
+        perfilCupomBox.css({'border':'0.2rem solid #9e9fa0'});
+
+    } else {
+        botaoDark.innerHTML = "&#x1F319;";
+        
+        logo.attr("src", "./src/imgs/logoTitle.png");
+    
+        header[0].style.color = "#8A3C29";
+    
+        pesquisa.addClass("inputSearchClass");
+        pesquisa.removeClass("inputSearchDark");
+        
+    
+        body[0].classList.remove("bodyDark");
+
+        perfilInfoBox.css({'border':'0.2rem solid #f1f1f1'});
+        perfilCupomBox.css({'border':'0.2rem solid #f1f1f1'});
+    }
+}
     
     $(document).ready(function(){
         $('#telefoneform, #CPFform').on('keypress', function(e) {

@@ -13,7 +13,7 @@
         $idFiltroClone = $idFiltro;
 
 
-        $sql = "SELECT nome_cupom, valor, (SELECT nome_assoc FROM tblAssociacao WHERE ID_associacao IN (SELECT ID_associacao FROM tblCupom WHERE ID_cupom=:id)) as 'nome_associacao',tipo, imagem, descricao_cupom FROM tblCupom WHERE ID_cupom =:idClone;";
+        $sql = "SELECT nome_cupom, valor, (SELECT nome_assoc FROM tblAssociacao WHERE ID_associacao IN (SELECT ID_associacao FROM tblCupom WHERE ID_cupom=:id)) as 'nome_associacao',tipo, imagem, descricao_cupom, desconto FROM tblCupom WHERE ID_cupom =:idClone;";
         $ponteiro = $pdo->prepare($sql);
         $ponteiro->bindValue(":id", $idFiltro);
         $ponteiro->bindValue(":idClone", $idFiltroClone);
@@ -27,7 +27,8 @@
                      "valor" => $conteudo['valor'],
                      "associacao" => $conteudo['nome_associacao'],
                      "imagem" => $conteudo['imagem'],
-                     "descricao" => $conteudo['descricao_cupom']
+                     "descricao" => $conteudo['descricao_cupom'],
+                     "desconto" => $conteudo['desconto']
                     ];
                 die(json_encode($retorno, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
             }

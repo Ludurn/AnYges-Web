@@ -712,6 +712,10 @@ footer {
     background-color: #323232;
 }
 
+.nomeFiltroDark {
+    color: white;
+}
+
 .produtosDark {
     color: white;
     background-color: #646464;

@@ -170,14 +170,14 @@ INSERT INTO tblAssociacao VALUES ('Amil', 0x4D65616E696E676C65737344617461, 0x4D
 INSERT INTO tblAssociacao VALUES ('Sírio Libanês', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 's1r1o', 'l1b4n3s', 'siriolib@hotmail.com', 's');
 go
 
-INSERT INTO tblCupom VALUES (1, 'Rivotril', 'S', 12000, 'medicamento', './src/imgs/cupons/rivotril.png', 'Suspensão Oral', 25, 'S');
-INSERT INTO tblCupom VALUES (2, 'Pediatra', 'S', 25000, 'consulta', './src/imgs/cupons/unimed.png', 'Terça-feira e Quinta-feira', 25, 'S');
-INSERT INTO tblCupom VALUES (3, 'Psicóloga', 'S', 27000, 'consulta', './src/imgs/cupons/hc.png', 'Domingo à Quarta-feira', 25, 'S');
-INSERT INTO tblCupom VALUES (1, 'Paracetamol 750mg', 'S', 12000, 'medicamento', './src/imgs/cupons/paracetamol.jpg', 'Comprimido Revestido', 25, 'S');
-INSERT INTO tblCupom VALUES (4, 'Clínico Geral', 'S', 12000, 'consulta', './src/imgs/cupons/amil.jpg', 'Terça-feira e Sexta-feira', 25, 'S');
-INSERT INTO tblCupom VALUES (5, 'Gastroenterologista', 'S', 12000, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira à Sexta-feira', 25, 'S');
-INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/dove.webp', 'Desodorante Aerosol', 25, 'S');
-INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional 500ml', 25, 'S');
+INSERT INTO tblCupom VALUES (1, 'Rivotril', 'S', 12000, 'medicamento', './src/imgs/cupons/rivotril.png', 'Suspensão Oral', 15, 'S');
+INSERT INTO tblCupom VALUES (2, 'Pediatra', 'S', 25000, 'consulta', './src/imgs/cupons/unimed.png', 'Terça-feira e Quinta-feira', 20, 'S');
+INSERT INTO tblCupom VALUES (3, 'Psicóloga', 'S', 27000, 'consulta', './src/imgs/cupons/hc.png', 'Domingo à Quarta-feira', 17, 'S');
+INSERT INTO tblCupom VALUES (1, 'Paracetamol 750mg', 'S', 12000, 'medicamento', './src/imgs/cupons/paracetamol.jpg', 'Comprimido Revestido', 35, 'S');
+INSERT INTO tblCupom VALUES (4, 'Clínico Geral', 'S', 12000, 'consulta', './src/imgs/cupons/amil.jpg', 'Terça-feira e Sexta-feira', 5, 'S');
+INSERT INTO tblCupom VALUES (5, 'Gastroenterologista', 'S', 12000, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira à Sexta-feira', 7, 'S');
+INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/dove.webp', 'Desodorante Aerosol', 20, 'S');
+INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional 500ml', 12, 'S');
 go
 
 INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990');
@@ -191,30 +191,11 @@ go
 
 INSERT INTO tblPedido VALUES (1, '01-03-2025');
 
-SELECT * FROM tblPedido;
+
 
 INSERT INTO tblResgate VALUES (2, 1, 1, '653hjs67');
 INSERT INTO tblResgate VALUES (3, 1, 2, '653hjs67');
 
-SELECT * FROM tblResgate;
-
-SELECT SUM(pontuacao) as 'pontuacao doacao' FROM tblDoacao WHERE ID_usuario IN (SELECT ID_usuario FROM tblUsuario WHERE ID_usuario = 1); -- primeira etapa
-
-SELECT valor FROM tblCupom WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1)); -- segunda etapa
-SELECT qtde_resgate FROM tblResgate WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1)); -- terceira etapa
-
-SELECT * FROM tblDoacao;
-SELECT * FROM tblCupom;
 SELECT * FROM tblUsuario;
-SELECT ID_associacao, nome_assoc, codigo_assoc, senha_assoc, email_assoc, aprovada_assoc FROM tblAssociacao;
-SELECT ID_local_deposito, nome_depo, codigo_depo, senha_depo, email_depo, aprovado_depo FROM tblLocalDeposito;
-go
 
-
-
-SELECT email_usuario FROM tblUsuario WHERE email_usuario = 'daniel@hotmail.com' AND senha_usuario = 'dandan';
-
-SELECT ID_cupom FROM tblCupom WHERE nome_cupom LIKE '%unimed%' OR descricao_cupom LIKE '%unimed%' OR ID_associacao IN (SELECT ID_associacao FROM tblAssociacao WHERE nome_assoc LIKE '%unimed%');
-
-SELECT * FROM tblFeedback
 

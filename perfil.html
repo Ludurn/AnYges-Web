@@ -17,6 +17,7 @@
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
     <script type="text/javascript" src="./src/JS/edicaoPerfil.js"></script>
+    
     <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
 </head>
 <body onclick="menuFadeOut()" onload="exibirPontos(); tabDadosStyle(); tabDadosLoader();">
@@ -25,8 +26,8 @@
             <a href="home.html"><img src="./src/imgs/logoTitle.png" alt="logo" style="width: 100%;" id="logo-login"></a>
         </div>
         <div id="search-box">
-            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass" onkeydown="pesquisar();">
-            <button id="lupa" class="lupaClass"  onclick="pesquisar('sim');"></button>
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass" onkeydown="redirecionarPesquisa();">
+            <button id="lupa" class="lupaClass"  onclick="redirecionarPesquisa('sim');"></button>
         </div>
         <nav>
             <div class="menuDrop">
@@ -43,7 +44,7 @@
                 </div>
             </div>
             <button id="btnCarrinho" class="botaoNav carrinho">Carrinho <ion-icon name="cart"></ion-icon></button>
-            <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark()">&#x1F319;</button>
+            <button id="botaoDark" class="botaoNav dark" onclick="modoDarkPerfil();">&#x1F319;</button>
         </nav>     
     </header>
     <div id="search-box-mobile">
@@ -74,7 +75,7 @@
             </div>
             <div class="perfilNavTabs" id="tabDados" onclick="tabDadosStyle(); tabDadosLoader();">Dados pessoais</div>
             <div class="perfilNavTabs" id="tabCupom" onclick="tabCupomStyle();">Cupons</div>
-            <div class="perfilNavTabs" onclick="desconectarPerfil()">Sair</div>
+            <div class="perfilNavTabs" onclick="desconectarPerfil();">Sair</div>
         </aside>
         <section id="perfil">
             <div id="perfilTitle" style="visibility: hidden; opacity: 0; transition: visibility 0s, opacity 0.2s linear">

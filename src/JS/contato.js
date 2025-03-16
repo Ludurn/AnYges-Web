@@ -57,6 +57,13 @@ function enviarForm(){
                 if(retorno == "Erro no envio"){
                     alert("Erro ao enviar o formulário, tente novamente mais tarde");
                 }else if(retorno == "Formulário enviado"){
+                    $('#nomeform').val("");
+                    $('#telefoneform').val("");
+                    $('#CPFform').val("");
+                    $('#emailform').val("");
+                    $('#assuntoform').val("");
+                    $('#mensagemform').val("");
+                    $('#envioanexo').val("");
                     alert("Formulário enviado com sucesso");
                 }
             }

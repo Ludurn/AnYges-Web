@@ -11,18 +11,18 @@ function voltarFiltros() {
                    "<div id='filtro-1' class='filtros'>"
                 +"<div id='btnFiltro1' class='btnFiltros' onclick=''>"
                     +"<div class='imgFiltros'>"
-                        +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+                        +"<img src='./src/imgs/icons/imgMedicamento.png' alt='medicamento' style='width: 100%;'/>"
                     +"</div>"
                 +"</div>"
-                +"<p>Medicamentos</p>"
+                +"<p class='nomeFiltro'>Medicamentos</p>"
             +"</div>"
             +"<div id='filtro-2' class='filtros'>"
                 +"<div id='btnFiltro2' class='btnFiltros' onclick=''>"
                     +"<div class='imgFiltros'>"
-                        +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+                        +"<img src='./src/imgs/icons/imgConsulta.png' alt='medicamento' style='width: 100%;'/>"
                     +"</div>"
                 +"</div>"
-                +"<p>Consultas</p>"
+                +"<p class='nomeFiltro'>Consultas</p>"
             +"</div>"
             +"<div id='filtro-3' class='filtros'>"
                 +"<div id='btnFiltro3' class='btnFiltros' onclick=''>"
@@ -30,7 +30,7 @@ function voltarFiltros() {
                         +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
                     +"</div>"
                 +"</div>"
-                +"<p>Beleza e Higiene</p>"
+                +"<p class='nomeFiltro'>Beleza e Higiene</p>"
             +"</div>"
     );
 
@@ -63,20 +63,20 @@ function gerarIdFiltro(filtro) {
         $('#filtro-1').replaceWith("<div id='filtro-0' class='filtros'>"
                 +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
                 +"<div class='imgFiltros'>"
-                +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+                +"<img src='./src/imgs/icons/imgMedicamento.png' alt='medicamento' style='width: 100%;'/>"
                 +"</div>"
                 +"</div>"
-                +"<p>Sem filtro</p>"
+                +"<p class='nomeFiltro'>Sem filtro</p>"
                 +"</div>");
     } else if (filtro == "consulta") {
         voltarFiltros();
         $('#filtro-2').replaceWith("<div id='filtro-0' class='filtros'>"
             +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
             +"<div class='imgFiltros'>"
-            +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+            +"<img src='./src/imgs/icons/imgConsulta.png' alt='medicamento' style='width: 100%;'/>"
             +"</div>"
             +"</div>"
-            +"<p>Sem filtro</p>"
+            +"<p class='nomeFiltro'>Sem filtro</p>"
             +"</div>");
     } else if (filtro == "beleza") {
         voltarFiltros();
@@ -86,7 +86,7 @@ function gerarIdFiltro(filtro) {
             +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
             +"</div>"
             +"</div>"
-            +"<p>Sem filtro</p>"
+            +"<p class='nomeFiltro'>Sem filtro</p>"
             +"</div>");
     }
     
@@ -153,6 +153,7 @@ function carregarCatalogo(fileira) {
                          +"<p id='nomeProduto'>"+retorno['nome_cupom']+"</p>"
                          +"<h4 id='fornecedorProduto'>"+retorno['associacao']+"</h4>"
                          +"<p id='descricaoProduto' class='descricaoProdutos'>"+retorno['descricao']+"</p>"
+                         +"<p>Desconto de <strong>"+retorno['desconto']+"%</strong></p>"                        
                          +"<div id='btnProduto' class='btnProdutos'>"+retorno['valor']+" ₯</div>"
                          +"</article>"
                     );
@@ -253,6 +254,7 @@ function carregarCatalogoFiltro(fileira, filtro) {
                          +"<p id='nomeProduto'>"+retorno['nome_cupom']+"</p>"
                          +"<h4 id='fornecedorProduto'>"+retorno['associacao']+"</h4>"
                          +"<p id='descricaoProduto' class='descricaoProdutos'>"+retorno['descricao']+"</p>"
+                         +"<p>Desconto de <strong>"+retorno['desconto']+"%</strong></p>"
                          +"<div id='btnProduto' class='btnProdutos'>"+retorno['valor']+" ₯</div>"
                          +"</article>"
                     );

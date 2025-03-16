@@ -30,6 +30,7 @@ function exibirPesquisa(fileira) {
                          +"<p id='nomeProduto'>"+retorno['nome_cupom']+"</p>"
                          +"<h4 id='fornecedorProduto'>"+retorno['associacao']+"</h4>"
                          +"<p id='descricaoProduto' class='descricaoProdutos'>"+retorno['descricao']+"</p>"
+                         +"<p>Desconto de <strong>"+retorno['desconto']+"%</strong></p>"
                          +"<div id='btnProduto' class='btnProdutos'>"+retorno['valor']+" ₯</div>"
                          +"</article>"
                     );
@@ -192,8 +193,8 @@ function pesquisarMobile(ativar) {
     }
 }
 
-function redirecionarPesquisa() {
-    if (event.key === 'Enter') {
+function redirecionarPesquisa(ativar) {
+    if (ativar == "sim" || event.key === 'Enter') {
         pesquisaAnterior = $('#inputSearch').val();
         redirecionado = "sim";
         localStorage.setItem("redirecionado", redirecionado);

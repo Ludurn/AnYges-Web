@@ -23,8 +23,8 @@ function acessarPerfil() {
     );
 }
 
-function desconectarPerfil() {
-    if (confirm("Deseja desconectar-se?") == true) {
+function desconectarPerfil(ativar) {
+    if (ativar == "sim" || confirm("Deseja desconectar-se?") == true) {
         $.post(
             "./src/PHP/logout.php",
         )
@@ -42,7 +42,6 @@ function desconectarPerfil() {
             }
         )
     }
-
 }
 
 function contabilizarPontos() {

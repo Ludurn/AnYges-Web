@@ -35,8 +35,8 @@
             <a href="home.html"><img src="./src/imgs/logoTitle.png" alt="logo" style="width: 100%;" id="logo-login"></a>
         </div>
         <div id="search-box">
-            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass">
-            <button id="lupa" class="lupaClass"></button>
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass" onkeydown="redirecionarPesquisa();">
+            <button id="lupa" class="lupaClass"  onclick="redirecionarPesquisa('sim');"></button>
         </div>
         <nav>
             <div class="menuDrop">

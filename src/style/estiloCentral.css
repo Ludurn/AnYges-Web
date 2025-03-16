@@ -92,6 +92,7 @@ a {
     background-position: center;
     border: 0rem solid white;
     border-radius: 0rem 0.25rem 0.25rem 0rem;
+    cursor: pointer;
 }
 
 .menuDrop {
