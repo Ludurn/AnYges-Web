@@ -59,6 +59,12 @@ a {
     border-radius: 0.25rem;
 }
 
+.inputSearchClass {
+    color: #727273;
+    background-color: #f0f0f0;
+    border: 0.0625rem solid #ccc;
+}
+
 #inputSearch::placeholder { 
     text-align: center;
     font-size: medium;

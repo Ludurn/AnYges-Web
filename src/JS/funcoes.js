@@ -4,8 +4,6 @@ let larguraTela;
 
 larguraTela = screen.width * window.devicePixelRatio;
 
-let dispositivoMobile = navigator.userAgentData.mobile;
-
 // VARIÁVEIS DE CONTROLE
 
 let aux = false;

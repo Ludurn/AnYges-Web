@@ -170,6 +170,11 @@ a {
     background-color: #1F6124;
 }
 
+a#carrinhoMobile {
+    display: none;
+    cursor: pointer;
+}
+
 #pontosUser{
     background-color: #8A3C29;
     color: #f0f0f0;
@@ -188,6 +193,10 @@ a {
     color: white;
     border: 0.1rem solid #75a32a;
     background-color: #1F6124;
+}
+
+#search-box-mobile {
+    display: none;
 }
 
 .carrinhoCard {
@@ -240,13 +249,6 @@ a {
     font-size: large;
 }
 
-footer {
-    background: #f1f1f1;
-    padding: 0.625.rem;
-    text-align: center;
-}
-
-
 .respons {
     display: flex;
     flex-direction: row;
@@ -278,53 +280,12 @@ main h1{
     margin-bottom: 3%;
 }
 
-/*.produtos {
-    background-color: #f2f2f2;
-    width: 14.6%;
-    padding: 1%;
-    margin: 1.6%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0.1em 0.4em 0.5em rgba(128, 128, 128, 0.39);
-    border: 0.1em solid rgba(128, 128, 128, 0.39);
-    border-radius: 0.75rem;
-    transition: background-color 0.5s;
-}
 
-.imgProdutos {
-    border-radius: 1rem;
-}
-
-.molduraProdutos {
-    width: 120%;
-}
-
-.descricaoProdutos {
+footer {
+    background: #f1f1f1;
+    padding: 0.625.rem;
     text-align: center;
 }
-
-.btnProdutos {
-    display: flex;
-    width: 90%;
-    height: 5vh;
-    justify-content: center;
-    <!--align-items: center;-->
-    font-size: large;
-    background-image: linear-gradient(#1F6124, #123b15);
-    border-radius: 0.375rem;
-    color: white;
-    user-select: none;
-    cursor: pointer;
-}
-.btnProdutos:hover {
-    background-image: linear-gradient(#8A3C29, #572519);
-}
-
-.btnProdutos:active {
-    background-image: linear-gradient(#b54f36, #8a3b28);
-}
-*/
 
 /* Modo noturno (ou dark) */
 
@@ -378,11 +339,11 @@ main h1{
     padding: 2.7%;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1rem;
     resize: vertical;
 }
 .form-group textarea {
-    height: 100px;
+    height: 10vh;
 }
 .form-group button {
     width: 100%;
@@ -391,7 +352,7 @@ main h1{
     color: #fff;
     border: none;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
 }
 .form-group button:hover {
@@ -401,6 +362,7 @@ main h1{
 .color1{
     font-weight: lighter;
 }
+
 /*Container da Ajuda*/
 
 .helpcontainer {
@@ -453,22 +415,259 @@ main h1{
 
 /* RESPONSIVIDADE */
 
-@media screen and (max-width: 950px) {
+
+@media screen and (max-width: 500px){
+
     header {
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    #respons1 {
         width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: normal;
+        align-items: normal;
+        position: sticky;
     }
 
-    #respons2 {
-        width: 100%;
+    #logo-box{
+        display: flex;
+        width: 40%;
+        height: 7vh;
+        align-items: center;
+        margin-right: 5%;
+    }
+
+    #search-box {
+        display: none;
     }
 
     nav {
-        gap: 2px;
+        width: 100%;
+        align-items: center;
     }
+
+    .registrar {
+        display: none;
+    }
+
+    a#carrinhoMobile {
+        display: flex;
+    }
+
+    #btnCarrinho {
+        display: none;
+    }
+
+    #search-box-mobile {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-top: 7%;
+    }
+
+    #inputSearchMobile {
+        width: 100%;
+        min-height: 2.5rem;
+        font-size: 1rem;
+        padding-left: 0.437rem;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+    }
+
+    #janela {
+        margin: 0;
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #colorir2, #colorir3 {
+        display: none;
+    }
+
+    #helpcontainer {
+        margin: 0;
+        margin-bottom: 10%;
+        width: 90%;
+    }
+
+    #faq-section {
+        padding: 5%;
+    }
+
+    #colorir4 {
+        text-align: center;
+        margin-top: 3%;
+        padding-right: 3%;
+    }
+
+    #form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0%;
+        padding-left: 3%;
+        padding-bottom: 5%;
+        margin: auto;
+        margin-bottom: 15%;
+        width: 90%;
+    }
+
+    .form-group > input,
+    .form-group > select,
+    .form-group > textarea {
+        width: 90%;
+    }
+
+    #btnEnviar { 
+        margin: auto;
+        margin-top: 5%;
+        width: 80%;
+        padding-right: 3%;
+    }
+
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+    header {
+        width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: normal;
+        position: sticky;
+    }
+
+    #logo-box{
+        display: flex;
+        width: 100%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 5%;
+    }
+
+    #search-box {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        align-items: center;
+    }
+
+    .registrar {
+        display: none;
+    }
+
+    a#carrinhoMobile {
+        display: flex;
+    }
+
+    #btnCarrinho {
+        display: none;
+    }
+
+    #search-box-mobile {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-top: 7%;
+    }
+
+    #inputSearchMobile {
+        width: 100%;
+        min-height: 2.5rem;
+        font-size: 1rem;
+        padding-left: 0.437rem;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+    }
+
+    #janela {
+        margin: 0;
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #colorir2, #colorir3 {
+        display: none;
+    }
+
+    #helpcontainer {
+        margin: 0;
+        margin-bottom: 10%;
+        width: 90%;
+    }
+
+    #faq-section {
+        padding: 5%;
+    }
+
+    #colorir4 {
+        text-align: center;
+        margin-top: 3%;
+        padding-right: 3%;
+    }
+
+    #form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0%;
+        padding-left: 3%;
+        padding-bottom: 5%;
+        margin: auto;
+        margin-bottom: 15%;
+        width: 90%;
+    }
+
+    input {
+        min-height: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .form-group > input,
+    .form-group > select,
+    .form-group > textarea {
+        width: 90%;
+    }
+
+    #btnEnviar { 
+        margin: auto;
+        margin-top: 5%;
+        width: 80%;
+        padding-right: 3%;
+    }
+
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+
+    #logo-box{
+        display: flex;
+        width: 15%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 0%;
+    }
+
+
+}
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+
+
+}
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+    #logo-box{
+        display: flex;
+        width: 15%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 0%;
+    }
+
+    #search-box {
+        width: 100%;
+    }
+
+
+
 }
