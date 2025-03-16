@@ -4,6 +4,8 @@ let larguraTela;
 
 larguraTela = screen.width * window.devicePixelRatio;
 
+let dispositivoMobile = navigator.userAgentData.mobile;
+
 // VARIÁVEIS DE CONTROLE
 
 let aux = false;
@@ -54,21 +56,12 @@ function tabDadosStyle() {
             delay = "200"; 
         }
 
-
-
         setTimeout(() => {
             if ($("#perfilInfoBox").css('visibility') === 'hidden') {
-
-                if (larguraTela < 800) {
-                    $("#tabDados").css({
-                        "border-bottom":" #611f1f solid"
+                    
+                $("#tabDados").css({
+                        "border-left":"0.2rem #611f1f solid"
                     });
-                } else {
-                    $("#tabDados").css({
-                        "border-left":" #611f1f solid"
-                    });
-                }
-
                 $("#perfilInfoBox").css(
                     {
                         "display": "flex"
@@ -89,9 +82,10 @@ function tabDadosStyle() {
                          });
                     }, 100);                
             } else {
-                $("#tabDados").css({
-                    "border-left":"white solid"
-                });
+                    $("#tabDados").css({
+                        "border-left":"white solid"
+                    });
+
                 $("#perfilTitle").css({
                     "opacity": "0",
                     "transition": "visibility 0s, opacity 0.2s linear"
@@ -125,17 +119,13 @@ function tabCupomStyle() {
         delay = "200"; 
     }
 
+
     setTimeout(() => {
         if ($("#perfilCupomBox").css('visibility') === 'hidden') {
-            if (larguraTela < 800) {
+
                 $("#tabCupom").css({
-                    "border-bottom":" #611f1f solid"
+                    "border-left":"0.2rem #611f1f solid"
                 });
-            } else {
-                $("#tabCupom").css({
-                    "border-left":" #611f1f solid"
-                });
-            }
 
             $("#perfilCupomBox").css(
                 {
@@ -157,9 +147,11 @@ function tabCupomStyle() {
                      });
                 }, 100);                
         } else {
+
             $("#tabCupom").css({
-                "border-left":"white solid"
+                    "border-left":"white solid"
             });
+
             $("#perfilTitle").css({
                 "opacity": "0",
                 "transition": "visibility 0s, opacity 0.2s linear"
