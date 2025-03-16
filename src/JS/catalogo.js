@@ -36,9 +36,9 @@ function voltarFiltros() {
             +"</div>"
     );
 
-    $("#btnFiltro1").attr('onclick', "limparCatalogo(); gerarIdFiltro('medicamento'); chamarCarrinho();");
-    $("#btnFiltro2").attr('onclick', "limparCatalogo(); gerarIdFiltro('consulta'); chamarCarrinho();");
-    $("#btnFiltro3").attr('onclick', "limparCatalogo(); gerarIdFiltro('beleza'); chamarCarrinho();");
+    $("#btnFiltro1").attr('onclick', "limparCatalogo(); gerarIdFiltro('medicamento'); chamarCarrinho('filteron');");
+    $("#btnFiltro2").attr('onclick', "limparCatalogo(); gerarIdFiltro('consulta'); chamarCarrinho('filteron');");
+    $("#btnFiltro3").attr('onclick', "limparCatalogo(); gerarIdFiltro('beleza'); chamarCarrinho('filteron');");
 }
 
 function gerarId() {

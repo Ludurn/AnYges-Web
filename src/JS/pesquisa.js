@@ -145,6 +145,7 @@ function pesquisar(ativar) {
                     if (idPesquisa.length>0) {
                         limparCatalogo();
                         exibirPesquisa(1);
+                        chamarCarrinho('pesquisa');
                     } else {
                         resetarPesquisa();
                     }
@@ -178,6 +179,7 @@ function pesquisarMobile(ativar) {
                     if (idPesquisa.length>0) {
                         limparCatalogo();
                         exibirPesquisa(1);
+                        chamarCarrinho('pesquisa');
                     } else {
                         resetarPesquisa();
                     }
