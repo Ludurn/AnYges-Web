@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
+    <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
     <script type="text/javascript" src="./src/JS/contato.js"></script>
     <!-- <script type="text/javascript" src="./src/JS/carrinho.js"></script> -->
     <script>
@@ -31,25 +32,24 @@
     </div>
     <header>
         <div id="logo-box">
-            <div  id="logo-obj">
-                <img src="./src/imgs/logo-default.png" alt="logo" style="width: 100%;" id="logo-login">
-            </div>
-            <h1>ANYGES</h1>
+            <a href="home.html"><img src="./src/imgs/logoTitle.png" alt="logo" style="width: 100%;" id="logo-login"></a>
         </div>
         <div id="search-box">
-            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass">
-            <button id="lupa" class="lupaClass"></button>
+            <input type="text" placeholder="O que você está buscando?" id="inputSearch" class="inputSearchClass" onkeydown="redirecionarPesquisa();">
+            <button id="lupa" class="lupaClass"  onclick="redirecionarPesquisa('sim');"></button>
         </div>
         <nav>
             <div class="menuDrop">
                 <button id="btnMenu" onclick="menuFadeIn()">Menu</button>              
                 <div id="menuDropBG">
-                    <a onclick="acessarPerfil()" style="cursor: pointer;">
+                    <a href="./home.html">
+                        <ion-icon name="home"></ion-icon> Home</a>
+                    <a onclick="acessarPerfil()" style="cursor: pointer;">        
                         <ion-icon name="person"></ion-icon> Perfil</a>
-                        <a href="#">
-                            <ion-icon name="hand"></ion-icon> Acessibilidade</a>
-                            <a href="./central.html">
-                                <ion-icon name="star-outline"></ion-icon> Central de Atendimento</a>
+                    <a id="carrinhoMobile" onclick="ativarCarrinho()">
+                        <ion-icon name="cart"></ion-icon> Carrinho</a>    
+                    <a href="#">
+                        <ion-icon name="hand"></ion-icon> Acessibilidade</a>
                                 </div>
                                 </div>
                                 <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
@@ -59,6 +59,10 @@
                                 <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark(),pagDark()">&#x1F319;</button>
                             </nav>     
                         </header>
+                        <div id="search-box-mobile">
+                            <input type="text" placeholder="O que você está buscando?" id="inputSearchMobile" class="inputSearchClass" onkeydown="redirecionarPesquisaMobile();">
+                            <button id="lupa" class="lupaClass" onclick="redirecionarPesquisaMobile('sim');"></button>
+                        </div>
                         <center><h1 id="colorir1" class="color1">Central de Ajuda</h1>
                         <h3 id="colorir2">Bem-vindo à nossa Central de Ajuda.</h3>
                         <h3 id="colorir3">Aqui você encontra respostas para perguntas comuns e orientações sobre como utilizar nossos serviços.</h3></center>
@@ -104,9 +108,9 @@
                                 <div class="form-group" id="form-group7">
                                     <label for="envioanexo">Envio de Arquivo</label>
                                     <input type="file" id="envioanexo" name="envioanexo" accept="*/*">
-                                    <div id="nome-anexo" id="form-group8">Nenhum arquivo selecionado</div>
+                                    <!--<div id="nome-anexo" id="form-group8">Nenhum arquivo selecionado</div>-->
                                 </div>
-                                <div class="form-group">
+                                <div id="btnEnviar" class="form-group">
                                     <button onclick="enviarForm()">Enviar</button>
                                 </div>
                             </div>

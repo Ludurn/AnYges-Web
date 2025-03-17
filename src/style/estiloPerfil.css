@@ -4,6 +4,7 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
+    transition: background-color 0.5s;
 }
 
 header {
@@ -59,6 +60,12 @@ a {
     border-radius: 0.25rem;
 }
 
+.inputSearchClass {
+    color: #727273;
+    background-color: #f0f0f0;
+    border: 0.0625rem solid #ccc;
+}
+
 #inputSearch::placeholder { 
     text-align: center;
     font-size: medium;
@@ -67,6 +74,18 @@ a {
 
 #inputSearch:focus {
     outline: none;
+}
+
+#lupa {
+    width: 30px;
+    background-color: #8A3C29;
+    background-image: url(../imgs/icons/lupa-dark.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: 0rem solid white;
+    border-radius: 0rem 0.25rem 0.25rem 0rem;
+    cursor: pointer;
 }
 
 .menuDrop {
@@ -126,6 +145,11 @@ a {
     border-radius: 0.5rem;
 }
 
+a#carrinhoMobile {
+    display: none;
+    cursor: pointer;
+}
+
 .carrinho {
     background-color: #75a32a;
     color: white;
@@ -138,6 +162,11 @@ a {
     background-color: #1F6124;
 }
 
+#search-box-mobile {
+    display: none;
+}
+
+
 main {
     margin: 5%;
     display: flex;
@@ -146,6 +175,8 @@ main {
     justify-content: flex-start;
     flex-wrap: wrap;
 }
+
+/*      POP UP         */
 
 #popUp {
     /*display: flex;*/
@@ -201,6 +232,8 @@ main {
     background-color: #611f1f;
     color: white;
 }
+
+/*     GERENCIAMENTO DO PERFIL      */
 
 #perfilNav {
     width: 21%;
@@ -265,10 +298,10 @@ main {
     transition: background-color 0.3s, color 0.3s linear;
 }
 
-.btnsEdicaoPerfil:hover {
+/*.btnsEdicaoPerfil:hover {
     box-shadow: 0.75rem 0.75rem 0.75rem rgba(0,0,0,0.1),
     -0.625rem -0.625rem 0.625rem #f9f9f9;
-}
+}*/
 
 #btnEditarPerfil:hover {
     background-color: #75a32a;
@@ -284,10 +317,10 @@ main {
     color: white;
 }
 
-#perfilCupomAtivoBox {
+#perfilCupomBox {
     display: none;
     align-items: normal;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     visibility: hidden;
     opacity: 0;
     border: 0.2rem solid #f1f1f1;
@@ -295,75 +328,20 @@ main {
     transition: visibility 0s, opacity 0.2s linear;
 }
 
-.cupom {
-    width: 100%;
-    height: 10%;
-    margin: 1%;
+#appAd-box {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-    border: 0.2rem solid #f1f1f1;
-    border-radius: 0.3rem;
-    font-size: large;
-}
-
-.molduraCupom {
-    max-width: 22%;
-}
-
-.imgCupom {
-    border-radius: 1rem;
-}
-
-.codCupomAtivo {
-    color: #1F6124;
-}
-
-.codHistCupom {
-    color: #611f1f;
-}
-
-.histPonto {
+    margin: auto;
     width: 100%;
-    height: 10%;
-    margin: 1%;
-    display: flex;
     align-items: center;
-    gap: 8%;
-    flex-wrap: nowrap;
-    border: 0.2rem solid #f1f1f1;
-    border-radius: 0.3rem;
-    font-size: large;
+    text-align: center;
+    flex-direction: column;
 }
 
-.molduraHist {
-    width: 15%;
+#appDownload-box {
+    margin: 5%;
+    width: 10%;
 }
 
-
-
-#perfilHistCupomBox {
-    display: none;
-    align-items: normal;
-    flex-wrap: wrap;
-    visibility: hidden;
-    opacity: 0;
-    border: 0.2rem solid #f1f1f1;
-    border-radius: 0.3rem;
-    transition: visibility 0s, opacity 0.2s linear;
-}
-
-#perfilHistPontoBox {
-    display: none;
-    align-items: normal;
-    flex-wrap: wrap;
-    visibility: hidden;
-    opacity: 0;
-    border: 0.2rem solid #f1f1f1;
-    border-radius: 0.3rem;
-    transition: visibility 0s, opacity 0.2s linear;
-}
 
 footer {
     background: #f1f1f1;
@@ -373,22 +351,346 @@ footer {
 
 /* RESPONSIVIDADE */
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 500px){
+
     header {
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    #respons1 {
         width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: normal;
+        align-items: normal;
+        position: sticky;
     }
 
-    #respons2 {
-        width: 100%;
+    #logo-box{
+        display: flex;
+        width: 40%;
+        height: 7vh;
+        align-items: center;
+        margin-right: 5%;
+    }
+
+    #search-box {
+        display: none;
     }
 
     nav {
-        gap: 2px;
+        width: 100%;
+        align-items: center;
     }
+
+    a#carrinhoMobile {
+        display: flex;
+    }
+
+    #btnCarrinho {
+        display: none;
+    }
+
+    #search-box-mobile {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-top: 7%;
+    }
+
+    #inputSearchMobile {
+        width: 100%;
+        min-height: 2.5rem;
+        font-size: 1rem;
+        padding-left: 0.437rem;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+    }
+
+    #popUp {
+        width: 90%;
+        top: 37%;
+        left: 1%;
+        font-size: large;
+    }
+
+    #senhaPopUp {
+        min-height: 2rem;
+        font-size: 1rem;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+    }
+
+    #perfilNav {
+        display: flex;
+        width: 100%;
+        justify-content:baseline;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-bottom: 5%;
+    }
+
+    #usuarioTitle {
+        width: 100%;
+    }
+
+    #usuarioImg {
+        width: 20%;
+    }
+
+    .perfilNavTabs {
+        margin: auto;
+        width: 30%;
+        font-size: large;
+    }
+
+    #perfilTitle {
+        display: none;
+    }
+
+    #perfil {
+        width: 100%;
+        font-size: larger;
+    }
+
+    #campoEdicaoPerfil {
+        width: 100%;
+        justify-content: center;
+        margin-top: 5%;
+    }
+
+    #perfilInfoBox {
+        padding-right: 3%;
+    }
+
+    .perfilInfo > input {
+        width: 100%;
+        min-height: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    #appDownload-box {
+        width: 19%;
+    }
+
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+    header {
+        width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: normal;
+        position: sticky;
+    }
+
+    #logo-box{
+        display: flex;
+        width: 100%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 5%;
+    }
+
+    #search-box {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        align-items: center;
+    }
+
+    a#carrinhoMobile {
+        display: flex;
+    }
+
+    #btnCarrinho {
+        display: none;
+    }
+
+    #search-box-mobile {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-top: 7%;
+    }
+
+    #inputSearchMobile {
+        width: 100%;
+        min-height: 2.5rem;
+        font-size: 1rem;
+        padding-left: 0.437rem;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+    }
+
+    #popUp {
+        width: 90%;
+        top: 37%;
+        left: 1%;
+        font-size: large;
+    }
+
+    #senhaPopUp {
+        min-height: 2rem;
+        font-size: 1rem;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+    }
+
+    #perfilNav {
+        display: flex;
+        width: 100%;
+        justify-content:baseline;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-bottom: 5%;
+    }
+
+    #usuarioTitle {
+        width: 100%;
+    }
+
+    #usuarioImg {
+        width: 15%;
+    }
+
+    .perfilNavTabs {
+        margin: auto;
+        width: 30%;
+        font-size: large;
+    }
+
+    #perfilTitle {
+        display: none;
+    }
+
+    #perfil {
+        width: 100%;
+        font-size: larger;
+    }
+
+    #campoEdicaoPerfil {
+        width: 100%;
+        justify-content: center;
+        margin-top: 5%;
+    }
+
+    .perfilInfo > input {
+        min-height: 2rem;
+        font-size: 1rem;
+    }
+    
+    #appDownload-box {
+        width: 15%;
+    }
+
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+
+    #logo-box{
+        display: flex;
+        width: 15%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 0%;
+    }
+
+    #popUp {
+        width: 60%;
+        top: 35%;
+        left: 15%;
+        font-size: large;
+    }
+
+    #senhaPopUp {
+        min-height: 2rem;
+        font-size: 1rem;
+    }
+
+    #perfilNav {
+        width: 25%;
+    }
+
+    #perfil {
+        width: 74%;
+    }
+
+    #usuarioTitle {
+        width: 100%;
+    }
+
+    .perfilInfo > input {
+        min-height: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    #appDownload-box {
+        width: 12%;
+    }
+
+}
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+
+    #senhaPopUp {
+        min-height: 1.3rem;
+        font-size: 1rem;
+    }
+
+    .perfilInfo > input {
+        min-height: 1.3rem;
+        font-size: 1rem;
+    }
+
+}
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+    #logo-box{
+        display: flex;
+        width: 15%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 0%;
+    }
+
+    #search-box {
+        width: 100%;
+    }
+
+    #appDownload-box {
+        width: 8%;
+    }
+
+    #senhaPopUp {
+        min-height: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .perfilInfo > input {
+        min-height: 1.2rem;
+        font-size: 1rem;
+    }
+
+
+
+}
+
+/* Modo noturno (ou dark) */
+
+.dark {
+    color: white;
+    padding: 0%;
+    font-size: x-large;
+    background-color: #1f612400;
+}
+
+.bodyDark {
+    background-color: #323232;
+    color: white;
+}
+
+.produtosDark {
+    color: white;
+    background-color: #646464;
 }

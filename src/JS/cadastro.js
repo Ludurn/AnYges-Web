@@ -60,7 +60,7 @@ function enviarInfos() {
         }
     }
     if (campoVazio > 0) {
-        window.alert("Favor, preencher todos os campos do formulário 'informações pessoais'.");
+        window.alert("Favor, preencher todos os campos do formulário.");
     } else if ($("#senha").val() != $("#confirmSenha").val()) {
         window.alert("Confirmação da senha incorreta, digite valores iguais nos campos 'senha' e 'Confirme senha'");
     } else {
@@ -89,8 +89,9 @@ function enviarInfos() {
             function(retorno) {
                 retorno = JSON.parse(retorno);
                 if (retorno == "idade nao permitida") {
-                    alert("usuário menor de 18 anos");
+                    alert("Não foi possível concluir seu cadastro, pois a idade mínima permitida é 18 anos.");
                 } else {
+                    alert("Cadastro concluído com sucesso!");
                     window.location.replace("./index.html");
                 }
             }

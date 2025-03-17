@@ -40,17 +40,9 @@ try{
 
         $ponteiro->execute();
         
+        die(json_encode("Formulário enviado"));
 
-        $to = "seuemail@dominio.com"; // substituir pelo endereço que recebera as mensagens...
-        $subject = "Nova mensagem de contato: $assunto";
-        $body = "Nome: $nome\nEmail: $email\nAssunto: $assunto\nMensagem:\n$mensagem";
-        $headers = "De: $email";
-    //envio do email...
-        if (mail($to, $subject, $body, $headers)) {
-            die(json_encode("Formulário enviado", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-        } else {
-            die(json_encode("Erro no envio"));
-        }
+    
     } else {
         echo "Método de requisição inválido.";
         die(json_encode("Envio repetido"));

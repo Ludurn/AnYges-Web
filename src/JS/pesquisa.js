@@ -30,6 +30,7 @@ function exibirPesquisa(fileira) {
                          +"<p id='nomeProduto'>"+retorno['nome_cupom']+"</p>"
                          +"<h4 id='fornecedorProduto'>"+retorno['associacao']+"</h4>"
                          +"<p id='descricaoProduto' class='descricaoProdutos'>"+retorno['descricao']+"</p>"
+                         +"<p>Desconto de <strong>"+retorno['desconto']+"%</strong></p>"
                          +"<div id='btnProduto' class='btnProdutos'>"+retorno['valor']+" ₯</div>"
                          +"</article>"
                     );
@@ -194,8 +195,8 @@ function pesquisarMobile(ativar) {
     }
 }
 
-function redirecionarPesquisa() {
-    if (event.key === 'Enter') {
+function redirecionarPesquisa(ativar) {
+    if (ativar == "sim" || event.key === 'Enter') {
         pesquisaAnterior = $('#inputSearch').val();
         redirecionado = "sim";
         localStorage.setItem("redirecionado", redirecionado);
@@ -208,6 +209,26 @@ function redirecionarPesquisa() {
         pesquisaAnterior = JSON.parse(localStorage.getItem("pesquisaAnterior"));
        setTimeout(() => {
             $('#inputSearch').val(pesquisaAnterior);
+            localStorage.clear();
+            pesquisar("sim");
+       }, 100)
+    }
+}
+
+function redirecionarPesquisaMobile(ativar) {
+    if (ativar == "sim" || event.key === 'Enter') {
+        pesquisaAnterior = $('#inputSearchMobile').val();
+        redirecionado = "sim";
+        localStorage.setItem("redirecionado", redirecionado);
+        localStorage.setItem("pesquisaAnterior", JSON.stringify(pesquisaAnterior));
+        window.location.replace("./home.html");
+    }
+
+    if (localStorage.getItem("redirecionado") == "sim") {
+        cancelarCatalogo = true;
+        pesquisaAnterior = JSON.parse(localStorage.getItem("pesquisaAnterior"));
+       setTimeout(() => {
+            $('#inputSearchMobile').val(pesquisaAnterior);
             localStorage.clear();
             pesquisar("sim");
        }, 100)

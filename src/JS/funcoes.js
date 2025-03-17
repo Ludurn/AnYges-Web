@@ -1,7 +1,14 @@
+// VARIAVEIS GLOBAIS
+
+let larguraTela;
+
+larguraTela = screen.width * window.devicePixelRatio;
+
 // VARIÁVEIS DE CONTROLE
 
 let aux = false;
 let aux2 = "claro";
+
 
 // FUNCOES PAGINA 'PERFIL'
 
@@ -33,12 +40,8 @@ function tabDadosLoader() {
 function tabVerificar() {
     if ($("#perfilInfoBox").css('visibility') === 'visible') {
         return "infoBox";
-    } else if ($("#perfilCupomAtivoBox").css('visibility') === 'visible') {
-        return "cupomAtivoBox";
-    } else if ($("#perfilHistCupomBox").css('visibility') === 'visible') {
-        return "histCupomBox";
-    } else if ($("#perfilHistPontoBox").css('visibility') === 'visible') {
-        return "histPontoBox";
+    } else if ($("#perfilCupomBox").css('visibility') === 'visible') {
+        return "cupomBox";
     }
 }
 
@@ -46,24 +49,17 @@ function tabDadosStyle() {
         let verifique = tabVerificar();
         let delay = "0";
 
-        if (verifique == "cupomAtivoBox") {
-            tabCupomAtivoStyle();
+        if (verifique == "cupomBox") {
+            tabCupomStyle();
             delay = "200"; 
-        } else if (verifique == "histCupomBox") {
-            tabHistCupomStyle();
-            delay = "200";
-        } else if (verifique == "histPontoBox") {
-            tabHistPontoStyle();
-            delay = "200";
         }
-
-
 
         setTimeout(() => {
             if ($("#perfilInfoBox").css('visibility') === 'hidden') {
+                    
                 $("#tabDados").css({
-                    "border-left":" #611f1f solid"
-                });
+                        "border-left":"0.2rem #611f1f solid"
+                    });
                 $("#perfilInfoBox").css(
                     {
                         "display": "flex"
@@ -84,9 +80,10 @@ function tabDadosStyle() {
                          });
                     }, 100);                
             } else {
-                $("#tabDados").css({
-                    "border-left":"white solid"
-                });
+                    $("#tabDados").css({
+                        "border-left":"white solid"
+                    });
+
                 $("#perfilTitle").css({
                     "opacity": "0",
                     "transition": "visibility 0s, opacity 0.2s linear"
@@ -111,31 +108,28 @@ function tabDadosStyle() {
         }, delay);
 }
 
-function tabCupomAtivoStyle() {
+function tabCupomStyle() {
     let verifique = tabVerificar();
     let delay = "0";
 
     if (verifique == "infoBox") {
         tabDadosStyle();
         delay = "200"; 
-    } else if (verifique == "histCupomBox") {
-        tabHistCupomStyle();
-        delay = "200";
-    } else if (verifique == "histPontoBox") {
-        tabHistPontoStyle();
-        delay = "200";
     }
 
+
     setTimeout(() => {
-        if ($("#perfilCupomAtivoBox").css('visibility') === 'hidden') {
-            $("#tabCupomAtivo").css({
-                "border-left":" #611f1f solid"
-            });
-            $("#perfilCupomAtivoBox").css(
+        if ($("#perfilCupomBox").css('visibility') === 'hidden') {
+
+                $("#tabCupom").css({
+                    "border-left":"0.2rem #611f1f solid"
+                });
+
+            $("#perfilCupomBox").css(
                 {
                     "display": "flex"
                 });
-            $("#perfilTitle").html("<h1 style='text-align: center;'>Cupons Ativos</h1>");                
+            $("#perfilTitle").html("<h1 style='text-align: center;'>Cupons</h1>");                
             setTimeout(() => {
                 $("#perfilTitle").css(
                     {
@@ -143,7 +137,7 @@ function tabCupomAtivoStyle() {
                         "opacity": "1",
                         "transition": "visibility 0s, opacity 0.2s linear"
                 });
-                $("#perfilCupomAtivoBox").css(
+                $("#perfilCupomBox").css(
                     {
                         "visibility": "visible",
                         "opacity": "1",
@@ -151,14 +145,16 @@ function tabCupomAtivoStyle() {
                      });
                 }, 100);                
         } else {
-            $("#tabCupomAtivo").css({
-                "border-left":"white solid"
+
+            $("#tabCupom").css({
+                    "border-left":"white solid"
             });
+
             $("#perfilTitle").css({
                 "opacity": "0",
                 "transition": "visibility 0s, opacity 0.2s linear"
             });
-            $("#perfilCupomAtivoBox").css(
+            $("#perfilCupomBox").css(
                 {
                     "opacity": "0",
                     "transition": "visibility 0s, opacity 0.2s linear"
@@ -168,141 +164,7 @@ function tabCupomAtivoStyle() {
                         {
                             "visibility":"hidden"
                     });
-                    $("#perfilCupomAtivoBox").css(
-                        {
-                            "visibility": "hidden",
-                            "display": "none"
-                        });
-                }, 200);
-        }
-    }, delay);
-}
-
-function tabHistCupomStyle() {
-    let verifique = tabVerificar();
-    let delay = "0";
-
-    if (verifique == "infoBox") {
-        tabDadosStyle();
-        delay = "200"; 
-    } else if (verifique == "cupomAtivoBox") {
-        tabCupomAtivoStyle();
-        delay = "200";
-    } else if (verifique == "histPontoBox") {
-        tabHistPontoStyle();
-        delay = "200";
-    }
-
-    setTimeout(() => {
-        if ($("#perfilHistCupomBox").css('visibility') === 'hidden') {
-            $("#tabHistCupom").css({
-                "border-left":" #611f1f solid"
-            });
-            $("#perfilHistCupomBox").css(
-                {
-                    "display": "flex"
-                });
-            $("#perfilTitle").html("<h1 style='text-align: center;'>Histórico de cupons</h1>");
-            setTimeout(() => {
-                $("#perfilTitle").css(
-                    {
-                        "visibility": "visible",
-                        "opacity": "1",
-                        "transition": "visibility 0s, opacity 0.2s linear"
-                });
-                $("#perfilHistCupomBox").css(
-                    {
-                        "visibility": "visible",
-                        "opacity": "1",
-                        "transition": "visibility 0s, opacity 0.2s linear"
-                     });
-                }, 100);                
-        } else {
-            $("#tabHistCupom").css({
-                "border-left":"white solid"
-            });
-            $("#perfilTitle").css({
-                "opacity": "0",
-                "transition": "visibility 0s, opacity 0.2s linear"
-            });
-            $("#perfilHistCupomBox").css(
-                {
-                    "opacity": "0",
-                    "transition": "visibility 0s, opacity 0.2s linear"
-                });
-            setTimeout(() => {
-                    $("#perfilTitle").css(
-                        {
-                            "visibility":"hidden"
-                        });
-                    $("#perfilHistCupomBox").css(
-                        {
-                            "visibility": "hidden",
-                            "display": "none"
-                        });
-                }, 200);
-        }
-    }, delay);
-}
-
-function tabHistPontoStyle() {
-    let verifique = tabVerificar();
-    let delay = "0";
-
-    if (verifique == "infoBox") {
-        tabDadosStyle();
-        delay = "200"; 
-    } else if (verifique == "cupomAtivoBox") {
-        tabCupomAtivoStyle();
-        delay = "200";
-    } else if (verifique == "histCupomBox") {
-        tabHistCupomStyle();
-        delay = "200";
-    }
-
-    setTimeout(() => {
-        if ($("#perfilHistPontoBox").css('visibility') === 'hidden') {
-            $("#tabHistPonto").css({
-                "border-left":" #611f1f solid"
-            });
-            $("#perfilHistPontoBox").css(
-                {
-                    "display": "flex"
-                });
-                $("#perfilTitle").html("<h1 style='text-align: center;'>Histórico de pontos</h1>");
-            setTimeout(() => {
-                $("#perfilTitle").css(
-                    {
-                        "visibility": "visible",
-                        "opacity": "1",
-                        "transition": "visibility 0s, opacity 0.2s linear"
-                });
-                $("#perfilHistPontoBox").css(
-                    {
-                        "visibility": "visible",
-                        "opacity": "1",
-                        "transition": "visibility 0s, opacity 0.2s linear"
-                     });
-                }, 100);                
-        } else {
-            $("#tabHistPonto").css({
-                "border-left":"white solid"
-            });
-            $("#perfilTitle").css({
-                "opacity": "0",
-                "transition": "visibility 0s, opacity 0.2s linear"
-            });
-            $("#perfilHistPontoBox").css(
-                {
-                    "opacity": "0",
-                    "transition": "visibility 0s, opacity 0.2s linear"
-                });
-            setTimeout(() => {
-                    $("#perfilTitle").css(
-                        {
-                            "visibility":"hidden"
-                    });
-                    $("#perfilHistPontoBox").css(
+                    $("#perfilCupomBox").css(
                         {
                             "visibility": "hidden",
                             "display": "none"
@@ -352,12 +214,13 @@ function ativarModoDark() {
     let lupa = document.getElementById("lupa");
     let body = document.getElementsByTagName("body");
     let produtos = document.getElementsByClassName("produtos");
+    let nomeFiltros = document.getElementsByClassName("nomeFiltro");
     let cardsCarrinhoDark = document.getElementsByClassName("carrinhoCard");
     let cardsCarrinhoQtdeDark = document.getElementsByClassName("quantidade");
 
     if (aux == true) {
         botaoDark.innerHTML = "&#x2600;";
-        logo.setAttribute("src", "./src/imgs/logoTitleBw.png");
+        logo.setAttribute("src", "./src/imgs/logoTitleBW.png");
     
         header[0].style.color = "white";
     
@@ -368,6 +231,10 @@ function ativarModoDark() {
         lupa.classList.add("lupa-darkClass");
     
         body[0].classList.add("bodyDark");
+
+        for (i = 0; i < nomeFiltros.length; i++) {
+            nomeFiltros[i].classList.add("nomeFiltroDark");
+        }
     
         for (i = 0; i < produtos.length; i++) {
             produtos[i].classList.add("produtosDark");
@@ -391,6 +258,10 @@ function ativarModoDark() {
         lupa.classList.remove("lupa-darkClass");
     
         body[0].classList.remove("bodyDark");
+
+        for (i = 0; i < nomeFiltros.length; i++) {
+            nomeFiltros[i].classList.remove("nomeFiltroDark");
+        }
     
         for (i = 0; i < produtos.length; i++) {
             produtos[i].classList.remove("produtosDark");
@@ -465,6 +336,56 @@ function ativarModoDark() {
         aux2="claro";
         }
     }
+
+function modoDarkPerfil() {
+    aux = !aux;
+    let botaoDark = $("#botaoDark");
+    let logo = $("#logo-login");
+    let header = document.getElementsByTagName("header");
+    let pesquisa = $("#inputSearch");
+    let body = $("body");
+    let popUp = $("#popUp");
+    let perfilInfoBox = $("#perfilInfoBox");
+    let perfilCupomBox = $("#perfilCupomBox");
+    let btnsEdicaoPerfil = $(".btnsEdicaoPerfil");
+
+    if (aux == true) {
+        botaoDark.innerHTML = "&#x2600;";
+        logo.attr("src", "./src/imgs/logoTitleBW.png");
+    
+        header[0].style.color = "white";
+    
+        pesquisa.removeClass("inputSearchClass");
+        pesquisa.addClass("inputSearchDark");
+    
+        body[0].classList.add("bodyDark");
+
+        popUp.css({'color':'black'});
+
+        perfilInfoBox.css({'border':'0.2rem solid #9e9fa0'});
+        perfilCupomBox.css({'border':'0.2rem solid #9e9fa0'});
+
+        btnsEdicaoPerfil.css({'color':'white'});
+
+    } else {
+        botaoDark.innerHTML = "&#x1F319;";
+        
+        logo.attr("src", "./src/imgs/logoTitle.png");
+    
+        header[0].style.color = "#8A3C29";
+    
+        pesquisa.addClass("inputSearchClass");
+        pesquisa.removeClass("inputSearchDark");
+        
+    
+        body[0].classList.remove("bodyDark");
+
+        perfilInfoBox.css({'border':'0.2rem solid #f1f1f1'});
+        perfilCupomBox.css({'border':'0.2rem solid #f1f1f1'});
+
+        btnsEdicaoPerfil.css({'color':'black'});
+    }
+}
     
     $(document).ready(function(){
         $('#telefoneform, #CPFform').on('keypress', function(e) {

@@ -75,13 +75,6 @@ a {
     outline: none;
 }
 
-.inputSearchDark {
-    background-color: #727273;
-    color: white;
-}
-.inputSearchDark::placeholder {
-    color: white;
-}
 #lupa {
     width: 30px;
     background-color: #8A3C29;
@@ -268,13 +261,6 @@ a#carrinhoMobile {
     font-size: large;
 }
 
-footer {
-    background: #f1f1f1;
-    padding: 0.625.rem;
-    text-align: center;
-}
-
-
 .respons {
     display: flex;
     flex-direction: row;
@@ -433,6 +419,11 @@ main {
     background-color: #2c8734;    
 }
 
+footer {
+    background: #f1f1f1;
+    padding: 0.625.rem;
+    text-align: center;
+}
 /* RESPONSIVIDADE */
 
 @media screen and (max-width: 500px) {
@@ -545,6 +536,10 @@ main {
         top: -1100px;
     }
 }
+
+/*    RESPONSIVIDADE      */
+
+
 @media screen and (min-width: 501px) and (max-width: 800px) {
 
     header {
@@ -762,8 +757,20 @@ main {
     background-color: #1f612400;
 }
 
+.inputSearchDark {
+    background-color: #727273;
+    color: white;
+}
+.inputSearchDark::placeholder {
+    color: white;
+}
+
 .bodyDark {
     background-color: #323232;
+}
+
+.nomeFiltroDark {
+    color: white;
 }
 
 .produtosDark {
