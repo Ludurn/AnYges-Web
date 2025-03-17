@@ -34,9 +34,9 @@ function voltarFiltros() {
             +"</div>"
     );
 
-    $("#btnFiltro1").attr('onclick', "limparCatalogo(); gerarIdFiltro('medicamento');");
-    $("#btnFiltro2").attr('onclick', "limparCatalogo(); gerarIdFiltro('consulta');");
-    $("#btnFiltro3").attr('onclick', "limparCatalogo(); gerarIdFiltro('beleza');");
+    $("#btnFiltro1").attr('onclick', "limparCatalogo(); gerarIdFiltro('medicamento'); chamarCarrinho('filteron');");
+    $("#btnFiltro2").attr('onclick', "limparCatalogo(); gerarIdFiltro('consulta'); chamarCarrinho('filteron');");
+    $("#btnFiltro3").attr('onclick', "limparCatalogo(); gerarIdFiltro('beleza'); chamarCarrinho('filteron');");
 }
 
 function gerarId() {
@@ -61,7 +61,7 @@ function gerarIdFiltro(filtro) {
     if (filtro == "medicamento") {
         voltarFiltros();
         $('#filtro-1').replaceWith("<div id='filtro-0' class='filtros'>"
-                +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
+                +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros(); chamarCarrinho();'>"
                 +"<div class='imgFiltros'>"
                 +"<img src='./src/imgs/icons/imgMedicamento.png' alt='medicamento' style='width: 100%;'/>"
                 +"</div>"
@@ -71,7 +71,7 @@ function gerarIdFiltro(filtro) {
     } else if (filtro == "consulta") {
         voltarFiltros();
         $('#filtro-2').replaceWith("<div id='filtro-0' class='filtros'>"
-            +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
+            +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros(); chamarCarrinho();'>"
             +"<div class='imgFiltros'>"
             +"<img src='./src/imgs/icons/imgConsulta.png' alt='medicamento' style='width: 100%;'/>"
             +"</div>"
@@ -81,7 +81,7 @@ function gerarIdFiltro(filtro) {
     } else if (filtro == "beleza") {
         voltarFiltros();
         $('#filtro-3').replaceWith("<div id='filtro-0' class='filtros'>"
-            +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros();'>"
+            +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros(); chamarCarrinho();'>"
             +"<div class='imgFiltros'>"
             +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
             +"</div>"

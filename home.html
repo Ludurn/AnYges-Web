@@ -17,10 +17,10 @@
     <script type="text/javascript" src="./src/JS/session.js"></script>
     <script type="text/javascript" src="./src/JS/catalogo.js"></script>
     <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
-    <!-- <script type="text/javascript" src="./src/JS/carrinho.js"></script> -->
 </head>
-<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisaMobile(); redirecionarPesquisa(); exibirPontos(); carregarCatalogo(1);">
+<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisaMobile(); redirecionarPesquisa(); exibirPontos(); carregarCatalogo(1); chamarCarrinho();">
     <div id="cartContainer">
+        <img id="carregandoGif" src="./src/imgs/popups/green_style.gif" alt="Carregando">
         <!-- Aqui no carrinho, serão inseridos através de JavaScript versões em miniatura dos cards de produtos -->
         <!-- <input type="button" id="" value="Check Out"> -->
     </div>
@@ -39,8 +39,8 @@
                     <a onclick="acessarPerfil()" style="cursor: pointer;">
                         <ion-icon name="person"></ion-icon> Perfil</a>
                     <a id="carrinhoMobile" onclick="ativarCarrinho()">
-                        <ion-icon name="cart"></ion-icon> Carrinho</a>
-                    <a href="#">
+                        <img id ="iconeCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"> Carrinho
+                        <a href="#">
                         <ion-icon name="hand"></ion-icon> Acessibilidade</a>
                     <a href="./central.html">
                         <ion-icon name="call"></ion-icon> Central de Atendimento</a>
@@ -49,7 +49,7 @@
             <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
             <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
             <!-- A chamada "ativarCarinho()" vem do arquivo "carrinho.js" -->
-            <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho()">Carrinho <ion-icon name="cart"></ion-icon></button>
+            <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho()">Carrinho <img id ="imagemCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"></button>
             <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark()">&#x1F319;</button>
         </nav>     
     </header>
@@ -61,7 +61,7 @@
 
         <div id="filtroBox">
             <div id="filtro-1" class="filtros">
-                <div id="btnFiltro1" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('medicamento');">
+                <div id="btnFiltro1" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('medicamento'); chamarCarrinho();">
                     <div class="imgFiltros">
                         <img src="./src/imgs/icons/imgMedicamento.png" alt="medicamento" style="width: 100%;"/>
                     </div>
@@ -69,7 +69,7 @@
                 <p class="nomeFiltro">Medicamentos</p>
             </div>
             <div id="filtro-2" class="filtros">
-                <div id="btnFiltro2" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('consulta');">
+                <div id="btnFiltro2" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('consulta'); chamarCarrinho();">
                     <div class="imgFiltros">
                         <img src="./src/imgs/icons/imgConsulta.png" alt="medicamento" style="width: 100%;"/>
                     </div>
@@ -77,7 +77,7 @@
                 <p class="nomeFiltro">Consultas</p>
             </div>
             <div id="filtro-3" class="filtros">
-                <div id="btnFiltro3" class="btnFiltros" onclick="voltarFiltros(); limparCatalogo(); gerarIdFiltro('beleza');">
+                <div id="btnFiltro3" class="btnFiltros" onclick="voltarFiltros(); limparCatalogo(); gerarIdFiltro('beleza'); chamarCarrinho();">
                     <div class="imgFiltros">
                         <img src="./src/imgs/icons/imgHigiene.png" alt="medicamento" style="width: 100%;"/>
                     </div>
@@ -104,7 +104,10 @@
             
         </div>
     </main>
-    
+    <a id="voltarTopo" href="#top" target="_self" rel="prev">
+        <span>Topo</span>
+        <span>&#x261D;</span>
+    </a>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script type="text/javascript" src="./src/JS/carrinho.js"></script>
 </body>
