@@ -20,6 +20,7 @@
 </head>
 <body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisa(); exibirPontos(); carregarCatalogo(1); chamarCarrinho();">
     <div id="cartContainer">
+        <img id="carregandoGif" src="./src/imgs/popups/green_style.gif" alt="Carregando">
         <!-- Aqui no carrinho, serão inseridos através de JavaScript versões em miniatura dos cards de produtos -->
         <!-- <input type="button" id="" value="Check Out"> -->
     </div>
@@ -38,8 +39,8 @@
                     <a onclick="acessarPerfil()" style="cursor: pointer;">
                         <ion-icon name="person"></ion-icon> Perfil</a>
                     <a id="carrinhoMobile" onclick="ativarCarrinho()">
-                        <ion-icon name="cart"></ion-icon> Carrinho</a>
-                    <a href="#">
+                        <img id ="iconeCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"> Carrinho
+                        <a href="#">
                         <ion-icon name="hand"></ion-icon> Acessibilidade</a>
                     <a href="./central.html">
                         <ion-icon name="help-circle-outline"></ion-icon> Central de Atendimento</a>
@@ -48,7 +49,7 @@
             <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
             <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
             <!-- A chamada "ativarCarinho()" vem do arquivo "carrinho.js" -->
-            <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho()">Carrinho <ion-icon name="cart"></ion-icon></button>
+            <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho()">Carrinho <img id ="imagemCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"></button>
             <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark()">&#x1F319;</button>
         </nav>     
     </header>
@@ -103,7 +104,10 @@
             
         </div>
     </main>
-    
+    <a id="voltarTopo" href="#top" target="_self" rel="prev">
+        <span>Topo</span>
+        <span>&#x261D;</span>
+    </a>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script type="text/javascript" src="./src/JS/carrinho.js"></script>
 </body>
