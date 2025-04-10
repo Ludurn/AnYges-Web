@@ -29,9 +29,13 @@ header {
 
 #logo-box{
     display: flex;
-    width: 10%;
+    width: 15%;
     height: 10vh;
     align-items: center;
+}
+
+#logo-obj{
+    width: 25%;
 }
 
 nav {

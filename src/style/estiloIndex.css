@@ -17,6 +17,16 @@ body {
     height: 100vh;
 }
 
+a {
+    color: #228B22;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+a:hover {
+    color: #611f1f;
+}
+
 .login-container {
     display: flex;
     flex-direction: column;
@@ -102,6 +112,10 @@ p{
 .camposForm {
     border-style: solid;
     border-color: lightgray;
+}
+
+#recuperarSenha {
+    margin-top: 2%;
 }
 
 .btn-login {

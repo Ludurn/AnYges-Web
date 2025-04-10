@@ -84,7 +84,7 @@ CREATE TABLE tblLocalDeposito (
 CREATE INDEX xLocalDeposito ON tblLocalDeposito(ID_local_deposito);
 go
 
--- Usuário
+-- Usuï¿½rio
 
 CREATE TABLE tblUsuario (
 	ID_usuario numeric(6) not null PRIMARY KEY identity(1,1),
@@ -94,7 +94,9 @@ CREATE TABLE tblUsuario (
 	telefone_usuario varchar(18) not null,
 	email_usuario varchar(100) not null,
 	senha_usuario varchar(15) not null,
-	dt_nascimento date not null
+	dt_nascimento date not null,
+	token_rec_senha varchar(64),
+	dt_expiracao_token datetime
 );
 CREATE INDEX xUsuario ON tblUsuario(ID_usuario);
 go
@@ -177,13 +179,14 @@ INSERT INTO tblCupom VALUES (2, 'Pediatra', 'S', 25000, 'consulta', './src/imgs/
 INSERT INTO tblCupom VALUES (3, 'Psicóloga', 'S', 27000, 'consulta', './src/imgs/cupons/hc.png', 'Domingo à Quarta-feira', 17, 'S', null, null);
 INSERT INTO tblCupom VALUES (1, 'Paracetamol 750mg', 'S', 12000, 'medicamento', './src/imgs/cupons/paracetamol.jpg', 'Comprimido Revestido', 35, 'S', null, null);
 INSERT INTO tblCupom VALUES (4, 'Clínico Geral', 'S', 12000, 'consulta', './src/imgs/cupons/amil.jpg', 'Terça-feira e Sexta-feira', 5, 'S', null, null);
-INSERT INTO tblCupom VALUES (5, 'Gastroenterologista', 'S', 12000, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira à Sexta-feira', 7, 'S', null, null);
+INSERT INTO tblCupom VALUES (5, 'Gastroenterologista', 'S', 12000, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira e Sexta-feira', 7, 'S', null, null);
 INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/dove.webp', 'Desodorante Aerosol', 20, 'S', null, null);
 INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional 500ml', 12, 'S', null, null);
 go
 
-INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990');
-INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '829577259090', '(13) 26121-9333', 'lulu@gmail.com', '111', '28-01-2000');
+INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990', NULL, NULL);
+INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '829577259090', '(13) 26121-9333', 'lulu@gmail.com', '111', '28-01-2000', NULL, NULL);
+INSERT INTO tblUsuario VALUES ('Luigi', 'Pugh', '829111252310', '(23) 00112-9653', 'luigi.nascimento01@etec.sp.gov.br', 'etesp', '30-04-1999', NULL, NULL);
 go
 
 INSERT INTO tblFuncionario VALUES ('prm1rwe', '111', 'gestor de dados');
@@ -200,8 +203,14 @@ INSERT INTO tblPedido VALUES (1, '01-03-2025');
 INSERT INTO tblResgate VALUES (2, 1, 1);
 INSERT INTO tblResgate VALUES (3, 1, 2);
 
+
+SELECT * FROM tblUsuario;
+
+--UPDATE tblUsuario SET token_rec_senha = '333', dt_expiracao_token = '23-02-1990' WHERE email_usuario = 'daniel@hotmail.com';
+
+/*
 SELECT * FROM tblResgate;
 SELECT * FROM tblDoacao;
 SELECT * FROM tblPedido;
 
-
+*/
