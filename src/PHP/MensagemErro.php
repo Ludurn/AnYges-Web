@@ -27,7 +27,7 @@ class MensagemErro {
                     <form method="post" id="formRecupSenha">
                         <div id="picture-box">
                             <div  id="picture-obj">
-                                <img src="./src/imgs/icons/psswordReset01" alt="redefinir senha" style="width: 100%;">
+                                <img src="./src/imgs/icons/error" alt="redefinir senha" style="width: 100%;">
                             </div>
                         </div>
                         <p>$mensagem</p>
