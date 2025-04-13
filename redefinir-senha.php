@@ -2,35 +2,39 @@
 
 date_default_timezone_set('America/Sao_Paulo');
 
-$token = $_GET['token'];
+require 'src/PHP/MensagemErro.php';
+$msgErro = new MensagemErro();
 
-$token_hash = hash("sha256", $token);
+if ($_GET) {
+    $token = $_GET['token'];
 
-require "src/PHP/conectarBD.php";
+    $token_hash = hash("sha256", $token);
 
-$pdo = conectar();
+    require "src/PHP/conectarBD.php";
 
-$tabela = "tblUsuario";
+    $pdo = conectar();
 
-$sql = "SELECT dt_expiracao_token FROM ".$tabela." WHERE token_rec_senha = :token_hash;";
-$exec4 = $pdo->prepare($sql);
-$exec4->bindValue(":token_hash", $token_hash);
-$exec4->execute();
-$user = $exec4->fetchAll(PDO::FETCH_COLUMN);
+    $tabela = "tblUsuario";
 
-
-//echo $resultado."<br>";
-
+    $sql = "SELECT dt_expiracao_token FROM ".$tabela." WHERE token_rec_senha = :token_hash;";
+    $exec4 = $pdo->prepare($sql);
+    $exec4->bindValue(":token_hash", $token_hash);
+    $exec4->execute();
+    $user = $exec4->fetchAll(PDO::FETCH_COLUMN);
+}
 
 if (empty($user)) {
-    die ("token não encontrado");
+    $mensagem = "Esse link está inválido ou expirado. Por favor, solicite um novo.";
+    $msgErro->exibirMensagemErro($mensagem);
 }
 
 if (strtotime($user[0]) <= time()) {
-    die("token expirado");
+    $mensagem = "Esse link está inválido ou expirado. Por favor, solicite um novo.";
+    $msgErro->exibirMensagemErro($mensagem);
 } else {
     //die ("token é válido e não está expirado");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -38,22 +42,38 @@ if (strtotime($user[0]) <= time()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="src/imgs/icons/logo-ico.ico">
+    <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
+    <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->   
+    <link rel="stylesheet" href="./src/style/estiloRecuperacao.css">
     <title>Redefinir senha</title>
 </head>
 <body>
-    <form method="post" style="width: fit-content; margin: auto; margin-top: 20%;">
-        <h1>Redefina sua senha</h1>
-        <p>Senhas fortes incluem números, letras e sinais de pontuação.</p>
-        <label>Digite sua nova senha</label>
-        <br/>
-        <input type="password" maxlength="15" name="senha" placeholder="máx de 15 caracteres" />
-        <br/><br/>
-        <label>Confirme sua nova senha</label>
-        <br/>
-        <input type="password" maxlength="15" name="confirmaSenha"/>
-        <br/><br/>
-        <input type="submit" value="Refinir senha">
-    </form>
+    <div id="containerRecupSenha">
+        <div id="titleRecupSenha">
+            <h2>REDEFINA SUA SENHA</h2>
+        </div>
+        <form method="post" id="formRecupSenha">
+            <div id="picture-box">
+                <div  id="picture-obj">
+                    <img src="./src/imgs/icons/psswordReset01" alt="redefinir senha" style="width: 100%;">
+                </div>
+            </div>
+            <p>Senhas fortes incluem números, letras e sinais de pontuação.</p>
+            <div id="input-group">
+                <label><strong>Digite sua nova senha:</strong></label>
+                <input type="password" maxlength="15" name="senha" placeholder="máx de 15 caracteres" />
+                <br/><br/>
+                <label><strong>Confirme sua nova senha:</strong></label>
+                <input type="password" maxlength="15" name="confirmaSenha"/>
+            </div>
+            <br/><br/>
+            <input type="submit" value="REDEFINIR SENHA" class="btn-recuperacao">
+        </form>
+    </div>
 
     <?php
 

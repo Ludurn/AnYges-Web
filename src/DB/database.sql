@@ -187,7 +187,7 @@ go
 
 INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990', NULL, NULL, NULL);
 INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '829577259090', '(13) 26121-9333', 'lulu@gmail.com', '111', '28-01-2000', NULL, NULL, NULL);
---INSERT INTO tblUsuario VALUES ('Luigi', 'Pugh', '829111252310', '(23) 00112-9653', 'luigi.nascimento01@etec.sp.gov.br', 'etesp', '30-04-1999', NULL, NULL, NULL);
+INSERT INTO tblUsuario VALUES ('Luigi', 'Pugh', '829111252310', '(23) 00112-9653', 'luigi.nascimento01@etec.sp.gov.br', 'etesp', '30-04-1999', NULL, NULL, NULL);
 go
 
 INSERT INTO tblFuncionario VALUES ('prm1rwe', '111', 'gestor de dados');
