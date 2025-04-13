@@ -15,7 +15,7 @@
 
 	
 
-	if ($usuario[0] === null) {
+	if (isset($usuario[0]) && $usuario[0] === null) {
 		try{
 			session_start();
 	

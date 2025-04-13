@@ -23,6 +23,7 @@ $(document).ready(function(){
         )
         .done(
             function (retorno) {
+                alert(retorno)
                 retorno = JSON.parse(retorno);
                 if (retorno == "prosseguir") {
                     window.location.replace("./home.html");
