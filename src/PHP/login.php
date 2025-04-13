@@ -8,14 +8,21 @@
 
 	$email = $_POST["usuario_email"];
 
-	$exec1 = $pdo->prepare("SELECT token_ativacao FROM tblUsuario WHERE email_usuario = :email;");
+	$exec1 = $pdo->prepare("SELECT token_ativacao, email_usuario FROM tblUsuario WHERE email_usuario = :email;");
 	$exec1->bindValue(":email", $email);
 	$exec1->execute();
-	$usuario = $exec1->fetchAll(PDO::FETCH_COLUMN);
+	$dados = $exec1->fetchAll(PDO::FETCH_ASSOC);
+	if (count($dados)>0){
+		foreach($dados as $indice => $conteudo){
+			$usuario = [
+				 "token_ativacao" => $conteudo['token_ativacao'],
+				 "email_usuario" => $conteudo['email_usuario']
+				];
+		}
+	}
 
-	
 
-	if (isset($usuario[0]) && $usuario[0] === null) {
+	if (isset($usuario) && $usuario['token_ativacao'] === null) {
 		try{
 			session_start();
 	
