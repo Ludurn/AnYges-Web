@@ -96,7 +96,8 @@ CREATE TABLE tblUsuario (
 	senha_usuario varchar(15) not null,
 	dt_nascimento date not null,
 	token_rec_senha varchar(64),
-	dt_expiracao_token datetime
+	dt_expiracao_token datetime,
+	token_ativacao varchar(64)
 );
 CREATE INDEX xUsuario ON tblUsuario(ID_usuario);
 go
@@ -184,9 +185,9 @@ INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 12000, 'beleza/higiene', 
 INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional 500ml', 12, 'S', null, null);
 go
 
-INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990', NULL, NULL);
-INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '829577259090', '(13) 26121-9333', 'lulu@gmail.com', '111', '28-01-2000', NULL, NULL);
-INSERT INTO tblUsuario VALUES ('Luigi', 'Pugh', '829111252310', '(23) 00112-9653', 'luigi.nascimento01@etec.sp.gov.br', 'etesp', '30-04-1999', NULL, NULL);
+INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990', NULL, NULL, NULL);
+INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '829577259090', '(13) 26121-9333', 'lulu@gmail.com', '111', '28-01-2000', NULL, NULL, NULL);
+--INSERT INTO tblUsuario VALUES ('Luigi', 'Pugh', '829111252310', '(23) 00112-9653', 'luigi.nascimento01@etec.sp.gov.br', 'etesp', '30-04-1999', NULL, NULL, NULL);
 go
 
 INSERT INTO tblFuncionario VALUES ('prm1rwe', '111', 'gestor de dados');

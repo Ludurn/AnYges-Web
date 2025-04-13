@@ -197,7 +197,7 @@ function confirmarDados() {
     infoDt = verificarVazio(infoDt, "infoDt");
     infoTelefone = verificarVazio(infoTelefone, "infoTelefone");
 
-    if(confirm("Confimar as alterações?") == true) {
+    if(confirm("Confimar alterações?") == true) {
         $.post(
             "./src/PHP/edicaoPerfil.php",
             {
@@ -240,7 +240,7 @@ function confirmarDados() {
 
 function excluirPerfil() {
 
-    if(confirm("Deseja excluir este perfil?") == true) {
+    if(confirm("Deseja excluir esta conta?") == true) {
         $.post(
             "./src/PHP/edicaoPerfil.php",
             {

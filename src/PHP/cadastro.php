@@ -48,8 +48,10 @@
             $ponteiro-> bindValue(":senha", $novasenha);
     
             $ponteiro->execute();
+
+            require 'authCadastro.php';
     
-            die(json_encode("Sucesso ao realizar o cadastro!", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+            die(json_encode("Sucesso", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         }
     }
     catch (Exception $erro){

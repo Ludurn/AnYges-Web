@@ -91,14 +91,14 @@ function enviarInfos() {
                 if (retorno == "idade nao permitida") {
                     alert("Não foi possível concluir seu cadastro, pois a idade mínima permitida é 18 anos.");
                 } else {
-                    alert("Cadastro concluído com sucesso!");
+                    alert("Cadastro realizado com sucesso. Por favor verifique seu e-mail para confimar sua conta.");
                     window.location.replace("./index.html");
                 }
             }
         )
         .fail(
             function (cod, textStatus, msg) {
-                alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
+                //alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
             }
         )
     };

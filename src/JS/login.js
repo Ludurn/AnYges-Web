@@ -28,7 +28,7 @@ $(document).ready(function(){
                     window.location.replace("./home.html");
                 } else {
                     if (usuario || senha) {
-                        alert("Email ou senha incorreto");
+                        alert("Email e/ou senha incorretos.");
                     }
                 }
             }

@@ -39,7 +39,7 @@
     
                 if (count($resultado)>0){
                     echo "<script>alert('Mensagem enviada, por favor verifique sua caixa de entrada.')</script>";
-                    require "src/PHP/enviarRecupSenha.php";
+                    require "src/PHP/recuperaSenha.php";
                 }
                 else{
                     echo "<script>alert('Mensagem enviada, por favor verifique sua caixa de entrada.')</script>";
