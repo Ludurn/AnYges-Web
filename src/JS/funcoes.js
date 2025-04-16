@@ -290,7 +290,7 @@ function ativarModoDark() {
         $('textarea').css({'backgroundColor':'#333'});
         $("#helpcontainer").css({backgroundColor:"gray"});
         $("#faq-section").css({backgroundColor:"gray"});
-        for(let i=1;i<=4;i++){
+        for(let i=1;i<=6;i++){
             $('#question'+i).css({'color':'white'});
             $('#question'+i).hover(
                 function(){
@@ -322,7 +322,7 @@ function ativarModoDark() {
         $('textarea').css({'backgroundColor':'white'});
         $("#helpcontainer").css({backgroundColor:"#e5ffdb"});
         $("#faq-section").css({backgroundColor:"#e5ffdb"});
-        for(let i=1;i<=4;i++){
+        for(let i=1;i<=6;i++){
             $('#question'+i).css({'color':'#333'});
             $('#question'+i).hover(
                 function(){
