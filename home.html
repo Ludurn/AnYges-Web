@@ -18,7 +18,7 @@
     <script type="text/javascript" src="./src/JS/catalogo.js"></script>
     <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
 </head>
-<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisaMobile(); redirecionarPesquisa(); exibirPontos(); carregarCatalogo(1); chamarCarrinho();">
+<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisaMobile(); redirecionarPesquisa(); exibirPontos(); carregarCatalogo(); chamarCarrinho();">
     <div id="cartContainer">
         <img id="carregandoGif" src="./src/imgs/popups/green_style.gif" alt="Carregando">
         <!-- Aqui no carrinho, serão inseridos através de JavaScript versões em miniatura dos cards de produtos -->
@@ -61,7 +61,7 @@
 
         <div id="filtroBox">
             <div id="filtro-1" class="filtros">
-                <div id="btnFiltro1" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('medicamento'); chamarCarrinho();">
+                <div id="btnFiltro1" class="btnFiltros" onclick="carregarCatalogoFiltro('medicamento'); chamarCarrinho();">
                     <div class="imgFiltros">
                         <img src="./src/imgs/icons/imgMedicamento.png" alt="medicamento" style="width: 100%;"/>
                     </div>
@@ -69,17 +69,17 @@
                 <p class="nomeFiltro">Medicamentos</p>
             </div>
             <div id="filtro-2" class="filtros">
-                <div id="btnFiltro2" class="btnFiltros" onclick="limparCatalogo(); gerarIdFiltro('consulta'); chamarCarrinho();">
+                <div id="btnFiltro2" class="btnFiltros" onclick="carregarCatalogoFiltro('consulta'); chamarCarrinho();">
                     <div class="imgFiltros">
-                        <img src="./src/imgs/icons/imgConsulta.png" alt="medicamento" style="width: 100%;"/>
+                        <img src="./src/imgs/icons/imgConsulta.png" alt="consulta" style="width: 100%;"/>
                     </div>
                 </div>
                 <p class="nomeFiltro">Consultas</p>
             </div>
             <div id="filtro-3" class="filtros">
-                <div id="btnFiltro3" class="btnFiltros" onclick="voltarFiltros(); limparCatalogo(); gerarIdFiltro('beleza'); chamarCarrinho();">
+                <div id="btnFiltro3" class="btnFiltros" onclick="carregarCatalogoFiltro('beleza/higiene'); chamarCarrinho();">
                     <div class="imgFiltros">
-                        <img src="./src/imgs/icons/imgHigiene.png" alt="medicamento" style="width: 100%;"/>
+                        <img src="./src/imgs/icons/imgHigiene.png" alt="beleza/higiene" style="width: 100%;"/>
                     </div>
                 </div>
                 <p class="nomeFiltro">Beleza e Higiene</p>

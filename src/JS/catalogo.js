@@ -1,10 +1,3 @@
-let itens=1;
-let itensFiltro=1;
-let fileira=1;
-let id, indice=0;
-let idFiltro = [];
-let cancelarCatalogo = false;
-
 
 function voltarFiltros() {
     $('#filtroBox').html(
@@ -19,7 +12,7 @@ function voltarFiltros() {
             +"<div id='filtro-2' class='filtros'>"
                 +"<div id='btnFiltro2' class='btnFiltros' onclick=''>"
                     +"<div class='imgFiltros'>"
-                        +"<img src='./src/imgs/icons/imgConsulta.png' alt='medicamento' style='width: 100%;'/>"
+                        +"<img src='./src/imgs/icons/imgConsulta.png' alt='consulta' style='width: 100%;'/>"
                     +"</div>"
                 +"</div>"
                 +"<p class='nomeFiltro'>Consultas</p>"
@@ -27,41 +20,23 @@ function voltarFiltros() {
             +"<div id='filtro-3' class='filtros'>"
                 +"<div id='btnFiltro3' class='btnFiltros' onclick=''>"
                     +"<div class='imgFiltros'>"
-                        +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+                        +"<img src='./src/imgs/icons/imgHigiene.png' alt='beleza/higiene' style='width: 100%;'/>"
                     +"</div>"
                 +"</div>"
                 +"<p class='nomeFiltro'>Beleza e Higiene</p>"
             +"</div>"
     );
 
-    $("#btnFiltro1").attr('onclick', "limparCatalogo(); gerarIdFiltro('medicamento'); chamarCarrinho('filteron');");
-    $("#btnFiltro2").attr('onclick', "limparCatalogo(); gerarIdFiltro('consulta'); chamarCarrinho('filteron');");
-    $("#btnFiltro3").attr('onclick', "limparCatalogo(); gerarIdFiltro('beleza'); chamarCarrinho('filteron');");
+    $("#btnFiltro1").attr('onclick', "carregarCatalogoFiltro('medicamento'); chamarCarrinho();");
+    $("#btnFiltro2").attr('onclick', "carregarCatalogoFiltro('consulta'); chamarCarrinho();");
+    $("#btnFiltro3").attr('onclick', "carregarCatalogoFiltro('beleza/higiene'); chamarCarrinho();");
 }
 
-function gerarId() {
-    $.post(
-        "./src/PHP/idRandom.php",
-    )
-    .done(
-        function (retorno) {
-            retorno = JSON.parse(retorno);
-            id = retorno;
-        }
-    )
-    .fail (
-        function (cod, textStatus, msg) {
-            alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
-        }
-    );
-}
-
-function gerarIdFiltro(filtro) {
+function resetarFiltro(filtro) {
 
     if (filtro == "medicamento") {
-        voltarFiltros();
         $('#filtro-1').replaceWith("<div id='filtro-0' class='filtros'>"
-                +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros(); chamarCarrinho();'>"
+                +"<div id='btnFiltro0' class='btnFiltros' onclick='carregarCatalogo(); chamarCarrinho();'>"
                 +"<div class='imgFiltros'>"
                 +"<img src='./src/imgs/icons/imgMedicamento.png' alt='medicamento' style='width: 100%;'/>"
                 +"</div>"
@@ -69,258 +44,154 @@ function gerarIdFiltro(filtro) {
                 +"<p class='nomeFiltro'>Sem filtro</p>"
                 +"</div>");
     } else if (filtro == "consulta") {
-        voltarFiltros();
         $('#filtro-2').replaceWith("<div id='filtro-0' class='filtros'>"
-            +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros(); chamarCarrinho();'>"
+            +"<div id='btnFiltro0' class='btnFiltros' onclick='carregarCatalogo(); chamarCarrinho();'>"
             +"<div class='imgFiltros'>"
-            +"<img src='./src/imgs/icons/imgConsulta.png' alt='medicamento' style='width: 100%;'/>"
+            +"<img src='./src/imgs/icons/imgConsulta.png' alt='consulta' style='width: 100%;'/>"
             +"</div>"
             +"</div>"
             +"<p class='nomeFiltro'>Sem filtro</p>"
             +"</div>");
-    } else if (filtro == "beleza") {
-        voltarFiltros();
+    } else if (filtro == "beleza/higiene") {
         $('#filtro-3').replaceWith("<div id='filtro-0' class='filtros'>"
-            +"<div id='btnFiltro0' class='btnFiltros' onclick='limparCatalogo(); carregarCatalogo(1); voltarFiltros(); chamarCarrinho();'>"
+            +"<div id='btnFiltro0' class='btnFiltros' onclick='carregarCatalogo(); chamarCarrinho();'>"
             +"<div class='imgFiltros'>"
-            +"<img src='./src/imgs/icons/imgHigiene.png' alt='medicamento' style='width: 100%;'/>"
+            +"<img src='./src/imgs/icons/imgHigiene.png' alt='beleza/higiene' style='width: 100%;'/>"
             +"</div>"
             +"</div>"
             +"<p class='nomeFiltro'>Sem filtro</p>"
             +"</div>");
     }
-    
-    $.post(
-        "./src/PHP/idRandomFiltro.php",
-        {
-            filtro: filtro
-        }
-    )
-    .done(
-        function (retorno) {
-            retorno = JSON.parse(retorno);
-            idFiltro = retorno;
-            carregarCatalogoFiltro(fileira, filtro);
-        }
-    )
-    .fail (
-        function (cod, textStatus, msg) {
-            alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
-        }
+}
+
+
+
+function construirCupom(fileira, retorno, indice) {
+    $("#fileira-"+fileira).append(
+        "<article class='produtos'>"
+        +"<div class='molduraProdutos'>"
+        +"<figure>"
+        +"<img src='"+retorno[indice]['imagem']+"' id='imgProduto' class='imgProdutos' alt='"+retorno[indice]['nome_cupom']+"' width='100%' />"
+        +"</figure>"
+        +"</div>"
+         +"<p id='nomeProduto'>"+retorno[indice]['nome_cupom']+"</p>"
+         +"<h4 id='fornecedorProduto'>"+retorno[indice]['nome_associacao']+"</h4>"
+         +"<p id='descricaoProduto' class='descricaoProdutos'>"+retorno[indice]['descricao_cupom']+"</p>"
+         +"<p>Desconto de <strong>"+retorno[indice]['desconto']+"%</strong></p>"                        
+         +"<div id='btnProduto' class='btnProdutos'>"+retorno[indice]['valor']+" ₯</div>"
+         +"</article>"
     );
 }
 
-function exibirCatalogo() {
+function agruparCupons(itens) {
 
+    if (larguraTela >= 1920) {
+        if (itens < 6) {
+            return 1;
+        } else if (itens >= 6) {
+            return 2;
+        } else if (itens >= 12) {
+            return 3;
+        } else if (itens >= 18) {
+            return 4;
+        } else if (itens >= 24) {
+            return 5;
+        } else if (itens >= 30) {
+            return 6;
+        }
+    } else if (larguraTela >= 1440) {
+        if (itens < 5) {
+            return 1;
+        } else if (itens >= 5) {
+            return 2;
+        } else if (itens >= 10) {
+            return 3;
+        } else if (itens >= 15) {
+            return 4;
+        } else if (itens >= 20) {
+            return 5;
+        } else if (itens >= 25) {
+            return 6;
+        }
+    } else {
+        if (itens < 4) {
+            return 1;
+        } else if (itens >= 4) {
+            return 2;
+        } else if (itens >= 8) {
+            return 3;
+        } else if (itens >= 12) {
+            return 4;
+        } else if (itens >= 18) {
+            return 5;
+        } else if (itens >= 22) {
+            return 6;
+        }
+    }
+}
+
+function exibirCatalogo() {
+    setTimeout(() => {
         $(".fileiras").css(
             {
                 "visibility": "visible",
                 "opacity": "1",
                 "transition": "visibility 0s, opacity 0.2s linear"
         });
+    }, 200);
 }
 
-function carregarCatalogo(fileira) {
+function carregarCatalogo() {
 
-    if (cancelarCatalogo) {
-        return;
-    }
+    let fileira=1;
+    let itens=0;
 
-    gerarId();
+    voltarFiltros();
+    limparCatalogo();
 
-    setTimeout(() => {
-
-        $.post(
-            "./src/PHP/catalogo.php",
-            {
-                id: id
+    $.post(
+        "./src/PHP/catalogo.php"
+    )
+    .done(
+        function (retorno) {
+            retorno = JSON.parse(retorno);
+            for (let i=0; i<retorno.length; i++) {
+                construirCupom(fileira, retorno, i);
+                itens++;
+                fileira = agruparCupons(itens, fileira);
             }
-        )
-        .done(
-            function (retorno) {
-                retorno = JSON.parse(retorno);
-    
-                if (retorno['message'] == "sem registro") {
-                    carregarCatalogo();
-                } else {
-                    $("#fileira-"+fileira).append(
-                        "<article class='produtos'>"
-                        +"<div class='molduraProdutos'>"
-                        +"<figure>"
-                        +"<img src='"+retorno['imagem']+"' id='imgProduto' class='imgProdutos' alt='"+retorno['nome_cupom']+"' width='100%' />"
-                        +"</figure>"
-                        +"</div>"
-                         +"<p id='nomeProduto'>"+retorno['nome_cupom']+"</p>"
-                         +"<h4 id='fornecedorProduto'>"+retorno['associacao']+"</h4>"
-                         +"<p id='descricaoProduto' class='descricaoProdutos'>"+retorno['descricao']+"</p>"
-                         +"<p>Desconto de <strong>"+retorno['desconto']+"%</strong></p>"                        
-                         +"<div id='btnProduto' class='btnProdutos'>"+retorno['valor']+" ₯</div>"
-                         +"</article>"
-                    );
-        
-                    itens++;
-                    id++;
-
-                    
-
-                    // Estrutura para pular para prox fileiras
-                    if (larguraTela >= 1920) {
-                        if (itens <= 6) {
-                            carregarCatalogo(1);
-                        } else if (itens <= 12) {
-                            carregarCatalogo(2);
-                        } else if (itens <= 18) {
-                            carregarCatalogo(3);
-                            exibirCatalogo();
-                        } else if (itens <= 24) {
-                            carregarCatalogo(4);
-                        } else if (itens <= 30) {
-                            carregarCatalogo(5);
-                        } else if (itens <= 36) {
-                            carregarCatalogo(6);
-                        }
-                    } else if (larguraTela >= 1440) {
-                        if (itens <= 5) {
-                            carregarCatalogo(1);
-                        } else if (itens <= 10) {
-                            carregarCatalogo(2);
-                        } else if (itens <= 15) {
-                            carregarCatalogo(3);
-                            exibirCatalogo();
-                        } else if (itens <= 20) {
-                            carregarCatalogo(4);
-                        } else if (itens <= 25) {
-                            carregarCatalogo(5);
-                        } else if (itens <= 30) {
-                            carregarCatalogo(6);
-                        }
-                    } else {
-                        if (itens <= 4) {
-                            carregarCatalogo(1);
-                        } else if (itens <= 8) {
-                            carregarCatalogo(2);
-                        } else if (itens <= 12) {
-                            carregarCatalogo(3);
-                            exibirCatalogo();
-                        } else if (itens <= 16) {
-                            carregarCatalogo(4);
-                        } else if (itens <= 20) {
-                            carregarCatalogo(5);
-                        } else if (itens <= 24) {
-                            carregarCatalogo(6);
-                        }
-                    }
-                }
-            }
-        )
-        .fail (
-            function (cod, textStatus, msg) {
-                alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
-            }
-        );
-
-    }, 100)
+            exibirCatalogo();
+        }
+    )
 }
 
-function carregarCatalogoFiltro(fileira, filtro) {
 
-    indice = Math.floor(Math.random() * idFiltro.length);
-
-    setTimeout(() => {
-
-        $.post(
-            "./src/PHP/catalogoFiltro.php",
-            {
-                idFiltro: idFiltro,
-                indice: indice
-            }
-        )
-        .done(
-            function (retorno) {
-                retorno = JSON.parse(retorno);
-
-
+function carregarCatalogoFiltro(nomeFiltro) {
     
-                if (retorno['message'] == "sem registro") {
-                    carregarCatalogo();
-                } else {
-                    $("#fileira-"+fileira).append(
-                        "<article class='produtos'>"
-                        +"<div class='molduraProdutos'>"
-                        +"<figure>"
-                        +"<img src='"+retorno['imagem']+"' id='imgProduto' class='imgProdutos' alt='"+retorno['nome_cupom']+"' width='100%' />"
-                        +"</figure>"
-                        +"</div>"
-                         +"<p id='nomeProduto'>"+retorno['nome_cupom']+"</p>"
-                         +"<h4 id='fornecedorProduto'>"+retorno['associacao']+"</h4>"
-                         +"<p id='descricaoProduto' class='descricaoProdutos'>"+retorno['descricao']+"</p>"
-                         +"<p>Desconto de <strong>"+retorno['desconto']+"%</strong></p>"
-                         +"<div id='btnProduto' class='btnProdutos'>"+retorno['valor']+" ₯</div>"
-                         +"</article>"
-                    );
-                    
-                    itens++;
-                    itensFiltro++;
+    let fileira=1;
+    let itens=0;
 
+    voltarFiltros();
+    limparCatalogo();
 
-        
-                    // Estrutura para pular para prox fileiras
-                    if (larguraTela >= 1920) {
-                        if (itensFiltro <= 6) {
-                            carregarCatalogoFiltro(1, filtro);
-                        } else if (itensFiltro <= 12) {
-                            carregarCatalogoFiltro(2, filtro);
-                        } else if (itensFiltro <= 18) {
-                            carregarCatalogoFiltro(3, filtro);
-                            exibirCatalogo();
-                        } else if (itensFiltro <= 24) {
-                            carregarCatalogoFiltro(4, filtro);
-                        } else if (itensFiltro <= 30) {
-                            carregarCatalogoFiltro(5, filtro);
-                        } else if (itensFiltro <= 36) {
-                            carregarCatalogoFiltro(6, filtro);
-                        }
-                    } else if (larguraTela >= 1440) {
-                        if (itensFiltro <= 5) {
-                            carregarCatalogoFiltro(1, filtro);
-                        } else if (itensFiltro <= 10) {
-                            carregarCatalogoFiltro(2, filtro);
-                        } else if (itensFiltro <= 15) {
-                            carregarCatalogoFiltro(3, filtro);
-                            exibirCatalogo();
-                        } else if (itensFiltro <= 20) {
-                            carregarCatalogoFiltro(4, filtro);
-                        } else if (itensFiltro <= 25) {
-                            carregarCatalogoFiltro(5, filtro);
-                        } else if (itensFiltro <= 30) {
-                            carregarCatalogoFiltro(6, filtro);
-                        }
-                    } else {
-                        if (itensFiltro <= 4) {
-                            carregarCatalogoFiltro(1, filtro);
-                        } else if (itensFiltro <= 8) {
-                            carregarCatalogoFiltro(2, filtro);
-                        } else if (itensFiltro <= 12) {
-                            carregarCatalogoFiltro(3, filtro);
-                            exibirCatalogo();
-                        } else if (itensFiltro <= 16) {
-                            carregarCatalogoFiltro(4, filtro);
-                        } else if (itensFiltro <= 20) {
-                            carregarCatalogoFiltro(5, filtro);
-                        } else if (itensFiltro <= 24) {
-                            carregarCatalogoFiltro(6, filtro);
-                        }
-                    }
-                }
+    $.post(
+        "./src/PHP/catalogoFiltro.php",
+            {
+                filtro: nomeFiltro
             }
-        )
-        .fail (
-            function (cod, textStatus, msg) {
-                alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
+    )
+    .done(
+        function (retorno) {
+            retorno = JSON.parse(retorno);
+            for (let i=0; i<retorno.length; i++) {
+                construirCupom(fileira, retorno, i);
+                itens++;
+                fileira = agruparCupons(itens, fileira);
             }
-        );
-
-    }, 100)
+            resetarFiltro(nomeFiltro);
+            exibirCatalogo();
+        }
+    )
 }
 
 function limparCatalogo() {
@@ -332,8 +203,6 @@ function limparCatalogo() {
                 "visibility": "hidden",
                 "opacity": "0",
                 "transition": "visibility 0s, opacity 0.2s linear"
-        });
-        itens=1;
-        itensFiltro=1;
-        cancelarCatalogo = false;
+            }
+        );
 }

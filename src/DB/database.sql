@@ -205,7 +205,7 @@ INSERT INTO tblResgate VALUES (2, 1, 1);
 INSERT INTO tblResgate VALUES (3, 1, 2);
 
 
-SELECT * FROM tblUsuario;
+SELECT TOP 24 c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE nome_cupom LIKE '%ri%' OR nome_assoc LIKE '%ri%' OR descricao_cupom LIKE '%ri%'  ORDER BY NEWID();
 
 --UPDATE tblUsuario SET token_rec_senha = '333', dt_expiracao_token = '23-02-1990' WHERE email_usuario = 'daniel@hotmail.com';
 
