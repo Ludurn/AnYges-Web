@@ -101,8 +101,7 @@ main {
 
 
 .camposForm:hover {
-    border-style: double;
-    border-width: 0.187rem;
+    border-style: solid;
     border-color: gray;   
 }
 
