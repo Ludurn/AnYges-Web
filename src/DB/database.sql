@@ -59,9 +59,7 @@ CREATE TABLE tblCupom (
 	imagem varchar (50) not null,
 	descricao_cupom char(75) not null,
 	desconto numeric(2) not null,
-	aprovado char(1) not null,
-	codigo_resgate char(8),
-	dt_expiracao date
+	aprovado char(1) not null
 );
 CREATE INDEX xCupom ON tblCupom(ID_cupom);
 go
@@ -148,7 +146,8 @@ CREATE TABLE tblResgate (
 	ID_resgate numeric(6) not null PRIMARY KEY identity(1,1),
 	ID_cupom numeric(6) FOREIGN KEY REFERENCES tblCupom(ID_cupom) not null,
 	ID_pedido numeric(6) FOREIGN KEY REFERENCES tblPedido(ID_pedido) not null,
-	qtde_resgate int not null
+	codigo_resgate char(8),
+	dt_expiracao date
 );
 CREATE INDEX xResgate ON tblResgate(ID_resgate);
 go
@@ -175,14 +174,14 @@ INSERT INTO tblAssociacao VALUES ('Amil', 0x4D65616E696E676C65737344617461, 0x4D
 INSERT INTO tblAssociacao VALUES ('Sírio Libanês', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 's1r1o', 'l1b4n3s', 'siriolib@hotmail.com', 's');
 go
 
-INSERT INTO tblCupom VALUES (1, 'Rivotril', 'S', 12000, 'medicamento', './src/imgs/cupons/rivotril.png', 'Suspensão Oral', 15, 'S', null, null);
-INSERT INTO tblCupom VALUES (2, 'Pediatra', 'S', 25000, 'consulta', './src/imgs/cupons/unimed.png', 'Terça-feira e Quinta-feira', 20, 'S', null, null);
-INSERT INTO tblCupom VALUES (3, 'Psicóloga', 'S', 27000, 'consulta', './src/imgs/cupons/hc.png', 'Domingo à Quarta-feira', 17, 'S', null, null);
-INSERT INTO tblCupom VALUES (1, 'Paracetamol 750mg', 'S', 12000, 'medicamento', './src/imgs/cupons/paracetamol.jpg', 'Comprimido Revestido', 35, 'S', null, null);
-INSERT INTO tblCupom VALUES (4, 'Clínico Geral', 'S', 12000, 'consulta', './src/imgs/cupons/amil.jpg', 'Terça-feira e Sexta-feira', 5, 'S', null, null);
-INSERT INTO tblCupom VALUES (5, 'Gastroenterologista', 'S', 12000, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira e Sexta-feira', 7, 'S', null, null);
-INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/dove.webp', 'Desodorante Aerosol', 20, 'S', null, null);
-INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional', 12, 'S', null, null);
+INSERT INTO tblCupom VALUES (1, 'Rivotril', 'S', 12000, 'medicamento', './src/imgs/cupons/rivotril.png', 'Suspensão Oral', 15, 'S');
+INSERT INTO tblCupom VALUES (2, 'Pediatra', 'S', 25000, 'consulta', './src/imgs/cupons/unimed.png', 'Terça-feira e Quinta-feira', 20, 'S');
+INSERT INTO tblCupom VALUES (3, 'Psicóloga', 'S', 27000, 'consulta', './src/imgs/cupons/hc.png', 'Domingo à Quarta-feira', 17, 'S');
+INSERT INTO tblCupom VALUES (1, 'Paracetamol 750mg', 'S', 12000, 'medicamento', './src/imgs/cupons/paracetamol.jpg', 'Comprimido Revestido', 35, 'S');
+INSERT INTO tblCupom VALUES (4, 'Clínico Geral', 'S', 12000, 'consulta', './src/imgs/cupons/amil.jpg', 'Terça-feira e Sexta-feira', 5, 'S');
+INSERT INTO tblCupom VALUES (5, 'Gastroenterologista', 'S', 12000, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira e Sexta-feira', 7, 'S');
+INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/dove.webp', 'Desodorante Aerosol', 20, 'S');
+INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional', 12, 'S');
 go
 
 INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990', NULL, NULL, NULL);
@@ -195,23 +194,30 @@ INSERT INTO tblFuncionario VALUES ('nvweblo', '222', 'atendente centro deposito'
 go
 
 INSERT INTO tblDoacao VALUES (2, 1, 1, '17-12-2024', 100000, 450, '');
-INSERT INTO tblDoacao VALUES (2, 1, 1, '23-12-2024', 50000, 225, '');
 INSERT INTO tblDoacao VALUES (2, 2, 1, '23-12-2024', 1000, 10, '');
 go
 
 INSERT INTO tblPedido VALUES (1, '01-03-2025');
+INSERT INTO tblPedido VALUES (1, '12-07-2025');
 
-INSERT INTO tblResgate VALUES (2, 1, 1);
-INSERT INTO tblResgate VALUES (3, 1, 2);
+INSERT INTO tblResgate VALUES (1, 1, 'IDSB@', '07-12-2025 15:25:55');
+INSERT INTO tblResgate VALUES (2, 1, 'C222O', '03-10-2026 16:00:21');
+INSERT INTO tblResgate VALUES (2, 1, '882CV', '11-01-2025 21:23:00');
 
 
-SELECT TOP 24 c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE nome_cupom LIKE '%ri%' OR nome_assoc LIKE '%ri%' OR descricao_cupom LIKE '%ri%'  ORDER BY NEWID();
+--SELECT TOP 24 c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE nome_cupom LIKE '%ri%' OR nome_assoc LIKE '%ri%' OR descricao_cupom LIKE '%ri%'  ORDER BY NEWID();
 
 --UPDATE tblUsuario SET token_rec_senha = '333', dt_expiracao_token = '23-02-1990' WHERE email_usuario = 'daniel@hotmail.com';
 
 /*
 SELECT * FROM tblResgate;
-SELECT * FROM tblDoacao;
 SELECT * FROM tblPedido;
+SELECT * FROM tblDoacao;
 
 */
+
+
+--SELECT valor FROM tblCupom WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1) GROUP BY ID_cupom);
+
+SELECT c.valor*sq.qtd_ocorrencias as 'valor' FROM (SELECT ID_cupom, COUNT(*) AS qtd_ocorrencias FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1) GROUP BY ID_cupom) AS sq INNER JOIN tblCupom AS c ON sq.ID_cupom = c.ID_cupom;
+

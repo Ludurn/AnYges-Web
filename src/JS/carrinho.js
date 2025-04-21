@@ -124,17 +124,15 @@ function chamarCarrinho(localChamada) {
                 carrinho.innerHTML += 
                 "<div class = 'carrinhoCard'>" + 
                 cardCarrinho.innerHTML +
-                "<div class='quantidade'>" +
-                "<p>Quantidade:</p>" +
-                "<input type='number' class='quantidadeCard' placeholder='1' min= 1 max= 99 value= 1>" +
-                "</div>" +
+                "<p>"+$("#btnProduto").html();+"</p>"+
                 "</div>";
             
                 var carrinhoCard = document.getElementsByClassName("carrinhoCard");
             
                 // Com a remoção da tag, a tag seguinte passa a ocupar o mesmo índice, por isso a repetição
-                carrinhoCard[carrinho.children.length - 1].removeChild(carrinhoCard[carrinho.children.length - 1].  children[2]);
-                carrinhoCard[carrinho.children.length - 1].removeChild(carrinhoCard[carrinho.children.length - 1].  children[2]);
+                carrinhoCard[carrinho.children.length - 1].removeChild(carrinhoCard[carrinho.children.length - 1].  children[3]);
+                carrinhoCard[carrinho.children.length - 1].removeChild(carrinhoCard[carrinho.children.length - 1].  children[3]);
+                carrinhoCard[carrinho.children.length - 1].removeChild(carrinhoCard[carrinho.children.length - 1].  children[4]);
             
                 // Evitando repetições de card
                 if (contador > 0) {

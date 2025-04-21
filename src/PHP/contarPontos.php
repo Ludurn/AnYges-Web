@@ -6,7 +6,8 @@
 
         session_start();
 
-        $usuario = $_SESSION['usuario'];
+        //$usuario = $_SESSION['usuario'];
+        $usuario = "daniel@hotmail.com";
 
         $exec0 = $pdo->prepare("SELECT ID_usuario FROM tblUsuario WHERE email_usuario = :usuario");
         $exec0->bindValue(":usuario", $usuario);
@@ -23,26 +24,13 @@
         //die(json_encode($pntGanho, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 
 
-        $exec2 = $pdo->prepare("SELECT valor FROM tblCupom WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = :idUser));");
+        $exec2 = $pdo->prepare("SELECT c.valor*sq.qtd_ocorrencias as 'valor' FROM (SELECT ID_cupom, COUNT(*) AS qtd_ocorrencias FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = :idUser) GROUP BY ID_cupom) AS sq INNER JOIN tblCupom AS c ON sq.ID_cupom = c.ID_cupom;");
         $exec2->bindValue(":idUser", $idUser);
         $exec2->execute();
         $valorCupom = $exec2->fetchAll(PDO::FETCH_COLUMN);
         //die(json_encode($valorCupom, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 
-        $exec3 = $pdo->prepare("SELECT qtde_resgate FROM tblResgate WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = :idUser));");
-        $exec3->bindValue(":idUser", $idUser);
-        $exec3->execute();
-        $qtdeCupom = $exec3->fetchAll(PDO::FETCH_COLUMN);
-        //die(json_encode($qtdeCupom, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-
-        if (count($valorCupom)>0) {
-            for ($i=0; $i<count($valorCupom); $i++) {
-                $pntGasto[$i] = $valorCupom[$i]*$qtdeCupom[$i];
-            }
-            $pntGasto = array_sum($pntGasto);
-        } else {
-            $pntGasto = 0;
-        }
+        $pntGasto = array_sum($valorCupom);
         $pntGanho = array_sum($pntGanho);
         //die(json_encode($pntGasto, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 

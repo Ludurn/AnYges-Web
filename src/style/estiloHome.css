@@ -369,6 +369,10 @@ main {
     transition: background-color 0.5s;
 }
 
+#idProduto {
+    display: none;
+}
+
 .imgProdutos {
     border-radius: 1rem;
 }

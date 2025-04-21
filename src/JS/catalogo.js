@@ -69,6 +69,7 @@ function resetarFiltro(filtro) {
 function construirCupom(fileira, retorno, indice) {
     $("#fileira-"+fileira).append(
         "<article class='produtos'>"
+        +"<div id='idProduto'>"+retorno[indice]['ID_cupom']+"</div>"
         +"<div class='molduraProdutos'>"
         +"<figure>"
         +"<img src='"+retorno[indice]['imagem']+"' id='imgProduto' class='imgProdutos' alt='"+retorno[indice]['nome_cupom']+"' width='100%' />"
