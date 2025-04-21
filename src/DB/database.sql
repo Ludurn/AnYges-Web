@@ -146,8 +146,9 @@ CREATE TABLE tblResgate (
 	ID_resgate numeric(6) not null PRIMARY KEY identity(1,1),
 	ID_cupom numeric(6) FOREIGN KEY REFERENCES tblCupom(ID_cupom) not null,
 	ID_pedido numeric(6) FOREIGN KEY REFERENCES tblPedido(ID_pedido) not null,
-	codigo_resgate char(8),
-	dt_expiracao date
+	codigo_resgate char(8) not null,
+	dt_expiracao date not null,
+	utilizado char(1)
 );
 CREATE INDEX xResgate ON tblResgate(ID_resgate);
 go
@@ -194,15 +195,15 @@ INSERT INTO tblFuncionario VALUES ('nvweblo', '222', 'atendente centro deposito'
 go
 
 INSERT INTO tblDoacao VALUES (2, 1, 1, '17-12-2024', 100000, 450, '');
-INSERT INTO tblDoacao VALUES (2, 2, 1, '23-12-2024', 1000, 10, '');
+INSERT INTO tblDoacao VALUES (2, 2, 1, '23-12-2024', 12000, 10, '');
 go
 
-INSERT INTO tblPedido VALUES (1, '01-03-2025');
-INSERT INTO tblPedido VALUES (1, '12-07-2025');
+INSERT INTO tblPedido VALUES (1, '07-03-2025 16:00:21');
+INSERT INTO tblPedido VALUES (1, '11-01-2025 21:23:00');
 
-INSERT INTO tblResgate VALUES (1, 1, 'IDSB@', '07-12-2025 15:25:55');
-INSERT INTO tblResgate VALUES (2, 1, 'C222O', '03-10-2026 16:00:21');
-INSERT INTO tblResgate VALUES (2, 1, '882CV', '11-01-2025 21:23:00');
+INSERT INTO tblResgate VALUES (1, 1, '9244e59d', '07-12-2025', 'N');
+INSERT INTO tblResgate VALUES (2, 1, '0a51427e', '01-03-2026', 'N');
+INSERT INTO tblResgate VALUES (2, 1, '4a4d2fcb', '12-07-2025', 'N');
 
 
 --SELECT TOP 24 c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE nome_cupom LIKE '%ri%' OR nome_assoc LIKE '%ri%' OR descricao_cupom LIKE '%ri%'  ORDER BY NEWID();

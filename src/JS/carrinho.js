@@ -32,6 +32,16 @@ function ativarCarrinho() {
     }
 }
 
+function verificarSubtotal() {
+    let saldoPedido = $(".carrinhoCard").find(".precoProduto").map(function() {
+        let preco = $(this).html().replace('₯', '').trim();
+        return parseFloat(preco);
+    }).get();
+
+    saldoPedido = saldoPedido.reduce((total, valorArray) => total + valorArray, 0);
+    return saldoPedido;
+}
+
 // Inserção/Remoção dos cards de produtos do carrinho
 function chamarCarrinho() {
     setTimeout(() => {
@@ -47,8 +57,10 @@ function chamarCarrinho() {
             carrinho.innerHTML += 
             "<div class = 'carrinhoCard' data-id='"+cardCarrinho.dataset.id+"'>" + 
             cardCarrinho.innerHTML +
-            "<p>"+$("#btnProduto").html()+"</p>"+
             "</div>";
+            $(".carrinhoCard").find("#btnProduto").each(function() {
+                $(this).attr("class", "precoProduto");
+            });
         
             var carrinhoCard = document.getElementsByClassName("carrinhoCard");
             var ultCard = carrinhoCard[carrinhoCard.length - 1];
@@ -56,7 +68,6 @@ function chamarCarrinho() {
             // Com a remoção da tag, a tag seguinte passa a ocupar o mesmo índice, por isso a repetição
             ultCard.removeChild(ultCard.children[2]);
             ultCard.removeChild(ultCard.children[2]);
-            ultCard.removeChild(ultCard.children[3]);
 
             // Evitando repetições de card
             if (contador > 0) {
@@ -69,8 +80,16 @@ function chamarCarrinho() {
             $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png");
             $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png");
             contador++;
+
+            $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
             });
         }
-        $("#cartContainer").append("<div id='btnPedido' onclick='finalizarPedido();'>Finalizar pedido</div>");
+
+        $("#cartContainer").append("<div id='pedidoBox'></div>");
+        $("#pedidoBox").html(
+            "<div id='saldoPedido'><p>Subtotal: "+verificarSubtotal()+" ₯</p></div>"
+            +"<div id='btnPedido' onclick='finalizarPedido();'>Finalizar pedido</div>"
+        );
+        
     }, 1000);
 }
