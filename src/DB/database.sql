@@ -221,3 +221,4 @@ SELECT * FROM tblDoacao;
 
 SELECT c.valor*sq.qtd_ocorrencias as 'valor' FROM (SELECT ID_cupom, COUNT(*) AS qtd_ocorrencias FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1) GROUP BY ID_cupom) AS sq INNER JOIN tblCupom AS c ON sq.ID_cupom = c.ID_cupom;
 
+

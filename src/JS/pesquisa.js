@@ -57,6 +57,7 @@ function pesquisar(ativar) {
             resetarPesquisa();
         } else {
             carregarPesquisa(pesquisa);
+            chamarCarrinho();
         }
     }
 }
@@ -68,6 +69,7 @@ function pesquisarMobile(ativar) {
             resetarPesquisa();
         } else {
             carregarPesquisa(pesquisa);
+            chamarCarrinho();
         }
     }
 }
