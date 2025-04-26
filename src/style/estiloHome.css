@@ -134,19 +134,19 @@ a {
 }
 
 #cartContainer {
-    padding-top: 6.5%;
+    margin-top: 7.5%;
     display: flex;
     align-items: center;
     background-image: linear-gradient(#572519, #703121);
     height: 100%;
     width: 20%;
     position: fixed;
-    right: -285px;
-    transition: right 0.2s;
+    right: -17.8rem;
     flex-direction: column;
     justify-content: center;
     overflow-x: hidden;
     overflow-y: scroll;
+    transition: right 0.2s, margin-top 0.2s ease;
 }
 
 #cartContainer::-webkit-scrollbar {
@@ -207,47 +207,57 @@ a#carrinhoMobile {
 
 .carrinhoCard {
     display: flex;
+    width: 95%;
+    background-color: white;
+    border-radius: 0.5rem;
+    margin: 3% 0%;
+}
+
+.imgRemoverCard {
+    width: 15%;
+}
+
+.cardContent {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     background-color: white;
+    width: fit-content;
+    font-size: small;
     border-radius: 0.5rem;
-    width: 140%;
-    transform: scale(0.7, 0.7);
+    text-align: center;
 }
 
-.carrinhoCardDark {
-    color: white;
-    background-color: #646464;
+.cardContent img,
+.cardContent p {
+    flex: 0 0 50%;
 }
 
-.carrinhoCard > .molduraProdutos {
+.cardContent > .molduraProdutos {
     height: fit-content;
-    max-width: 45%;
+    max-width: 50%;
 }
 
-.carrinhoCard > .molduraProdutos > figure {
-    margin: 16px;
+.cardContent > .molduraProdutos > figure {
+    margin: 1rem;
     height: fit-content;
 }
 
-.carrinhoCard > .molduraProdutos > figure > img {
+.cardContent > .molduraProdutos > figure > img {
     height: 100%;
 }
 
-.carrinhoCard > p {
-    max-width: 20%;
-    text-align: center;
-    word-break: break-all;
+.cardContent > p {
+    min-width: 50%;
 }
 
-.carrinhoCard > .btnProdutos {
-    max-width: 100px;
+.cardContent > .precoProduto {
+    font-weight: bold;
 }
 
 #pedidoBox {
     position: inherit;
-    top: 46rem;
     z-index: 9999;
     width: 19%;
     display: flex;
@@ -255,6 +265,8 @@ a#carrinhoMobile {
     justify-content: center;
     align-items: center;
     background-color: white;
+    bottom: -25%;
+    transition: transform 0.3s ease;
 }
 
 #btnPedido {

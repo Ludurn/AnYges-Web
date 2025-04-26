@@ -59,7 +59,7 @@ if (strtotime($user[0]) <= time()) {
         <form method="post" id="formRecupSenha">
             <div id="picture-box">
                 <div  id="picture-obj">
-                    <img src="./src/imgs/icons/psswordReset01" alt="redefinir senha" style="width: 100%;">
+                    <img src="./src/imgs/icons/psswordReset01.png" alt="redefinir senha" style="width: 100%;">
                 </div>
             </div>
             <p>Senhas fortes incluem números, letras e sinais de pontuação.</p>

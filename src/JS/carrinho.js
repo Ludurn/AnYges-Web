@@ -30,10 +30,12 @@ function ativarCarrinho() {
             });
         }
     }
+    $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon.png");
+    $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon.png");
 }
 
 function verificarSubtotal() {
-    let saldoPedido = $(".carrinhoCard").find(".precoProduto").map(function() {
+    let saldoPedido = $(".cardContent").find(".precoProduto").map(function() {
         let preco = $(this).html().replace('₯', '').trim();
         return parseFloat(preco);
     }).get();
@@ -55,14 +57,17 @@ function chamarCarrinho() {
             var cardCarrinho = target.parentElement;
 
             carrinho.innerHTML += 
-            "<div class = 'carrinhoCard' data-id='"+cardCarrinho.dataset.id+"'>" + 
-            cardCarrinho.innerHTML +
-            "</div>";
-            $(".carrinhoCard").find("#btnProduto").each(function() {
+            "<div class = 'carrinhoCard' data-id='"+cardCarrinho.dataset.id+"'>"
+            +"<div class = 'cardContent'>"
+            +cardCarrinho.innerHTML
+            +"</div>"
+            +"<div class='imgRemoverCard' onclick='removerCard("+cardCarrinho.dataset.id+");'><img src='./src/imgs/icons/error.png' width='100%'/></div>"
+            +"</div>";
+            $(".cardContent").find("#btnProduto").each(function() {
                 $(this).attr("class", "precoProduto");
             });
         
-            var carrinhoCard = document.getElementsByClassName("carrinhoCard");
+            var carrinhoCard = document.getElementsByClassName("cardContent");
             var ultCard = carrinhoCard[carrinhoCard.length - 1];
 
             // Com a remoção da tag, a tag seguinte passa a ocupar o mesmo índice, por isso a repetição
@@ -71,14 +76,20 @@ function chamarCarrinho() {
 
             // Evitando repetições de card
             if (contador > 0) {
-                for (help = 1; help < carrinho.children.length; help++) {
-                    if (carrinho.lastElementChild.innerHTML == carrinho.children[help - 1].innerHTML) {
-                        carrinho.removeChild(carrinho.lastElementChild);
+                for (let help = 0; help < carrinho.children.length; help++) {
+                    for (let help2 = help + 1; help2 < carrinho.children.length; help2++) {
+                        let card1 = carrinho.children[help];
+                        let card2 = carrinho.children[help2];
+
+                        if ($(card2).attr('data-id') == $(card1).attr('data-id')) {
+                            $(card2).remove();
+                        }
                     }
                 }
             }
-            $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png");
-            $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png");
+
+            $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Mobile
+            $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Padrão
             contador++;
 
             $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
@@ -92,4 +103,11 @@ function chamarCarrinho() {
         );
         
     }, 1000);
+}
+
+function removerCard(dataID) {
+    if(confirm("Deseja remover este cupom do carrinho?")) {
+        let card = $('.carrinhoCard[data-id="'+dataID+'"]');
+        card.remove();
+    }
 }

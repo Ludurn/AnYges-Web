@@ -55,7 +55,7 @@ $exec2->execute();
         </div>
         <div id="picture-box">
             <div  id="picture-obj">
-                <img src="./src/imgs/icons/confirmAccount" alt="redefinir senha" style="width: 100%;">
+                <img src="./src/imgs/icons/confirmAccount.png" alt="redefinir senha" style="width: 100%;">
             </div>
         </div>
         <div id="confirmConta-content">

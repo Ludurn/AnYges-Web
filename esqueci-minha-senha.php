@@ -20,7 +20,7 @@
         <form method="post" id="formRecupSenha">
             <div id="picture-box">
                 <div  id="picture-obj">
-                    <img src="./src/imgs/icons/psswordReset02" alt="redefinir senha" style="width: 100%;">
+                    <img src="./src/imgs/icons/psswordReset02.png" alt="redefinir senha" style="width: 100%;">
                 </div>
             </div>
             <br/>
