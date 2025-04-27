@@ -88,44 +88,38 @@ function agruparCupons(itens) {
     if (larguraTela >= 1920) {
         if (itens < 6) {
             return 1;
-        } else if (itens >= 6) {
+        } else if (itens < 12) {
             return 2;
-        } else if (itens >= 12) {
+        } else if (itens < 18) {
             return 3;
-        } else if (itens >= 18) {
+        } else if (itens < 24) {
             return 4;
-        } else if (itens >= 24) {
+        } else if (itens < 30) {
             return 5;
-        } else if (itens >= 30) {
-            return 6;
         }
     } else if (larguraTela >= 1440) {
         if (itens < 5) {
             return 1;
-        } else if (itens >= 5) {
+        } else if (itens < 10) {
             return 2;
-        } else if (itens >= 10) {
+        } else if (itens < 15) {
             return 3;
-        } else if (itens >= 15) {
+        } else if (itens < 20) {
             return 4;
-        } else if (itens >= 20) {
+        } else if (itens < 25) {
             return 5;
-        } else if (itens >= 25) {
-            return 6;
         }
     } else {
         if (itens < 4) {
             return 1;
-        } else if (itens >= 4) {
+        } else if (itens < 8) {
             return 2;
-        } else if (itens >= 8) {
+        } else if (itens < 12) {
             return 3;
-        } else if (itens >= 12) {
+        } else if (itens < 16) {
             return 4;
-        } else if (itens >= 18) {
+        } else if (itens < 20) {
             return 5;
-        } else if (itens >= 22) {
-            return 6;
         }
     }
 }

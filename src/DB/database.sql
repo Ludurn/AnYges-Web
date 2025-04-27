@@ -170,19 +170,39 @@ INSERT INTO tblLocalDeposito VALUES ('Deposito Vila Guilherme', 0x4D65616E696E67
 
 INSERT INTO tblAssociacao VALUES ('Promofarma', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'pr0m0', 'f4rm4', 'promofarma@gmail.com', 's');
 INSERT INTO tblAssociacao VALUES ('Unimed', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'un1', 'm3d', 'unimed@hotmail.com', 's');
-INSERT INTO tblAssociacao VALUES ('Hospital das Clínicas', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'h0sp1tal', 'cl1n1c4', 'hc@outlook.com', 's');
+INSERT INTO tblAssociacao VALUES ('Hospital Presidente', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'h0sp1tal', 'cl1n1c4', 'hc@outlook.com', 's');
 INSERT INTO tblAssociacao VALUES ('Amil', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'am1l', 'am1l', 'amil@outlook.com', 's');
-INSERT INTO tblAssociacao VALUES ('Sírio Libanês', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 's1r1o', 'l1b4n3s', 'siriolib@hotmail.com', 's');
+INSERT INTO tblAssociacao VALUES ('Hospital Sírio-Libanês', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 's1r1o', 'l1b4n3s', 'siriolib@hotmail.com', 's');
+INSERT INTO tblAssociacao VALUES ('Drogasil', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'dr0ga', 's1l', 'drogasil@hotmail.com', 's');
+INSERT INTO tblAssociacao VALUES ('Farmais', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'f4r', 'ma15', 'farmais@outlook.com', 's');
+INSERT INTO tblAssociacao VALUES ('Ultrafarma', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'u1tra', 'f4rm4', 'ultrafarma@gmail.com', 's');
 go
 
-INSERT INTO tblCupom VALUES (1, 'Rivotril', 'S', 12000, 'medicamento', './src/imgs/cupons/rivotril.png', 'Suspensão Oral', 15, 'S');
+INSERT INTO tblCupom VALUES (1, 'Rivotril', 'S', 8000, 'medicamento', './src/imgs/cupons/rivotril.png', 'Suspensão Oral', 15, 'S');
 INSERT INTO tblCupom VALUES (2, 'Pediatra', 'S', 25000, 'consulta', './src/imgs/cupons/unimed.png', 'Terça-feira e Quinta-feira', 20, 'S');
-INSERT INTO tblCupom VALUES (3, 'Psicóloga', 'S', 27000, 'consulta', './src/imgs/cupons/hc.png', 'Domingo à Quarta-feira', 17, 'S');
-INSERT INTO tblCupom VALUES (1, 'Paracetamol 750mg', 'S', 12000, 'medicamento', './src/imgs/cupons/paracetamol.jpg', 'Comprimido Revestido', 35, 'S');
-INSERT INTO tblCupom VALUES (4, 'Clínico Geral', 'S', 12000, 'consulta', './src/imgs/cupons/amil.jpg', 'Terça-feira e Sexta-feira', 5, 'S');
-INSERT INTO tblCupom VALUES (5, 'Gastroenterologista', 'S', 12000, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira e Sexta-feira', 7, 'S');
-INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/dove.webp', 'Desodorante Aerosol', 20, 'S');
-INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 12000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional', 12, 'S');
+INSERT INTO tblCupom VALUES (3, 'Psicóloga', 'S', 27000, 'consulta', './src/imgs/cupons/hp.jpg', 'Domingo à Quarta-feira', 17, 'S');
+INSERT INTO tblCupom VALUES (1, 'Paracetamol 750mg', 'S', 13500, 'medicamento', './src/imgs/cupons/paracetamol.jpg', 'Comprimido Revestido', 35, 'S');
+INSERT INTO tblCupom VALUES (4, 'Amil One 1000', 'S', 15000, 'consulta', './src/imgs/cupons/amil.jpg', 'Uma parcela do plano', 5, 'S');
+INSERT INTO tblCupom VALUES (5, 'Gastroenterologista', 'S', 11000, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira e Sexta-feira', 7, 'S');
+INSERT INTO tblCupom VALUES (1, 'Dove 72h 150ml', 'S', 10500, 'beleza/higiene', './src/imgs/cupons/dove.webp', 'Desodorante Aerosol', 20, 'S');
+INSERT INTO tblCupom VALUES (1, 'Sabonete Líquido Infantil', 'S', 11000, 'beleza/higiene', './src/imgs/cupons/sabonete.png', 'Granado Tradicional', 12, 'S');
+INSERT INTO tblCupom VALUES (1, 'Fralda Pampers XG', 'S', 9000, 'beleza/higiene', './src/imgs/cupons/fraldaPampers.webp', 'Confort Sec', 30, 'S');
+INSERT INTO tblCupom VALUES (2, 'Ginecologista', 'S', 22000, 'consulta', './src/imgs/cupons/unimed.png', 'Sexta-feira', 9, 'S');
+INSERT INTO tblCupom VALUES (6, 'Dermacitá', 'S', 7000, 'beleza/higiene', './src/imgs/cupons/cremeDemacita.webp', 'Creme para pernas 300ml', 10, 'S');
+INSERT INTO tblCupom VALUES (6, 'Omegafor Plus', 'S', 15000, 'medicamento', './src/imgs/cupons/omegafor.webp', 'Suplemento alimentar', 15, 'S');
+INSERT INTO tblCupom VALUES (6, 'Principia GL-01', 'S', 9500, 'beleza/higiene', './src/imgs/cupons/principiaGL01.webp', 'Gel de limpeza 350ml', 7, 'S');
+INSERT INTO tblCupom VALUES (7, 'Acetilcisteína 600mg', 'S', 6000, 'medicamento', './src/imgs/cupons/acetilcisteina.webp', 'Granulado Sabor Laranja', 12, 'S');
+INSERT INTO tblCupom VALUES (7, 'Cimegripe', 'S', 7500, 'medicamento', './src/imgs/cupons/cimegripe.webp', 'Suspensão Oral', 6, 'S');
+INSERT INTO tblCupom VALUES (7, 'Plenitud Plus G/XG', 'S', 5500, 'beleza/higiene', './src/imgs/cupons/plenitudPlus.webp', 'Roupa íntima descartável', 15, 'S');
+INSERT INTO tblCupom VALUES (4, 'Amil 400', 'S', 12500, 'consulta', './src/imgs/cupons/amil.jpg', 'Uma parcela do plano', 8, 'S');
+INSERT INTO tblCupom VALUES (4, 'Amil 700', 'S', 13000, 'consulta', './src/imgs/cupons/amil.jpg', 'Uma parcela do plano', 9, 'S');
+INSERT INTO tblCupom VALUES (3, 'Cardiologista', 'S', 24300, 'consulta', './src/imgs/cupons/hp.jpg', 'Segunda-feira', 13, 'S');
+INSERT INTO tblCupom VALUES (3, 'Ortopedista', 'S', 22500, 'consulta', './src/imgs/cupons/hp.jpg', 'Domingo e Terça-feira', 20, 'S');
+INSERT INTO tblCupom VALUES (5, 'Endocrinologista', 'S', 12500, 'consulta', './src/imgs/cupons/sirio.jpg', 'Quarta-feira', 7, 'S');
+INSERT INTO tblCupom VALUES (5, 'Geriatra', 'S', 10700, 'consulta', './src/imgs/cupons/sirio.jpg', 'Segunda-feira à Sábado', 7, 'S');
+INSERT INTO tblCupom VALUES (7, 'Melatonina Melyx', 'S', 9200, 'medicamento', './src/imgs/cupons/melatoninaMelyx.jpg', 'Comprimido mastigável 210mcg', 23, 'S');
+INSERT INTO tblCupom VALUES (7, 'Leite de Magnésia', 'S', 4500, 'medicamento', './src/imgs/cupons/leiteMagnesia.jpg', 'Phillips  120ml', 19, 'S');
+INSERT INTO tblCupom VALUES (7, 'Sulfato Ferroso', 'S', 7200, 'medicamento', './src/imgs/cupons/sulfatoFerroso.jpg', 'Comprimido Sidney Oliveira', 11, 'S');
 go
 
 INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990', NULL, NULL, NULL);
@@ -222,4 +242,4 @@ SELECT * FROM tblDoacao;
 
 SELECT c.valor*sq.qtd_ocorrencias as 'valor' FROM (SELECT ID_cupom, COUNT(*) AS qtd_ocorrencias FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1) GROUP BY ID_cupom) AS sq INNER JOIN tblCupom AS c ON sq.ID_cupom = c.ID_cupom;
 
-
+SELECT * FROM tblCupom

@@ -7,7 +7,7 @@
         
         $filtro = $_POST["filtro"];
         
-        $sql = "SELECT TOP 24 c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE tipo = :filtro ORDER BY NEWID();";
+        $sql = "SELECT TOP 25 c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE tipo = :filtro ORDER BY NEWID();";
         $ponteiro = $pdo->prepare($sql);
         $ponteiro->bindValue(":filtro", $filtro);
         $ponteiro->execute();
