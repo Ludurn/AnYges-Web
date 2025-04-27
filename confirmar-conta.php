@@ -45,7 +45,7 @@ $exec2->execute();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->   
-    <link rel="stylesheet" href="./src/style/estiloConfirmacao.css">
+    <link rel="stylesheet" href="./src/style/css/estiloConfirmacao.css">
     <title>Conta confirmada</title>
 </head>
 <body>

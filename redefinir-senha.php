@@ -48,7 +48,7 @@ if (strtotime($user[0]) <= time()) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->   
-    <link rel="stylesheet" href="./src/style/estiloRecuperacao.css">
+    <link rel="stylesheet" href="./src/style/css/estiloRecuperacao.css">
     <title>Redefinir senha</title>
 </head>
 <body>
