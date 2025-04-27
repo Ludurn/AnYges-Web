@@ -11,12 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->   
     <link rel="stylesheet" href="./src/style/estiloCentral.css">
+    <link rel="stylesheet" href="./src/style/estiloCarrinho.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
     <script type="text/javascript" src="./src/JS/session.js"></script>
     <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
+    <script type="text/javascript" src="./src/JS/resgate.js"></script>
     <script type="text/javascript" src="./src/JS/contato.js"></script>
     <!-- <script type="text/javascript" src="./src/JS/carrinho.js"></script> -->
     <script>
@@ -26,10 +28,9 @@
         }
     </script>
 </head>
-<body onclick="menuFadeOut();" onload="exibirPontos();">
+<body onclick="menuFadeOut();" onload="exibirPontos(); chamarCarrinho(); carregarCarrinhoSalvo();">
     <div id="cartContainer">
-        <!-- Aqui no carrinho, serão inseridos através de JavaScript versões em miniatura dos cards de produtos -->
-        <!-- <input type="button" id="" value="Check Out"> -->
+        <img id="carregandoGif" src="./src/imgs/popups/green_style.gif" alt="Carregando">
     </div>
     <header>
         <div id="logo-box">
@@ -41,13 +42,13 @@
         </div>
         <nav>
             <div class="menuDrop">
-                <button id="btnMenu" onclick="menuFadeIn()">Menu</button>              
+                <button id="btnMenu" onclick="menuFadeIn();">Menu</button>              
                 <div id="menuDropBG">
                     <a href="./home.html">
                         <ion-icon name="home"></ion-icon> Home</a>
                     <a onclick="acessarPerfil()" style="cursor: pointer;">        
                         <ion-icon name="person"></ion-icon> Perfil</a>
-                    <a id="carrinhoMobile" onclick="ativarCarrinho()">
+                    <a id="carrinhoMobile" onclick="ativarCarrinho();">
                         <ion-icon name="cart"></ion-icon> Carrinho</a>    
                     <a href="#">
                         <ion-icon name="hand"></ion-icon> Acessibilidade</a>
@@ -56,7 +57,7 @@
                                 <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
                                 <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
                                 <!-- A chamada "ativarCarinho()" vem do arquivo "carrinho.js" -->
-                                <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho()">Carrinho <ion-icon name="cart"></ion-icon></button>
+                                <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho();">Carrinho <ion-icon name="cart"></ion-icon></button>
                                 <button id="botaoDark" class="botaoNav dark" onclick="ativarModoDark(),pagDark()">&#x1F319;</button>
                             </nav>     
                         </header>

@@ -25,12 +25,12 @@ if ($_GET) {
 
 if (empty($user)) {
     $mensagem = "Esse link está inválido ou expirado. Por favor, solicite um novo.";
-    $msgErro->exibirMensagemErro($mensagem);
+    $msgErro->exibirMensagemErro($mensagem, "");
 }
 
 if (strtotime($user[0]) <= time()) {
     $mensagem = "Esse link está inválido ou expirado. Por favor, solicite um novo.";
-    $msgErro->exibirMensagemErro($mensagem);
+    $msgErro->exibirMensagemErro($mensagem, "");
 } else {
     //die ("token é válido e não está expirado");
 }

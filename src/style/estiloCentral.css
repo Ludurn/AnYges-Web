@@ -137,22 +137,6 @@ a {
     color: #8A3C29;
 }
 
-#cartContainer {
-    display: flex;
-    align-items: center;
-    background-image: linear-gradient(#8A3C29, #34160f);
-    height: 100%;
-    width: 20%;
-    position: fixed;
-    right: -285px;
-    transition: right 0.2s;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding-top: 50px;
-}
-
 .botaoNav {
     padding: 0.625rem 1.25rem;
     border: none;
@@ -198,56 +182,6 @@ a#carrinhoMobile {
 
 #search-box-mobile {
     display: none;
-}
-
-.carrinhoCard {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    background-color: white;
-    border-radius: 8px;
-    width: 140%;
-    transform: scale(0.7, 0.7);
-}
-
-.carrinhoCard > .molduraProdutos {
-    height: fit-content;
-    max-width: 45%;
-}
-
-.carrinhoCard > .molduraProdutos > figure {
-    margin: 16px;
-    height: fit-content;
-}
-
-.carrinhoCard > .molduraProdutos > figure > img {
-    height: 100%;
-}
-
-.carrinhoCard > p {
-    max-width: 20%;
-    text-align: center;
-    word-break: break-all;
-}
-
-.carrinhoCard > .btnProdutos {
-    max-width: 100px;
-}
-
-.quantidade {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    width: 100%;
-    border-radius: 0px 0px 8px 8px;
-}
-
-.quantidadeCard {
-    border: 2px solid green;
-    border-radius: 5px;
-    font-size: large;
 }
 
 .respons {

@@ -55,6 +55,7 @@ function chamarCarrinho() {
             var target = event.target;
             //Elemento-pai que sofreu evento que chamou esta função será armazenado nesta variável abaixo
             var cardCarrinho = target.parentElement;
+            contador = carrinho.children.length;
 
             carrinho.innerHTML += 
             "<div class = 'carrinhoCard' data-id='"+cardCarrinho.dataset.id+"'>"
@@ -90,9 +91,11 @@ function chamarCarrinho() {
 
             $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Mobile
             $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Padrão
-            contador++;
+
 
             $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
+
+            armazenarCarrinho();
             });
         }
 
@@ -101,7 +104,6 @@ function chamarCarrinho() {
             "<div id='saldoPedido'><p>Subtotal: "+verificarSubtotal()+" ₯</p></div>"
             +"<div id='btnPedido' onclick='finalizarPedido();'>Finalizar pedido</div>"
         );
-        
     }, 1000);
 }
 
@@ -109,5 +111,37 @@ function removerCard(dataID) {
     if(confirm("Deseja remover este cupom do carrinho?")) {
         let card = $('.carrinhoCard[data-id="'+dataID+'"]');
         card.remove();
+    }
+
+    $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
+
+    armazenarCarrinho();
+}
+
+function armazenarCarrinho() {
+    let cardsCarrinho = $("#cartContainer").html();
+
+    $.post(
+        "./src/PHP/cookieCarrinho.php",
+            {
+                dadosCarrinho: cardsCarrinho
+            }
+    )
+    .done(
+        function (retorno) {
+            retorno = JSON.parse(retorno);
+        }
+    )
+}
+
+function carregarCarrinhoSalvo() {
+    let cookieCarrinho = document.cookie.split(';');
+
+    if (cookieCarrinho[1] != null) {
+        cookieCarrinho = cookieCarrinho[1].split('=')[1];
+        cookieCarrinho = decodeURIComponent(cookieCarrinho);
+        setTimeout(() => {
+            $("#cartContainer").append(cookieCarrinho);
+        }, 1000);
     }
 }

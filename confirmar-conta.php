@@ -24,7 +24,7 @@ if ($_GET) {
 
 if (empty($user)) {
     $mensagem = "Esse link está inválido ou expirado. Por favor, solicite um novo.";
-    $msgErro->exibirMensagemErro($mensagem);
+    $msgErro->exibirMensagemErro($mensagem, "");
 }
     
 $exec2 = $pdo->prepare("UPDATE tblUsuario SET token_ativacao = NULL WHERE token_ativacao = :token_hash;");
