@@ -1,0 +1,375 @@
+@use 'mixins' as mix;
+@use 'variables' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inria Sans, Arial, sans-serif;
+}
+
+@include mix.bodyWithBackgroundImage("over-the-counter.jpg");
+
+header {
+    background-color: $marrom;
+    color: $branco;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2% 0%;
+    box-shadow: inset 0px 0px 11px 12px $sombra2;
+
+    #logo-box {
+        display: flex;
+        width: 15%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #logo-obj {
+        width: 25%;
+    }
+
+    #anygesTitle {
+        color: white;
+        text-align: center;
+        -webkit-text-stroke: 0.15rem $preto;
+        paint-order: stroke fill;
+    }
+}
+
+#cadastroHintMobile {
+    display: none;
+}
+
+main {
+    width: 40%;
+    margin: 0% 15% 0% 45%;
+    background-color: $fundo1;
+    border-radius: 0.625rem;
+    box-shadow: -0.125rem 0.3125rem 0.5rem $sombra1;
+}
+
+.imagem-planta {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    translate: 0rem 0.5rem;
+}
+
+.vazio {
+    visibility: hidden;
+    width: 10%;
+}
+
+.forms-principal {
+    margin: 0% 0% 2% 0%;
+    border-style: none;
+    padding-bottom: 0%;
+}
+
+.titulo-forms-internos {
+    font-weight: bold;
+    color: $branco;
+    background-color: $marrom;
+    text-align: center;
+    padding: 0.125rem 0rem;
+    margin-bottom: 0.625rem;
+    border-radius: 0.625rem 0.625rem 0rem 0rem;
+}
+
+.forms-internos {
+    padding: 1.25rem 0.625rem;
+    border-radius: 0.625rem;
+    border: 0.187rem solid $cinzaClaro;
+    margin: 0rem 0.937rem;
+}
+
+#campo-cadastro {
+    margin-top: 2rem;
+}
+
+.requirement {
+    color: $vermelho;
+}
+
+.camposForm {
+    border-style: solid;
+    border-color: $cinzaClaro;
+
+    &:hover {
+        border-style: solid;
+        border-color: $cinza;
+    }
+
+    &:focus {
+        outline: 0rem;
+        border-style: dotted;
+        border-color: $azulClaro;
+    }
+}
+
+#termosCondicoes {
+    margin: auto;
+    padding: 1rem;
+    text-align: justify;
+}
+
+#res {
+    border-width: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BOTÕES */
+.container-botoes {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+
+.botoes {
+    font-family: "Inria Sans";
+    font-weight: bold;
+    border-style: none;
+    color: $branco;
+    padding: 0.31rem;
+    border-radius: 0.437rem;
+    width: 15%;
+    margin: 0% 2%;
+}
+
+#botaoEnvio {
+    background-color: $verde;
+    box-shadow: -2px 2px 0px 2px $sombra3, inset 0px 0px 8px 0px $sombra2;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        background-color: $verdeClaro;
+    }
+
+    &:active {
+        box-shadow: none;
+        translate: -0.125rem 0.125rem;
+    }
+}
+
+#botaoApagar {
+    background-color: $vermelhoTerra;
+    box-shadow: -2px 2px 0px 2px $sombra4, inset 0px 0px 8px 0px $sombra2;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        background-color: $verdeClaro;
+    }
+
+    &:active {
+        box-shadow: none;
+        translate: -0.125rem 0.125rem;
+    }
+}
+
+#btnConfirma {
+    background-color: $azulClaro;
+    font-family: "Open Sans";
+    font-weight: bold;
+    border-style: none;
+    color: $branco;
+    padding: 0.31rem;
+    border-radius: 0.437rem;
+    width: 15%;
+    margin: 0% 2%;
+}
+
+.botao-visibilidade {
+    width: 17px;
+    border-style: none;
+    @include mix.backgroundImage("eye-solid.svg", "icon");
+    background-repeat: no-repeat;
+}
+
+/* RESPONSIVIDADE */
+@media screen and (max-width: 500px) {
+    body {
+        background-color: $branco;
+        background-image: none;
+    }
+
+    header {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        padding: 3% 2%;
+
+        > * {
+            margin: 2% 1%;
+        }
+
+        #logo-box {
+            width: 50%;
+        }
+    }
+
+    #cadastroHint {
+        display: none;
+    }
+
+    #cadastroHintMobile {
+        display: flex;
+        width: 87%;
+        margin: auto;
+        margin-top: 5%;
+        text-align: justify;
+    }
+
+    .imagem-planta {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        margin: auto;
+        margin-top: 5%;
+        box-shadow: none;
+    }
+
+    .forms-principal {
+        background-color: $branco;
+    }
+
+    #formularios {
+        background-color: $branco;
+    }
+
+    .titulo-forms-internos {
+        display: none;
+    }
+
+    legend {
+        display: none;
+    }
+
+    .forms-internos {
+        border: none;
+    }
+
+    #campo-cadastro {
+        margin-top: 0rem;
+    }
+
+    input {
+        width: 100%;
+        min-height: 2.18rem;
+        font-size: 1.05rem;
+        padding-left: 0.437rem;
+    }
+
+    .camposForm {
+        border-radius: 0.43rem;
+    }
+
+    input#senha, input#confirmSenha {
+        width: 85%;
+    }
+
+    .botao-visibilidade {
+        background-color: $branco;
+        width: 8%;
+    }
+
+    #termosCondicoes {
+        background-color: $branco;
+    }
+
+    .container-botoes {
+        background-color: $branco;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .botoes {
+        width: 45%;
+        font-size: medium;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+    header {
+        flex-direction: row;
+        align-items: center;
+        text-align: right;
+        justify-content: space-around;
+
+        #logo-box {
+            width: 30%;
+        }
+    }
+
+    .imagem-planta {
+        display: none;
+    }
+
+    main {
+        width: 80%;
+        margin: auto;
+        margin-top: 10%;
+    }
+
+    #cadastroHint {
+        display: none;
+    }
+
+    input {
+        width: 80%;
+        min-height: 1.5rem;
+        font-size: 0.9rem;
+        padding-left: 0.437rem;
+    }
+
+    .container-botoes {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .botoes {
+        width: 45%;
+        font-size: medium;
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+    #logo-box {
+        width: 20%;
+    }
+
+    .imagem-planta {
+        display: none;
+    }
+
+    header {
+        gap: 3%;
+    }
+
+    main {
+        width: 50%;
+        margin: 0rem 7.37rem 0rem 24.3rem;
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+    .login-container {
+        max-width: 35%;
+    }
+}
+
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+    .login-container {
+        max-width: 25%;
+    }
+}

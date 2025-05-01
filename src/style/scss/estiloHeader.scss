@@ -1,0 +1,312 @@
+@use 'mixins' as mix;
+
+header {
+    background: #1F6124;
+    color: #8A3C29;
+    padding: 0.625rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+}
+
+#logo-box{
+    display: flex;
+    width: 15%;
+    height: 10vh;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#search-box {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#inputSearch {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: medium;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem 0rem 0rem 0.25rem;
+
+    &::placeholder {
+        text-align: center;
+        font-size: medium;
+        color: #9e9fa0;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.inputSearchClass {
+    color: #727273;
+    background-color: #f0f0f0;
+    border: 0.0625rem solid #ccc;
+}
+
+#lupa {
+    width: 30px;
+    background-color: #8A3C29;
+    @include mix.backgroundImage("lupa-dark.png", "icon");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: 0rem solid white;
+    border-radius: 0rem 0.25rem 0.25rem 0rem;
+    cursor: pointer;
+}
+
+.menuDrop {
+    position: relative;
+    display: inline-block;
+}
+
+#btnMenu {
+    background: #28A745;
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: 0.1rem solid #28A745;
+    cursor: pointer;
+    border-radius: 0.25rem;
+
+    &:hover {
+        border: 0.1rem solid #28A745;
+        background-color: #1F6124;
+    }
+}
+
+#menuDropBG {
+    visibility: hidden;
+    opacity: 0;  
+    position: absolute;
+    background-color:#1F6124;
+    width: 210%;
+    border-radius: 4%;
+    box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: visibility 0s, opacity 0.2s linear;
+
+    a {
+        display: block;
+        color: white;
+        padding: 0.75rem 1rem;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #8A3C29;
+    }
+}
+
+.botaoNav {
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login, .registrar {
+    background-color: #28A745;
+    color: white;
+    border: 0.1rem solid #28A745;
+
+    &:hover {
+        color: white;
+        border: 0.1rem solid #28A745;
+        background-color: #1F6124;
+    }
+}
+
+#pontosUser{
+    background-color: #8A3C29;
+    color: #f0f0f0;
+    padding: 0.55rem 0.55rem;
+    border: 0.1rem solid #611f1f;
+    border-radius: 0.5rem;
+}
+
+a#carrinhoMobile {
+    display: none;
+    cursor: pointer;
+}
+
+.carrinho {
+    background-color: #75a32a;
+    color: white;
+    border: 0.1rem solid #75a32a;
+
+    &:hover {
+        color: white;
+        border: 0.1rem solid #75a32a;
+        background-color: #1F6124;
+    }
+}
+
+.respons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#search-box-mobile {
+    display: none;
+}
+
+
+/*    RESPONSIVIDADE      */
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 500px) {
+
+    header {
+        width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: normal;
+        align-items: normal;
+        position: sticky;
+    }
+
+    #logo-box{
+        display: flex;
+        width: 40%;
+        height: 7vh;
+        align-items: center;
+        margin-right: 5%;
+    }
+
+    #search-box {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        align-items: center;
+    }
+
+    .registrar {
+        display: none;
+    }
+
+    a#carrinhoMobile {
+        display: flex;
+    }
+
+    #btnCarrinho {
+        display: none;
+    }
+
+    #search-box-mobile {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-top: 7%;
+    }
+
+    #inputSearchMobile {
+        width: 100%;
+        min-height: 2.5rem;
+        font-size: 1rem;
+        padding-left: 0.437rem;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+    }
+
+
+}
+
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+    header {
+        width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: normal;
+        position: sticky;
+    }
+
+    #logo-box{
+        display: flex;
+        width: 100%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 5%;
+    }
+
+    #search-box {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        align-items: center;
+    }
+
+    a#carrinhoMobile {
+        display: flex;
+    }
+
+    #btnCarrinho {
+        display: none;
+    }
+
+    #search-box-mobile {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-top: 7%;
+    }
+
+    #inputSearchMobile {
+        width: 100%;
+        min-height: 2.5rem;
+        font-size: 1rem;
+        padding-left: 0.437rem;
+        border-radius: 0.25rem 0rem 0rem 0.25rem;
+    }
+
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+    #logo-box{
+        display: flex;
+        width: 15%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 0%;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+
+
+}
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+    #logo-box{
+        display: flex;
+        width: 15%;
+        height: 10vh;
+        align-items: center;
+        margin-right: 0%;
+    }
+
+    #search-box {
+        width: 100%;
+    }
+
+}

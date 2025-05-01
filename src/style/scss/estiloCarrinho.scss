@@ -1,0 +1,100 @@
+@use 'mixins' as mix;
+@use 'variables' as *;
+
+#cartContainer {
+    margin-top: 7.5%;
+    display: flex;
+    align-items: center;
+    background-image: $degrade1;
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    right: -17.8rem;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: right 0.2s, margin-top 0.2s ease;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+        background-color: $marrom;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $verdeClaro;
+
+        &:hover {
+            background-color: $verde;
+        }
+    }
+}
+
+.carrinhoCard {
+    display: flex;
+    width: 95%;
+    background-color: $branco;
+    border-radius: 0.5rem;
+    margin: 3% 0%;
+}
+
+.imgRemoverCard {
+    width: 15%;
+}
+
+.cardContent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $branco;
+    width: fit-content;
+    font-size: small;
+    border-radius: 0.5rem;
+    text-align: center;
+
+    img, p {
+        flex: 0 0 50%;
+    }
+
+    > .molduraProdutos {
+        height: fit-content;
+        max-width: 50%;
+
+        > figure {
+            margin: 1rem;
+            height: fit-content;
+
+            > img {
+                height: 100%;
+            }
+        }
+    }
+
+    > p {
+        min-width: 50%;
+    }
+
+    > .precoProduto {
+        font-weight: bold;
+    }
+}
+
+#pedidoBox {
+    position: inherit;
+    z-index: 9999;
+    width: 19%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $branco;
+    bottom: -25%;
+    transition: transform 0.3s ease;
+}
+
+@include mix.buttonStyle("#btnPedido");
+
+#btnPedido {
+    width: 80%;
+}

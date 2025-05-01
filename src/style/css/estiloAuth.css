@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inria Sans, Arial, sans-serif;
+}
+
+body {
+  background-color: lightgrey;
+  background-image: url("http://localhost/src/imgs/farmacia.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-position: center;
+}
+
+a {
+  color: #228B22;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+a:hover {
+  color: #611f1f;
+}
+
+/* PAGINA DE CONFIRMACA DE CONTA */
+#containerConfirmConta {
+  max-width: 35%;
+  margin: 0 auto;
+  background-color: rgb(240, 238, 238);
+  box-shadow: -0.125rem 0.3125rem 0.5rem rgb(149, 149, 149);
+  border-radius: 0.75rem;
+}
+
+#titleConfirmConta {
+  width: 100%;
+  padding: 2%;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background-color: #611f1f;
+}
+#titleConfirmConta h2 {
+  color: white;
+  text-align: center;
+}
+
+#picture-obj {
+  width: 35%;
+}
+
+#picture-box {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#confirmConta-content {
+  padding: 0 6.5%;
+}
+
+#content-message {
+  display: flex;
+  justify-content: center;
+}
+
+#btn-confirmacao {
+  width: 100%;
+  margin-bottom: 5%;
+  padding: 3.2%;
+  background-color: #228B22;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+#btn-confirmacao:hover {
+  background-color: #611f1f;
+}
+
+/* PAGINAS DE RECUPERAR SENHA */
+#containerRecupSenha {
+  max-width: 35%;
+  margin: 0 auto;
+  background-color: rgb(240, 238, 238);
+  box-shadow: -0.125rem 0.3125rem 0.5rem rgb(149, 149, 149);
+  border-radius: 0.75rem;
+}
+
+#titleRecupSenha {
+  width: 100%;
+  padding: 2%;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background-color: #611f1f;
+}
+#titleRecupSenha h2 {
+  color: white;
+  text-align: center;
+}
+
+#picture-obj {
+  width: 40%;
+}
+
+#picture-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#formRecupSenha {
+  padding: 2% 5.5% 3% 5.5%;
+}
+
+#input-group {
+  margin-top: 5%;
+  margin-bottom: 3%;
+  text-align: left;
+}
+#input-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.3rem;
+  transition: color 0.5s;
+}
+#input-group input {
+  width: 100%;
+  padding: 2.5%;
+  border-radius: 0.375rem;
+  border: 0.125rem solid lightgray;
+  outline: none;
+}
+
+.camposForm {
+  border-style: solid;
+  border-color: lightgray;
+}
+
+.btn-recuperacao {
+  width: 100%;
+  margin-bottom: 5%;
+  padding: 3.2%;
+  background-color: #228B22;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.btn-recuperacao:hover {
+  background-color: #611f1f;
+}
+
+@media screen and (max-width: 500px) {
+  #containerConfirmConta, #containerRecupSenha {
+    max-width: 90%;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+  #containerConfirmConta, #containerRecupSenha {
+    max-width: 70%;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  #containerConfirmConta, #containerRecupSenha {
+    max-width: 50%;
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+  #containerConfirmConta, #containerRecupSenha {
+    max-width: 35%;
+  }
+}
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+  #containerConfirmConta, #containerRecupSenha {
+    max-width: 25%;
+  }
+}
+
+/*# sourceMappingURL=estiloAuth.css.map */

@@ -1,0 +1,303 @@
+body {
+    font-family: Inria Sans, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    transition: background-color 0.5s;
+    overflow-x: hidden;
+}
+
+h1 {
+    -webkit-text-stroke: 0.21875rem black;
+    paint-order: stroke fill;
+}
+
+.respons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+main {
+    width: 90%;
+    margin: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    h1 {
+        color: #333;
+    }
+}
+
+#fileira-1, #fileira-2 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+}
+
+footer {
+    background: #f1f1f1;
+    padding: 0.625rem;
+    text-align: center;
+}
+
+/* Modo noturno (ou dark) */
+#colorir1 {
+    -webkit-text-stroke: 0rem #333;
+}
+
+.dark {
+    color: white;
+    padding: 0%;
+    font-size: x-large;
+    background-color: #1f612400;
+}
+
+.bodyDark {
+    background-color: #323232;
+}
+
+.janelaDark {
+    color: white;
+    background-color: #646464;
+}
+
+/*Container do Contato*/
+.form-container {
+    background-color: #e5ffdb;
+    padding: 3.3%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 31%;
+    float: left;
+    margin-right: 5%;
+
+    h2 {
+        margin-top: 0;
+        color: #333;
+    }
+}
+
+.form-group {
+    margin-bottom: 2.7%;
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 2.7%;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        resize: vertical;
+    }
+
+    textarea {
+        height: 10vh;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28A745;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #28A745;
+        }
+    }
+}
+
+.color1 {
+    font-weight: lighter;
+}
+
+/*Container da Ajuda*/
+.helpcontainer {
+    width: 47%;
+    margin-left: 5%;
+    padding: 2%;
+    background-color: #e5ffdb;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    float: right;
+    display: flex;
+
+    h1, h2 {
+        color: #333;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 0;
+    }
+}
+
+.faq-section {
+    margin-top: 2%;
+
+    h2 {
+        margin-top: 0;
+    }
+}
+
+.faq-item {
+    margin-bottom: 1.5%;
+}
+
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+
+    &:hover {
+        color: #28A745;
+    }
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 5px;
+    color: #333;
+}
+
+.modo-dark {
+    color: white;
+}
+
+/* RESPONSIVIDADE */
+@media screen and (max-width: 500px) {
+
+    #janela {
+        margin: 0;
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #colorir2, #colorir3 {
+        display: none;
+    }
+
+    #helpcontainer {
+        margin: 0;
+        margin-bottom: 10%;
+        width: 90%;
+    }
+
+    #faq-section {
+        padding: 5%;
+    }
+
+    #colorir4 {
+        text-align: center;
+        margin-top: 3%;
+        padding-right: 3%;
+    }
+
+    #form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0%;
+        padding-left: 3%;
+        padding-bottom: 5%;
+        margin: auto;
+        margin-bottom: 15%;
+        width: 90%;
+    }
+
+    .form-group {
+        > input, > select, > textarea {
+            width: 90%;
+        }
+    }
+
+    #btnEnviar {
+        margin: auto;
+        margin-top: 5%;
+        width: 80%;
+        padding-right: 3%;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+    #janela {
+        margin: 0;
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #colorir2, #colorir3 {
+        display: none;
+    }
+
+    #helpcontainer {
+        margin: 0;
+        margin-bottom: 10%;
+        width: 90%;
+    }
+
+    #faq-section {
+        padding: 5%;
+    }
+
+    #colorir4 {
+        text-align: center;
+        margin-top: 3%;
+        padding-right: 3%;
+    }
+
+    #form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0%;
+        padding-left: 3%;
+        padding-bottom: 5%;
+        margin: auto;
+        margin-bottom: 15%;
+        width: 90%;
+    }
+
+    input {
+        min-height: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .form-group {
+        > input, > select, > textarea {
+            width: 90%;
+        }
+    }
+
+    #btnEnviar {
+        margin: auto;
+        margin-top: 5%;
+        width: 80%;
+        padding-right: 3%;
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+
+}
+
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+
+}

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->   
-    <link rel="stylesheet" href="./src/style/css/estiloRecuperacao.css">
+    <link rel="stylesheet" href="./src/style/css/estiloAuth.css">
     <title>Esqueci minha senha</title>
 </head>
 <body>

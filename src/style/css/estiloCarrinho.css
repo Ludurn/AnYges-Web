@@ -1,108 +1,109 @@
-
 #cartContainer {
-    margin-top: 7.5%;
-    display: flex;
-    align-items: center;
-    background-image: linear-gradient(#572519, #703121);
-    height: 100%;
-    width: 20%;
-    position: fixed;
-    right: -17.8rem;
-    flex-direction: column;
-    justify-content: center;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    transition: right 0.2s, margin-top 0.2s ease;
+  margin-top: 7.5%;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(#572519, #703121);
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  right: -17.8rem;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  transition: right 0.2s, margin-top 0.2s ease;
 }
-
 #cartContainer::-webkit-scrollbar {
-    width: 0.5rem;
-    background-color: #802b2b;
+  width: 0.5rem;
+  background-color: #611f1f;
 }
-
 #cartContainer::-webkit-scrollbar-thumb {
-    background-color: yellowgreen;
+  background-color: rgb(59, 221, 59);
 }
-
 #cartContainer::-webkit-scrollbar-thumb:hover {
-    background-color: #28A745;
+  background-color: #228B22;
 }
 
 .carrinhoCard {
-    display: flex;
-    width: 95%;
-    background-color: white;
-    border-radius: 0.5rem;
-    margin: 3% 0%;
+  display: flex;
+  width: 95%;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin: 3% 0%;
 }
 
 .imgRemoverCard {
-    width: 15%;
+  width: 15%;
 }
 
 .cardContent {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    background-color: white;
-    width: fit-content;
-    font-size: small;
-    border-radius: 0.5rem;
-    text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  width: fit-content;
+  font-size: small;
+  border-radius: 0.5rem;
+  text-align: center;
 }
-
-.cardContent img,
-.cardContent p {
-    flex: 0 0 50%;
+.cardContent img, .cardContent p {
+  flex: 0 0 50%;
 }
-
 .cardContent > .molduraProdutos {
-    height: fit-content;
-    max-width: 50%;
+  height: fit-content;
+  max-width: 50%;
 }
-
 .cardContent > .molduraProdutos > figure {
-    margin: 1rem;
-    height: fit-content;
+  margin: 1rem;
+  height: fit-content;
 }
-
 .cardContent > .molduraProdutos > figure > img {
-    height: 100%;
+  height: 100%;
 }
-
 .cardContent > p {
-    min-width: 50%;
+  min-width: 50%;
 }
-
 .cardContent > .precoProduto {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #pedidoBox {
-    position: inherit;
-    z-index: 9999;
-    width: 19%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    bottom: -25%;
-    transition: transform 0.3s ease;
+  position: inherit;
+  z-index: 9999;
+  width: 19%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  bottom: -25%;
+  transition: transform 0.3s ease;
 }
 
 #btnPedido {
-    display: flex;
-    width: 80%;
-    height: 5vh;
-    margin-bottom: 10%;
-    justify-content: center;
-    align-items: center;
-    font-size: large;
-    background-image: linear-gradient(#1F6124, #123b15);
-    border-radius: 0.375rem;
-    color: white;
-    user-select: none;
-    cursor: pointer;
+  display: flex;
+  width: 90%;
+  height: 5vh;
+  margin-bottom: 10%;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  background-image: linear-gradient(#1F6124, #123b15);
+  border-radius: 0.375rem;
+  color: white;
+  user-select: none;
+  cursor: pointer;
 }
+#btnPedido:hover {
+  background-image: linear-gradient(#8A3C29, #572519);
+}
+#btnPedido:active {
+  background-image: linear-gradient(#b54f36, #8a3b28);
+}
+
+#btnPedido {
+  width: 80%;
+}
+
+/*# sourceMappingURL=estiloCarrinho.css.map */

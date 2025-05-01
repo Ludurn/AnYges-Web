@@ -1,382 +1,337 @@
+@charset "UTF-8";
 * {
-    padding: 0;
-    margin: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inria Sans, Arial, sans-serif;
 }
 
 body {
-    background-color: lightgreen;
-    background-image: url("http://localhost/src/imgs/over-the-counter.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-family: "Inria Sans";
+  background-color: lightgrey;
+  background-image: url("http://localhost/src/imgs/over-the-counter.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 header {
-    background-color: #611f1f;
-    color: white;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2% 0%;
-    box-shadow: inset 0px 0px 11px 12px rgba(0, 0, 0, 0.252);
+  background-color: #611f1f;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2% 0%;
+  box-shadow: inset 0px 0px 11px 12px rgba(0, 0, 0, 0.252);
 }
-
-#logo-box{
-    display: flex;
-    width: 15%;
-    justify-content: center;
-    align-items: center;
+header #logo-box {
+  display: flex;
+  width: 15%;
+  justify-content: center;
+  align-items: center;
 }
-
-#logo-obj{
-    width: 25%;
+header #logo-obj {
+  width: 25%;
 }
-
-#anygesTitle {
-    color: white;
-    text-align: center;
-    -webkit-text-stroke: 0.15rem black;
-    paint-order: stroke fill;
+header #anygesTitle {
+  color: white;
+  text-align: center;
+  -webkit-text-stroke: 0.15rem black;
+  paint-order: stroke fill;
 }
 
 #cadastroHintMobile {
-    display: none;
+  display: none;
 }
 
 main {
-    width: 40%;
-    margin: 0% 15% 0% 45%;
-    background-color: rgb(240, 238, 238);
-    border-radius: 0.625rem;
-    box-shadow: -0.125rem 0.3125rem 0.5rem rgb(149, 149, 149);
+  width: 40%;
+  margin: 0% 15% 0% 45%;
+  background-color: rgb(240, 238, 238);
+  border-radius: 0.625rem;
+  box-shadow: -0.125rem 0.3125rem 0.5rem rgb(149, 149, 149);
 }
 
 .imagem-planta {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row-reverse;
-    translate: 0rem 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  translate: 0rem 0.5rem;
 }
 
 .vazio {
-    visibility: hidden;
-    width: 10%;
+  visibility: hidden;
+  width: 10%;
 }
 
 .forms-principal {
-    margin: 0% 0% 2% 0%;
-    border-style: none;
-    padding-bottom: 0%;
+  margin: 0% 0% 2% 0%;
+  border-style: none;
+  padding-bottom: 0%;
 }
 
 .titulo-forms-internos {
-    font-weight: bold;
-    color: white;
-    background-color: #611f1f;
-    text-align: center;
-    padding: 0.125rem 0rem;
-    margin-bottom: 0.625rem;
-    border-radius: 0.625rem 0.625rem 0rem 0rem;
+  font-weight: bold;
+  color: white;
+  background-color: #611f1f;
+  text-align: center;
+  padding: 0.125rem 0rem;
+  margin-bottom: 0.625rem;
+  border-radius: 0.625rem 0.625rem 0rem 0rem;
 }
 
 .forms-internos {
-    padding: 1.25rem 0.625rem;
-    border-radius: 0.625rem;
-    border: 0.187rem solid lightgray;
-    margin: 0rem 0.937rem;
+  padding: 1.25rem 0.625rem;
+  border-radius: 0.625rem;
+  border: 0.187rem solid lightgrey;
+  margin: 0rem 0.937rem;
 }
 
 #campo-cadastro {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .requirement {
-    color: red;
+  color: red;
 }
 
 .camposForm {
-    border-style: solid;
-    border-color: lightgray;
+  border-style: solid;
+  border-color: lightgrey;
 }
-
-
 .camposForm:hover {
-    border-style: solid;
-    border-color: gray;   
+  border-style: solid;
+  border-color: gray;
 }
-
 .camposForm:focus {
-    outline: 0rem;
-    border-style: dotted;
-    border-color: cornflowerblue;
+  outline: 0rem;
+  border-style: dotted;
+  border-color: cornflowerblue;
 }
 
 #termosCondicoes {
-    margin: auto;
-    padding: 1rem;
-    text-align: justify;
+  margin: auto;
+  padding: 1rem;
+  text-align: justify;
 }
 
 #res {
-    border-width: 0rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  border-width: 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* BOTÕES */
-
 .container-botoes {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    margin-bottom: 5%;
-}
-
-
-#botaoEnvio {
-    background-color: green;
-    box-shadow: -2px 2px 0px 2px rgb(0, 74, 4),inset 0px 0px 8px 0px rgba(0, 0, 0, 0.252);
-}
-
-#botaoApagar {
-    background-color: brown;
-    box-shadow: -2px 2px 0px 2px rgb(74, 0, 0),inset 0px 0px 8px 0px rgba(0, 0, 0, 0.252);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  margin-bottom: 5%;
 }
 
 .botoes {
-    font-family: "Inria Sans";
-    font-weight: bold;
-    border-style: none;
-    color: white;
-    padding: 0.31rem;
-    border-radius: 0.437rem;
-    width: 15%;
-    margin: 0% 2%;
+  font-family: "Inria Sans";
+  font-weight: bold;
+  border-style: none;
+  color: white;
+  padding: 0.31rem;
+  border-radius: 0.437rem;
+  width: 15%;
+  margin: 0% 2%;
 }
 
+#botaoEnvio {
+  background-color: #228B22;
+  box-shadow: -2px 2px 0px 2px rgb(0, 74, 4), inset 0px 0px 8px 0px rgba(0, 0, 0, 0.252);
+}
 #botaoEnvio:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    background-color: rgb(59, 221, 59);
-}
-
-#botaoApagar:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    background-color: rgb(199, 85, 85);
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: rgb(59, 221, 59);
 }
 #botaoEnvio:active {
-    box-shadow: none;
-    translate: -0.125rem 0.125rem;
+  box-shadow: none;
+  translate: -0.125rem 0.125rem;
 }
 
+#botaoApagar {
+  background-color: brown;
+  box-shadow: -2px 2px 0px 2px rgb(74, 0, 0), inset 0px 0px 8px 0px rgba(0, 0, 0, 0.252);
+}
+#botaoApagar:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: rgb(59, 221, 59);
+}
 #botaoApagar:active {
-    box-shadow: none;
-    translate: -0.125rem 0.125rem;
+  box-shadow: none;
+  translate: -0.125rem 0.125rem;
 }
 
 #btnConfirma {
-    background-color: cornflowerblue;
-    font-family: "Open Sans";
-    font-weight: bold;
-    border-style: none;
-    color: white;
-    padding: 0.31rem;
-    border-radius: 0.437rem;
-    width: 15%;
-    margin: 0% 2%;
+  background-color: cornflowerblue;
+  font-family: "Open Sans";
+  font-weight: bold;
+  border-style: none;
+  color: white;
+  padding: 0.31rem;
+  border-radius: 0.437rem;
+  width: 15%;
+  margin: 0% 2%;
 }
 
 .botao-visibilidade {
-    width: 17px;
-    border-style: none;
-    background-image: url('http://localhost/src/imgs/icons/eye-solid.svg');
-    background-repeat: no-repeat;
+  width: 17px;
+  border-style: none;
+  background-image: url("http://localhost/src/imgs/icons/eye-solid.svg");
+  background-repeat: no-repeat;
 }
 
-
-/* RESPONSIVIDADE-------------------------------------------------------------------------------------------------------------- */
-
+/* RESPONSIVIDADE */
 @media screen and (max-width: 500px) {
-
-    body {
-        background-color: white;
-        background-image: none;
-    }
-
-    header {
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
-        padding: 3% 2%;
-    }
-    
-    header > * {
-        margin: 2% 1%;
-    }
-
-    #logo-box {
-        width: 50%
-    }
-
-    #cadastroHint {
-        display: none;
-    }
-
-    #cadastroHintMobile {
-        display: flex;
-        width: 87%;
-        margin: auto;
-        margin-top: 5%;
-        text-align: justify;
-    }
-
-    .imagem-planta {
-        display: none;
-    }
-    
-    main {
-        width: 100%;
-        margin: auto;
-        margin-top: 5%;
-        box-shadow: none;
-    }
-
-    .forms-principal {
-        background-color: white;
-    }
-
-    #formularios {
-        background-color: white;
-    }
-
-    .titulo-forms-internos {
-        display: none;
-    }
-
-    legend {
-        display: none;
-    }
-
-    .forms-internos {
-        border: none;
-    }
-
-    #campo-cadastro {
-        margin-top: 0rem;
-    }
-
-    input {
-        width: 100%;
-        min-height: 2.18rem;
-        font-size: 1.05rem;
-        padding-left: 0.437rem;
-    }
-
-    .camposForm {
-        border-radius: 0.43rem;
-    }
-
-    input#senha, input#confirmSenha {
-        width: 85%;
-    }
-
-    .botao-visibilidade {
-        background-color: white;
-        width: 8%;
-    }
-
-    #termosCondicoes {
-        background-color: white;
-    }
-
-    .container-botoes {
-        background-color: white;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .botoes {
-        width: 45%;
-        font-size: medium;
-    }
+  body {
+    background-color: white;
+    background-image: none;
+  }
+  header {
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 3% 2%;
+  }
+  header > * {
+    margin: 2% 1%;
+  }
+  header #logo-box {
+    width: 50%;
+  }
+  #cadastroHint {
+    display: none;
+  }
+  #cadastroHintMobile {
+    display: flex;
+    width: 87%;
+    margin: auto;
+    margin-top: 5%;
+    text-align: justify;
+  }
+  .imagem-planta {
+    display: none;
+  }
+  main {
+    width: 100%;
+    margin: auto;
+    margin-top: 5%;
+    box-shadow: none;
+  }
+  .forms-principal {
+    background-color: white;
+  }
+  #formularios {
+    background-color: white;
+  }
+  .titulo-forms-internos {
+    display: none;
+  }
+  legend {
+    display: none;
+  }
+  .forms-internos {
+    border: none;
+  }
+  #campo-cadastro {
+    margin-top: 0rem;
+  }
+  input {
+    width: 100%;
+    min-height: 2.18rem;
+    font-size: 1.05rem;
+    padding-left: 0.437rem;
+  }
+  .camposForm {
+    border-radius: 0.43rem;
+  }
+  input#senha, input#confirmSenha {
+    width: 85%;
+  }
+  .botao-visibilidade {
+    background-color: white;
+    width: 8%;
+  }
+  #termosCondicoes {
+    background-color: white;
+  }
+  .container-botoes {
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+  }
+  .botoes {
+    width: 45%;
+    font-size: medium;
+  }
 }
 @media screen and (min-width: 501px) and (max-width: 800px) {
-
-    header {
-        flex-direction: row;
-        align-items: center;
-        text-align: right;
-        justify-content: space-around;
-    }
-
-    #logo-box {
-        width: 30%;
-    }
-
-    .imagem-planta {
-        display: none;
-    }
-
-    main {
-        width: 80%;
-        margin: auto;
-        margin-top: 10%;
-    }
-
-    #cadastroHint {
-        display: none;
-    }
-
-    input {
-        width: 80%;
-        min-height: 1.5rem;
-        font-size: 0.9rem;
-        padding-left: 0.437rem;
-    }
-
-    .container-botoes {
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .botoes {
-        width: 45%;
-        font-size: medium;
-    }
-
+  header {
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+    justify-content: space-around;
+  }
+  header #logo-box {
+    width: 30%;
+  }
+  .imagem-planta {
+    display: none;
+  }
+  main {
+    width: 80%;
+    margin: auto;
+    margin-top: 10%;
+  }
+  #cadastroHint {
+    display: none;
+  }
+  input {
+    width: 80%;
+    min-height: 1.5rem;
+    font-size: 0.9rem;
+    padding-left: 0.437rem;
+  }
+  .container-botoes {
+    justify-content: center;
+    align-items: center;
+  }
+  .botoes {
+    width: 45%;
+    font-size: medium;
+  }
 }
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-
-    #logo-box {
-        width: 20%;
-    }
-
-    .imagem-planta {
-        display: none;
-    }
-
-    header {
-        gap: 3%;
-    }
-    
-    main {
-        width: 50%;
-        margin: 0rem 7.37rem 0rem 24.3rem;
-        margin-top: 10%;
-    }
-
-
+  #logo-box {
+    width: 20%;
+  }
+  .imagem-planta {
+    display: none;
+  }
+  header {
+    gap: 3%;
+  }
+  main {
+    width: 50%;
+    margin: 0rem 7.37rem 0rem 24.3rem;
+    margin-top: 10%;
+  }
 }
 @media screen and (min-width: 1025px) and (max-width: 1700px) {
-    .login-container {
-        max-width: 35%;
-    }
+  .login-container {
+    max-width: 35%;
+  }
 }
 @media screen and (min-width: 1701px) and (max-width: 1920px) {
-    .login-container {
-        max-width: 25%;
-    }
+  .login-container {
+    max-width: 25%;
+  }
 }
+
+/*# sourceMappingURL=estiloCadastro.css.map */
