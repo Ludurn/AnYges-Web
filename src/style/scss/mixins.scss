@@ -1,11 +1,9 @@
 @use 'variables' as *;
 
 @mixin backgroundImage($imgName, $tipo) {
-    $url: "";
-    @if $tipo == "imagem" {
-        $url: "http://localhost/src/imgs/";
-    } @else if $tipo == "icon" {
-        $url: "http://localhost/src/imgs/icons/";
+    $url: "http://localhost/src/imgs/";
+    @if $tipo == "icon" {
+        $url: $url+"icons/";
     }
     background-image: url($url+$imgName);
 }
@@ -19,8 +17,8 @@
     }
 }
 
-@mixin buttonStyle($element) {
-    #{$element} {
+@mixin buttonStyle($ambiente) {
+    @if $ambiente == "home" {
         display: flex;
         width: 90%;
         height: 5vh;
@@ -41,5 +39,55 @@
         &:active {
             background-image: $degrade4;
         }
+    } @else if $ambiente == "login" {
+        width: 100%;
+        padding: 3.2%;
+        background-color: $verde; 
+        color: $branco;
+        border: none;
+        border-radius: 0.375rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.5s;
+    
+        &:hover {
+            background-color: $marrom;
+        }
+    } @else {
+        width: 100%;
+        padding: 0.625rem;
+        background-color: $verde;
+        color: $branco;
+        border: none;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.5s;
+
+        &:hover {
+            background-color: $marrom;
+        }
     }
+}
+
+@mixin filterStyle($index) {
+    $corPrimaria: $preto;
+    $corSecundaria: $preto;
+
+    @if $index == 0 {
+        $corPrimaria: #7e7e7e;
+        $corSecundaria: 0.1rem solid #6d6c6c;
+    } @else if $index == 1 {
+        $corPrimaria: #fd9b9b;
+        $corSecundaria: 0.1rem solid #fd8d8d;
+    } @else if $index == 2 {
+        $corPrimaria: #ffdb99;
+        $corSecundaria: 0.1rem solid #fcd48a;
+    } @else if $index == 3 {
+        $corPrimaria: #99b9ff;
+        $corSecundaria: 0.1rem solid #7ba4fd;
+    }
+
+    background: $corPrimaria;
+    border: 0.1rem solid $corSecundaria;
 }

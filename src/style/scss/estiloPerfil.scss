@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 body {
     font-family: Inria Sans, Arial, sans-serif;
     margin: 0;
@@ -5,6 +7,10 @@ body {
     height: 100%;
     width: 100%;
     transition: background-color 0.5s;
+}
+
+html, body {
+    overflow-x: hidden;
 }
 
 main {
@@ -28,8 +34,8 @@ main {
     text-align: center;
     align-items: center;
     flex-direction: column;
-    background-color: white;
-    border: 0.2rem solid #611f1f;
+    background-color: $branco;
+    border: 0.2rem solid $marrom;
     border-radius: 0.5rem;
     top: 20%;
     left: 22%;
@@ -50,31 +56,31 @@ main {
 }
 
 .btnPopUp {
-    color: black;
+    color: $preto;
     padding: 0.625rem 1.25rem;
     cursor: pointer;
     border-radius: 0.25rem;
     transition: background-color 0.3s, color 0.3s linear;
 
     &:hover {
-        box-shadow: 0.75rem 0.75rem 0.75rem rgba(0,0,0,0.1),
-        -0.625rem -0.625rem 0.625rem #f9f9f9;
+        box-shadow: 0.75rem 0.75rem 0.75rem $sombra5,
+        -0.625rem -0.625rem 0.625rem $branco;
     }
 }
 
 #confirmarPopUp {
 
     &:hover {
-        background-color: #75a32a;
-        color: white;
+        background-color: $verdeLima;
+        color: $branco;
     }
 }
 
 #cancelarPopUp {
 
     &:hover {
-        background-color: #611f1f;
-        color: white;
+        background-color: $marrom;
+        color: $branco;
     }
 }
 
@@ -101,7 +107,7 @@ main {
     height: 6dvh;
     padding-left: 2%;
     margin: 5% 0;
-    border-left: white solid;
+    border-left: $branco solid;
     user-select: none;
     cursor: pointer;
 }
@@ -117,7 +123,7 @@ main {
     flex-wrap: wrap;
     visibility: hidden;
     opacity: 0;
-    border: 0.2rem solid #f1f1f1;
+    border: 0.2rem solid $cinzaClaro;
     border-radius: 0.3rem;
     transition: visibility 0s, opacity 0.2s linear;
 }
@@ -136,15 +142,15 @@ main {
 }
 
 .btnsEdicaoPerfil {
-    color: black;
+    color: $preto;
     padding: 0.625rem 1.25rem;
     cursor: pointer;
     border-radius: 0.25rem;
     transition: background-color 0.3s, color 0.3s linear;
 
     &:hover {
-        background-color: #75a32a;
-        color: white;
+        background-color: $verdeLima;
+        color: $branco;
     }
 }
 
@@ -152,8 +158,8 @@ main {
     margin: 1% 2% 2% 2%;
 
     &:hover {
-        background-color: #611f1f;
-        color: white;
+        background-color: $marrom;
+        color: $branco;
     }
 }
 
@@ -162,7 +168,7 @@ main {
     align-items: normal;
     visibility: hidden;
     opacity: 0;
-    border: 0.2rem solid #f1f1f1;
+    border: 0.2rem solid $cinzaClaro;
     border-radius: 0.3rem;
     transition: visibility 0s, opacity 0.2s linear;
 }
@@ -183,7 +189,7 @@ main {
 
 
 footer {
-    background: #f1f1f1;
+    background: $branco;
     padding: 0.625rem;
     text-align: center;
 }
@@ -397,20 +403,3 @@ footer {
 }
 
 /* Modo noturno (ou dark) */
-
-.dark {
-    color: white;
-    padding: 0%;
-    font-size: x-large;
-    background-color: #1f612400;
-}
-
-.bodyDark {
-    background-color: #323232;
-    color: white;
-}
-
-.produtosDark {
-    color: white;
-    background-color: #646464;
-}

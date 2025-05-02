@@ -1,4 +1,4 @@
-let ativacao = false;
+let carrinhoAtivacao = false;
 var carrinho = document.getElementById("cartContainer");
 var cardPresente = false;
 var contador = 0;
@@ -8,25 +8,40 @@ var aposPrimeiro = false;
 
 function ativarCarrinho() {
     let larguraTela = window.innerWidth;
-    ativacao = !ativacao;
+    carrinhoAtivacao = !carrinhoAtivacao;
     if (larguraTela <= 800) {
-        if (ativacao == true) {
+        if (carrinhoAtivacao == true) {
             $("#cartContainer").css({
-                "top": "0px"
+                "top": "0rem"
             });
+            $("#voltarTopo").css({
+                "display": "none"
+            });
+            $("#pedidoBox").css({
+                "transform": "translateY(-150%)"
+            })
         } else {
             $("#cartContainer").css({
-                "top": "-1100px"
+                "top": "-62.5rem"
             });
+            $("#voltarTopo").css({
+                "display": "flex"
+            });
+            $("#pedidoBox").css({
+                "transform": "translateY(0%)"
+            })
         }
     } else {
-        if (ativacao == true) {
+        if (carrinhoAtivacao == true) {
             $("#cartContainer").css({
-                "right": "0px"
+                "right": "0rem"
             });
         } else {
             $("#cartContainer").css({
-                "right": "-285px"
+                "right": "-17.8rem"
+            });
+            $("#pedidoBox").css({
+                "transform": "translateY(0%)"
             });
         }
     }
@@ -99,7 +114,7 @@ function chamarCarrinho() {
             });
         }
 
-        $("#cartContainer").append("<div id='pedidoBox'></div>");
+        $("#corpo").append("<div id='pedidoBox'></div>");
         $("#pedidoBox").html(
             "<div id='saldoPedido'><p>Subtotal: "+verificarSubtotal()+" ₯</p></div>"
             +"<div id='btnPedido' onclick='finalizarPedido();'>Finalizar pedido</div>"
@@ -142,6 +157,7 @@ function carregarCarrinhoSalvo() {
         cookieCarrinho = decodeURIComponent(cookieCarrinho);
         setTimeout(() => {
             $("#cartContainer").append(cookieCarrinho);
+            $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
         }, 1000);
     }
 }

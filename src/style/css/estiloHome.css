@@ -9,6 +9,9 @@ body {
   height: 100%;
   width: 100%;
   transition: background-color 0.5s;
+}
+
+html, body {
   overflow-x: hidden;
 }
 
@@ -55,22 +58,22 @@ main {
 
 #btnFiltro0 {
   background: #7e7e7e;
-  border: 0.1rem solid #6d6c6c;
+  border: 0.1rem solid 0.1rem solid #6d6c6c;
 }
 
 #btnFiltro1 {
   background: #fd9b9b;
-  border: 0.1rem solid #fd8d8d;
+  border: 0.1rem solid 0.1rem solid #fd8d8d;
 }
 
 #btnFiltro2 {
   background: #ffdb99;
-  border: 0.1rem solid #fcd48a;
+  border: 0.1rem solid 0.1rem solid #fcd48a;
 }
 
 #btnFiltro3 {
   background: #99b9ff;
-  border: 0.1rem solid #7ba4fd;
+  border: 0.1rem solid 0.1rem solid #7ba4fd;
 }
 
 #fileira-1 {
@@ -118,7 +121,7 @@ main {
 
 #btnRecarregar {
   background: #7e7e7e;
-  border: 0.1rem solid #6d6c6c;
+  border: 0.1rem solid 0.1rem solid #6d6c6c;
   width: 10%;
 }
 
@@ -186,11 +189,11 @@ main {
   transition: 0.2s;
 }
 #voltarTopo:hover {
-  background-color: #2c8734;
+  background-color: #228B22;
 }
 
 footer {
-  background: #f1f1f1;
+  background: white;
   padding: 0.625rem;
   text-align: center;
 }
@@ -351,33 +354,5 @@ footer {
   }
 }
 /* Modo noturno (ou dark) */
-.dark {
-  color: white;
-  padding: 0%;
-  font-size: x-large;
-  background-color: rgba(31, 97, 36, 0);
-}
-
-.inputSearchDark {
-  background-color: #727273;
-  color: white;
-}
-
-.inputSearchDark::placeholder {
-  color: white;
-}
-
-.bodyDark {
-  background-color: #323232;
-}
-
-.nomeFiltroDark {
-  color: white;
-}
-
-.produtosDark {
-  color: white;
-  background-color: #646464;
-}
 
 /*# sourceMappingURL=estiloHome.css.map */

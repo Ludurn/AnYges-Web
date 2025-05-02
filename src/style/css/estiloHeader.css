@@ -1,6 +1,5 @@
 header {
   background: #1F6124;
-  color: #8A3C29;
   padding: 0.625rem 1.25rem;
   display: flex;
   justify-content: space-between;
@@ -43,15 +42,15 @@ a {
 #inputSearch::placeholder {
   text-align: center;
   font-size: medium;
-  color: #9e9fa0;
+  color: gray;
 }
 #inputSearch:focus {
   outline: none;
 }
 
 .inputSearchClass {
-  color: #727273;
-  background-color: #f0f0f0;
+  color: gray;
+  background-color: white;
   border: 0.0625rem solid #ccc;
 }
 
@@ -92,7 +91,7 @@ a {
   background-color: #1F6124;
   width: 210%;
   border-radius: 4%;
-  box-shadow: 0rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.252);
   z-index: 1;
   transition: visibility 0s, opacity 0.2s linear;
 }
@@ -126,7 +125,7 @@ a {
 
 #pontosUser {
   background-color: #8A3C29;
-  color: #f0f0f0;
+  color: white;
   padding: 0.55rem 0.55rem;
   border: 0.1rem solid #611f1f;
   border-radius: 0.5rem;

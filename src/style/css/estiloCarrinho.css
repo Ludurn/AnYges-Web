@@ -29,7 +29,7 @@
   width: 95%;
   background-color: white;
   border-radius: 0.5rem;
-  margin: 3% 0%;
+  margin: 3% 20%;
 }
 
 .imgRemoverCard {
@@ -50,16 +50,17 @@
 .cardContent img, .cardContent p {
   flex: 0 0 50%;
 }
-.cardContent > .molduraProdutos {
+.cardContent .molduraProdutos {
   height: fit-content;
   max-width: 50%;
 }
-.cardContent > .molduraProdutos > figure {
+.cardContent .molduraProdutos figure {
   margin: 1rem;
   height: fit-content;
 }
-.cardContent > .molduraProdutos > figure > img {
+.cardContent .molduraProdutos figure img {
   height: 100%;
+  border-radius: 1rem;
 }
 .cardContent > p {
   min-width: 50%;
@@ -69,7 +70,7 @@
 }
 
 #pedidoBox {
-  position: inherit;
+  position: fixed;
   z-index: 9999;
   width: 19%;
   display: flex;
@@ -78,6 +79,7 @@
   align-items: center;
   background-color: white;
   bottom: -25%;
+  right: 1%;
   transition: transform 0.3s ease;
 }
 
@@ -104,6 +106,24 @@
 
 #btnPedido {
   width: 80%;
+}
+
+/* RESPONSIVIDADE */
+@media screen and (max-width: 500px) {
+  #cartContainer {
+    width: 100%;
+    right: 0rem;
+    top: -62.5rem;
+    transition: top 0.2s, margin-top 0.2s ease;
+    padding-top: 8%;
+    margin-top: 20%;
+  }
+  .carrinhoCard {
+    width: 80%;
+  }
+  #pedidoBox {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=estiloCarrinho.css.map */

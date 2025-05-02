@@ -14,24 +14,35 @@ let aux2 = "claro";
 let ultimoScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
+    let larguraTela = window.innerWidth;
     if (window.scrollY > 50) {
       $("#cartContainer").css({
         "margin-top": "0%"
       });
     } else if (window.scrollY < 50) {
-        $("#cartContainer").css({
-            "margin-top": "7.5%"
-        });
+        if (larguraTela <= 800) {
+            $("#cartContainer").css({
+                "margin-top": "20%"
+            });
+        } else {
+            $("#cartContainer").css({
+                "margin-top": "7.5%"
+            });
+        }
     }
 
-    if (window.scrollY < ultimoScrollY) {
-        $("#pedidoBox").css({
-            "transform": "translateY(-175%)"
-        });
-    } else {
-        $("#pedidoBox").css({
-            "transform": "translateY(0%)"
-        });
+    if (larguraTela >= 800) {
+        if (carrinhoAtivacao) {
+            if (window.scrollY < ultimoScrollY) {
+                $("#pedidoBox").css({
+                    "transform": "translateY(-175%)"
+                });
+            } else {
+                $("#pedidoBox").css({
+                    "transform": "translateY(0%)"
+                });
+            }
+        }
     }
     ultimoScrollY = window.scrollY;
 });

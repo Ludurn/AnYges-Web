@@ -38,30 +38,13 @@ main h1 {
 }
 
 footer {
-  background: #f1f1f1;
+  background: white;
   padding: 0.625rem;
   text-align: center;
 }
 
-/* Modo noturno (ou dark) */
 #colorir1 {
   -webkit-text-stroke: 0rem #333;
-}
-
-.dark {
-  color: white;
-  padding: 0%;
-  font-size: x-large;
-  background-color: rgba(31, 97, 36, 0);
-}
-
-.bodyDark {
-  background-color: #323232;
-}
-
-.janelaDark {
-  color: white;
-  background-color: #646464;
 }
 
 /*Container do Contato*/
@@ -69,7 +52,7 @@ footer {
   background-color: #e5ffdb;
   padding: 3.3%;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.252);
   width: 31%;
   float: left;
   margin-right: 5%;
@@ -90,7 +73,7 @@ footer {
 .form-group input, .form-group textarea, .form-group select {
   width: 100%;
   padding: 2.7%;
-  border: 1px solid #ddd;
+  border: 1px solid lightgrey;
   border-radius: 4px;
   font-size: 1rem;
   resize: vertical;
@@ -100,16 +83,17 @@ footer {
 }
 .form-group button {
   width: 100%;
-  padding: 10px;
-  background-color: #28A745;
-  color: #fff;
+  padding: 0.625rem;
+  background-color: #228B22;
+  color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.5s;
 }
 .form-group button:hover {
-  background-color: #28A745;
+  background-color: #611f1f;
 }
 
 .color1 {
@@ -152,17 +136,13 @@ footer {
   color: #333;
 }
 .faq-question:hover {
-  color: #28A745;
+  color: #228B22;
 }
 
 .faq-answer {
   display: none;
   margin-top: 5px;
   color: #333;
-}
-
-.modo-dark {
-  color: white;
 }
 
 /* RESPONSIVIDADE */

@@ -10,6 +10,10 @@
 
 @include mix.bodyWithBackgroundImage("over-the-counter.jpg");
 
+html, body {
+    overflow-x: hidden;
+}
+
 header {
     background-color: $marrom;
     color: $branco;
