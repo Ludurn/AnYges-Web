@@ -7,6 +7,10 @@ body {
   transition: background-color 0.5s;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 main {
   margin: 5%;
   display: flex;

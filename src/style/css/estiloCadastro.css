@@ -13,6 +13,10 @@ body {
   background-repeat: no-repeat;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 header {
   background-color: #611f1f;
   color: white;

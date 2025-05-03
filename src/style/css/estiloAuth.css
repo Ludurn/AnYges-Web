@@ -20,6 +20,10 @@ body {
   background-position: center;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 a {
   color: #228B22;
   text-decoration: none;

@@ -9,40 +9,112 @@ var aposPrimeiro = false;
 function ativarCarrinho() {
     let larguraTela = window.innerWidth;
     carrinhoAtivacao = !carrinhoAtivacao;
-    if (larguraTela <= 800) {
+    if (larguraTela <= 810) {
         if (carrinhoAtivacao == true) {
-            $("#cartContainer").css({
-                "top": "0rem"
-            });
-            $("#voltarTopo").css({
-                "display": "none"
-            });
-            $("#pedidoBox").css({
-                "transform": "translateY(-150%)"
-            })
+            if (larguraTela <= 400) {
+                $("#cartContainer").css({
+                    "top": "0rem"
+                });
+                $("#voltarTopo").css({
+                    "display": "none"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(-100%)"
+                })
+            } else if (larguraTela <= 450) {
+                $("#cartContainer").css({
+                    "top": "0rem"
+                });
+                $("#voltarTopo").css({
+                    "display": "none"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(-175%)"
+                })
+            } else if (larguraTela <= 800) {
+                $("#cartContainer").css({
+                    "top": "0rem"
+                });
+                $("#voltarTopo").css({
+                    "display": "none"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(-250%)"
+                })
+            } else {
+                $("#cartContainer").css({
+                    "top": "0rem"
+                });
+                $("#voltarTopo").css({
+                    "display": "none"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(-175%)"
+                })
+            }
         } else {
-            $("#cartContainer").css({
-                "top": "-62.5rem"
-            });
-            $("#voltarTopo").css({
-                "display": "flex"
-            });
-            $("#pedidoBox").css({
-                "transform": "translateY(0%)"
-            })
+            if (larguraTela <= 430) {
+                $("#cartContainer").css({
+                    "top": "-62.5rem"
+                });
+                $("#voltarTopo").css({
+                    "display": "flex"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(0%)"
+                })
+            } else {
+                $("#cartContainer").css({
+                    "top": "-100rem"
+                });
+                $("#voltarTopo").css({
+                    "display": "flex"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(0%)"
+                })
+            }
         }
     } else {
         if (carrinhoAtivacao == true) {
-            $("#cartContainer").css({
-                "right": "0rem"
-            });
+            if (larguraTela <= 1200) {
+                $("#cartContainer").css({
+                    "right": "0rem"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(-250%)"
+                });
+            } else if (larguraTela <= 1000) {
+                $("#cartContainer").css({
+                    "right": "0rem"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(-150%)"
+                });
+            } else {
+                $("#cartContainer").css({
+                    "right": "0rem"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(-50%)"
+                });
+            }
         } else {
-            $("#cartContainer").css({
-                "right": "-17.8rem"
-            });
-            $("#pedidoBox").css({
-                "transform": "translateY(0%)"
-            });
+            if (larguraTela < 1701) {
+                $("#cartContainer").css({
+                    "right": "-17.8rem"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(0%)"
+                });
+            } else {
+                $("#cartContainer").css({
+                    "right": "-23.3rem"
+                });
+                $("#pedidoBox").css({
+                    "transform": "translateY(0%)"
+                });
+            }
         }
     }
     $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon.png");
@@ -156,7 +228,7 @@ function carregarCarrinhoSalvo() {
         cookieCarrinho = cookieCarrinho[1].split('=')[1];
         cookieCarrinho = decodeURIComponent(cookieCarrinho);
         setTimeout(() => {
-            $("#cartContainer").append(cookieCarrinho);
+            $("#cartContainer").html(cookieCarrinho);
             $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
         }, 1000);
     }

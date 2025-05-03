@@ -8,6 +8,10 @@ body {
   overflow-x: hidden;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 h1 {
   -webkit-text-stroke: 0.21875rem black;
   paint-order: stroke fill;
