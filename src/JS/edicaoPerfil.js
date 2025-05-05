@@ -213,10 +213,12 @@ function confirmarDados() {
         .done(
             function (retorno) {
                 retorno = JSON.parse(retorno);
-                if (retorno == "sucesso") {
+                if (retorno == "cpf error") {
+                    alert("O CPF deve conter, estritamente, 11 caracteres.");
+                } else if (retorno == "age error") {
+                    alert("Não foi possível concluir as alterações, pois a idade mínima permitida é 18 anos.");
+                } else if (retorno == "sucesso") {
                     desconectarPerfil('sim');
-                } else {
-                    alert(retorno);
                 }
             }
         )

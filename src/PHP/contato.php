@@ -1,6 +1,8 @@
 <?php
 
 require("conectarBD.php");
+require 'Verificacao.php';
+$vf = new Verificacao();
 
 $pdo = conectar();
 
@@ -8,13 +10,21 @@ $tabela = "tblFeedback";
 
 try{
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nome = htmlspecialchars(trim($_POST['nome']));
-        $telefone = htmlspecialchars(trim($_POST['telefone']));
-        $cpf = htmlspecialchars(trim($_POST['cpf']));
-        $email = htmlspecialchars(trim($_POST['email']));
-        $assunto = htmlspecialchars(trim($_POST['assunto']));
-        $mensagem = htmlspecialchars(trim($_POST['descricao_feedback']));
+        $nome = preg_replace('/[^\p{L}\s\-\']/u', '', $_POST['nome']);
+        $telefone = preg_replace('/[^0-9()\- ]/', '', $_POST['telefone']);
+        $cpf = preg_replace('/[^0-9]/', '', $_POST['cpf']);
+        $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
+        $assunto = preg_replace('/[^\p{L}\s\-\']/u', '', $_POST['assunto']);
+        $mensagem= filter_input(INPUT_POST,'descricao_feedback', FILTER_SANITIZE_SPECIAL_CHARS); 
         $anexo = htmlspecialchars(trim($_POST['anexo']));
+
+        if (empty($nome) || empty($telefone) || empty($cpf) || empty($email) || empty($assunto) || empty($mensagem)) {
+            die (json_encode("Preencher campos obrigatórios", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        }
+
+        if (!$vf->verificar_cpf($cpf)) {
+            die(json_encode("cpf error"));
+        }
         
             if ($anexo == "") {
                 $sql = "INSERT INTO ". $tabela . "(assunto, nome, email, cpf, telefone, anexo, descricao_feedback) VALUES(:assuntoF, :nomeF, :emailF, :cpfF, :telF, :anexoF, :mensagemF);";
@@ -25,10 +35,6 @@ try{
                 $ponteiro = $pdo->prepare($sql);
                 $ponteiro-> bindValue(":anexoF", $anexo);
             }
-        
-        if (empty($nome) || empty($telefone) || empty($cpf) || empty($email) || empty($assunto) || empty($mensagem)) {
-            die (json_encode("Preencher campos obrigatórios", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-        }
         
         $ponteiro-> bindValue(":nomeF", $nome);
         $ponteiro-> bindValue(":cpfF", $cpf);

@@ -91,7 +91,7 @@ CREATE TABLE tblUsuario (
 	cpf varchar(14) not null,
 	telefone_usuario varchar(18) not null,
 	email_usuario varchar(100) not null,
-	senha_usuario varchar(15) not null,
+	senha_usuario varchar(255) not null,
 	dt_nascimento date not null,
 	token_rec_senha varchar(64),
 	dt_expiracao_token datetime,
@@ -205,9 +205,10 @@ INSERT INTO tblCupom VALUES (7, 'Leite de Magnésia', 'S', 4500, 'medicamento', '
 INSERT INTO tblCupom VALUES (7, 'Sulfato Ferroso', 'S', 7200, 'medicamento', './src/imgs/cupons/sulfatoFerroso.jpg', 'Comprimido Sidney Oliveira', 11, 'S');
 go
 
-INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '332787445987', '(11) 76327-9809', 'daniel@hotmail.com', 'dandan', '18-12-1990', NULL, NULL, NULL);
-INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '829577259090', '(13) 26121-9333', 'lulu@gmail.com', '111', '28-01-2000', NULL, NULL, NULL);
-INSERT INTO tblUsuario VALUES ('Luigi', 'Pugh', '829111252310', '(23) 00112-9653', 'luigi.nascimento01@etec.sp.gov.br', 'etesp', '30-04-1999', NULL, NULL, NULL);
+
+INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '33278744598', '(11) 76327-9809', 'daniel@hotmail.com', '$2y$10$7AuCvSI/Cg13KW1rD3CKC.dTxzg4oeLG5pevI.NBkUYNCjyi5qrOW', '18-12-1990', NULL, NULL, NULL); --senha: danteAl1gu1er3
+INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '82957725909', '(13) 26121-9333', 'luis@gmail.com', '$2y$10$P7zHZL/9cY23W12ZBsnUQuo7kZcYDy6A00SCuRcI6E5PW/OAQp09u', '28-01-2000', NULL, NULL, NULL); --senha: 34L99Mnol00nacl
+INSERT INTO tblUsuario VALUES ('Luigi', 'Pugh', '82911125231', '(23) 00112-9653', 'luigi.nascimento01@etec.sp.gov.br', '$2y$10$v3MIZtBqEOWEWwgm1cbYvO936VsmMtrHAkeAfOV6ZNRzpCLs3bH62', '30-04-1999', NULL, NULL, NULL); --senha: etecsaopaulo
 go
 
 INSERT INTO tblFuncionario VALUES ('prm1rwe', '111', 'gestor de dados');
@@ -226,20 +227,4 @@ INSERT INTO tblResgate VALUES (2, 1, '0a51427e', '01-03-2026', 'N');
 INSERT INTO tblResgate VALUES (2, 1, '4a4d2fcb', '12-07-2025', 'N');
 
 
---SELECT TOP 24 c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE nome_cupom LIKE '%ri%' OR nome_assoc LIKE '%ri%' OR descricao_cupom LIKE '%ri%'  ORDER BY NEWID();
-
---UPDATE tblUsuario SET token_rec_senha = '333', dt_expiracao_token = '23-02-1990' WHERE email_usuario = 'daniel@hotmail.com';
-
-/*
-SELECT * FROM tblResgate;
-SELECT * FROM tblPedido;
-SELECT * FROM tblDoacao;
-
-*/
-
-
---SELECT valor FROM tblCupom WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1) GROUP BY ID_cupom);
-
-SELECT c.valor*sq.qtd_ocorrencias as 'valor' FROM (SELECT ID_cupom, COUNT(*) AS qtd_ocorrencias FROM tblResgate WHERE ID_pedido IN (SELECT ID_pedido FROM tblPedido WHERE ID_usuario = 1) GROUP BY ID_cupom) AS sq INNER JOIN tblCupom AS c ON sq.ID_cupom = c.ID_cupom;
-
---SELECT * FROM tblCupom
+SELECT * FROM tblFeedback

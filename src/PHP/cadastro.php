@@ -1,8 +1,8 @@
 <?php
 
-    date_default_timezone_set('America/Sao_Paulo');
-
     require("conectarBD.php");
+    require 'Verificacao.php';
+    $vf = new Verificacao();
 
     $pdo = conectar();
 
@@ -11,48 +11,50 @@
     // Inclusão de dados
 
     try{
-        $anoAtual = date("Y");
-        $anoPermitido = $anoAtual - 18;
-        $mesPermitido = date("m");
-        $diaPermitido = date("d");
 
-        $novonome = $_POST["nome_user"];
-    	$novosobrenome = $_POST["sobrenome_user"];
-    	$novocpf = $_POST["cpf_user"];
-        $novonascimento = $_POST["nascimento_user"];
-    	$novotelefone = $_POST["telefone_user"];
-        $novoemail = $_POST["email_user"];
-        $novasenha = $_POST["senha_user"];
-
-        $anoNascUser = substr($_POST["nascimento_user"], 0, -6);
-        $mesNascUser = substr($_POST["nascimento_user"], 5, 2);
-        $diaNascUser = substr($_POST["nascimento_user"], 8, 2);
-
-        if ($anoNascUser > $anoPermitido) {
-            die(json_encode("idade nao permitida"));
-        } else if ($anoNascUser == $anoPermitido && $mesNascUser > $mesPermitido) {
-            die(json_encode("idade nao permitida"));
-        } else if ($anoNascUser == $anoPermitido && $diaNascUser > $diaPermitido) {
-            die(json_encode("idade nao permitida"));
-        } else {
-            $sql = "INSERT INTO " . $tabela . "(nome_usuario, sobrenome_usuario, cpf, dt_nascimento, telefone_usuario, email_usuario, senha_usuario) VALUES (:nome, :sobrenome, :cpf, :nascimento, :telefone, :email, :senha);";
-
-            $ponteiro = $pdo->prepare($sql);
         
-            $ponteiro-> bindValue(":nome", $novonome);
-            $ponteiro-> bindValue(":sobrenome", $novosobrenome);
-            $ponteiro-> bindValue(":cpf", $novocpf);
-            $ponteiro-> bindValue(":nascimento", $novonascimento);
-            $ponteiro-> bindValue(":telefone", $novotelefone);
-            $ponteiro-> bindValue(":email", $novoemail);
-            $ponteiro-> bindValue(":senha", $novasenha);
-    
-            $ponteiro->execute();
+        $novonome = preg_replace('/[^\p{L}\s\-\']/u', '', $_POST['nome_user']); // PERMITE OS DIVERSOS ALFABETOS E APOSTROFO
+    	$novosobrenome = preg_replace('/[^\p{L}\s\-\']/u', '', $_POST['sobrenome_user']);
+    	$novocpf = preg_replace('/[^0-9]/', '', $_POST['cpf_user']);
+        $novonascimento = preg_replace('/[^0-9\-]/', '', $_POST['nascimento_user']);
+    	$novotelefone = preg_replace('/[^0-9()\- ]/', '', $_POST['telefone_user']);
+        $novoemail = filter_input(INPUT_POST,'email_user', FILTER_SANITIZE_EMAIL);
+        $novasenha = $_POST['senha_user'];
 
-            require 'authCadastro.php';
-    
-            die(json_encode("Sucesso", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        if (!$vf->verificar_cpf($novocpf)) {
+            die(json_encode("cpf error"));
         }
+
+        $vf->verificar_senha($novasenha);
+
+        if (!$vf->verificar_idade($novonascimento)) {
+            die(json_encode("age error"));
+        }
+
+        if (!$vf->verificar_email($pdo, $novoemail)) {
+            die(json_encode("email error"));
+        }
+
+        $senha_hash = password_hash($novasenha, PASSWORD_DEFAULT);
+
+
+        $sql = "INSERT INTO " . $tabela . "(nome_usuario, sobrenome_usuario, cpf, dt_nascimento, telefone_usuario, email_usuario, senha_usuario) VALUES (:nome, :sobrenome, :cpf, :nascimento, :telefone, :email, :senha);";
+
+        $ponteiro = $pdo->prepare($sql);
+    
+        $ponteiro-> bindValue(":nome", $novonome);
+        $ponteiro-> bindValue(":sobrenome", $novosobrenome);
+        $ponteiro-> bindValue(":cpf", $novocpf);
+        $ponteiro-> bindValue(":nascimento", $novonascimento);
+        $ponteiro-> bindValue(":telefone", $novotelefone);
+        $ponteiro-> bindValue(":email", $novoemail);
+        $ponteiro-> bindValue(":senha", $senha_hash);
+
+        $ponteiro->execute();
+
+        require 'authCadastro.php';
+
+        die(json_encode("Sucesso", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     }
     catch (Exception $erro){
     	echo "ATENÇÃO, erro na inclusão no cadastro: " . $erro->getMessage();

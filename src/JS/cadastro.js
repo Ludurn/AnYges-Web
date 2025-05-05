@@ -30,14 +30,14 @@ function mudarSenha() {
     if (aux == 0) {
         document.getElementById("senha").type = "text";
         document.getElementById("confirmSenha").type = "text";
-        vetorBotoes[0].style.backgroundImage = "url('http://localhost/WEBSITE%20TCC/ajax/src/img/icons/eye-slash-solid.svg')";
-        vetorBotoes[1].style.backgroundImage = "url('http://localhost/WEBSITE%20TCC/ajax/src/img/icons/eye-slash-solid.svg')";
+        vetorBotoes[0].style.backgroundImage = "url('http://localhost/src/imgs/icons/eye-slash-solid.svg')";
+        vetorBotoes[1].style.backgroundImage = "url('http://localhost/src/imgs/icons/eye-slash-solid.svg')";
         aux++;
     } else {
         document.getElementById("senha").type = "password";
         document.getElementById("confirmSenha").type = "password";
-        vetorBotoes[0].style.backgroundImage = "url('http://localhost/WEBSITE%20TCC/ajax/src/img/icons/eye-solid.svg')";
-        vetorBotoes[1].style.backgroundImage = "url('http://localhost/WEBSITE%20TCC/ajax/src/img/icons/eye-solid.svg')";
+        vetorBotoes[0].style.backgroundImage = "url('http://localhost/src/imgs/icons/eye-solid.svg')";
+        vetorBotoes[1].style.backgroundImage = "url('http://localhost/src/imgs/icons/eye-solid.svg')";
         aux--;
     }
 }
@@ -51,8 +51,7 @@ function apagarEnvio() {
 
 // Primeira condicional 'if' irá verificar se houve preenchimento dos campos
 function enviarInfos() {
-    $("#resParag").text("");
-    parag = $("#resParag");
+    campoVazio = 0;
     let camposForm = document.getElementsByClassName("camposForm");
     for (classe = 0; classe < camposForm.length ; classe++) {
         if (camposForm[classe].value == "") {
@@ -87,9 +86,18 @@ function enviarInfos() {
         )
         .done(
             function(retorno) {
+                alert(retorno)
                 retorno = JSON.parse(retorno);
-                if (retorno == "idade nao permitida") {
+                if (retorno == "cpf error") {
+                    alert("O CPF deve conter, estritamente, 11 caracteres.");
+                } else if (retorno == "age error") {
                     alert("Não foi possível concluir seu cadastro, pois a idade mínima permitida é 18 anos.");
+                } else if (retorno == "email error") {
+                    alert("Não foi possível concluir seu cadastro com o email fornecido.");
+                } else if (retorno == "password error") {
+                    alert("A senha deve conter ao menos 8 caracteres.");
+                } else if (retorno == "password char error") {
+                    alert("A senha contém caracteres inválidos.");
                 } else {
                     alert("Cadastro realizado com sucesso. Por favor verifique seu e-mail para confimar sua conta.");
                     window.location.replace("./index.html");

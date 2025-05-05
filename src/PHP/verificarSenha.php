@@ -1,32 +1,45 @@
 <?php
 
-            require("conectarBD.php");
-            $pdo=conectar();
+    require("conectarBD.php");
+    require 'Verificacao.php';
+    $vf = new Verificacao();
 
-            try {
+    $pdo=conectar();
 
-                session_start();
-                $usuario = $_SESSION['usuario'];
-                $senhaUser = $_POST['senhaUser'];
-    
-                $sql = "SELECT email_usuario FROM tblUsuario WHERE email_usuario = :usuario AND senha_usuario = :senhaUser";
-                $ponteiro = $pdo->prepare($sql);
-                $ponteiro->bindValue(":senhaUser", $senhaUser);
-                $ponteiro->bindValue(":usuario", $usuario);
-                $ponteiro->execute();
-                $resultado = $ponteiro->fetchAll(PDO::FETCH_ASSOC);
+    try {
 
-                if (count($resultado)>0){
-                    $retorno = "prosseguir";
-                   die(json_encode($retorno));
-                }
-                else{
-                    $retorno = "Nenhum usuário encontrado!";
-                    die(json_encode($retorno, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-                };
-            } catch (Exception $error) {
-                $retorno = $error->getmessage();
+        session_start();
+        $usuario = $_SESSION['usuario'];
+
+        $senhaUser = $_POST['senhaUser'];
+
+        $vf->verificar_senha($senhaUser);
+
+        $sql = "SELECT senha_usuario FROM tblUsuario WHERE email_usuario = :usuario";
+        $ponteiro = $pdo->prepare($sql);
+        $ponteiro->bindValue(":usuario", $usuario);
+        $ponteiro->execute();
+        $resultado = $ponteiro->fetchAll(PDO::FETCH_COLUMN);
+
+        if (count($resultado)>0) {
+            $senha_bd = $resultado[0];
+            if (password_verify($senhaUser, $senha_bd)) {
+                $retorno = "prosseguir";
                 die(json_encode($retorno));
+            } else {
+                interromper();
             }
+        }
+        else{
+            interromper();
+        };
+    } catch (Exception $error) {
+        $retorno = $error->getmessage();
+        die(json_encode($retorno));
+    }
+
+    function interromper() {
+        die(json_encode("interromper", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    }
 
 ?>

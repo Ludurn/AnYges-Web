@@ -21,17 +21,6 @@ function corrigirTellMask(){
 
 
 function enviarForm(){
-    /*let camposForm = document.getElementsByClassName("camposForm");
-    for (classe = 0; classe < camposForm.length ; classe++) {
-        if (camposForm[classe].value == "") {
-            campoVazio++;
-        }
-    }
-
-    if (campoVazio > 0) {
-        window.alert("Favor, preencher todos os campos necessários do formulário.");
-    }
-    else{*/
         var nomeF = $('#nomeform').val();
         var telF = $('#telefoneform').val();
         var cpfF = $('#CPFform').val();
@@ -54,9 +43,13 @@ function enviarForm(){
         .done(
             function(retorno){
                 retorno = JSON.parse(retorno);
-                if(retorno == "Erro no envio"){
-                    alert("Erro ao enviar o formulário, tente novamente mais tarde");
-                }else if(retorno == "Formulário enviado"){
+                if (retorno == "Erro no envio") {
+                    alert("Erro ao enviar o formulário, tente novamente mais tarde.");
+                } else if (retorno == "cpf error") {
+                    alert("O CPF deve conter, estritamente, 11 caracteres.");
+                } else if (retorno == "Preencher campos obrigatórios") {
+                    alert("Preencha todos os campos.");
+                } else if (retorno == "Formulário enviado") {
                     $('#nomeform').val("");
                     $('#telefoneform').val("");
                     $('#CPFform').val("");
@@ -64,7 +57,7 @@ function enviarForm(){
                     $('#assuntoform').val("");
                     $('#mensagemform').val("");
                     $('#envioanexo').val("");
-                    alert("Formulário enviado com sucesso");
+                    alert("Formulário enviado com sucesso.");
                 }
             }
         )
@@ -73,5 +66,4 @@ function enviarForm(){
                 alert("Erro!\nCódigo: " + cod + "\n\nStatus: " + textStatus + "\n\nMensagem: " + msg);
             }
         )
-    //};
 }

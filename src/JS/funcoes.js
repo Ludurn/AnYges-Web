@@ -84,6 +84,7 @@ function tabDadosLoader() {
             $("#infoNome").text(retorno['nome']);
             $("#infoSobrenome").text(retorno['sobrenome']);
             $("#infoCPF").text(retorno['cpf']);
+            $('#infoCPF').mask('000.000.000-00');
             $("#infoEmail").text(retorno['email']);
             $("#infoNasc").text(retorno['nascimento']);
             $("#infoTel").text(retorno['tel']);

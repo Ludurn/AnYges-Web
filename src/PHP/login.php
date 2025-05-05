@@ -1,12 +1,14 @@
 <?php
 
     require("conectarBD.php");
+	require 'Verificacao.php';
+    $vf = new Verificacao();
 
     
     $pdo=conectar();
     $tabela = "tblUsuario";
 
-	$email = $_POST["usuario_email"];
+	$email = filter_input(INPUT_POST,'usuario_email', FILTER_SANITIZE_EMAIL);
 
 	$exec1 = $pdo->prepare("SELECT token_ativacao, email_usuario FROM tblUsuario WHERE email_usuario = :email;");
 	$exec1->bindValue(":email", $email);
@@ -25,24 +27,29 @@
 	if (isset($usuario) && $usuario['token_ativacao'] === null) {
 		try{
 			session_start();
-	
-			
+
 			$senha = $_POST["usuario_senha"];
-			$sql = "SELECT * FROM ".$tabela." WHERE email_usuario = :email AND senha_usuario = :senha ;";
+
+			$vf->verificar_senha($senha);
+
+			$sql = "SELECT senha_usuario FROM ".$tabela." WHERE email_usuario = :email;";
 			$ponteiro = $pdo->prepare($sql);
 			$ponteiro->bindValue(":email", $email);
-			$ponteiro->bindValue(":senha", $senha);
 			$ponteiro->execute();
-			$resultado = $ponteiro->fetchAll(PDO::FETCH_ASSOC);
+			$resultado = $ponteiro->fetchAll(PDO::FETCH_COLUMN);
 	
 			if (count($resultado)>0){
-				$_SESSION['usuario'] = $email;
-				$retorno = "prosseguir";
-			   die(json_encode($retorno));
+				$senha_bd = $resultado[0];
+				if (password_verify($senha, $senha_bd)) {
+					$_SESSION['usuario'] = $email;
+					$retorno = "prosseguir";
+				   die(json_encode($retorno));
+				} else {
+					interromper();
+				}
 			}
 			else{
-				$retorno = "interromper";
-				die(json_encode($retorno, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+				interromper();
 			};
 		}	
 		catch(Exception $erro){
@@ -55,6 +62,10 @@
 					  JSON_UNESCAPED_SLASHES));		 
 		};
 	} else {
+		interromper();
+	}
+
+	function interromper() {
 		die(json_encode("interromper", JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 	}
 
