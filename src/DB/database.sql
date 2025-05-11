@@ -32,13 +32,13 @@ go
 CREATE TABLE tblAssociacao (
 	ID_associacao numeric(6) not null PRIMARY KEY identity(1,1),
 	nome_assoc varchar(75) not null,
-	CNPJ_assoc varbinary(max) not null,
-	contrato_assoc varbinary(max) not null,
-	certidao_assoc varbinary(max) not null,
-	inscricao_assoc varbinary(max) not null,
-	alvara_assoc varbinary(max) not null,
-	regularidade_assoc varbinary(max) not null,
-	registro_assoc varbinary(max) not null,
+	CNPJ_assoc varchar(75) not null,
+	contrato_assoc varchar(75) not null,
+	certidao_assoc varchar(75) not null,
+	inscricao_assoc varchar(75) not null,
+	alvara_assoc varchar(75) not null,
+	regularidade_assoc varchar(75) not null,
+	registro_assoc varchar(75) not null,
 	codigo_assoc varchar(15),
 	senha_assoc varchar(15),
 	email_assoc varchar(75),
@@ -51,7 +51,7 @@ go
 
 CREATE TABLE tblCupom (
 	ID_cupom numeric(6) not null PRIMARY KEY identity(1,1),
-	ID_associacao numeric(6) FOREIGN KEY REFERENCES tblAssociacao(ID_associacao) not null,
+	ID_associacao numeric(6) FOREIGN KEY REFERENCES tblAssociacao(ID_associacao) ON DELETE CASCADE not null,
 	nome_cupom char(25) not null,
 	disponivel char(1) not null,
 	valor numeric (8) not null,
@@ -69,11 +69,11 @@ go
 CREATE TABLE tblLocalDeposito (
 	ID_local_deposito numeric(6) not null PRIMARY KEY identity(1,1),
 	nome_depo varchar(75) not null,
-	CNPJ_depo varbinary(max) not null,
-	licenca_depo varbinary(max) not null,
-	alvara_depo varbinary(max) not null,
-	certificacao_depo varbinary(max) not null,
-	comprovante_depo varbinary(max) not null,
+	CNPJ_depo varchar(75) not null,
+	licenca_depo varchar(75) not null,
+	alvara_depo varchar(75) not null,
+	certificacao_depo varchar(75) not null,
+	comprovante_depo varchar(75) not null,
 	codigo_depo varchar(15),
 	senha_depo varchar(15),
 	email_depo varchar(75),
@@ -109,7 +109,7 @@ CREATE TABLE tblFeedback (
 	email varchar(100) not null,
 	cpf varchar(14) not null,
 	telefone varchar(18) not null,
-	anexo varbinary(max),
+	anexo varchar(75),
 	descricao_feedback varchar(350) not null
 );
 CREATE INDEX xFeedback ON tblFeedback(ID_feedback);
@@ -119,9 +119,9 @@ go
 
 CREATE TABLE tblDoacao (
 	ID_doacao numeric(6) not null PRIMARY KEY identity(1,1),
-	ID_funcionario numeric(6) FOREIGN KEY REFERENCES tblFuncionario(ID_funcionario) not null,
-	ID_usuario numeric(6) FOREIGN KEY REFERENCES tblUsuario(ID_usuario) not null,
-	ID_local_deposito numeric(6) FOREIGN KEY REFERENCES tblLocalDeposito(ID_local_deposito) not null,
+	ID_funcionario numeric(6) FOREIGN KEY REFERENCES tblFuncionario(ID_funcionario) ON DELETE CASCADE not null,
+	ID_usuario numeric(6) FOREIGN KEY REFERENCES tblUsuario(ID_usuario) ON DELETE CASCADE not null,
+	ID_local_deposito numeric(6) FOREIGN KEY REFERENCES tblLocalDeposito(ID_local_deposito) ON DELETE CASCADE not null,
 	dt_doacao datetime not null,
 	pontuacao numeric(8) not null,
 	peso numeric(6) not null,
@@ -134,7 +134,7 @@ go
 
 CREATE TABLE tblPedido (
 	ID_pedido numeric(6) not null PRIMARY KEY identity(1,1),
-	ID_usuario numeric(6) FOREIGN KEY REFERENCES tblUsuario(ID_usuario) not null,
+	ID_usuario numeric(6) FOREIGN KEY REFERENCES tblUsuario(ID_usuario) ON DELETE CASCADE not null,
 	dt_pedido datetime not null
 );
 CREATE INDEX xPedido ON tblPedido(ID_pedido);
@@ -144,8 +144,8 @@ go
 
 CREATE TABLE tblResgate (
 	ID_resgate numeric(6) not null PRIMARY KEY identity(1,1),
-	ID_cupom numeric(6) FOREIGN KEY REFERENCES tblCupom(ID_cupom) not null,
-	ID_pedido numeric(6) FOREIGN KEY REFERENCES tblPedido(ID_pedido) not null,
+	ID_cupom numeric(6) FOREIGN KEY REFERENCES tblCupom(ID_cupom) ON DELETE CASCADE not null,
+	ID_pedido numeric(6) FOREIGN KEY REFERENCES tblPedido(ID_pedido) ON DELETE CASCADE not null,
 	codigo_resgate char(8) not null,
 	dt_expiracao date not null,
 	utilizado char(1)
@@ -166,16 +166,16 @@ go
 
 -- COMANDOS --
 
-INSERT INTO tblLocalDeposito VALUES ('Deposito Vila Guilherme', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'depv1la', 'gu1', 'deposito@gmail.com', 'S');
+INSERT INTO tblLocalDeposito VALUES ('Deposito Vila Guilherme', '', '', '', '', '', 'depv1la', 'gu1', 'deposito@gmail.com', 'S');
 
-INSERT INTO tblAssociacao VALUES ('Promofarma', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'pr0m0', 'f4rm4', 'promofarma@gmail.com', 's');
-INSERT INTO tblAssociacao VALUES ('Unimed', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'un1', 'm3d', 'unimed@hotmail.com', 's');
-INSERT INTO tblAssociacao VALUES ('Hospital Presidente', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'h0sp1tal', 'cl1n1c4', 'hc@outlook.com', 's');
-INSERT INTO tblAssociacao VALUES ('Amil', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'am1l', 'am1l', 'amil@outlook.com', 's');
-INSERT INTO tblAssociacao VALUES ('Hospital Sírio-Libanês', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 's1r1o', 'l1b4n3s', 'siriolib@hotmail.com', 's');
-INSERT INTO tblAssociacao VALUES ('Drogasil', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'dr0ga', 's1l', 'drogasil@hotmail.com', 's');
-INSERT INTO tblAssociacao VALUES ('Farmais', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'f4r', 'ma15', 'farmais@outlook.com', 's');
-INSERT INTO tblAssociacao VALUES ('Ultrafarma', 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 0x4D65616E696E676C65737344617461, 'u1tra', 'f4rm4', 'ultrafarma@gmail.com', 's');
+INSERT INTO tblAssociacao VALUES ('Promofarma', '', '', '', '', '', '', '', 'pr0m0', 'f4rm4', 'promofarma@gmail.com', 's');
+INSERT INTO tblAssociacao VALUES ('Unimed', '', '', '', '', '', '', '', 'un1', 'm3d', 'unimed@hotmail.com', 's');
+INSERT INTO tblAssociacao VALUES ('Hospital Presidente', '', '', '', '', '', '', '', 'h0sp1tal', 'cl1n1c4', 'hc@outlook.com', 's');
+INSERT INTO tblAssociacao VALUES ('Amil', '', '', '', '', '', '', '', 'am1l', 'am1l', 'amil@outlook.com', 's');
+INSERT INTO tblAssociacao VALUES ('Hospital Sírio-Libanês', '', '', '', '', '', '', '', 's1r1o', 'l1b4n3s', 'siriolib@hotmail.com', 's');
+INSERT INTO tblAssociacao VALUES ('Drogasil', '', '', '', '', '', '', '', 'dr0ga', 's1l', 'drogasil@hotmail.com', 's');
+INSERT INTO tblAssociacao VALUES ('Farmais', '', '', '', '', '', '', '', 'f4r', 'ma15', 'farmais@outlook.com', 's');
+INSERT INTO tblAssociacao VALUES ('Ultrafarma', '', '', '', '', '', '', '', 'u1tra', 'f4rm4', 'ultrafarma@gmail.com', 's');
 go
 
 INSERT INTO tblCupom VALUES (1, 'Rivotril', 'S', 8000, 'medicamento', './src/imgs/cupons/rivotril.png', 'Suspensão Oral', 15, 'S');
@@ -227,4 +227,4 @@ INSERT INTO tblResgate VALUES (2, 1, '0a51427e', '01-03-2026', 'N');
 INSERT INTO tblResgate VALUES (2, 1, '4a4d2fcb', '12-07-2025', 'N');
 
 
-SELECT * FROM tblFeedback
+SELECT * FROM tblAssociacao
