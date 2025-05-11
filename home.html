@@ -12,7 +12,6 @@
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->   
     <link rel="stylesheet" href="./src/style/css/estiloHome.css">
     <link rel="stylesheet" href="./src/style/css/estiloHeader.css">
-    <link rel="stylesheet" href="./src/style/css/estiloCarrinho.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="./src/JS/funcoes.js"></script>
@@ -21,10 +20,7 @@
     <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
     <script type="text/javascript" src="./src/JS/resgate.js"></script>
 </head>
-<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisaMobile(); redirecionarPesquisa(); exibirPontos(); carregarCatalogo(); chamarCarrinho(); carregarCarrinhoSalvo();">
-    <div id="cartContainer">
-        <img id="carregandoGif" src="./src/imgs/popups/green_style.gif" alt="Carregando">
-    </div>
+<body id="corpo" onclick="menuFadeOut();" onload="redirecionarPesquisaMobile(); redirecionarPesquisa(); exibirPontos(); carregarCatalogo(); chamarCarrinho();"> 
     <header>
         <div id="logo-box">
                 <a href="home.html"><img src="./src/imgs/logoTitle.png" alt="logo" style="width: 100%;" id="logo-login"></a>
@@ -50,7 +46,7 @@
             <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
             <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
             <!-- A chamada "ativarCarinho()" vem do arquivo "carrinho.js" -->
-            <button id="btnCarrinho" class="botaoNav carrinho" onclick="ativarCarrinho();">Carrinho <img id ="imagemCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"></button>
+            <button id="btnCarrinho" class="botaoNav carrinho"><a href="./carrinho.html">Carrinho<img id ="imagemCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"></a></button>
         </nav>     
     </header>
     <div id="search-box-mobile">

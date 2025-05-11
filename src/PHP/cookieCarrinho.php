@@ -7,7 +7,9 @@
 
     if ($_POST) {
         if (isset($_SESSION['usuario'])) {
-            setcookie("carrinho", $_POST['dadosCarrinho'], strtotime("+1 week"), '/');
+            $dadosCarrinho = $_POST['dadosCarrinho'];
+            $dadosCarrinho = implode(',', $dadosCarrinho);
+            setcookie("carrinho", $dadosCarrinho, strtotime("+1 week"), '/');
             die(json_encode("sucesso"));
         } else {
             die(json_encode("usuario nao conectado"));

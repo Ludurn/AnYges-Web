@@ -11,62 +11,6 @@ let aux2 = "claro";
 
 // FUNCOES PAGINA 'HOME'
 
-let ultimoScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-    let larguraTela = window.innerWidth;
-    if (window.scrollY > 50) {
-      $("#cartContainer").css({
-        "margin-top": "0%"
-      });
-    } else if (window.scrollY < 50 && larguraTela <= 810) { 
-
-        $("#cartContainer").css({
-            "margin-top": "20%"
-        });
-    } else if (window.scrollY < 50 && larguraTela <= 900) {
-
-        $("#cartContainer").css({
-            "margin-top": "16.3%"
-        });
-
-    } else if (window.scrollY < 50 && larguraTela <= 1024) {
-
-        $("#cartContainer").css({
-            "margin-top": "14.7%"
-        });
-    } else if (window.scrollY < 50 && larguraTela <= 1440) {
-
-        $("#cartContainer").css({
-            "margin-top": "7.5%"
-        });
-    } else if (window.scrollY < 50 && larguraTela <= 1920) {
-
-        $("#cartContainer").css({
-            "margin-top": "6.5%"
-        });
-    }
-
-    if (larguraTela >= 500) {
-        if (carrinhoAtivacao) {
-            if (window.scrollY < ultimoScrollY) {
-                if (larguraTela <= 1024) {
-                    $("#pedidoBox").css({
-                        "transform": "translateY(-275%)"
-                    });
-                }
-                $("#pedidoBox").css({
-                    "transform": "translateY(-50%)"
-                });
-            } else {
-                $("#pedidoBox").css({
-                    "transform": "translateY(0%)"
-                });
-            }
-        }
-    }
-    ultimoScrollY = window.scrollY;
-});
 
 
 // FUNCOES PAGINA 'PERFIL'

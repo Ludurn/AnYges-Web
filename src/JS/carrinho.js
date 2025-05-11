@@ -1,122 +1,9 @@
-let carrinhoAtivacao = false;
-var carrinho = document.getElementById("cartContainer");
-var cardPresente = false;
-var contador = 0;
-var aposPrimeiro = false;
+
+let cards = [];
 
 // Ativação/desativação do carrinho
 
 function ativarCarrinho() {
-    let larguraTela = window.innerWidth;
-    carrinhoAtivacao = !carrinhoAtivacao;
-    if (larguraTela <= 810) {
-        if (carrinhoAtivacao == true) {
-            if (larguraTela <= 400) {
-                $("#cartContainer").css({
-                    "top": "0rem"
-                });
-                $("#voltarTopo").css({
-                    "display": "none"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(-100%)"
-                })
-            } else if (larguraTela <= 450) {
-                $("#cartContainer").css({
-                    "top": "0rem"
-                });
-                $("#voltarTopo").css({
-                    "display": "none"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(-175%)"
-                })
-            } else if (larguraTela <= 800) {
-                $("#cartContainer").css({
-                    "top": "0rem"
-                });
-                $("#voltarTopo").css({
-                    "display": "none"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(-250%)"
-                })
-            } else {
-                $("#cartContainer").css({
-                    "top": "0rem"
-                });
-                $("#voltarTopo").css({
-                    "display": "none"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(-175%)"
-                })
-            }
-        } else {
-            if (larguraTela <= 430) {
-                $("#cartContainer").css({
-                    "top": "-62.5rem"
-                });
-                $("#voltarTopo").css({
-                    "display": "flex"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(0%)"
-                })
-            } else {
-                $("#cartContainer").css({
-                    "top": "-100rem"
-                });
-                $("#voltarTopo").css({
-                    "display": "flex"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(0%)"
-                })
-            }
-        }
-    } else {
-        if (carrinhoAtivacao == true) {
-            if (larguraTela <= 1200) {
-                $("#cartContainer").css({
-                    "right": "0rem"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(-250%)"
-                });
-            } else if (larguraTela <= 1000) {
-                $("#cartContainer").css({
-                    "right": "0rem"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(-150%)"
-                });
-            } else {
-                $("#cartContainer").css({
-                    "right": "0rem"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(-50%)"
-                });
-            }
-        } else {
-            if (larguraTela < 1701) {
-                $("#cartContainer").css({
-                    "right": "-17.8rem"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(0%)"
-                });
-            } else {
-                $("#cartContainer").css({
-                    "right": "-23.3rem"
-                });
-                $("#pedidoBox").css({
-                    "transform": "translateY(0%)"
-                });
-            }
-        }
-    }
     $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon.png");
     $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon.png");
 }
@@ -134,79 +21,40 @@ function verificarSubtotal() {
 // Inserção/Remoção dos cards de produtos do carrinho
 function chamarCarrinho() {
     setTimeout(() => {
-        $("#carregandoGif").remove();
+        //$("#carregandoGif").remove();
         $("#cartContainer").css("justify-content","flex-start");
         var catalogoProdutos = document.getElementsByClassName("btnProdutos");
         for (i = 0; i < catalogoProdutos.length; i++) {
             catalogoProdutos[i].addEventListener("click", function adicionarCard() {
-            var target = event.target;
-            //Elemento-pai que sofreu evento que chamou esta função será armazenado nesta variável abaixo
-            var cardCarrinho = target.parentElement;
-            contador = carrinho.children.length;
+                let btnCupom = event.target;
+                let cupom = btnCupom.parentElement;
 
-            carrinho.innerHTML += 
-            "<div class = 'carrinhoCard' data-id='"+cardCarrinho.dataset.id+"'>"
-            +"<div class = 'cardContent'>"
-            +cardCarrinho.innerHTML
-            +"</div>"
-            +"<div class='imgRemoverCard' onclick='removerCard("+cardCarrinho.dataset.id+");'><img src='./src/imgs/icons/error.png' width='100%'/></div>"
-            +"</div>";
-            $(".cardContent").find("#btnProduto").each(function() {
-                $(this).attr("class", "precoProduto");
-            });
+                if (!cards.includes(cupom.dataset.id)) {
+                    cards.push(cupom.dataset.id);
+
+                    $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Mobile
+                    $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Padrão
         
-            var carrinhoCard = document.getElementsByClassName("cardContent");
-            var ultCard = carrinhoCard[carrinhoCard.length - 1];
-
-            // Com a remoção da tag, a tag seguinte passa a ocupar o mesmo índice, por isso a repetição
-            ultCard.removeChild(ultCard.children[2]);
-            ultCard.removeChild(ultCard.children[2]);
-
-            // Evitando repetições de card
-            if (contador > 0) {
-                for (let help = 0; help < carrinho.children.length; help++) {
-                    for (let help2 = help + 1; help2 < carrinho.children.length; help2++) {
-                        let card1 = carrinho.children[help];
-                        let card2 = carrinho.children[help2];
-
-                        if ($(card2).attr('data-id') == $(card1).attr('data-id')) {
-                            $(card2).remove();
-                        }
-                    }
+                    armazenarCarrinho(cards);
                 }
-            }
-
-            $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Mobile
-            $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Padrão
-
-
-            $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
-
-            armazenarCarrinho();
             });
         }
-
-        $("#corpo").append("<div id='pedidoBox'></div>");
-        $("#pedidoBox").html(
-            "<div id='saldoPedido'><p>Subtotal: "+verificarSubtotal()+" ₯</p></div>"
-            +"<div id='btnPedido' onclick='finalizarPedido();'>Finalizar pedido</div>"
-        );
     }, 1000);
 }
 
 function removerCard(dataID) {
     if(confirm("Deseja remover este cupom do carrinho?")) {
-        let card = $('.carrinhoCard[data-id="'+dataID+'"]');
-        card.remove();
+        if (cards.includes(dataID)) {
+            let index = cards.indexOf(dataID);
+            cards.splice(index, 1);
+        }
     }
 
-    $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
-
-    armazenarCarrinho();
+    armazenarCarrinho(cards);
 }
 
-function armazenarCarrinho() {
-    let cardsCarrinho = $("#cartContainer").html();
+function armazenarCarrinho(cards) {
+    let cardsCarrinho = cards;
 
     $.post(
         "./src/PHP/cookieCarrinho.php",
@@ -227,9 +75,21 @@ function carregarCarrinhoSalvo() {
     if (cookieCarrinho[1] != null) {
         cookieCarrinho = cookieCarrinho[1].split('=')[1];
         cookieCarrinho = decodeURIComponent(cookieCarrinho);
-        setTimeout(() => {
-            $("#cartContainer").html(cookieCarrinho);
-            $("#saldoPedido").html("<p>Subtotal: "+verificarSubtotal()+" ₯</p>");
-        }, 1000);
+
+        $.post(
+            "./src/PHP/carrinho.php",
+                {
+                    idCards: cookieCarrinho
+                }
+        )
+        .done(
+            function (retorno) {
+                alert(retorno)
+                retorno = JSON.parse(retorno);
+
+                $("#cartContainer").append(cookieCarrinho);
+                $("#saldoPedido").html("<h2>Subtotal: "+verificarSubtotal()+" ₯</h2>");
+            }
+        )
     }
 }
