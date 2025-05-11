@@ -227,4 +227,4 @@ INSERT INTO tblResgate VALUES (2, 1, '0a51427e', '01-03-2026', 'N');
 INSERT INTO tblResgate VALUES (2, 1, '4a4d2fcb', '12-07-2025', 'N');
 
 
-SELECT * FROM tblAssociacao
+SELECT * FROM tblCupom;
