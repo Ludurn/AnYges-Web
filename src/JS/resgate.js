@@ -23,6 +23,7 @@ function finalizarPedido() {
                     
                     if (retorno == "sucesso") {
                         document.cookie = "carrinho=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                        localStorage.clear();
                         window.location.replace("./home.html");
                     } else if (retorno == "pontuacao insuficiente") {
                         alert("Pontuação insuficiente para efetuar o pedido.");
