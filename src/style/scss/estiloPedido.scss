@@ -1,0 +1,67 @@
+@use 'mixins' as mix;
+@use 'variables' as *;
+
+@page{
+	margin: 100px 50px ;
+}
+body{
+    font-family: Inria Sans, Arial, sans-serif;
+	margin:0px;
+	padding:0px;
+}
+.cabecalho{
+	position: fixed; 
+	left: 0;
+	right:0;
+	top: -100px; 
+	height: 50px; 
+	padding: 10px;
+	color: $branco;
+	background: $marromClaro;
+	text-align: center;
+}
+.rodape{
+	position: fixed; 
+	left: 0;
+	right:0;
+	bottom:0;
+	background: $marromClaro;
+	color: $branco;
+	text-align: center;
+	padding: 5px 5px;
+}
+.imgrodape{
+	width: 2%;
+}
+
+.imgtbl {
+	width: 50%;
+    border-radius: 1rem;
+}
+
+h1{
+	text-align: center;
+}
+
+table {
+
+    width: 100%;
+	border:1px solid $marromClaro;
+	padding: 5px;
+    
+    th {
+	    background: $marromClaro;
+	    color: $branco;
+	    padding:5px;
+    }
+
+    tr td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 5px;
+    }
+
+    tr:nth-child(even) td {
+        background: $cimento;
+    }
+}

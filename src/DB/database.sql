@@ -225,7 +225,8 @@ INSERT INTO tblPedido VALUES (1, '11-01-2025 21:23:00');
 
 INSERT INTO tblResgate VALUES (1, 1, '9244e59d', '07-12-2025', 'N');
 INSERT INTO tblResgate VALUES (2, 1, '0a51427e', '01-03-2026', 'N');
-INSERT INTO tblResgate VALUES (2, 1, '4a4d2fcb', '12-07-2025', 'N');
+INSERT INTO tblResgate VALUES (2, 2, '4a4d2fcb', '12-07-2025', 'N');
 
 
-SELECT * FROM tblCupom;
+SELECT * FROM tblResgate r WHERE r.ID_pedido IN (SELECT ID_pedido FROM tblPedido p INNER JOIN tblUsuario u ON p.ID_usuario = u.ID_usuario WHERE u.ID_usuario = 1 AND p.ID_pedido = 1); 
+SELECT * FROM tblPedido

@@ -1,0 +1,65 @@
+@page {
+  margin: 100px 50px;
+}
+body {
+  font-family: Inria Sans, Arial, sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+.cabecalho {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -100px;
+  height: 50px;
+  padding: 10px;
+  color: white;
+  background: #8A3C29;
+  text-align: center;
+}
+
+.rodape {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #8A3C29;
+  color: white;
+  text-align: center;
+  padding: 5px 5px;
+}
+
+.imgrodape {
+  width: 2%;
+}
+
+.imgtbl {
+  width: 50%;
+  border-radius: 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #8A3C29;
+  padding: 5px;
+}
+table th {
+  background: #8A3C29;
+  color: white;
+  padding: 5px;
+}
+table tr td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+}
+table tr:nth-child(even) td {
+  background: rgba(128, 128, 128, 0.39);
+}
+
+/*# sourceMappingURL=estiloPedido.css.map */
