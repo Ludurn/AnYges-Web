@@ -21,7 +21,7 @@
     <script type="text/javascript" src="./src/JS/edicaoPerfil.js"></script>
     <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
 </head>
-<body onclick="menuFadeOut()" onload="exibirPontos(); tabDadosStyle(); tabDadosLoader(); chamarCarrinho(); carregarCarrinhoSalvo();">
+<body onclick="menuFadeOut()" onload="exibirPontos(); tabDadosStyle(); tabDadosLoader();">
     <header>
         <div id="logo-box">
             <a href="home.html"><img src="./src/imgs/logoTitle.png" alt="logo" style="width: 100%;" id="logo-login"></a>
@@ -36,8 +36,8 @@
                  <div id="menuDropBG">
                   <a href="./home.html">
                     <ion-icon name="home"></ion-icon> Home</a>
-                  <a id="carrinhoMobile" onclick="ativarCarrinho();">
-                    <ion-icon name="cart"></ion-icon> Carrinho</a>
+                    <a id="carrinhoMobile" href="./carrinho.html">
+                        <img id ="iconeCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"> Carrinho </a>
                   <a href="#">
                     <ion-icon name="hand"></ion-icon> Acessibilidade</a>
                   <a href="./central.html">

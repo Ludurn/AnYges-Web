@@ -15,6 +15,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     transition: background-color 0.5s;
+    min-height: 100vh;
 }
 
 html, body {
@@ -113,6 +114,7 @@ html, body {
     justify-content: center;
     align-items: center;
     //background-color: $branco;
+    color: $branco;
     bottom: 0%;
     transition: transform 0.3s ease;
 }

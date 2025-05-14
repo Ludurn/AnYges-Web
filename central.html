@@ -28,7 +28,7 @@
         }
     </script>
 </head>
-<body onclick="menuFadeOut();" onload="exibirPontos(); chamarCarrinho(); carregarCarrinhoSalvo();">
+<body onclick="menuFadeOut();" onload="exibirPontos();">
     <header>
         <div id="logo-box">
             <a href="home.html"><img src="./src/imgs/logoTitle.png" alt="logo" style="width: 100%;" id="logo-login"></a>
@@ -45,8 +45,8 @@
                         <ion-icon name="home"></ion-icon> Home</a>
                     <a onclick="acessarPerfil()" style="cursor: pointer;">        
                         <ion-icon name="person"></ion-icon> Perfil</a>
-                    <a id="carrinhoMobile" onclick="ativarCarrinho();">
-                        <ion-icon name="cart"></ion-icon> Carrinho</a>    
+                    <a id="carrinhoMobile" href="./carrinho.html">
+                        <img id ="iconeCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"> Carrinho </a>
                     <a href="#">
                         <ion-icon name="hand"></ion-icon> Acessibilidade</a>
                                 </div>

@@ -9,6 +9,7 @@ function getCookieCarrinho() {
     if (cookieCarrinho[1] != null) {
         cookieCarrinho = cookieCarrinho[1].split('=')[1];
         cookieCarrinho = decodeURIComponent(cookieCarrinho);
+
         return cookieCarrinho;
     } else {
         return null;
@@ -41,15 +42,10 @@ function chamarCarrinho() {
 
                 let btnCupom = event.target;
                 let cupom = btnCupom.parentElement;
+                let cards = JSON.parse(localStorage.getItem('cardsArray')) || [];
 
                 if (!cards.includes(cupom.dataset.id)) {
                     cards.push(cupom.dataset.id);
-
-                    // let cookieCarrinho = getCookieCarrinho();
-
-                    // if (cookieCarrinho != null) { 
-                    //     cards = cookieCarrinho;
-                    // }
 
                     localStorage.setItem("cardsArray", JSON.stringify(cards));
 
@@ -82,6 +78,8 @@ function removerCard(dataID) {
             cards = "";
              armazenarCarrinho(cards);
         }
+        $("#saldoPedido").html("<h2>Subtotal: "+verificarSubtotal()+" ₯</h2>");
+        formatarCarrinho();
     }
 }
 
@@ -101,35 +99,6 @@ function armazenarCarrinho(cards) {
     )
 }
 
-function carregarCarrinhoSalvo() {
-
-    let row=1;
-    let itens=0;
-
-    let cookieCarrinho = getCookieCarrinho();
-
-    if (cookieCarrinho != null) {
-
-        $.post(
-            "./src/PHP/carrinho.php",
-                {
-                    idCards: cookieCarrinho
-                }
-        )
-        .done(
-            function (retorno) {
-                retorno = JSON.parse(retorno);
-
-                for (let i=0; i<retorno.length; i++) {
-                    construirPedido(row, retorno, i);
-                    itens++;
-                    row = agruparPedidos(itens, row);
-                }
-                $("#saldoPedido").html("<h2>Subtotal: "+verificarSubtotal()+" ₯</h2>");
-            }
-        )
-    }
-}
 
 function construirPedido(row, retorno, indice) {
     $("#row-"+row).append(
@@ -151,43 +120,108 @@ function construirPedido(row, retorno, indice) {
     );
 }
 
-function agruparPedidos(itens) {
+function calcMaxItens() {
+
+    let larguraTela;
+    larguraTela = screen.width * window.devicePixelRatio;
+
+
+    let maxItens = 0;
 
     if (larguraTela >= 1920) {
-        if (itens < 6) {
-            return 1;
-        } else if (itens < 12) {
-            return 2;
-        } else if (itens < 18) {
-            return 3;
-        } else if (itens < 24) {
-            return 4;
-        } else if (itens < 30) {
-            return 5;
-        }
+        maxItens = 5;
     } else if (larguraTela >= 1440) {
-        if (itens < 5) {
-            return 1;
-        } else if (itens < 10) {
-            return 2;
-        } else if (itens < 15) {
-            return 3;
-        } else if (itens < 20) {
-            return 4;
-        } else if (itens < 25) {
-            return 5;
-        }
+        maxItens = 4;
+    } else if (larguraTela >= 600) {
+        maxItens = 2;
     } else {
-        if (itens < 4) {
-            return 1;
-        } else if (itens < 8) {
-            return 2;
-        } else if (itens < 12) {
-            return 3;
-        } else if (itens < 16) {
-            return 4;
-        } else if (itens < 20) {
-            return 5;
+        maxItens = 1;
+    }
+
+    return maxItens;
+}
+
+function construirRows(itens) {
+
+    let maxItens = calcMaxItens();
+
+    let qtdeRows = Math.round((itens+1)/maxItens);
+    if (qtdeRows <= 0) {
+        qtdeRows = 1;
+    }
+
+    for (let cont=1; cont<=qtdeRows; cont++) {
+        $("#cartContainer").append("<div id='row-"+cont+"' class='cardRow'></div>");
+    }
+}
+
+function agruparPedidos(itens) {
+
+    let maxItens = calcMaxItens();
+
+    for (let i = 1; i <= maxItens; i++) {
+        if (itens < i * maxItens) {
+            return i;
         }
     }
+}
+
+function carregarCarrinhoSalvo() {
+
+    let row=1;
+    let itens=0;
+
+    let cookieCarrinho = getCookieCarrinho();
+
+    if (cookieCarrinho != null) {
+
+        $.post(
+            "./src/PHP/carrinho.php",
+                {
+                    idCards: cookieCarrinho
+                }
+        )
+        .done(
+            function (retorno) {
+                retorno = JSON.parse(retorno);
+
+                construirRows(retorno.length);
+                for (let i=0; i<retorno.length; i++) {
+                    construirPedido(row, retorno, i);
+                    itens++;
+                    row = agruparPedidos(itens, row);
+                }
+                $("#saldoPedido").html("<h2>Subtotal: "+verificarSubtotal()+" ₯</h2>");
+            }
+        )
+    }
+}
+
+function formatarCarrinho() {
+
+    setTimeout(()=> {
+    if (!$(".cardRow").length || $(".cardRow").html() == "") {
+        $("#pedidoBox").remove();
+        $("body").css({
+            "min-height": "100vh",
+        });
+        $("#cartContainer").css({
+            "color": "white",
+            "margin-top": "25vh"
+        });
+        $("#cartContainer").html(
+            "<h1>Carrinho Vazio</h1>"
+           +"<p>Selecione um cupom para realizar um pedido.</p>"
+        );
+    } else if ($("#pedidoBox").length == 0) {
+        $("body").append(
+            "<div id='pedidoBox'>"
+            +"<div id='saldoPedido'><h2>Subtotal:  ₯</h2></div>"
+            +"<div id='btnPedido' onclick='finalizarPedido();'>Finalizar pedido</div>"
+            +"</div>"
+        );
+        $("#saldoPedido").html("<h2>Subtotal: "+verificarSubtotal()+" ₯</h2>");
+    }
+    }, 100);
+
 }
