@@ -7,7 +7,7 @@
 
         $idCards = $_POST['idCards'];
         
-        $sql = "SELECT c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE c.ID_cupom IN ($idCards);";
+        $sql = "SELECT c.ID_cupom, c.nome_cupom, c.valor, c.imagem, c.desconto FROM tblCupom c WHERE c.ID_cupom IN ($idCards);";
         $ponteiro = $pdo->prepare($sql);
         $ponteiro->execute();
         $cards = $ponteiro->fetchAll(PDO::FETCH_ASSOC);

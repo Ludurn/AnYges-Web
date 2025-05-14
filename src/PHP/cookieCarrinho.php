@@ -8,7 +8,9 @@
     if ($_POST) {
         if (isset($_SESSION['usuario'])) {
             $dadosCarrinho = $_POST['dadosCarrinho'];
-            $dadosCarrinho = implode(',', $dadosCarrinho);
+            if (is_array($dadosCarrinho)) {
+                $dadosCarrinho = implode(',', $dadosCarrinho);
+            }
             setcookie("carrinho", $dadosCarrinho, strtotime("+1 week"), '/');
             die(json_encode("sucesso"));
         } else {
