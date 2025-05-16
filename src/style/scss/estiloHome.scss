@@ -70,6 +70,7 @@ main {
 @for $i from 1 through 6 {
     #fileira-#{$i} {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-evenly;
         margin-bottom: 3%;
     }

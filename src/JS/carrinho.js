@@ -222,6 +222,6 @@ function formatarCarrinho() {
         );
         $("#saldoPedido").html("<h2>Subtotal: "+verificarSubtotal()+" ₯</h2>");
     }
-    }, 100);
+    }, 500);
 
 }

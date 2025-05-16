@@ -78,36 +78,42 @@ main {
 
 #fileira-1 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 3%;
 }
 
 #fileira-2 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 3%;
 }
 
 #fileira-3 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 3%;
 }
 
 #fileira-4 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 3%;
 }
 
 #fileira-5 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 3%;
 }
 
 #fileira-6 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 3%;
 }

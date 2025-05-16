@@ -44,6 +44,7 @@ html, body {
 .cardRow {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
 }
@@ -128,77 +129,35 @@ html, body {
 }
 
 #btnPedido {
-  width: 80%;
+  width: 15%;
 }
 
 /* RESPONSIVIDADE */
 @media screen and (max-width: 500px) {
-  #cartContainer {
-    width: 100%;
-    right: 0rem;
-    top: -62.5rem;
-    transition: top 0.2s, margin-top 0.2s ease;
-    padding-top: 8%;
-    margin-top: 20%;
-  }
   .carrinhoCard {
-    width: 80%;
+    width: 27cap;
   }
-  #pedidoBox {
-    width: 100%;
-    right: 0%;
+  .imgRemoverCard {
+    width: 20%;
+  }
+  #btnPedido {
+    width: 60%;
   }
 }
 @media screen and (min-width: 501px) and (max-width: 810px) {
-  #cartContainer {
-    width: 100%;
-    right: 0rem;
-    top: -100rem;
-    transition: top 0.2s, margin-top 0.2s ease;
-    margin-top: 20%;
-  }
   .carrinhoCard {
-    width: 60%;
+    width: 27cap;
   }
-  #pedidoBox {
-    width: 100%;
-    right: 0%;
-  }
-}
-@media screen and (min-width: 811px) and (max-width: 900px) {
-  #cartContainer {
-    margin-top: 16.3%;
-  }
-  #pedidoBox {
+  .imgRemoverCard {
     width: 20%;
-    right: 0%;
-    bottom: 0%;
   }
-}
-@media screen and (min-width: 951px) and (max-width: 1024px) {
-  #cartContainer {
-    margin-top: 14.7%;
-  }
-  #pedidoBox {
-    width: 20%;
-    right: 0%;
-    bottom: 0%;
-  }
-}
-@media screen and (min-width: 1025px) and (max-width: 1700px) {
-  #pedidoBox {
-    bottom: -30%;
+  #btnPedido {
+    width: 30%;
   }
 }
 @media screen and (min-width: 1701px) and (max-width: 1920px) {
-  #cartContainer {
-    margin-top: 6.5%;
-    right: -23.3rem;
-  }
-  #pedidoBox {
-    bottom: -32%;
-    width: 20%;
-    right: 0%;
+  #btnPedido {
+    width: 15%;
   }
 }
 
