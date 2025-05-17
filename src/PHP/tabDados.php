@@ -10,7 +10,7 @@
 		session_start();
 
     	$email = $_SESSION['usuario'];
-    	$sql = "SELECT nome_usuario, sobrenome_usuario, cpf, dt_nascimento, telefone_usuario, email_usuario FROM ".$tabela." WHERE email_usuario = :email;";
+    	$sql = "SELECT nome_usuario, sobrenome_usuario, cpf, CONVERT(varchar, dt_nascimento, 103) AS 'dt_nascimento', telefone_usuario, email_usuario FROM ".$tabela." WHERE email_usuario = :email;";
     	$ponteiro = $pdo->prepare($sql);
     	$ponteiro->bindValue(":email", $email);
     	$ponteiro->execute();

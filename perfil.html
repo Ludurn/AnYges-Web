@@ -74,6 +74,7 @@
                 <h1><span id="infoUserTitle"></span></h1>
             </div>
             <div class="perfilNavTabs" id="tabDados" onclick="tabDadosStyle(); tabDadosLoader();">Dados pessoais</div>
+            <div class="perfilNavTabs" id="tabHistPed" onclick="tabPedStyle(); tabPedLoader();">Histórico de Pedidos</div>
             <div class="perfilNavTabs" id="tabCupom" onclick="tabCupomStyle();">Cupons</div>
             <div class="perfilNavTabs" onclick="desconectarPerfil();">Sair</div>
         </aside>
@@ -122,10 +123,25 @@
                     </div>
                 </div>
             </div>
+            <div id="perfilHistPedBox">
+                <article id="pedidos-box">
+                    <table>
+                        <thead>
+                            <th>Número do Pedido</th>
+                            <th>Data do Pedido</th>
+                            <th>Valor do Pedido</th>
+                            <th>PDF</th>
+                        </thead>
+                        <tbody id="pedido-tbody">
+                            
+                        </tbody>
+                    </table>
+                </article>
+            </div>
             <div id="perfilCupomBox">
                 <article id="appAd-box">
                     <h2>Acesse mais no app</h2>
-                    <p>Para examinar a situação do seu cupom, histórico de pontos e resgate, basta baixar o nosso app!</p>
+                    <p>Para examinar a situação do seu cupom e histórico de pontos, basta baixar o nosso app!</p>
                     <div id="appDownload-box">
                         <img src="src/imgs/icons/download_img.png" alt="donwload app" style="width: 100%;"></div>
                 </article>

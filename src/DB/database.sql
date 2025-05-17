@@ -126,7 +126,8 @@ CREATE TABLE tblDoacao (
 	dt_doacao datetime not null,
 	pontuacao numeric(8) not null,
 	peso numeric(6) not null,
-	descricao_doacao varchar(75)
+	descricao_doacao varchar(75),
+	qr_code varchar(10) not null
 );
 CREATE INDEX xDoacao ON tblDoacao(ID_doacao);
 go
@@ -240,8 +241,8 @@ INSERT INTO tblFuncionario VALUES ('prm1rwe', '111', 'gestor de dados');
 INSERT INTO tblFuncionario VALUES ('nvweblo', '222', 'atendente centro deposito');
 go
 
-INSERT INTO tblDoacao VALUES (2, 1, 1, '17-12-2024', 100000, 450, '');
-INSERT INTO tblDoacao VALUES (2, 2, 1, '23-12-2024', 12000, 10, '');
+INSERT INTO tblDoacao VALUES (2, 1, 1, '17-12-2024', 100000, 450, '', 'HGSF238II1');
+INSERT INTO tblDoacao VALUES (2, 2, 1, '23-12-2024', 12000, 10, '', 'O99F222OP1');
 go
 
 INSERT INTO tblPedido VALUES (1, '07-03-2025 16:00:21');
@@ -256,3 +257,5 @@ SELECT * FROM tblResgate r WHERE r.ID_pedido IN (SELECT ID_pedido FROM tblPedido
 SELECT * FROM tblPedido
 
 SELECT * FROM tblFeedback
+
+SELECT ID_pedido, dt_pedido, (SELECT SUM(valor) FROM tblCupom WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido = p.ID_pedido)) AS 'valor_pedido' FROM tblPedido p WHERE ID_usuario IN (SELECT ID_usuario FROM tblUsuario WHERE email_usuario = 'daniel@hotmail.com')

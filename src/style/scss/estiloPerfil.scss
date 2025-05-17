@@ -163,6 +163,43 @@ main {
     }
 }
 
+#perfilHistPedBox {
+    display: none;
+    align-items: normal;
+    visibility: hidden;
+    opacity: 0;
+    border: 0.2rem solid $cinzaClaro;
+    border-radius: 0.3rem;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+#pedidos-box {
+    width: 100%;
+    padding: 2%;
+}
+
+.pedido-rows {
+    text-align: center;
+    max-height: fit-content;
+
+    &:nth-child(odd) {
+        background-color: none;
+    }
+
+    &:nth-child(even) {
+        background-color: $tableRow2;
+    }
+}
+
+.pdf-td {
+    width: 15%;
+    align-items: center;
+}
+
+.pdf-icon {
+    width: 40%;
+}
+
 #perfilCupomBox {
     display: none;
     align-items: normal;
@@ -234,7 +271,7 @@ footer {
 
     .perfilNavTabs {
         margin: auto;
-        width: 30%;
+        width: 20%;
         font-size: large;
     }
 
@@ -261,6 +298,16 @@ footer {
         width: 100%;
         min-height: 1.5rem;
         font-size: 1rem;
+    }
+
+    #pedidos-box {
+        padding: 0%;
+    }
+
+    .pdf-td {
+        width: 60%;
+        display: flex;
+        justify-content: center;
     }
     
     #appDownload-box {
@@ -400,6 +447,9 @@ footer {
         font-size: 1rem;
     }
 
+    .pdf-td {
+        width: 10%;
+    }
+
 }
 
-/* Modo noturno (ou dark) */
