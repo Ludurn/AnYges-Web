@@ -65,31 +65,32 @@
                         <h3 id="colorir2">Bem-vindo à nossa Central de Ajuda.</h3>
                         <h3 id="colorir3">Aqui você encontra respostas para perguntas comuns e orientações sobre como utilizar nossos serviços.</h3></center>
                         <main id="janela" class="form-container0">
-                            <div class="form-container" id="form-container">
+                            <form action="" method="post" enctype="multipart/form-data" class="form-container" id="form-container">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="9000000">
                             <h2 id="colorir4">Contato</h2>
                                 <div class="form-group" id="form-group1">
-                                    <label for="nomeform">Nome</label>
-                                    <input type="text" id="nomeform" name="nomeform" class="camposForm"
+                                    <label for="nomeContato">Nome</label>
+                                    <input type="text" id="nomeform" name="nomeContato" class="camposForm"
                                     placeholder="Ex.: João da Silva" maxlength="30">
                                 </div>
                                 <div class="form-group" id="form-group2">
                                     <label for="telefoneform">Telefone</label>
-                                    <input type="tel" id="telefoneform" name="telefoneform" class="camposForm" onblur="corrigirTellMask();"
+                                    <input type="tel" id="telefoneform" name="telefone" class="camposForm" onblur="corrigirTellMask();"
                                     placeholder="Ex.: 11 98765-4321" maxlength="13">
                                 </div>
                                 <div class="form-group" id="form-group3">
                                     <label for="CPFform">CPF (Cadastro de Pessoa Física)</label>
-                                    <input type="tel" id="CPFform" name="CPFform" class="camposForm"
+                                    <input type="text" id="CPFform" name="cpf" class="camposForm"
                                     placeholder="Ex.: 123.456.789-12" maxlength="14">
                                 </div>
                                 <div class="form-group" id="form-group4">
                                     <label for="emailform">E-mail</label>
-                                    <input type="email" id="emailform" name="emailform" class="camposForm"
+                                    <input type="email" id="emailform" name="email" class="camposForm"
                                     placeholder="Ex.: joao@gmail.com" maxlength="35">
                                 </div>
                                 <div class="form-group" id="form-group5">
                                     <label for="assuntoform">Assunto</label>
-                                    <select id="assuntoform" name="assuntoform" class="camposForm">
+                                    <select id="assuntoform" name="assunto" class="camposForm">
                                         <option value="">Selecione o assunto</option>
                                         <option value="Ajuda">Ajuda</option>
                                         <option value="Duvidas">Duvidas</option>
@@ -99,19 +100,18 @@
                                 </div>
                                 <div class="form-group" id="form-group6">
                                     <label for="mensagemform">Mensagem</label>
-                                    <textarea id="mensagemform" name="mensagem"
+                                    <textarea id="mensagemform" name="descricao_feedback"
                                     placeholder="Insira aqui sua mensagem a ser avaliada." cols=30 rows="20"></textarea>
                                     </textarea>
                                 </div>
                                 <div class="form-group" id="form-group7">
                                     <label for="envioanexo">Envio de Arquivo</label>
-                                    <input type="file" id="envioanexo" name="envioanexo" accept="*/*">
-                                    <!--<div id="nome-anexo" id="form-group8">Nenhum arquivo selecionado</div>-->
+                                    <input type="file" accept=".jpg, .png, .jpeg, .webp" id="envioanexo" name="anexo" accept="*/*">
                                 </div>
                                 <div id="btnEnviar" class="form-group">
-                                    <button onclick="enviarForm()">Enviar</button>
+                                    <input type="submit"  value="Enviar"/>
                                 </div>
-                            </div>
+                            </form>
                         </div>
 
                         <div class="helpcontainer" id="helpcontainer">                    
@@ -160,3 +160,73 @@
     <script type="text/javascript" src="./src/JS/carrinho.js"></script>
 </body>
 </html>
+
+<?php
+
+        
+require(__DIR__."/src/PHP/conectarBD.php");
+require(__DIR__."/src/PHP/Verificacao.php");
+$vf = new Verificacao();
+
+$pdo = conectar();
+
+$tabela = "tblFeedback";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $nome = preg_replace('/[^\p{L}\s\-\']/u', '', $_POST['nomeContato']);
+    $telefone = preg_replace('/[^0-9()\- ]/', '', $_POST['telefone']);
+    $cpf = preg_replace('/[^0-9]/', '', $_POST['cpf']);
+    $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
+    $assunto = preg_replace('/[^\p{L}\s\-\']/u', '', $_POST['assunto']);
+    $mensagem= filter_input(INPUT_POST,'descricao_feedback', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    if (empty($nome) || empty($telefone) || empty($cpf) || empty($email) || empty($assunto) || empty($mensagem)) {
+        echo "<script>alert('Todos os campos devem ser preenchidos para realizar o envio.');</script>";
+    } else if (!$vf->verificar_cpf($cpf)) {
+        echo "<script>alert('O CPF deve conter, estritamente, 11 caracteres.');</script>";
+    } else {
+        try {
+                $sql = "INSERT INTO ". $tabela . "(assunto, nome, email, cpf, telefone, anexo, descricao_feedback, ativo) VALUES(:assuntoF, :nomeF, :emailF, :cpfF, :telF, :anexoF, :mensagemF, 'S');";
+            
+                $ponteiro = $pdo->prepare($sql);
+                $ponteiro-> bindValue(":nomeF", $nome);
+                $ponteiro-> bindValue(":cpfF", $cpf);
+                $ponteiro-> bindValue(":telF", $telefone);
+                $ponteiro-> bindValue(":emailF", $email);
+                $ponteiro-> bindValue(":assuntoF", $assunto);
+                $ponteiro-> bindValue(":mensagemF", $mensagem);
+
+                if (isset($_FILES["anexo"])) {
+
+                    $nome_arquivo = $_FILES["anexo"]["name"];
+                    $tipo_arquivo = $_FILES["anexo"]["type"];
+                    $tamanho_arquivo = $_FILES["anexo"]["size"];
+                    $temp_arquivo = $_FILES["anexo"]["tmp_name"];
+
+                    if ($tipo_arquivo =='image/png' ||
+                    $tipo_arquivo =='image/jpeg'||
+                    $tipo_arquivo =='image/webp')
+                    {
+                        $tamanho_max = 5 * 1024 * 1024;
+                        if ($tamanho_arquivo < $tamanho_max) {
+                            $stream = fopen($_FILES["anexo"]["tmp_name"], 'rb');
+                        } else {
+                            echo "<script>alert('O tamanho máximo de arquivo suportado é 5MB');</script>";
+                        }
+                    }
+                }
+
+                $ponteiro->bindParam(":anexoF", $stream, PDO::PARAM_LOB, 0, PDO::SQLSRV_ENCODING_BINARY);
+                $ponteiro->execute();
+                fclose($stream);
+                
+                echo "<script>alert('Formulario enviado');</script>";
+                echo "<script>location.replace('./home.html');</script>";
+        } catch(Exception $erro) {
+            echo "ATENÇÃO, erro ao enviar o formulário: ". $erro->getMessage();
+        }
+    } 
+}
+
+?>

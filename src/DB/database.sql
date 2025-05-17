@@ -110,7 +110,8 @@ CREATE TABLE tblFeedback (
 	cpf varchar(14) not null,
 	telefone varchar(18) not null,
 	anexo varbinary(max),
-	descricao_feedback varchar(350) not null
+	descricao_feedback varchar(350) not null,
+	ativo char(1) not null
 );
 CREATE INDEX xFeedback ON tblFeedback(ID_feedback);
 go
@@ -253,3 +254,5 @@ INSERT INTO tblResgate VALUES (2, 2, '4a4d2fcb', '12-07-2025', 'N');
 
 SELECT * FROM tblResgate r WHERE r.ID_pedido IN (SELECT ID_pedido FROM tblPedido p INNER JOIN tblUsuario u ON p.ID_usuario = u.ID_usuario WHERE u.ID_usuario = 1 AND p.ID_pedido = 1); 
 SELECT * FROM tblPedido
+
+SELECT * FROM tblFeedback

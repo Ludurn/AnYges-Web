@@ -55,6 +55,11 @@ footer {
     -webkit-text-stroke: 0rem $cinzaEscuro;
 }
 
+#btnEnviar input {
+    background-color: $verde;
+    color: $branco;
+}
+
 /*Container do Contato*/
 .form-container {
     background-color: $fundo2;
@@ -203,10 +208,10 @@ footer {
         }
     }
 
-    #btnEnviar {
+    #btnEnviar input {
         margin: auto;
         margin-top: 5%;
-        width: 80%;
+        width: 95%;
         padding-right: 3%;
     }
 }

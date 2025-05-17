@@ -51,6 +51,11 @@ footer {
   -webkit-text-stroke: 0rem #333;
 }
 
+#btnEnviar input {
+  background-color: #228B22;
+  color: white;
+}
+
 /*Container do Contato*/
 .form-container {
   background-color: #e5ffdb;
@@ -188,10 +193,10 @@ footer {
   .form-group > input, .form-group > select, .form-group > textarea {
     width: 90%;
   }
-  #btnEnviar {
+  #btnEnviar input {
     margin: auto;
     margin-top: 5%;
-    width: 80%;
+    width: 95%;
     padding-right: 3%;
   }
 }
