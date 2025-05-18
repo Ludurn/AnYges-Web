@@ -55,11 +55,22 @@ function tabPedLoader() {
     )
     .done(
         function (retorno) {
-            retorno = JSON.parse(retorno);
-            $("#pedido-tbody").html("");
+            retorno = JSON.parse(retorno)
+            if (retorno == "Sem registro") {
+                $("#pedidos-box").css({
+                    "display": "flex",
+                    "text-align": "center",
+                    "align-items": "center",
+                    "justify-content": "center",
+                    "min-height": "25vh"
+                });
+                $("#pedidos-box").html("<p>Nenhum pedido registrado até o momento.<br/><br/>Assim que você realizar seu primeiro pedido, ele aparecerá aqui. </p>");
+            } else {
+                $("#pedido-tbody").html("");
 
-            for (let loop=0; loop<retorno.length; loop++) {
-                construirHistPedido(retorno, loop);
+                for (let loop=0; loop<retorno.length; loop++) {
+                    construirHistPedido(retorno, loop);
+                }
             }
         }
     )
