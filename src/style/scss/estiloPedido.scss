@@ -4,22 +4,25 @@
 @page{
 	margin: 100px 50px ;
 }
+
 body{
     font-family: Inria Sans, Arial, sans-serif;
 	margin:0px;
 	padding:0px;
 }
-.cabecalho{
+
+#cabecalho{
 	position: fixed; 
 	left: 0;
 	right:0;
-	top: -100px; 
-	height: 50px; 
+	top: -80px; 
+	height: 100px; 
 	padding: 10px;
 	color: $branco;
 	background: $marromClaro;
 	text-align: center;
 }
+
 .rodape{
 	position: fixed; 
 	left: 0;
@@ -30,8 +33,9 @@ body{
 	text-align: center;
 	padding: 5px 5px;
 }
-.imgrodape{
-	width: 2%;
+
+.imgRodape{
+	width: 10%;
 }
 
 .imgtbl {
@@ -46,8 +50,10 @@ h1{
 table {
 
     width: 100%;
-	border:1px solid $marromClaro;
+	border: 1px solid $marromClaro;
 	padding: 5px;
+	margin-top: 10%;
+
     
     th {
 	    background: $marromClaro;

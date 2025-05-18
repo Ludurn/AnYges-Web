@@ -1,5 +1,8 @@
 <?php
 require_once(__DIR__ ."/dompdf/autoload.inc.php");
+require __DIR__.'/MensagemErro.php';
+$msgErro = new MensagemErro();
+
 
 //Criando o namespace para evitar erros
 use Dompdf\Dompdf;
@@ -18,7 +21,17 @@ $dompdf = new Dompdf($options);
 
 //Cria buffer de saída
 ob_start();
-require_once("../../pedidoPDF.php");
+
+	session_start();
+
+	if (!$_GET || !isset($_GET['num_pedido']) || !isset($_SESSION['usuario'])) {
+		$mensagem = "Esse link está inválido ou expirado. Por favor, solicite um novo.";
+		$msgErro->exibirMensagemErro($mensagem, "restrito");
+	}
+    $id_pedido = $_GET['num_pedido'];
+    $criarPDF = true;
+
+    require_once("../../pedidoPDF.php");
 
 
 // Transfere o conteúdo do buffer para variável e elimina

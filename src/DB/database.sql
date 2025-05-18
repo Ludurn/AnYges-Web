@@ -253,9 +253,3 @@ INSERT INTO tblResgate VALUES (2, 1, '0a51427e', '01-03-2026', 'N');
 INSERT INTO tblResgate VALUES (2, 2, '4a4d2fcb', '12-07-2025', 'N');
 
 
-SELECT * FROM tblResgate r WHERE r.ID_pedido IN (SELECT ID_pedido FROM tblPedido p INNER JOIN tblUsuario u ON p.ID_usuario = u.ID_usuario WHERE u.ID_usuario = 1 AND p.ID_pedido = 1); 
-SELECT * FROM tblPedido
-
-SELECT * FROM tblFeedback
-
-SELECT ID_pedido, dt_pedido, (SELECT SUM(valor) FROM tblCupom WHERE ID_cupom IN (SELECT ID_cupom FROM tblResgate WHERE ID_pedido = p.ID_pedido)) AS 'valor_pedido' FROM tblPedido p WHERE ID_usuario IN (SELECT ID_usuario FROM tblUsuario WHERE email_usuario = 'daniel@hotmail.com')
