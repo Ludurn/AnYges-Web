@@ -134,10 +134,10 @@
 
         if ($tipo == "associacao") {
             $arquivos = ["cnpj", "contrato", "certidao", "inscricao", "alvara", "regularidade", "registro"];
-            $sql = "INSERT INTO tblAssociacao VALUES (:nome, :anexo_0, :anexo_1, :anexo_2, :anexo_3, :anexo_4, :anexo_5, :anexo_6, :codLogin, '', :email, 'N');";
+            $sql = "INSERT INTO tblAssociacao VALUES (:nome, :anexo_0, :anexo_1, :anexo_2, :anexo_3, :anexo_4, :anexo_5, :anexo_6, :codLogin, :senhaLogin, :email, 'N');";
         } else if ($tipo == "centro_tratamento") {
             $arquivos = ["cnpj", "licenca", "alvara", "certificacao", "comprovante"];
-            $sql = "INSERT INTO tblLocalDeposito VALUES (:nome, :anexo_0, :anexo_1, :anexo_2, :anexo_3, :anexo_4, :codLogin, '', :email, 'N');";
+            $sql = "INSERT INTO tblLocalDeposito VALUES (:nome, :anexo_0, :anexo_1, :anexo_2, :anexo_3, :anexo_4, :codLogin, :senhaLogin, :email, 'N');";
         }
 
         $cdEmpresa->setArquivos($arquivos);
@@ -151,6 +151,7 @@
         $ponteiro = $pdo->prepare($sql);
         $ponteiro->bindValue(":nome", $nome);
         $ponteiro->bindValue(":codLogin", gerarCod());
+        $ponteiro->bindValue(":senhaLogin", gerarCod());
         $ponteiro->bindValue(":email", $email);
 
         $cdEmpresa->bindStream($ponteiro);
@@ -158,6 +159,9 @@
         $ponteiro->execute();
 
         $cdEmpresa->closeStream();
+
+        echo "<script>alert('Formulário enviado com sucesso.');</script>";
+        echo "<script>window.location.replace('./index.html');</script>";
     }
 
     function gerarCod() {
