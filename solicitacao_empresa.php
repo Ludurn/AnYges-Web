@@ -103,7 +103,7 @@
 </head>
 <body>
     <div id="logo-box">
-        <figure id="logo-obj"><img src="./src/imgs/logoTitleBW.png" alt="logo" style="width: 100%;" id="logo-title"></figure>
+        <figure id="logo-obj"><img src="./src/imgs/logoTitleBW2.png" alt="logo" style="width: 100%;" id="logo-title"></figure>
         <h2>Preencha este formulário para enviar sua solicitação.</h2>
     </div>
     <div id="login-container">
