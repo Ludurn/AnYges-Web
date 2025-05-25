@@ -12,7 +12,7 @@ function acessarPerfil() {
             if (conexao['status'] == "conectado") {
                 window.location.replace("./perfil.html");
             } else {
-                window.location.replace("./index.html");
+                window.location.replace("./login.html");
             }
         }
     )
@@ -32,7 +32,7 @@ function desconectarPerfil(ativar) {
             function (retorno) {
                 retorno = JSON.parse(retorno);
                 if (retorno == "desconectado") {
-                    window.location.replace("./index.html");
+                    window.location.replace("./login.html");
                 }
             }
         )

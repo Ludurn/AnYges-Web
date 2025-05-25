@@ -51,7 +51,7 @@
                         <ion-icon name="hand"></ion-icon> Acessibilidade</a>
                                 </div>
                                 </div>
-                                <a id="btnLogin" href="./index.html"><button class="botaoNav login">Login</button></a>
+                                <a id="btnLogin" href="./login.html"><button class="botaoNav login">Login</button></a>
                                 <a id="btnCadastro" href="./cadastro.html" target="_self" rel="external"><button class="botaoNav registrar">Cadastrar</button></a>
                                 <!-- A chamada "ativarCarinho()" vem do arquivo "carrinho.js" -->
                                 <button id="btnCarrinho" class="botaoNav carrinho"><a href="./carrinho.html">Carrinho<img id ="imagemCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"></a></button>

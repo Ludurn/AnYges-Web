@@ -3,42 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Login</title>
+    <title>Anyges - Transformando resíduos em oportunidades</title>
     <link rel="icon" type="image/x-icon" href="src/imgs/icons/logo-ico.ico">
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
-    <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->      
+    <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->
     <link rel="stylesheet" href="./src/style/css/estiloIndex.css">
-    <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
-    <script type="text/javascript" src="./src/JS/login.js"></script>
 </head>
 <body>
-    <div class="login-container">
-        <div id="login-title">
-            <h2>LOGIN</h2>
-        </div>
-        <div id="logo-box">
-            <div  id="logo-obj">
-                <img src="./src/imgs/logo-login.png" alt="logo" style="width: 100%;" id="logo-login">
+    <div id="bloco-1">
+        <img id="background-florest" src="./src/imgs/floresta2.png">
+        <h1>Transformando resíduos em oportunidades</h1>
+        <p>Junte-se a nós na revolução da gestão de resíduos para um futuro sustentável.<p>
+        <a href="./login.html"><div id="btn-top">COMEÇAR AGORA</div></a>
+        <div id="btn-middle"><div id="arrow"></div></div>
+    </div>
+    <div id="bloco-2">
+        <h1>Nossa Missão</h1>
+        <p>Buscamos aprimorar a eficiência na gestão de resíduos e minimizar o impacto ambiental através de soluções inovadoras.</p>
+        <div id="feature-box">
+            <div class="features">
+                <img src="./src/imgs/icons/globe.png" style="width: 50%;" />
+                <div class="middle-text"><p>Acesse o Anyges onde quer que você vá, seja no celular, tablet, laptop ou desktop.</p></div>
+                <p class="bottom-title">Multiplataforma</p>            
+            </div>
+            <div class="features">
+                <img src="./src/imgs/icons/recycle.png" style="width: 50%;" />
+                <div class="middle-text"><p>Doe resíduos para centros parceiros, contribua para o meio ambiente e acumule pontos.</p></div>
+                <p class="bottom-title">Sustentabilidade</p>
+            </div>
+            <div class="features">
+                <img src="./src/imgs/icons/ticket.png" style="width: 50%;" />
+                <div class="middle-text"><p>Resgate cupons para reduzir os preços de medicamentos, consultas e produtos de higiene.</p></div>
+                <p class="bottom-title">Fidelidade</p>
+            </div>
+            <div class="features">
+                <img src="./src/imgs/icons/lock.png" style="width: 50%;" />
+                <div class="middle-text"><p>Da autenticação ao gerenciamento de dados, a sua segurança é a nossa prioridade máxima.</p></div>
+                <p class="bottom-title">Segurança</p>
             </div>
         </div>
-        <div class="login-box">
-                <div class="input-group">
-                    <label for="usuario" class="input-group" ><strong>E-mail:</strong></label>
-                    <input type="email" placeholder="Ex: Cezarpaulo2323@gmail.com" id="usuario" class="camposForm" name="usuario" required>
-              <br>
-              <br>
-                    <label for="senha" class="input-group" ><strong>Senha:</strong></label>
-                    <input type="password" placeholder="Ex:12345@#" id="senha" class="camposForm" name="senha" required>
-                    <p id="recuperarSenha"><a href="esqueci-minha-senha.php">Esqueceu sua senha?</a></p>
-                </div>
-                <button type="submit" id="btnEntrar" name="btnEntrar" class="btn-login">ENTRAR</button>
-                <br><br>
-                <a href="./cadastro.html"><button type="submit" id="btnCadastrar" name="btnCadastrar" class="btn-login">CADASTRAR-SE</button></a>
-        </div>
     </div>
+    <br><br><br><br><br><br><br><br><br>
 </body>
 </html>

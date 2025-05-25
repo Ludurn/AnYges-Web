@@ -93,8 +93,8 @@ if (strtotime($user[0]) <= time()) {
                             $exec5->bindValue(":senha", $senha_hash);
                             $exec5->execute();
         
-                            header("location: index.html");
-                            echo "<script>window.location.replace('index.html');</script>";
+                            header("location: login.html");
+                            echo "<script>window.location.replace('login.html');</script>";
                             die();
                         } else {
                             echo "<script>alert('A nova senha contém caracteres inválidos.');</script>";

@@ -63,7 +63,7 @@ $exec2->execute();
                 <p>Conta confirmada com sucesso. Pressione o botão abaixo e desfrute de nosso serviços.</p>
             </div>
             <br/>
-            <a href="index.html"><input type="submit" value="ENTRAR" id="btn-confirmacao"></a>
+            <a href="login.html"><input type="submit" value="ENTRAR" id="btn-confirmacao"></a>
         </div>
     </div>
 

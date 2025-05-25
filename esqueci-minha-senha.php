@@ -31,7 +31,7 @@
             </div>
             <br/>
             <input type="submit" value="REDEFINIR SENHA" class="btn-recuperacao">
-            <a href="index.html"><input type="button" value="CANCELAR" class="btn-recuperacao"></a>
+            <a href="login.html"><input type="button" value="CANCELAR" class="btn-recuperacao"></a>
         </form>
     </div>
 

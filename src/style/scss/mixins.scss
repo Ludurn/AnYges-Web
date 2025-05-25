@@ -1,5 +1,13 @@
 @use 'variables' as *;
 
+@mixin preventUserSelectText{
+    html {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+    }
+}
+
 @mixin backgroundImage($imgName, $tipo) {
     $url: "http://localhost/src/imgs/";
     @if $tipo == "icon" {

@@ -161,7 +161,7 @@
         $cdEmpresa->closeStream();
 
         echo "<script>alert('Formulário enviado com sucesso.');</script>";
-        echo "<script>window.location.replace('./index.html');</script>";
+        echo "<script>window.location.replace('./login.html');</script>";
     }
 
     function gerarCod() {
