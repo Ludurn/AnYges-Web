@@ -1,5 +1,13 @@
 <?php
 
+    if (!isset($_GET['t'])) {
+        require 'src/PHP/MensagemErro.php';
+		$msgErro = new MensagemErro();
+		session_start();
+		$mensagem = "Esse link está inválido ou expirado. Por favor, solicite um novo.";
+		$msgErro->exibirMensagemErro($mensagem, "");
+    }
+
     $tipo = $_GET['t'];
 
     if ($tipo == "associacao") {

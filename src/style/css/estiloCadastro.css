@@ -165,7 +165,7 @@ main {
 #botaoApagar:hover {
   text-decoration: underline;
   cursor: pointer;
-  background-color: rgb(59, 221, 59);
+  background-color: rgb(199, 85, 85);
 }
 #botaoApagar:active {
   box-shadow: none;
