@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   scroll-behavior: smooth;
   scrollbar-color: white #2c311b;
@@ -134,7 +135,7 @@ a {
   text-align: center;
   align-items: center;
   width: 100%;
-  height: 90vh;
+  height: 70vh;
   margin-top: 5%;
   color: white;
 }
@@ -177,11 +178,36 @@ a {
   flex-direction: column;
   width: fit-content;
   width: 50%;
-  padding: 5%;
-  background-color: #8A3C29;
+  padding: 2% 3% 5% 3%;
+  background-color: #2c311b;
   color: white;
+  border-image: linear-gradient(#ffffff, #cacaca);
+  border: 0.3rem solid;
   border-radius: 1rem;
   transition: opacity 0.5s ease;
+}
+#popUp #popUp-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#popUp #popUp-header #popUp-closer {
+  width: 5%;
+  background-image: linear-gradient(#ffffff, #cacaca);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+#popUp #popUp-header #popUp-closer::after {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  right: 0;
+  content: "×";
+  border: 1rem;
+  font-size: 50px;
+  text-align: center;
+  color: #2c311b;
 }
 
 #btns-box {
@@ -206,9 +232,23 @@ a {
 }
 
 footer {
-  background: white;
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
   padding: 0.625rem;
-  text-align: center;
+  background: white;
+  border-radius: 2.5rem 2.5rem 0 0;
+}
+footer #footer-row1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 1% 0 2% 0;
+}
+footer #footerLogo {
+  width: 15%;
 }
 
 /* RESPONSIVIDADE */
@@ -218,6 +258,44 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  #bloco-1 {
+    height: 90vh;
+  }
+  #bloco-1 #background-florest {
+    object-fit: cover;
+  }
+  #btn-top {
+    padding: 2.5%;
+  }
+  #btn-middle {
+    padding: 7%;
+    margin-top: 80%;
+  }
+  #bloco-2 {
+    padding: 5%;
+    text-align: justify;
+  }
+  .features {
+    width: 70%;
+  }
+  #bloco-3 {
+    height: 90vh;
+  }
+  #bloco-3 #enjoy-box {
+    flex-wrap: wrap;
+    padding: 1%;
+  }
+  #bloco-3 #enjoy-box .form-containers {
+    width: 90%;
+    padding-bottom: 15%;
+    margin-bottom: 6%;
+  }
+  #bloco-3 #enjoy-box .form-containers h1 {
+    font-size: x-large;
+  }
+  footer #footerLogo {
+    width: 50%;
   }
 }
 @media screen and (min-width: 501px) and (max-width: 800px) {

@@ -25,7 +25,10 @@ function encaminharBloco2() {
 function popUp() {
     let popUp =
         "<div id='popUp'>"
+        +"<div id='popUp-header'>"
         +"<h1>Selecione uma das opções</h1>"
+        +"<div id='popUp-closer'></div>"
+        +"</div>"
         +"<p>Para solicitar sua integração escolha o perfil que melhor representa sua instituição:</p>"
         +"<div id='btns-box'>"
         +"<div id='btn-assoc'>Associação</div>"
@@ -63,6 +66,9 @@ function popUp() {
     btn_centro.mouseleave(function() {
         $("#help-text").css({ "opacity": 0 });
     });
+
+    const btn_close = $("#popUp-closer");
+    btn_close.on('click', fecharPopUp);
 }
 
 function redirecionar() {
@@ -73,4 +79,18 @@ function redirecionar() {
     } else if (btnText == "Centro de Tratamento") {
         window.location.replace("./solicitacao_empresa.php?t=centro_tratamento");
     }
+}
+
+function fecharPopUp() {
+
+    $("#popUp").css({
+        "opacity": 0
+        
+    });
+    setTimeout(() => {
+        $("#popUp").css({
+            "display": "none"
+        });
+        $("#popUp").remove();
+    }, 1000);
 }
