@@ -137,6 +137,11 @@ function corretorIdade() {
     $("#infoNasc").attr("min", year-120+"-"+mes+"-"+dia);
 }
 
+function formatarData(dateString) {
+    const [day, month, year] = dateString.split('/');
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+}
+
 //
 
 function editarDados() {
@@ -152,7 +157,7 @@ function editarDados() {
     $('#infoSobrenome').replaceWith("<input id='infoSobrenome' type='text' value='"+infoSobrenomeAntigo+"' placeholder='"+infoSobrenomeAntigo+"'>");
     $('#infoCPF').replaceWith("<input id='infoCPF' type='text' value='"+infoCPFAntigo+"' placeholder='"+infoCPFAntigo+"'>");
     $('#infoEmail').replaceWith("<input id='infoEmail' type='email' value='"+infoEmailAntigo+"' placeholder='"+infoEmailAntigo+"'>");
-    $('#infoNasc').replaceWith("<input id='infoNasc' type='date' value='"+infoDtAntigo+"' placeholder='"+infoDtAntigo+"'>");
+    $('#infoNasc').replaceWith("<input id='infoNasc' type='date' value='"+formatarData(infoDtAntigo)+"'>");
     $('#infoTel').replaceWith("<input id='infoTel' type='text' value='"+infoTelefoneAntigo+"' placeholder='"+infoTelefoneAntigo+"' onclick='analisarTellMask();' onblur='corrigirTellMask();'>");
 
     $('#infoCPF').mask('000.000.000-00');
@@ -253,7 +258,7 @@ function excluirPerfil() {
             function (retorno) {
                 retorno = JSON.parse(retorno);
                 if (retorno == "sucesso") {
-                    window.location.replace("./index.html");
+                    window.location.replace("./login.html");
                 }
             }
         )

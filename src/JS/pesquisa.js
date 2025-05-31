@@ -6,35 +6,42 @@ function carregarPesquisa(textoPesquisa) {
     let fileira=1;
     let itens=0;
 
-    voltarFiltros();
-    limparCatalogo();
+    setTimeout(() => {
+        voltarFiltros();
+        limparCatalogo();
 
-    $.post(
-        "./src/PHP/catalogoPesquisa.php",
-        {
-            pesquisa: textoPesquisa
-        }
-    )
-    .done(
-        function (retorno) {
-            retorno = JSON.parse(retorno);
-            if (retorno != "sem registro") {
-                for (let i=0; i<retorno.length; i++) {
-                    construirCupom(fileira, retorno, i);
-                    itens++;
-                    fileira = agruparCupons(itens, fileira);
-                }
-                exibirCatalogo();
-            } else {
-                resetarPesquisa();
+        $.post(
+            "./src/PHP/catalogoPesquisa.php",
+            {
+                pesquisa: textoPesquisa
             }
-        }
-    )
+        )
+        .done(
+            function (retorno) {
+                retorno = JSON.parse(retorno);
+                if (retorno != "sem registro") {
+                    let pntUser = $("#pontosUser").text().slice(0, -2);
+                    for (let i=0; i<retorno.length; i++) {
+                        construirCupom(fileira, retorno, i, pntUser);
+                        itens++;
+                        fileira = agruparCupons(itens, fileira);
+                    }
+                    exibirCatalogo();
+                } else {
+                    resetarPesquisa();
+                }
+            }
+        )
+    }, 200);
+
 }
 
 function resetarPesquisa() {
-    limparCatalogo();
-    $("#fileira-1").append(
+
+
+    setTimeout(() => {
+        limparCatalogo();
+        $("#fileira-1").append(
                 "<div id='filtro-0' class='filtros' style='width: 100%;'>"
                 +"<h2>Cupom não encontrado</h2>"
                 +"<div id='btnRecarregar' class='btnFiltros' onclick='carregarCatalogo(); chamarCarrinho();'>"
@@ -43,10 +50,10 @@ function resetarPesquisa() {
                 +"</div>"
                 +"</div>"
                 +"</div>"
-    );
-    setTimeout(() => {
+        );
+
         exibirCatalogo();
-    }, 100);
+    }, 200);
 }
 
 

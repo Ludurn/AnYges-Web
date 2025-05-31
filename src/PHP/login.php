@@ -23,8 +23,16 @@
 		}
 	}
 
+	$exec2 = $pdo->prepare("SELECT excluido FROM tblUsuario WHERE email_usuario = :email;");
+	$exec2->bindValue(":email", $email);
+	$exec2->execute();
+	$dados = $exec2->fetchAll(PDO::FETCH_COLUMN);
+	if (count($dados)>0){
+		$excluido = $dados[0];
+	}
 
-	if (isset($usuario) && $usuario['token_ativacao'] === null) {
+
+	if (isset($usuario) && $usuario['token_ativacao'] === null && $excluido != 'S') {
 		try{
 			session_start();
 

@@ -34,27 +34,32 @@ function verificarSubtotal() {
 // Inserção/Remoção dos cards de produtos do carrinho
 function chamarCarrinho() {
     setTimeout(() => {
-        //$("#carregandoGif").remove();
-        $("#cartContainer").css("justify-content","flex-start");
+        $("#cartContainer").css("justify-content", "flex-start");
         var catalogoProdutos = document.getElementsByClassName("btnProdutos");
         for (i = 0; i < catalogoProdutos.length; i++) {
-            catalogoProdutos[i].addEventListener("click", function adicionarCard() {
 
-                let btnCupom = event.target;
-                let cupom = btnCupom.parentElement;
-                let cards = JSON.parse(localStorage.getItem('cardsArray')) || [];
+            if (catalogoProdutos[i].textContent != "Saldo não elegível" && !catalogoProdutos[i].hasAttribute('listener')) {
+                catalogoProdutos[i].addEventListener("click", function adicionarCard() {
 
-                if (!cards.includes(cupom.dataset.id)) {
-                    cards.push(cupom.dataset.id);
+                    if (confirm("Deseja adicionar este cupom ao carrinho?") == true) {
+                        let btnCupom = event.target;
+                        let cupom = btnCupom.parentElement;
+                        let cards = JSON.parse(localStorage.getItem('cardsArray')) || [];
 
-                    localStorage.setItem("cardsArray", JSON.stringify(cards));
+                        if (!cards.includes(cupom.dataset.id)) {
+                            cards.push(cupom.dataset.id);
 
-                    $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Mobile
-                    $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Padrão
-        
-                    armazenarCarrinho(cards);
-                }
-            });
+                            localStorage.setItem("cardsArray", JSON.stringify(cards));
+
+                            $("#iconeCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Mobile
+                            $("#imagemCarrinho").attr('src', "./src/imgs/icons/carrinho_icon_ativo.png"); // Padrão
+                
+                            armazenarCarrinho(cards);
+                        }
+                    }
+                });
+                catalogoProdutos[i].setAttribute('listener', 'true'); // declara que o metodo ja foi adicionado ao elemento
+            }
         }
     }, 1000);
 }

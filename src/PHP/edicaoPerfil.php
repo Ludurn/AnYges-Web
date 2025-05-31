@@ -57,7 +57,7 @@
             session_start();
             $usuario = $_SESSION['usuario'];
 
-            $sql = "DELETE FROM tblUsuario WHERE email_usuario = :usuario;";
+            $sql = "UPDATE tblUsuario SET excluido = 'S' WHERE email_usuario = :usuario;";
             $ponteiro = $pdo->prepare($sql);
             $ponteiro->bindValue(":usuario", $usuario);
             $ponteiro->execute();

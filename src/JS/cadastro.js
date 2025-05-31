@@ -71,6 +71,8 @@ function enviarInfos() {
         var telefone = $('#telefone').val();
         var email = $('#email').val();
         var senha = $('#senha').val();
+
+        alert("Processando cadastro...");
         
         $.post(
             "./src/PHP/cadastro.php",
@@ -86,21 +88,20 @@ function enviarInfos() {
         )
         .done(
             function(retorno) {
-                alert(retorno)
                 retorno = JSON.parse(retorno);
                 if (retorno == "cpf error") {
-                    alert("O CPF deve conter, estritamente, 11 caracteres.");
+                    alert("Não foi possível concluir seu cadastro. O CPF deve conter, estritamente, 11 caracteres.");
                 } else if (retorno == "age error") {
                     alert("Não foi possível concluir seu cadastro, pois a idade mínima permitida é 18 anos.");
                 } else if (retorno == "email error") {
                     alert("Não foi possível concluir seu cadastro com o email fornecido.");
                 } else if (retorno == "password error") {
-                    alert("A senha deve conter ao menos 8 caracteres.");
+                    alert("Não foi possível concluir seu cadastro. A senha deve conter ao menos 8 caracteres.");
                 } else if (retorno == "password char error") {
-                    alert("A senha contém caracteres inválidos.");
+                    alert("Não foi possível concluir seu cadastro. A senha contém caracteres inválidos.");
                 } else {
                     alert("Cadastro realizado com sucesso. Por favor verifique seu e-mail para confimar sua conta.");
-                    window.location.replace("./index.html");
+                    window.location.replace("./login.html");
                 }
             }
         )

@@ -4,11 +4,6 @@ let larguraTela;
 
 larguraTela = screen.width * window.devicePixelRatio;
 
-// VARIÁVEIS DE CONTROLE
-
-let aux = false;
-let aux2 = "claro";
-
 // FUNCOES PAGINA 'PERFIL'
 
 function tabDadosLoader() {

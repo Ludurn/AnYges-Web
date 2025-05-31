@@ -66,7 +66,16 @@ function resetarFiltro(filtro) {
 
 
 
-function construirCupom(fileira, retorno, indice) {
+function construirCupom(fileira, retorno, indice, pntsUser) {
+
+    let valor = retorno[indice]['valor'];
+
+    if (Number(valor) > Number(pntsUser)) {
+        valor = "Saldo não elegível";
+    } else {
+        valor += " ₯";
+    }
+
     $("#fileira-"+fileira).append(
         "<article class='produtos' data-id='"+retorno[indice]['ID_cupom']+"'>"
         +"<div class='molduraProdutos'>"
@@ -78,7 +87,7 @@ function construirCupom(fileira, retorno, indice) {
          +"<h4 id='fornecedorProduto'>"+retorno[indice]['nome_associacao']+"</h4>"
          +"<p id='descricaoProduto' class='descricaoProdutos'>"+retorno[indice]['descricao_cupom']+"</p>"
          +"<p>Desconto de <strong>"+retorno[indice]['desconto']+"%</strong></p>"                        
-         +"<div id='btnProduto' class='btnProdutos'>"+retorno[indice]['valor']+" ₯</div>"
+         +"<div id='btnProduto' class='btnProdutos'>"+valor+"</div>"
          +"</article>"
     );
 }
@@ -149,19 +158,23 @@ function carregarCatalogo() {
     .done(
         function (retorno) {
             retorno = JSON.parse(retorno);
-            for (let i=0; i<retorno.length; i++) {
-                construirCupom(fileira, retorno, i);
-                itens++;
-                fileira = agruparCupons(itens, fileira);
-            }
-            exibirCatalogo();
+            setTimeout(() => {
+                let pntUser = $("#pontosUser").text().slice(0, -2);
+
+                for (let i=0; i<retorno.length; i++) {
+                    construirCupom(fileira, retorno, i, pntUser);
+                    itens++;
+                    fileira = agruparCupons(itens, fileira);
+                }
+                exibirCatalogo();
+
+            }, 200);
         }
-    )
-}
+    )   
+}    
 
 
 function carregarCatalogoFiltro(nomeFiltro) {
-    
     let fileira=1;
     let itens=0;
 
@@ -177,8 +190,11 @@ function carregarCatalogoFiltro(nomeFiltro) {
     .done(
         function (retorno) {
             retorno = JSON.parse(retorno);
+
+            let pntUser = $("#pontosUser").text().slice(0, -2);
+
             for (let i=0; i<retorno.length; i++) {
-                construirCupom(fileira, retorno, i);
+                construirCupom(fileira, retorno, i, pntUser);
                 itens++;
                 fileira = agruparCupons(itens, fileira);
             }

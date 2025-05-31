@@ -134,7 +134,7 @@
 
         if (empty($nome) || empty($email)) {
             echo "<script>alert('Para enviar o formulário é necessário preencher todos os campos.');</script>";
-            die();
+            header("Refresh:0");
         }
 
         require __DIR__.'/src/PHP/CadastroEmpresa.php';
@@ -169,7 +169,7 @@
         $cdEmpresa->closeStream();
 
         echo "<script>alert('Formulário enviado com sucesso.');</script>";
-        echo "<script>window.location.replace('./login.html');</script>";
+        echo "<script>window.location.replace('./index.html');</script>";
     }
 
     function gerarCod() {

@@ -38,7 +38,7 @@
         $senha_hash = password_hash($novasenha, PASSWORD_DEFAULT);
 
 
-        $sql = "INSERT INTO " . $tabela . "(nome_usuario, sobrenome_usuario, cpf, dt_nascimento, telefone_usuario, email_usuario, senha_usuario) VALUES (:nome, :sobrenome, :cpf, :nascimento, :telefone, :email, :senha);";
+        $sql = "INSERT INTO " . $tabela . "(nome_usuario, sobrenome_usuario, cpf, dt_nascimento, telefone_usuario, email_usuario, senha_usuario, excluido) VALUES (:nome, :sobrenome, :cpf, :nascimento, :telefone, :email, :senha, 'N');";
 
         $ponteiro = $pdo->prepare($sql);
     

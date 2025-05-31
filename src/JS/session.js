@@ -32,6 +32,8 @@ function desconectarPerfil(ativar) {
             function (retorno) {
                 retorno = JSON.parse(retorno);
                 if (retorno == "desconectado") {
+                    document.cookie = "carrinho=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    localStorage.clear();
                     window.location.replace("./login.html");
                 }
             }
