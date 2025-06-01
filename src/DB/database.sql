@@ -213,6 +213,34 @@ INSERT INTO tblCupom VALUES (7, 'Sulfato Ferroso', 'S', 7200, 'medicamento', './
 go
 
 
+INSERT INTO tblAssociacaoCupom VALUES (1, 1, 5);
+INSERT INTO tblAssociacaoCupom VALUES (2, 2, 3);
+INSERT INTO tblAssociacaoCupom VALUES (3, 3, 2);
+INSERT INTO tblAssociacaoCupom VALUES (1, 4, 7);
+INSERT INTO tblAssociacaoCupom VALUES (4, 5, 3);
+INSERT INTO tblAssociacaoCupom VALUES (5, 6, 1);
+INSERT INTO tblAssociacaoCupom VALUES (1, 7, 32);
+INSERT INTO tblAssociacaoCupom VALUES (1, 8, 3);
+INSERT INTO tblAssociacaoCupom VALUES (1, 9, 2);
+INSERT INTO tblAssociacaoCupom VALUES (2, 10, 14);
+INSERT INTO tblAssociacaoCupom VALUES (6, 11, 22);
+INSERT INTO tblAssociacaoCupom VALUES (6, 12, 19);
+INSERT INTO tblAssociacaoCupom VALUES (6, 13, 88);
+INSERT INTO tblAssociacaoCupom VALUES (7, 14, 10);
+INSERT INTO tblAssociacaoCupom VALUES (7, 15, 3);
+INSERT INTO tblAssociacaoCupom VALUES (7, 16, 5);
+INSERT INTO tblAssociacaoCupom VALUES (4, 17, 8);
+INSERT INTO tblAssociacaoCupom VALUES (4, 18, 65);
+INSERT INTO tblAssociacaoCupom VALUES (3, 19, 22);
+INSERT INTO tblAssociacaoCupom VALUES (3, 20, 21);
+INSERT INTO tblAssociacaoCupom VALUES (5, 21, 33);
+INSERT INTO tblAssociacaoCupom VALUES (5, 22, 14);
+INSERT INTO tblAssociacaoCupom VALUES (7, 23, 18);
+INSERT INTO tblAssociacaoCupom VALUES (7, 24, 6);
+INSERT INTO tblAssociacaoCupom VALUES (7, 25, 9);
+go
+
+
 INSERT INTO tblUsuario VALUES ('Daniel', 'da Cruz', '33278744598', '(11) 76327-9809', 'daniel@hotmail.com', '$2y$10$7AuCvSI/Cg13KW1rD3CKC.dTxzg4oeLG5pevI.NBkUYNCjyi5qrOW', '18-12-1990', NULL, NULL, NULL, 'N'); --senha: danteAl1gu1er3
 INSERT INTO tblUsuario VALUES ('Luis', 'Almeida', '82957725909', '(13) 26121-9333', 'luis@gmail.com', '$2y$10$P7zHZL/9cY23W12ZBsnUQuo7kZcYDy6A00SCuRcI6E5PW/OAQp09u', '28-01-2000', NULL, NULL, NULL, 'N'); --senha: 34L99Mnol00nacl
 --INSERT INTO tblUsuario VALUES ('Luigi', 'Pugh', '82911125231', '(23) 00112-9653', 'luigi.nascimento01@etec.sp.gov.br', '$2y$10$v3MIZtBqEOWEWwgm1cbYvO936VsmMtrHAkeAfOV6ZNRzpCLs3bH62', '30-04-1999', NULL, NULL, NULL, 'N'); --senha: etecsaopaulo
@@ -256,4 +284,9 @@ INSERT INTO tblResgate VALUES (1, 1, '9244e59d', '07-12-2025', 'N');
 INSERT INTO tblResgate VALUES (2, 1, '0a51427e', '01-03-2026', 'N');
 INSERT INTO tblResgate VALUES (2, 2, '4a4d2fcb', '12-07-2025', 'N');
 
-SELECT * FROM tblUsuario;
+--SELECT * FROM tblUsuario;
+
+--SELECT c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao INNER JOIN tblAssociacaoCupom cp ON c.ID_cupom = cp.ID_cupom WHERE c.aprovado = 'S' AND cp.qtde_estoque > 0  ORDER BY NEWID();
+
+
+

@@ -10,7 +10,7 @@
 
 
     try {
-            $sql = "SELECT TOP 25 c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao WHERE c.aprovado = 'S' AND nome_cupom LIKE '%".$pesquisa."%' OR nome_assoc LIKE '%".$pesquisa."%' OR descricao_cupom LIKE '%".$pesquisa."%' ORDER BY NEWID();";
+            $sql = "SELECT c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao INNER JOIN tblAssociacaoCupom cp ON c.ID_cupom = cp.ID_cupom WHERE c.aprovado = 'S' AND cp.qtde_estoque > 0 AND nome_cupom LIKE '%".$pesquisa."%' OR nome_assoc LIKE '%".$pesquisa."%' OR descricao_cupom LIKE '%".$pesquisa."%' ORDER BY NEWID();";
             $ponteiro = $pdo->prepare($sql);
             $ponteiro->execute();
             $cupom = $ponteiro->fetchAll(PDO::FETCH_ASSOC);
