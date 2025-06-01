@@ -130,11 +130,17 @@
     if ($_POST) {
 
         $nome = preg_replace('/[^\p{L}\s\-\']/u', '', $_POST['nome']);
+
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            echo"<script>alert('Para enviar o formulário, digite um formato de email válido.')</script>";
+            die();
+        }
+
         $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
 
         if (empty($nome) || empty($email)) {
-            echo "<script>alert('Para enviar o formulário é necessário preencher todos os campos.');</script>";
-            header("Refresh:0");
+            echo "<script>alert('Para enviar o formulário é necessário preencher os campos de nome e email.');</script>";
+            die();
         }
 
         require __DIR__.'/src/PHP/CadastroEmpresa.php';
@@ -142,10 +148,10 @@
 
         if ($tipo == "associacao") {
             $arquivos = ["cnpj", "contrato", "certidao", "inscricao", "alvara", "regularidade", "registro"];
-            $sql = "INSERT INTO tblAssociacao VALUES (:nome, :anexo_0, :anexo_1, :anexo_2, :anexo_3, :anexo_4, :anexo_5, :anexo_6, :codLogin, :senhaLogin, :email, 'N');";
+            $sql = "INSERT INTO tblAssociacao VALUES (:nome, :anexo_0, :anexo_1, :anexo_2, :anexo_3, :anexo_4, :anexo_5, :anexo_6, :codLogin, :senhaLogin, :email, 'R');";
         } else if ($tipo == "centro_tratamento") {
             $arquivos = ["cnpj", "licenca", "alvara", "certificacao", "comprovante"];
-            $sql = "INSERT INTO tblLocalDeposito VALUES (:nome, :anexo_0, :anexo_1, :anexo_2, :anexo_3, :anexo_4, :codLogin, :senhaLogin, :email, 'N');";
+            $sql = "INSERT INTO tblLocalDeposito VALUES (:nome, :anexo_0, :anexo_1, :anexo_2, :anexo_3, :anexo_4, :codLogin, :senhaLogin, :email, 'R');";
         }
 
         $cdEmpresa->setArquivos($arquivos);

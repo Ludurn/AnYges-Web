@@ -20,7 +20,7 @@ class CadastroEmpresa {
         for ($i=0; $i<count($arquivos); $i++) {
             $nome_indice = $arquivos[$i];
 
-            if (isset($_FILES[$nome_indice])) {
+            if ($_FILES[$nome_indice]["name"] != "") {
                 
                 $nome_arquivo = $_FILES[$nome_indice]["name"];
                 $tipo_arquivo = $_FILES[$nome_indice]["type"];
@@ -36,15 +36,15 @@ class CadastroEmpresa {
                     if ($tamanho_arquivo < $tamanho_max) {
                         $this->transmissao[$i] = fopen($_FILES[$nome_indice]["tmp_name"], 'rb');
                     } else {
-                        echo "<script>alert('O tamanho máximo de arquivo suportado é 5MB');</script>";
+                        echo "<script>alert('O tamanho do arquivo no campo de ".$this->fixName($nome_indice)." não é suportado. O tamanho máximo de arquivo suportado é 5MB.');</script>";
                         die();
                     }
                 } else {
-                    echo "<script>alert('Os tipos de arquivos suportados são: png, jpeg, webp e pdf.');</script>";
+                    echo "<script>alert('O tipo do arquivo no campo de ".$this->fixName($nome_indice)." não é suportado. Os tipos de arquivos suportados são: png, jpeg, webp e pdf.');</script>";
                     die();
                 }
             } else {
-                echo "<script>alert('Para enviar o formulário é necessário preencher todos os campos.');</script>";
+                echo "<script>alert('Para enviar o formulário é necessário preencher o campo de ".$this->fixName($nome_indice).".');</script>";
                 die();
             }
         }
@@ -67,6 +67,18 @@ class CadastroEmpresa {
 
         for ($loop=0; $loop < count($stream); $loop++) {
             fclose($stream[$loop]);
+        }
+    }
+
+    function fixName($nome) {
+        $nomeCompativel = ["cnpj", "contrato", "certidao", "inscricao", "alvara", "regularidade", "registro", "licenca", "comprovante", "certificacao"];
+        $nomeCorreto = ["CNPJ", "Contrato Social/Estatuto", "Certidão de Regularidade", "Certificado de Inscrição Municipal/Estadual", "Alvará de Funcionamento", "Comprovante de Regularidade Fiscal e Trabalhista", "Registro da Associação em Cartório ou Junta Comercial", "Licença Sanitária", "Comprovante de Regularidade Fiscal e Trabalhista", "Certificação Técnica"];
+
+        for ($i=0; $i<count($nomeCompativel); $i++) {
+
+            if ($nome == $nomeCompativel[$i]) {
+                return $nomeCorreto[$i];
+            }
         }
     }
 }
