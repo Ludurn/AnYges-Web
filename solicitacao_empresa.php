@@ -111,11 +111,11 @@
 </head>
 <body>
     <div id="logo-box">
-        <figure id="logo-obj"><img src="./src/imgs/logoTitleBW2.png" alt="logo" style="width: 100%;" id="logo-title"></figure>
+        <figure id="logo-obj"><a href="./index.html"><img src="./src/imgs/logoTitleBW2.png" alt="logo" style="width: 100%;" id="logo-title"></a></figure>
         <h2>Preencha este formulário para enviar sua solicitação.</h2>
     </div>
-    <div id="login-container">
-        <form id="login-form" action="" method="post" enctype="multipart/form-data">
+    <div id="solicitacao-container">
+        <form id="solicitacao-form" action="" method="post" enctype="multipart/form-data">
             <?php
                 echo $conteudo_form;
             ?>

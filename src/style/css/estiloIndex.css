@@ -192,7 +192,7 @@ a {
   justify-content: space-between;
 }
 #popUp #popUp-header #popUp-closer {
-  width: 5%;
+  width: 7%;
   background-image: linear-gradient(#ffffff, #cacaca);
   border-radius: 5px;
   position: relative;
@@ -294,26 +294,68 @@ footer #footerLogo {
   #bloco-3 #enjoy-box .form-containers h1 {
     font-size: x-large;
   }
+  #popUp {
+    width: 80%;
+    left: 6%;
+  }
+  #popUp #popUp-header h1 {
+    width: 90%;
+  }
+  #popUp #popUp-header #popUp-closer {
+    width: 20%;
+    height: 5vh;
+    margin-top: 4%;
+  }
   footer #footerLogo {
     width: 50%;
   }
 }
 @media screen and (min-width: 501px) and (max-width: 800px) {
-  main {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  #btn-top {
+    padding: 1.5%;
+  }
+  #btn-middle {
+    padding: 5%;
+    margin-top: 43%;
+  }
+  #bloco-2 p {
+    width: 95%;
+    text-align: center;
+  }
+  .features {
+    width: 30%;
+  }
+  #popUp #popUp-header #popUp-closer {
+    width: 20%;
+    height: 4vh;
+    margin-top: 1%;
+  }
+  #popUp #popUp-header #popUp-closer::after {
+    top: -20%;
   }
 }
-@media screen and (min-width: 1701px) and (max-width: 1920px) {
-  main {
-    margin: 5%;
-    display: flex;
-    flex-direction: row;
-    align-items: normal;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  #btn-top {
+    padding: 1.5%;
+  }
+  #btn-middle {
+    padding: 5%;
+    margin-top: 43%;
+  }
+  #bloco-2 p {
+    width: 95%;
+    text-align: center;
+  }
+  .features {
+    width: 30%;
+  }
+  #popUp #popUp-header #popUp-closer {
+    width: 15%;
+    height: 5vh;
+    margin-top: 1%;
+  }
+  #popUp #popUp-header #popUp-closer::after {
+    top: -20%;
   }
 }
 /* Modo noturno (ou dark) */

@@ -198,7 +198,7 @@ a {
         justify-content: space-between;
 
         #popUp-closer {
-            width: 5%;
+            width: 7%;
             background-image: $degrade5;
             border-radius: 5px;
             position: relative;
@@ -321,6 +321,25 @@ footer {
         }
     }
 
+    #popUp {
+        width: 80%;
+        left: 6%;
+
+        #popUp-header {
+
+            h1 {
+                width: 90%;
+            }
+
+            #popUp-closer {
+
+                width: 20%;
+                height: 5vh;
+                margin-top: 4%;
+            }
+        }
+    }
+
     footer {
 
         #footerLogo {
@@ -332,16 +351,96 @@ footer {
 
 @media screen and (min-width: 501px) and (max-width: 800px) {
 
-    main {
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    #btn-top {
+
+        padding: 1.5%;
+    }
+
+    #btn-middle {
+
+        padding: 5%;
+        margin-top: 43%;
+    }
+
+    #bloco-2 {
+
+        p {
+
+            width: 95%;
+            text-align: center;
+        }
+    }
+
+    .features {
+
+        width: 30%;
+    }
+
+    #popUp {
+
+        #popUp-header {
+
+            #popUp-closer {
+
+                width: 20%;
+                height: 4vh;
+                margin-top: 1%;
+
+                &::after {
+
+                    top: -20%;
+                }
+            }
+        }
     }
 
 }
 @media screen and (min-width: 801px) and (max-width: 1024px) {
 
+
+    #btn-top {
+
+        padding: 1.5%;
+    }
+
+    #btn-middle {
+
+        padding: 5%;
+        margin-top: 43%;
+    }
+
+    #bloco-2 {
+
+        p {
+
+            width: 95%;
+            text-align: center;
+        }
+    }
+
+    .features {
+
+        width: 30%;
+    }
+
+
+    #popUp {
+
+        #popUp-header {
+
+            #popUp-closer {
+
+                width: 15%;
+                height: 5vh;
+                margin-top: 1%;
+
+                &::after {
+
+                    top: -20%;
+                }
+            }
+        }
+    }
 
 }
 @media screen and (min-width: 1025px) and (max-width: 1700px) {
@@ -350,14 +449,6 @@ footer {
 }
 @media screen and (min-width: 1701px) and (max-width: 1920px) {
 
-    main {
-        margin: 5%;
-        display: flex;
-        flex-direction: row;
-        align-items: normal;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
 
 }
 

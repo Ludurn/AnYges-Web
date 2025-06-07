@@ -31,7 +31,7 @@ a {
     }
 }
 
-#login-container {
+#solicitacao-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,7 +74,7 @@ a {
     }
 }
 
-#login-form {
+#solicitacao-form {
     width: 100%;
     text-align: center;
     padding: 5%;
@@ -106,10 +106,6 @@ a {
     border-color: $cinzaClaro;
 }
 
-#recuperarSenha {
-    margin-top: 2%;
-}
-
 #btnEnviar {
     @include mix.buttonStyle("login");
 }
@@ -118,27 +114,92 @@ a {
 
 
 @media screen and (max-width: 500px) {
-    .login-container {
+
+    #logo-box {
+        margin-top: 80%;
+        margin-bottom: 15%;
+
+        #logo-obj {
+
+            width: 150%;
+            margin-bottom: 10%;
+        }
+
+        h2 {
+
+            width: 200%;
+        }
+    }
+
+    #solicitacao-container {
         max-width: 90%;
     }
 }
 @media screen and (min-width: 501px) and (max-width: 800px) {
-    .login-container {
+
+    #logo-box {
+        margin-top: 80%;
+        margin-bottom: 10%;
+
+        #logo-obj {
+
+            width: 120%;
+            margin-bottom: 10%;
+        }
+
+        h2 {
+
+            width: 200%;
+        }
+    }
+
+    #solicitacao-container {
         max-width: 70%;
     }
 }
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-    .login-container {
+
+    #logo-box {
+        margin-top: 50%;
+        margin-bottom: 5%;
+
+        #logo-obj {
+
+            width: 80%;
+            margin-bottom: 10%;
+        }
+
+        h2 {
+
+            width: 200%;
+        }
+    }
+
+    #solicitacao-container {
         max-width: 50%;
     }
 }
 @media screen and (min-width: 1025px) and (max-width: 1700px) {
-    .login-container {
+
+    #logo-box {
+
+        margin-top: 30%;
+        margin-bottom: 3%;
+    }
+
+    #solicitacao-container {
         max-width: 35%;
     }
 }
 @media screen and (min-width: 1701px) and (max-width: 1920px) {
-    .login-container {
+
+    #logo-box {
+
+        margin-top: 10%;
+        margin-bottom: 3%;
+    }
+
+    #solicitacao-container {
         max-width: 25%;
     }
 }
