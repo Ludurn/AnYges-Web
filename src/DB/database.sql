@@ -5,6 +5,10 @@ IF EXISTS(SELECT 1 FROM SYSDATABASES WHERE NAME = 'anyges')
 	DROP DATABASE anyges
 go
 
+IF EXISTS(SELECT * FROM sys.objects WHERE type = 'P' AND name = 'usp_loginUsuario')
+	DROP PROCEDURE usp_loginUsuario
+go
+
 CREATE DATABASE anyges;
 go
 
@@ -284,9 +288,33 @@ INSERT INTO tblResgate VALUES (1, 1, '9244e59d', '07-12-2025', 'N');
 INSERT INTO tblResgate VALUES (2, 1, '0a51427e', '01-03-2026', 'N');
 INSERT INTO tblResgate VALUES (2, 2, '4a4d2fcb', '12-07-2025', 'N');
 
---SELECT * FROM tblUsuario;
 
---SELECT c.ID_cupom, c.nome_cupom, a.nome_assoc AS 'nome_associacao', c.valor, c.tipo, c.imagem, c.descricao_cupom, c.desconto FROM tblCupom c INNER JOIN tblAssociacao a ON c.ID_associacao = a.ID_associacao INNER JOIN tblAssociacaoCupom cp ON c.ID_cupom = cp.ID_cupom WHERE c.aprovado = 'S' AND cp.qtde_estoque > 0  ORDER BY NEWID();
+GO
+
+CREATE PROCEDURE usp_loginUsuario
+    @login varchar(40)
+AS
+BEGIN
+    DECLARE @userCount int
+    
+    SELECT @userCount = COUNT(*) FROM tblUsuario WHERE email_usuario = @login
+    
+    IF @userCount > 0
+    BEGIN
+        IF EXISTS (SELECT 1 FROM tblUsuario WHERE email_usuario = @login)
+        BEGIN
+            SELECT senha_usuario FROM tblUsuario AS logger
+        END
+        ELSE
+        BEGIN
+            SELECT 'Interromper' AS logger
+        END
+    END
+END
+GO
+
+
+
 
 
 

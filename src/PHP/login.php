@@ -40,7 +40,7 @@
 
 			$vf->verificar_senha($senha);
 
-			$sql = "SELECT senha_usuario FROM ".$tabela." WHERE email_usuario = :email;";
+			$sql = "EXEC usp_loginUsuario @login = :email";
 			$ponteiro = $pdo->prepare($sql);
 			$ponteiro->bindValue(":email", $email);
 			$ponteiro->execute();
