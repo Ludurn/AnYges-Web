@@ -4,10 +4,15 @@ let cards = [];
 // Ativação/desativação do carrinho
 
 function getCookieCarrinho() {
-    let cookieCarrinho = document.cookie.split(';');
 
-    if (cookieCarrinho[1] != null) {
-        cookieCarrinho = cookieCarrinho[1].split('=')[1];
+    const cookies = {};
+    document.cookie.split(';').forEach(cookie => {
+        const [nome, valor] = cookie.trim().split('=');
+        cookies[nome] = decodeURIComponent(valor);
+    });
+
+    if (cookieExists("carrinho")) {
+        cookieCarrinho = cookies["carrinho"];
         cookieCarrinho = decodeURIComponent(cookieCarrinho);
 
         return cookieCarrinho;

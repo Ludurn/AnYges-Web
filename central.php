@@ -12,6 +12,7 @@
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->   
     <link rel="stylesheet" href="./src/style/css/estiloCentral.css">
     <link rel="stylesheet" href="./src/style/css/estiloHeader.css">
+    <link rel="stylesheet" href="./src/style/css/estiloPainel.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <script type="text/javascript" src="./src/JS/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
@@ -20,7 +21,7 @@
     <script type="text/javascript" src="./src/JS/pesquisa.js"></script>
     <script type="text/javascript" src="./src/JS/resgate.js"></script>
     <script type="text/javascript" src="./src/JS/contato.js"></script>
-    <!-- <script type="text/javascript" src="./src/JS/carrinho.js"></script> -->
+    <script type="text/javascript" src="./src/JS/acessibilidade.js"></script>
     <script>
         function toggleAnswer(id) {
             var answer = document.getElementById(id);
@@ -47,7 +48,7 @@
                         <ion-icon name="person"></ion-icon> Perfil</a>
                     <a id="carrinhoMobile" href="./carrinho.html">
                         <img id ="iconeCarrinho" src="./src/imgs/icons/carrinho_icon.png" alt="Ícone de um pequeno carrinho de compras"> Carrinho </a>
-                    <a href="#">
+                    <a id="btnAcessibilidade" href="#">
                         <ion-icon name="hand"></ion-icon> Acessibilidade</a>
                                 </div>
                                 </div>

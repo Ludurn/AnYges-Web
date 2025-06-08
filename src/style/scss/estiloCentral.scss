@@ -9,6 +9,11 @@ body {
     width: 100%;
     transition: background-color 0.5s;
     overflow-x: hidden;
+
+    @include mix.contrastMode();
+    @include mix.deuteraMode();
+    @include mix.protaMode();
+    @include mix.tritaMode();
 }
 
 html, body {
@@ -145,6 +150,8 @@ footer {
     font-weight: bold;
     cursor: pointer;
     color: $cinzaEscuro;
+
+    transition: 0.3s ease-in;
 
     &:hover {
         color: $verde;

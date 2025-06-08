@@ -99,3 +99,114 @@
     background: $corPrimaria;
     border: 0.1rem solid $corSecundaria;
 }
+
+@mixin colorMode($cor1, $cor2, $cor3, $cor4, $tipo) {
+
+    &.#{$tipo} {
+        background-color: $cor1;
+        color: $cor2;
+
+        #inputSearch {
+            background-color: $cor1;
+            color: $cor2;
+
+            &::placeholder {
+                color: $cor2;
+            }
+        }
+
+        .produtos {
+            background-color: $cor3;
+            color: $cor2;
+        }
+
+        .filtros {
+            color: $cor2;
+        }
+
+        #popUp {
+            background-color: $cor1;
+            border-color: $cor2;
+
+            #imgPopUp {
+
+                img {
+                    border-radius: 1rem;
+                }
+            }
+
+            .btnPopUp {
+                color: $cor2;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        #perfilInfoBox, #perfilHistPedBox, #perfilCupomBox {
+            border-color: $cor3;
+        }
+
+        .btnsEdicaoPerfil {
+            color: $cor2;
+        }
+
+        .pedido-rows {
+
+            &:nth-child(even) {
+                background-color: $cor3;
+            }
+        }
+
+        .form-container, .helpcontainer {
+            background-color: $cor3;
+            color: $cor2;
+
+            h2 {
+                color: $cor2;
+            }
+
+            label {
+                color: $cor2;
+            }
+        }
+
+        .faq-question {
+            color: $cor2;
+
+            &:hover {
+                color: $cor4;
+            }
+        }
+
+        .faq-answer {
+            color: $cor2;
+        }
+
+        .carrinhoCard {
+            background-color: $cor1;
+            color: $cor2;
+
+            .cardContent {
+                background-color: $cor1;
+            }
+        }
+    }
+}
+
+@mixin contrastMode() {
+    @include colorMode($cinzaEscuro, $branco, $cimento, $marrom, "contrast");
+}
+
+@mixin deuteraMode() {
+    @include colorMode($deuteranopia1, $deuteranopia2, $deuteranopia3, $deuteranopia4, "deutera");
+}
+
+@mixin protaMode() {
+    @include colorMode($protanopia1, $protanopia2, $protanopia3, $protanopia4, "prota");
+}
+
+@mixin tritaMode() {
+    @include colorMode($tritanopia1, $tritanopia2, $tritanopia3, $tritanopia4, "trita");
+}

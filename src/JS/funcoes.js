@@ -124,9 +124,9 @@ function tabDadosStyle() {
                          });
                     }, 100);                
             } else {
-                    $("#tabDados").css({
-                        "border-left":"white solid"
-                    });
+                $("#tabDados").css({
+                    "border-left":"rgba(128, 128, 128, 0.39) solid"
+                });
 
                 $("#perfilTitle").css({
                     "opacity": "0",
@@ -195,7 +195,7 @@ function tabPedStyle() {
         } else {
 
             $("#tabHistPed").css({
-                    "border-left":"white solid"
+                "border-left":"rgba(128, 128, 128, 0.39) solid"
             });
 
             $("#perfilTitle").css({
@@ -265,7 +265,7 @@ function tabCupomStyle() {
         } else {
 
             $("#tabCupom").css({
-                    "border-left":"white solid"
+                "border-left":"rgba(128, 128, 128, 0.39) solid"
             });
 
             $("#perfilTitle").css({
@@ -321,8 +321,6 @@ function menuFadeIn() {
         });
 }
 
-// Modo dark (ou noturno)
-
 
     
     $(document).ready(function(){
@@ -347,3 +345,18 @@ function menuFadeIn() {
             docum.value += texto.substring(0,1);
         }
     }
+
+function cookieExists(name) {
+
+  const cookies = document.cookie.split(';');
+
+  for (let cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.trim().split('=');
+    
+    if (cookieName === name) {
+      return true;
+    }
+  }
+
+  return false;
+}

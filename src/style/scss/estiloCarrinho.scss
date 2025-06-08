@@ -16,6 +16,11 @@ body {
     background-repeat: no-repeat;
     transition: background-color 0.5s;
     min-height: 100vh;
+
+    @include mix.contrastMode();
+    @include mix.deuteraMode();
+    @include mix.protaMode();
+    @include mix.tritaMode();
 }
 
 html, body {

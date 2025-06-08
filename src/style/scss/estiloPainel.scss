@@ -1,0 +1,143 @@
+@use 'mixins' as mix;
+@use 'variables' as *;
+
+#painel {
+    position: fixed;
+    z-index: 9999;
+    top: 20%;
+    left: 20%;
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    width: fit-content;
+    width: 50%;
+    padding: 2% 3% 5% 3%;
+    background-color: $verdeEscuro;
+    color: $branco;
+    border-image: $degrade5;
+    border: 0.3rem solid;
+    border-radius: 1rem;
+    transition: opacity 0.5s ease;
+
+    #painel-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        #painel-closer {
+            width: 7%;
+            background-image: $degrade5;
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+
+            &::after {
+                position: absolute;
+                top: -25%;
+                left: 0;
+                right: 0;
+                content: "\d7";
+                border: 1rem;
+                font-size: 50px;
+                text-align: center;
+                color: $verdeEscuro;
+            }
+        }
+    }
+}
+
+.opcoes-painel {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+
+    p {
+        font-size: large;
+        width: fit-content;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.toggle {
+
+    visibility: hidden;
+
+    &:checked {
+
+        & + .btn-fundo {
+            background-color: $marrom;
+
+            .bola {
+
+            animation: ativado 0.3s linear forwards;
+            }
+        }
+    }
+
+    &:not(:checked) {
+
+        & + .btn-fundo {
+
+            .bola {
+                animation: desativado 0.3s linear forwards;
+            }
+        }
+    }
+}
+
+.btn-fundo {
+
+    display: inline-block;
+    position: relative;
+    width: 3rem;
+    height: 1.9rem;
+    background-color: $cinzaClaro;
+    border-radius: 3.1rem;
+    cursor: pointer;
+}
+
+.bola {
+    
+    position: absolute;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 3.1rem;
+    background-color: $branco;
+    top: 0.09rem;
+    left: 0.09rem;
+}
+
+
+@keyframes ativado {
+
+    0% {
+
+        transform: translateX(0) scale(1);
+    }
+
+    100% {
+        
+        transform: translateX(1rem) scale(1);
+    }
+}
+
+@keyframes desativado {
+
+
+    0% {
+        
+        transform: translateX(1rem) scale(1);
+    }
+
+    100% {
+
+        transform: translateX(0) scale(1);
+    }
+}   
+
+
+

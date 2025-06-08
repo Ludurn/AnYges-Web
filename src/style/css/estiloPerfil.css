@@ -6,6 +6,270 @@ body {
   width: 100%;
   transition: background-color 0.5s;
 }
+body.contrast {
+  background-color: #333;
+  color: white;
+}
+body.contrast #inputSearch {
+  background-color: #333;
+  color: white;
+}
+body.contrast #inputSearch::placeholder {
+  color: white;
+}
+body.contrast .produtos {
+  background-color: rgba(128, 128, 128, 0.39);
+  color: white;
+}
+body.contrast .filtros {
+  color: white;
+}
+body.contrast #popUp {
+  background-color: #333;
+  border-color: white;
+}
+body.contrast #popUp #imgPopUp img {
+  border-radius: 1rem;
+}
+body.contrast #popUp .btnPopUp {
+  color: white;
+}
+body.contrast #popUp .btnPopUp:hover {
+  box-shadow: none;
+}
+body.contrast #perfilInfoBox, body.contrast #perfilHistPedBox, body.contrast #perfilCupomBox {
+  border-color: rgba(128, 128, 128, 0.39);
+}
+body.contrast .btnsEdicaoPerfil {
+  color: white;
+}
+body.contrast .pedido-rows:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.39);
+}
+body.contrast .form-container, body.contrast .helpcontainer {
+  background-color: rgba(128, 128, 128, 0.39);
+  color: white;
+}
+body.contrast .form-container h2, body.contrast .helpcontainer h2 {
+  color: white;
+}
+body.contrast .form-container label, body.contrast .helpcontainer label {
+  color: white;
+}
+body.contrast .faq-question {
+  color: white;
+}
+body.contrast .faq-question:hover {
+  color: #611f1f;
+}
+body.contrast .faq-answer {
+  color: white;
+}
+body.contrast .carrinhoCard {
+  background-color: #333;
+  color: white;
+}
+body.contrast .carrinhoCard .cardContent {
+  background-color: #333;
+}
+body.deutera {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.deutera #inputSearch {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.deutera #inputSearch::placeholder {
+  color: #f5f5f5;
+}
+body.deutera .produtos {
+  background-color: #4f3c1c;
+  color: #f5f5f5;
+}
+body.deutera .filtros {
+  color: #f5f5f5;
+}
+body.deutera #popUp {
+  background-color: #1a1a1a;
+  border-color: #f5f5f5;
+}
+body.deutera #popUp #imgPopUp img {
+  border-radius: 1rem;
+}
+body.deutera #popUp .btnPopUp {
+  color: #f5f5f5;
+}
+body.deutera #popUp .btnPopUp:hover {
+  box-shadow: none;
+}
+body.deutera #perfilInfoBox, body.deutera #perfilHistPedBox, body.deutera #perfilCupomBox {
+  border-color: #4f3c1c;
+}
+body.deutera .btnsEdicaoPerfil {
+  color: #f5f5f5;
+}
+body.deutera .pedido-rows:nth-child(even) {
+  background-color: #4f3c1c;
+}
+body.deutera .form-container, body.deutera .helpcontainer {
+  background-color: #4f3c1c;
+  color: #f5f5f5;
+}
+body.deutera .form-container h2, body.deutera .helpcontainer h2 {
+  color: #f5f5f5;
+}
+body.deutera .form-container label, body.deutera .helpcontainer label {
+  color: #f5f5f5;
+}
+body.deutera .faq-question {
+  color: #f5f5f5;
+}
+body.deutera .faq-question:hover {
+  color: rgba(180, 180, 180, 0.25);
+}
+body.deutera .faq-answer {
+  color: #f5f5f5;
+}
+body.deutera .carrinhoCard {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.deutera .carrinhoCard .cardContent {
+  background-color: #1a1a1a;
+}
+body.prota {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.prota #inputSearch {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.prota #inputSearch::placeholder {
+  color: #f5f5f5;
+}
+body.prota .produtos {
+  background-color: #355c2a;
+  color: #f5f5f5;
+}
+body.prota .filtros {
+  color: #f5f5f5;
+}
+body.prota #popUp {
+  background-color: #1a1a1a;
+  border-color: #f5f5f5;
+}
+body.prota #popUp #imgPopUp img {
+  border-radius: 1rem;
+}
+body.prota #popUp .btnPopUp {
+  color: #f5f5f5;
+}
+body.prota #popUp .btnPopUp:hover {
+  box-shadow: none;
+}
+body.prota #perfilInfoBox, body.prota #perfilHistPedBox, body.prota #perfilCupomBox {
+  border-color: #355c2a;
+}
+body.prota .btnsEdicaoPerfil {
+  color: #f5f5f5;
+}
+body.prota .pedido-rows:nth-child(even) {
+  background-color: #355c2a;
+}
+body.prota .form-container, body.prota .helpcontainer {
+  background-color: #355c2a;
+  color: #f5f5f5;
+}
+body.prota .form-container h2, body.prota .helpcontainer h2 {
+  color: #f5f5f5;
+}
+body.prota .form-container label, body.prota .helpcontainer label {
+  color: #f5f5f5;
+}
+body.prota .faq-question {
+  color: #f5f5f5;
+}
+body.prota .faq-question:hover {
+  color: rgba(200, 200, 200, 0.25);
+}
+body.prota .faq-answer {
+  color: #f5f5f5;
+}
+body.prota .carrinhoCard {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.prota .carrinhoCard .cardContent {
+  background-color: #1a1a1a;
+}
+body.trita {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.trita #inputSearch {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.trita #inputSearch::placeholder {
+  color: #f5f5f5;
+}
+body.trita .produtos {
+  background-color: #5a3620;
+  color: #f5f5f5;
+}
+body.trita .filtros {
+  color: #f5f5f5;
+}
+body.trita #popUp {
+  background-color: #1a1a1a;
+  border-color: #f5f5f5;
+}
+body.trita #popUp #imgPopUp img {
+  border-radius: 1rem;
+}
+body.trita #popUp .btnPopUp {
+  color: #f5f5f5;
+}
+body.trita #popUp .btnPopUp:hover {
+  box-shadow: none;
+}
+body.trita #perfilInfoBox, body.trita #perfilHistPedBox, body.trita #perfilCupomBox {
+  border-color: #5a3620;
+}
+body.trita .btnsEdicaoPerfil {
+  color: #f5f5f5;
+}
+body.trita .pedido-rows:nth-child(even) {
+  background-color: #5a3620;
+}
+body.trita .form-container, body.trita .helpcontainer {
+  background-color: #5a3620;
+  color: #f5f5f5;
+}
+body.trita .form-container h2, body.trita .helpcontainer h2 {
+  color: #f5f5f5;
+}
+body.trita .form-container label, body.trita .helpcontainer label {
+  color: #f5f5f5;
+}
+body.trita .faq-question {
+  color: #f5f5f5;
+}
+body.trita .faq-question:hover {
+  color: rgba(160, 160, 160, 0.25);
+}
+body.trita .faq-answer {
+  color: #f5f5f5;
+}
+body.trita .carrinhoCard {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+body.trita .carrinhoCard .cardContent {
+  background-color: #1a1a1a;
+}
 
 html, body {
   overflow-x: hidden;
@@ -95,7 +359,7 @@ main {
   height: 6dvh;
   padding-left: 2%;
   margin: 5% 0;
-  border-left: white solid;
+  border-left: rgba(128, 128, 128, 0.39) solid;
   user-select: none;
   cursor: pointer;
 }

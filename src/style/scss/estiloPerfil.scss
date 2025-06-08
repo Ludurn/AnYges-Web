@@ -1,3 +1,4 @@
+@use 'mixins' as mix;
 @use 'variables' as *;
 
 body {
@@ -7,6 +8,11 @@ body {
     height: 100%;
     width: 100%;
     transition: background-color 0.5s;
+
+    @include mix.contrastMode();
+    @include mix.deuteraMode();
+    @include mix.protaMode();
+    @include mix.tritaMode();
 }
 
 html, body {
@@ -107,7 +113,7 @@ main {
     height: 6dvh;
     padding-left: 2%;
     margin: 5% 0;
-    border-left: $branco solid;
+    border-left: $cimento solid;
     user-select: none;
     cursor: pointer;
 }

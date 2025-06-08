@@ -11,7 +11,12 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s ease-in-out;
+
+    @include mix.contrastMode();
+    @include mix.deuteraMode();
+    @include mix.protaMode();
+    @include mix.tritaMode();
 }
 
 html, body {
