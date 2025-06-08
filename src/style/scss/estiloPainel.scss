@@ -5,31 +5,36 @@
     position: fixed;
     z-index: 9999;
     top: 20%;
-    left: 20%;
+    left: 21.5%;
     display: none;
     opacity: 0;
     flex-direction: column;
     width: fit-content;
     width: 50%;
     padding: 2% 3% 5% 3%;
-    background-color: $verdeEscuro;
-    color: $branco;
-    border-image: $degrade5;
-    border: 0.3rem solid;
+    background-color: $branco;
+    color: $preto;
+    border: 0.3rem solid $marrom;
     border-radius: 1rem;
-    transition: opacity 0.5s ease;
+
+    transition: all 0.5s ease;
 
     #painel-header {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
+        
 
         #painel-closer {
             width: 7%;
-            background-image: $degrade5;
+            height: 5.5vh;
+            background-color: $marrom;
             border-radius: 5px;
             position: relative;
             cursor: pointer;
+
+            transition: all 0.5s ease;
 
             &::after {
                 position: absolute;
@@ -38,9 +43,9 @@
                 right: 0;
                 content: "\d7";
                 border: 1rem;
-                font-size: 50px;
+                font-size: 3.1rem;
                 text-align: center;
-                color: $verdeEscuro;
+                color: $branco;
             }
         }
     }
@@ -104,11 +109,11 @@
     
     position: absolute;
     width: 1.8rem;
-    height: 1.8rem;
+    height: 1.9rem;
     border-radius: 3.1rem;
     background-color: $branco;
-    top: 0.09rem;
-    left: 0.09rem;
+    top: 0.01rem;
+    left: 0.05rem;
 }
 
 
@@ -137,7 +142,74 @@
 
         transform: translateX(0) scale(1);
     }
-}   
+}
+
+@media screen and (max-width: 500px) {
+
+    #painel {
+        width: 80%;
+        left: 6%;
+        padding-top: 0;
+
+        #painel-header {
+
+            #painel-closer {
+                width: 25%;
+                height: 6dvh;
+            }
+        }
+    }
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+    #painel {
+        width: 70%;
+        left: 12%;
+        top: 15%;
+        padding-top: 0;
+
+        #painel-header {
+
+            #painel-closer {
+                width: 12.5%;
+                height: 4dvh;
+            }
+        }
+    }
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+
+    #painel {
+        width: 50%;
+        left: 24%;
+        top: 15%;
+        padding-top: 0;
+
+        #painel-header {
+
+            #painel-closer {
+                width: 12.5%;
+                height: 4dvh;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+
+}
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+        
+    #painel {
+        left: 21.8%;
+
+        #painel-header {
+
+            #painel-closer {
+                height: 4.5dvh;
+            }
+        }
+    }
+}
 
 
 

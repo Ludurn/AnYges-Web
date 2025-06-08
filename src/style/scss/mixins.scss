@@ -106,7 +106,59 @@
         background-color: $cor1;
         color: $cor2;
 
-        #inputSearch {
+        #painel {
+            background-color: $cor1;
+            color: $cor2;
+            border-color: $cor3;
+
+            #painel-header {
+
+                #painel-closer {
+                    background-color: $cor3;
+                }
+            }
+        }
+
+        .login-container {
+            background-color: $cor1;
+            box-shadow: -0.125rem 0.3125rem 0.5rem $cor3;
+
+            #login-title {
+                background-color: $cor3;
+            }
+
+            .input-group {
+                color: $cor2;
+            }
+
+            #recuperarSenha {
+
+                a {
+                    color: $cor3;
+                    
+                    &:hover {
+                        color: $cor4;
+                    }
+                }
+            }
+
+            .btn-login {
+                background-color: $cor3;
+
+                &:hover {
+                    background-color: $cor4;
+                }
+            }
+        }
+
+        .toggle:checked {
+
+            & + .btn-fundo {
+                background-color: $cor3;
+            }
+        }
+
+        #inputSearch, #inputSearchMobile {
             background-color: $cor1;
             color: $cor2;
 
@@ -118,6 +170,8 @@
         .produtos {
             background-color: $cor3;
             color: $cor2;
+            box-shadow: 0.1em 0.4em 0.5em $cor3;
+            border-color: $cor3;
         }
 
         .filtros {

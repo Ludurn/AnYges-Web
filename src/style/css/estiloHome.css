@@ -14,16 +14,51 @@ body.contrast {
   background-color: #333;
   color: white;
 }
-body.contrast #inputSearch {
+body.contrast #painel {
+  background-color: #333;
+  color: white;
+  border-color: rgba(128, 128, 128, 0.39);
+}
+body.contrast #painel #painel-header #painel-closer {
+  background-color: rgba(128, 128, 128, 0.39);
+}
+body.contrast .login-container {
+  background-color: #333;
+  box-shadow: -0.125rem 0.3125rem 0.5rem rgba(128, 128, 128, 0.39);
+}
+body.contrast .login-container #login-title {
+  background-color: rgba(128, 128, 128, 0.39);
+}
+body.contrast .login-container .input-group {
+  color: white;
+}
+body.contrast .login-container #recuperarSenha a {
+  color: rgba(128, 128, 128, 0.39);
+}
+body.contrast .login-container #recuperarSenha a:hover {
+  color: #611f1f;
+}
+body.contrast .login-container .btn-login {
+  background-color: rgba(128, 128, 128, 0.39);
+}
+body.contrast .login-container .btn-login:hover {
+  background-color: #611f1f;
+}
+body.contrast .toggle:checked + .btn-fundo {
+  background-color: rgba(128, 128, 128, 0.39);
+}
+body.contrast #inputSearch, body.contrast #inputSearchMobile {
   background-color: #333;
   color: white;
 }
-body.contrast #inputSearch::placeholder {
+body.contrast #inputSearch::placeholder, body.contrast #inputSearchMobile::placeholder {
   color: white;
 }
 body.contrast .produtos {
   background-color: rgba(128, 128, 128, 0.39);
   color: white;
+  box-shadow: 0.1em 0.4em 0.5em rgba(128, 128, 128, 0.39);
+  border-color: rgba(128, 128, 128, 0.39);
 }
 body.contrast .filtros {
   color: white;
@@ -80,16 +115,51 @@ body.deutera {
   background-color: #1a1a1a;
   color: #f5f5f5;
 }
-body.deutera #inputSearch {
+body.deutera #painel {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  border-color: #4f3c1c;
+}
+body.deutera #painel #painel-header #painel-closer {
+  background-color: #4f3c1c;
+}
+body.deutera .login-container {
+  background-color: #1a1a1a;
+  box-shadow: -0.125rem 0.3125rem 0.5rem #4f3c1c;
+}
+body.deutera .login-container #login-title {
+  background-color: #4f3c1c;
+}
+body.deutera .login-container .input-group {
+  color: #f5f5f5;
+}
+body.deutera .login-container #recuperarSenha a {
+  color: #4f3c1c;
+}
+body.deutera .login-container #recuperarSenha a:hover {
+  color: rgba(180, 180, 180, 0.25);
+}
+body.deutera .login-container .btn-login {
+  background-color: #4f3c1c;
+}
+body.deutera .login-container .btn-login:hover {
+  background-color: rgba(180, 180, 180, 0.25);
+}
+body.deutera .toggle:checked + .btn-fundo {
+  background-color: #4f3c1c;
+}
+body.deutera #inputSearch, body.deutera #inputSearchMobile {
   background-color: #1a1a1a;
   color: #f5f5f5;
 }
-body.deutera #inputSearch::placeholder {
+body.deutera #inputSearch::placeholder, body.deutera #inputSearchMobile::placeholder {
   color: #f5f5f5;
 }
 body.deutera .produtos {
   background-color: #4f3c1c;
   color: #f5f5f5;
+  box-shadow: 0.1em 0.4em 0.5em #4f3c1c;
+  border-color: #4f3c1c;
 }
 body.deutera .filtros {
   color: #f5f5f5;
@@ -146,16 +216,51 @@ body.prota {
   background-color: #1a1a1a;
   color: #f5f5f5;
 }
-body.prota #inputSearch {
+body.prota #painel {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  border-color: #355c2a;
+}
+body.prota #painel #painel-header #painel-closer {
+  background-color: #355c2a;
+}
+body.prota .login-container {
+  background-color: #1a1a1a;
+  box-shadow: -0.125rem 0.3125rem 0.5rem #355c2a;
+}
+body.prota .login-container #login-title {
+  background-color: #355c2a;
+}
+body.prota .login-container .input-group {
+  color: #f5f5f5;
+}
+body.prota .login-container #recuperarSenha a {
+  color: #355c2a;
+}
+body.prota .login-container #recuperarSenha a:hover {
+  color: rgba(200, 200, 200, 0.25);
+}
+body.prota .login-container .btn-login {
+  background-color: #355c2a;
+}
+body.prota .login-container .btn-login:hover {
+  background-color: rgba(200, 200, 200, 0.25);
+}
+body.prota .toggle:checked + .btn-fundo {
+  background-color: #355c2a;
+}
+body.prota #inputSearch, body.prota #inputSearchMobile {
   background-color: #1a1a1a;
   color: #f5f5f5;
 }
-body.prota #inputSearch::placeholder {
+body.prota #inputSearch::placeholder, body.prota #inputSearchMobile::placeholder {
   color: #f5f5f5;
 }
 body.prota .produtos {
   background-color: #355c2a;
   color: #f5f5f5;
+  box-shadow: 0.1em 0.4em 0.5em #355c2a;
+  border-color: #355c2a;
 }
 body.prota .filtros {
   color: #f5f5f5;
@@ -212,16 +317,51 @@ body.trita {
   background-color: #1a1a1a;
   color: #f5f5f5;
 }
-body.trita #inputSearch {
+body.trita #painel {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  border-color: #5a3620;
+}
+body.trita #painel #painel-header #painel-closer {
+  background-color: #5a3620;
+}
+body.trita .login-container {
+  background-color: #1a1a1a;
+  box-shadow: -0.125rem 0.3125rem 0.5rem #5a3620;
+}
+body.trita .login-container #login-title {
+  background-color: #5a3620;
+}
+body.trita .login-container .input-group {
+  color: #f5f5f5;
+}
+body.trita .login-container #recuperarSenha a {
+  color: #5a3620;
+}
+body.trita .login-container #recuperarSenha a:hover {
+  color: rgba(160, 160, 160, 0.25);
+}
+body.trita .login-container .btn-login {
+  background-color: #5a3620;
+}
+body.trita .login-container .btn-login:hover {
+  background-color: rgba(160, 160, 160, 0.25);
+}
+body.trita .toggle:checked + .btn-fundo {
+  background-color: #5a3620;
+}
+body.trita #inputSearch, body.trita #inputSearchMobile {
   background-color: #1a1a1a;
   color: #f5f5f5;
 }
-body.trita #inputSearch::placeholder {
+body.trita #inputSearch::placeholder, body.trita #inputSearchMobile::placeholder {
   color: #f5f5f5;
 }
 body.trita .produtos {
   background-color: #5a3620;
   color: #f5f5f5;
+  box-shadow: 0.1em 0.4em 0.5em #5a3620;
+  border-color: #5a3620;
 }
 body.trita .filtros {
   color: #f5f5f5;

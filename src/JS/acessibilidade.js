@@ -118,19 +118,33 @@ function ativarModo(tipo) {
 
     $("body").addClass(tipo);
     $("#logo-login").prop("src", "./src/imgs/logoTitleBW.png");
+
+    if ($(document).find('#logo-img').is('*')) {
+        $("#logo-img").prop("src", "./src/imgs/logo-login-dark.png");
+    }
 }
 
 function desativarModo(tipo) {
 
     $("body").removeClass(tipo);
     $("#logo-login").prop("src", "./src/imgs/logoTitle.png");
+
+    if ($(document).find('#logo-img').is('*')) {
+        $("#logo-img").prop("src", "./src/imgs/logo-login.png");
+    }
 }
 
 function desativarTodosModos() {
 
-    //$(".bola").css("animation", "desativado 0.3s linear forwards");
+    $("#chck-contrast").prop('checked', false);
+    $("#chck-deutera").prop('checked', false);
+    $("#chck-prota").prop('checked', false);
+    $("#chck-trita").prop('checked', false);
     
-    $("body").removeClass("contrast", "deutera", "prota", "trita");
+    $("body").removeClass("contrast");
+    $("body").removeClass("deutera");
+    $("body").removeClass("prota");
+    $("body").removeClass("trita");
 
     document.cookie = "modo-contrast=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "modo-deutera=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
@@ -138,6 +152,10 @@ function desativarTodosModos() {
     document.cookie = "modo-trita=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 
     $("#logo-login").prop("src", "./src/imgs/logoTitle.png")
+
+    if ($(document).find('#logo-img').is('*')) {
+        $("#logo-img").prop("src", "./src/imgs/logo-login.png");
+    }
 }
 
 function fecharPainel() {

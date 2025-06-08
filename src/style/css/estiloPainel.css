@@ -3,31 +3,33 @@
   position: fixed;
   z-index: 9999;
   top: 20%;
-  left: 20%;
+  left: 21.5%;
   display: none;
   opacity: 0;
   flex-direction: column;
   width: fit-content;
   width: 50%;
   padding: 2% 3% 5% 3%;
-  background-color: #2c311b;
-  color: white;
-  border-image: linear-gradient(#ffffff, #cacaca);
-  border: 0.3rem solid;
+  background-color: white;
+  color: black;
+  border: 0.3rem solid #611f1f;
   border-radius: 1rem;
-  transition: opacity 0.5s ease;
+  transition: all 0.5s ease;
 }
 #painel #painel-header {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 #painel #painel-header #painel-closer {
   width: 7%;
-  background-image: linear-gradient(#ffffff, #cacaca);
+  height: 5.5vh;
+  background-color: #611f1f;
   border-radius: 5px;
   position: relative;
   cursor: pointer;
+  transition: all 0.5s ease;
 }
 #painel #painel-header #painel-closer::after {
   position: absolute;
@@ -36,9 +38,9 @@
   right: 0;
   content: "×";
   border: 1rem;
-  font-size: 50px;
+  font-size: 3.1rem;
   text-align: center;
-  color: #2c311b;
+  color: white;
 }
 
 .opcoes-painel {
@@ -81,11 +83,11 @@
 .bola {
   position: absolute;
   width: 1.8rem;
-  height: 1.8rem;
+  height: 1.9rem;
   border-radius: 3.1rem;
   background-color: white;
-  top: 0.09rem;
-  left: 0.09rem;
+  top: 0.01rem;
+  left: 0.05rem;
 }
 
 @keyframes ativado {
@@ -102,6 +104,49 @@
   }
   100% {
     transform: translateX(0) scale(1);
+  }
+}
+@media screen and (max-width: 500px) {
+  #painel {
+    width: 80%;
+    left: 6%;
+    padding-top: 0;
+  }
+  #painel #painel-header #painel-closer {
+    width: 25%;
+    height: 6dvh;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+  #painel {
+    width: 70%;
+    left: 12%;
+    top: 15%;
+    padding-top: 0;
+  }
+  #painel #painel-header #painel-closer {
+    width: 12.5%;
+    height: 4dvh;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  #painel {
+    width: 50%;
+    left: 24%;
+    top: 15%;
+    padding-top: 0;
+  }
+  #painel #painel-header #painel-closer {
+    width: 12.5%;
+    height: 4dvh;
+  }
+}
+@media screen and (min-width: 1701px) and (max-width: 1920px) {
+  #painel {
+    left: 21.8%;
+  }
+  #painel #painel-header #painel-closer {
+    height: 4.5dvh;
   }
 }
 

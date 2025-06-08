@@ -7,7 +7,7 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-    transition: background-color 0.5s;
+    transition: all 0.5s ease;
     overflow-x: hidden;
 
     @include mix.contrastMode();
@@ -18,11 +18,6 @@ body {
 
 html, body {
     overflow-x: hidden;
-}
-
-h1 {
-    -webkit-text-stroke: 0.21875rem $preto;
-    paint-order: stroke fill;
 }
 
 .respons {
@@ -75,6 +70,8 @@ footer {
     float: left;
     margin-right: 5%;
 
+    transition: all 0.5s ease;
+
     h2 {
         margin-top: 0;
         color: $cinzaEscuro;
@@ -123,6 +120,8 @@ footer {
     border-radius: 8px;
     float: right;
     display: flex;
+
+    transition: all 0.5s ease;
 
     h1, h2 {
         color: $cinzaEscuro;

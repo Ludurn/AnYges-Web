@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central de Atendimento</title>
+    <title>Anyges - Central de Atendimento</title>
     <link rel="icon" type="image/x-icon" href="src/imgs/icons/logo-ico.ico">
     <!-- LINK PARA ACESSAR A FONTE DA PAGINA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +62,7 @@
                             <input type="text" placeholder="O que você está buscando?" id="inputSearchMobile" class="inputSearchClass" onkeydown="redirecionarPesquisaMobile();">
                             <button id="lupa" class="lupaClass" onclick="redirecionarPesquisaMobile('sim');"></button>
                         </div>
-                        <center><h1 id="colorir1" class="color1">Central de Ajuda</h1>
+                        <center><h1 id="colorir1" class="color1">Central de Atendimento</h1>
                         <h3 id="colorir2">Bem-vindo à nossa Central de Ajuda.</h3>
                         <h3 id="colorir3">Aqui você encontra respostas para perguntas comuns e orientações sobre como utilizar nossos serviços.</h3></center>
                         <main id="janela" class="form-container0">
@@ -91,11 +91,11 @@
                                 </div>
                                 <div class="form-group" id="form-group5">
                                     <label for="assuntoform">Assunto</label>
-                                    <select id="assuntoform" name="assunto" class="camposForm">
-                                        <option value="">Selecione o assunto</option>
+                                    <select id="assuntoform" name="assunto" class="camposForm" style="cursor: pointer;">
+                                        <option value="" style="cursor: pointer;">Selecione o assunto</option>
                                         <option value="Ajuda">Ajuda</option>
-                                        <option value="Duvidas">Duvidas</option>
-                                        <option value="Reclamação">Reclamações</option>
+                                        <option value="Duvida">Dúvida</option>
+                                        <option value="Reclamacao">Reclamação</option>
                                         <option value="Outro">Outro</option>
                                     </select>
                                 </div>
@@ -107,10 +107,10 @@
                                 </div>
                                 <div class="form-group" id="form-group7">
                                     <label for="envioanexo">Envio de Arquivo</label>
-                                    <input type="file" accept=".jpg, .png, .jpeg, .webp" id="envioanexo" name="anexo" accept="*/*">
+                                    <input type="file" accept=".jpg, .png, .jpeg, .webp" id="envioanexo" name="anexo" style="cursor: pointer;">
                                 </div>
                                 <div id="btnEnviar" class="form-group">
-                                    <input type="submit"  value="Enviar"/>
+                                    <input type="submit"  value="Enviar" style="cursor: pointer;"/>
                                 </div>
                             </form>
                         </div>
@@ -183,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensagem= filter_input(INPUT_POST,'descricao_feedback', FILTER_SANITIZE_SPECIAL_CHARS);
 
     if (empty($nome) || empty($telefone) || empty($cpf) || empty($email) || empty($assunto) || empty($mensagem)) {
-        echo "<script>alert('Todos os campos devem ser preenchidos para realizar o envio.');</script>";
+        echo "<script>alert('Preencha os campos para enviar o formulário.');</script>";
     } else if (!$vf->verificar_cpf($cpf)) {
         echo "<script>alert('O CPF deve conter, estritamente, 11 caracteres.');</script>";
     } else {
@@ -205,22 +205,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $tamanho_arquivo = $_FILES["anexo"]["size"];
                     $temp_arquivo = $_FILES["anexo"]["tmp_name"];
 
-                    if ($tipo_arquivo =='image/png' ||
-                    $tipo_arquivo =='image/jpeg'||
-                    $tipo_arquivo =='image/webp')
-                    {
-                        $tamanho_max = 5 * 1024 * 1024;
-                        if ($tamanho_arquivo < $tamanho_max) {
-                            $stream = fopen($_FILES["anexo"]["tmp_name"], 'rb');
-                        } else {
-                            echo "<script>alert('O tamanho máximo de arquivo suportado é 5MB');</script>";
-                        }
+                    if ($tamanho_arquivo > 0) {
+                        if ($tipo_arquivo =='image/png' ||
+                            $tipo_arquivo =='image/jpeg'||
+                            $tipo_arquivo =='image/webp')
+                            {
+                                $tamanho_max = 5 * 1024 * 1024;
+                                if ($tamanho_arquivo < $tamanho_max) {
+                                    $stream = fopen($_FILES["anexo"]["tmp_name"], 'rb');
+                                } else {
+                                    echo "<script>alert('Falha no envio. O tamanho máximo de arquivo suportado é 5MB');</script>";
+                                }
+                            } else {
+                                echo "<script>alert('Falaha no envio. Os tipos de arquivos válidos são: png, jpeg e webp');</script>";
+                            }
                     }
                 }
 
                 $ponteiro->bindParam(":anexoF", $stream, PDO::PARAM_LOB, 0, PDO::SQLSRV_ENCODING_BINARY);
                 $ponteiro->execute();
-                fclose($stream);
+
+                if ($tamanho_arquivo > 0) {
+                    fclose($stream);
+                }
                 
                 echo "<script>alert('Formulario enviado');</script>";
                 echo "<script>location.replace('./home.html');</script>";
